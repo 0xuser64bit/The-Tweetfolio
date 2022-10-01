@@ -4,7 +4,9 @@
     color: green;
     background-color: black;
 }
-
+.c-red{
+  color: red;
+}
 /* animation */
 
 @keyframes anvil {

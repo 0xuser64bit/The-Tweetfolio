@@ -17,7 +17,7 @@ const Popups = ({Text}) => {
           <a className="close" onClick={closeModal}>
             &times;
           </a>
-         {Text}
+          <div dangerouslySetInnerHTML={{ __html: Text }} />
           {/* <img src="./Images/twitter.jpg" alt="" /> */}
         </div>
       </Popup>
