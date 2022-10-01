@@ -38,6 +38,7 @@
     outline: none;
     overflow: hidden;
     font-family: 'DynaPuff', cursive;
+    color:white;
     
 }
 .form-control:focus{
@@ -75,4 +76,7 @@ textarea::-webkit-scrollbar-thumb {
 }
 .icon{
     background-color: #15202b;
+}
+.jc-flex-end{
+    justify-content: flex-end;
 }

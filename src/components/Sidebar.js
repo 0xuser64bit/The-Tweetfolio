@@ -38,7 +38,8 @@ function Sidebar() {
         </div>
       </Link>
       
-      <Popups/>
+      <Popups Text=" Awwwww.... You wanna Play with this button 🤣....
+          I'm Still working on this, So Stay Tuned"/>
       {/* <div className="button">
       <ModalImage small="HI" large={Meme}/>
       </div> */}

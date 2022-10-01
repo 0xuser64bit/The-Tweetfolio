@@ -4,7 +4,7 @@ import 'reactjs-popup/dist/index.css';
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
 
-const Popups = () => {
+const Popups = ({Text}) => {
   const [open, setOpen] = useState(false);
   const closeModal = () => setOpen(false);
   return (
@@ -17,8 +17,7 @@ const Popups = () => {
           <a className="close" onClick={closeModal}>
             &times;
           </a>
-          Awwwww.... You wanna Play with this button 🤣....
-          I'm Still working on this, So Stay Tuned
+         {Text}
           {/* <img src="./Images/twitter.jpg" alt="" /> */}
         </div>
       </Popup>
