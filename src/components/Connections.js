@@ -2,10 +2,13 @@ import React from 'react'
 import CreateIcon from '@material-ui/icons/Create';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import { Button } from "@material-ui/core";
+import Popups from "./Popups";
+
 
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';import './Connections.css';
 
 const Connections = () => {
+    // var state = { data : "Hello World" } 
   return (
         <>
         <div className="connects">
@@ -38,10 +41,12 @@ const Connections = () => {
                         </label>
                         <textarea rows="15" cols="78" type="text" id="formMessage"  placeholder="Message.."/>
                     </div>
-                    <div className="form-group">
-                    <Button variant="outlined" className="sidebar__tweet contact_btn" fullWidth>
+                    <div className="form-group jc-flex-end">
+                    <Popups Text="This Section is still under construction but you email me on <span class='c-red'>jack@user64bit.world</span>"/>
+
+                    {/* <Button variant="outlined" className="sidebar__tweet contact_btn" fullWidth>
         Tweet
-      </Button>
+      </Button> */}
                     </div>
                 </form>
             </div>
