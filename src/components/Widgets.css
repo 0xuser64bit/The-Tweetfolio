@@ -28,6 +28,10 @@
  .widgets__input>input::placeholder{
   color: gray;
  } 
+ 
+ .modal img{
+  width: 100%;
+ }
   .widgets__widgetContainer {
     margin-top: 20px;
     padding: 20px;
