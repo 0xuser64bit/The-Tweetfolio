@@ -20,23 +20,6 @@ body {
 .alertSmallScreen {
   display: none;
 }
-
-
-@media (max-width: 1200px){
-  .app {
-    display: none;
-  }
-  .alertSmallScreen {
-    display: block;
-    color: white;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    position: absolute;
-  }
-  .alertSmallScreen p{
-    margin-top: 5%;
-    justify-content: center;
-    text-align: center;
-  }
+#main{
+  display: none;
 }

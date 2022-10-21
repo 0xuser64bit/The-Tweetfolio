@@ -1,4 +1,5 @@
 import './App.css';
+import './Responsive/main.css';
 import Feed from './components/Feed';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import Profile from './components/Profile';
@@ -6,14 +7,10 @@ import Sidebar from './components/Sidebar';
 import Widgets from './components/Widgets';
 import Blogs from "./components/Blogs";
 import Connections from "./components/Connections";
+import Main from './Responsive/Main';
 
 function App() {
   const ids = ["1556600758908227585","1556713820453756931","1556638184041172992"];
-  // if(window.innerWidth<1216){
-  //   console.log("hiya hiya")
-  //   document.getElementsByClassName("app").style.display = "none";
-  //   document.getElementsByClassName("alertSmallScreen").style.display = "block";
-  // }
   return (
     <>
     <div className="app">
@@ -34,6 +31,9 @@ function App() {
             <p>This Website is not responsive Enough for this size of Screen.🙁</p>
             <p>Please Use Bigger Screen to Checkout this Website.✌️</p>
             <p>Thanks 😊</p>
+        </div>
+        <div id='main'>
+          <Main/>
         </div>
     </>
 
