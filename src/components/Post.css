@@ -56,3 +56,9 @@
     color: #576b80;
   }
 
+  @media (max-width: 1200px){
+    .post{
+      width: 50%;
+      height: 50%;
+    }
+  }

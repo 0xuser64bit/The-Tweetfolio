@@ -1,7 +1,6 @@
 import React from "react";
 import "./Sidebar.css";
 import SidebarOption from "./SidebarOption";
-// import Popup from 'reactjs-popup';
 import CodeIcon from '@material-ui/icons/Code';
 import HomeIcon from "@material-ui/icons/Home";
 import CallIcon from '@material-ui/icons/Call';
@@ -9,10 +8,7 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import { Link } from "react-router-dom"
 import Popups from "./Popups";
-import ModalImage from "react-modal-image";
-import { Button } from "@material-ui/core";
 
-import Meme from "./Images/twitter.jpg"
 function Sidebar() {
   return (
     <div className="sidebar">
@@ -38,8 +34,7 @@ function Sidebar() {
         </div>
       </Link>
       
-      <Popups Text=" Awwwww.... You wanna Play with this button 🤣....
-          I'm Still working on this, So Stay Tuned"/>
+      <Popups Text="I don't Know What to do with this Button. Any Suggestions Ping me: jack@user64bit.world"/>
       {/* <div className="button">
       <ModalImage small="HI" large={Meme}/>
       </div> */}
