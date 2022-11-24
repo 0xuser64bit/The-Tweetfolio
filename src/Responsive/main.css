@@ -2,10 +2,11 @@
   .app {
     display: none;
   }
-  #main{
-    display: block;
+  body{
+
+    background-color: rgb(47, 38, 38);
   }
-  /* .alertSmallScreen {
+  .alertSmallScreen {
     display: block;
     color: white;
     width: 100%;
@@ -15,5 +16,5 @@
     margin-top: 5%;
     justify-content: center;
     text-align: center;
-  } */
+  }
 }

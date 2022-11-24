@@ -32,9 +32,6 @@ function App() {
             <p>Please Use Bigger Screen to Checkout this Website.✌️</p>
             <p>Thanks 😊</p>
         </div>
-        <div id='main'>
-          <Main/>
-        </div>
     </>
 
   );

@@ -85,6 +85,14 @@ const Profile = () => {
                 
               ></Post>
               <Post 
+                  displayName={displayName}
+                username={userName}
+                verified="true"
+                text="About Project: Script to Perform Deauthntication Attack..."
+                text_link={<Iframely url='https://github.com/iamEzmuth/DeAuthImposter/pull/4' size='' />}
+                avatar={avatar}
+              ></Post>
+              <Post 
                 displayName={displayName}
                 username={userName}
                 verified="true"
