@@ -4,7 +4,6 @@
     color: white;
     display: flex;
     align-items: center;
-    cursor: pointer;
   }
   
   .sidebarOption:hover {

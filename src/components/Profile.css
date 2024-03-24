@@ -1,15 +1,13 @@
-
-.main_container{
+.main_container {
     border-right: 1px solid #2b3c47;
     flex: 0.5;
     overflow-y: scroll;
-
 }
 .main_container::-webkit-scrollbar {
     display: none;
-  }
-.my-profile{
-    background-color: #15202b;
+}
+.app {
+    padding: 0px !important;
 }
 .name_tag {
     background-color: #172f44;
@@ -19,105 +17,97 @@
     position: sticky;
     top: 0;
     z-index: 100;
-  }
-  
-  .name_tag > h2 {
+}
+
+.name_tag > h2 {
     font-size: 20px;
     font-weight: 400;
     color: white;
-  }
+}
 
-.banner_image{
+.banner_image {
     cursor: pointer;
-    /* height: 34vh;
-    width: 30vw; */
     max-width: 100%;
     max-height: 100%;
-    /* margin-top: 44px; */
 }
-.banner_image img{
+.banner_image img {
     object-fit: cover;
 }
-.profile_image{
-    /* background-color: #15202b; */
+.profile_image {
     margin-top: -5px;
     width: 125px;
     margin-bottom: -25px;
     height: 125px;
 }
 
-.profile_image img{
-    box-shadow:0px 3px 6px 4px rgb(44 51 66);
-    /* border: 5px solid rgb(44 51 66) !important; */
+.profile_image img {
+    box-shadow: 0px 3px 6px 4px rgb(44 51 66);
     margin-top: -65px;
     margin-left: 15px;
     border-radius: 50%;
 }
 
-.profile_image img:hover{
+.profile_image img:hover {
     cursor: pointer;
     opacity: 0.98;
 }
 
-.descryption{
+.descryption {
     display: block;
-    /* color: white; */
-    /* background-color: #15202b; */
 }
-.descryption .userName h2{
+.descryption .userName h2 {
     margin: 0px;
     padding-left: 18px;
- }
-.descryption .userName h4{
+}
+.descryption .userName h4 {
     margin: 0px;
     padding-left: 20px;
     font-weight: 400;
     font-size: small;
 }
-.descryption .userName h4 a{
+.descryption .userName h4 a {
     text-decoration: none;
     color: white;
 }
-.descryption .userName h4 a:hover{
+.descryption .userName h4 a:hover {
     color: skyblue;
 }
-.descryption .bio{
+.descryption .bio {
     padding-left: 18px;
     padding-right: 18px;
 }
-.descryption .connections{
+.descryption .connections {
     text-align: center;
     padding-left: 18px;
     padding-right: 18px;
     margin-bottom: 10px;
     height: 6vh;
 }
-.descryption .connections a{
+.descryption .connections a {
     margin: 35px;
     text-decoration: none;
     color: white;
-    
 }
-.descryption .connections a .twitter:hover{
+.descryption .connections a .twitter:hover {
     -webkit-transition: all 500ms ease;
     color: skyblue;
 }
-.descryption .connections a .github:hover{
+.descryption .connections a .github:hover {
     -webkit-transition: all 500ms ease;
     opacity: 0.7;
 }
-.descryption .connections a .linkedin:hover{
+.descryption .connections a .linkedin:hover {
     -webkit-transition: all 500ms ease;
     color: #1766c2;
 }
-.descryption .connections a .instagram:hover{
+.descryption .connections a .instagram:hover {
     -webkit-transition: all 500ms ease;
     color: #e5658f;
 }
-.descryption .connections .connections-icon{
+.descryption .connections .connections-icon {
     font-size: 1.8rem;
 }
 
-.descryption{
+.descryption {
     border-bottom: 1px solid #2b3c47;
 }

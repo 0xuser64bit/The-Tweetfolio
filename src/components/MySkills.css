@@ -17,13 +17,12 @@
 }
 .grid-skills .items h5{
     font-family: 'DynaPuff';
-    margin: 0px;
     padding: 0px;
     margin-left: 6px;
     margin-top: 5px;
 }
 .skills_svg{
-    height: 45px;
+    max-height: 45px;
     margin-left: 3px;
 }
 .mySkills{

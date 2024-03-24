@@ -1,6 +1,5 @@
 .widgets {
     flex: 0.3;
-    /* overflow: hidden; */
    }
   .widgets::-webkit-scrollbar{
     display: none;
@@ -59,62 +58,3 @@
     font-weight: 800;
     color: white;
   }
-
-  /* .social_media{
-    margin-top: 20px;
-  }
-  .social_media .logo__{
-    position: absolute;
-    cursor: pointer;
-    transition: all 1s ease-in-out;
-    box-shadow: 0px 0px 1px 1px #191e21;
-  
-  }
-  .social_media .logo__:hover{
-    opacity: 0;
-    transition: all 1s ease-in-out;
-  }
-  .social_media .main_logo_twitter{
-    width: 52px;
-    height: 52px;
-    top: 58.4%;
-    margin-top: 1px;
-  }
-
-  .social_media .main_logo_github{
-    width: 49px;
-    height: 49px;
-    top: 67%;
-  }
-  .social_media .hover_logo_twitter{
-    margin-top: 1px;
-  }
-  .social_media .hover_logo_github{
-    margin-top: 6px;
-    margin-bottom: 6px;
-  }
-  .social_media .hover_logo_instagram{
-    margin-top: 6px;
-    margin-bottom: 6px;  }
-
-.social_media .main_logo_instagram{
-  width: 50px;
-  height: 50px;
-  top: 75.3%;
-  margin-top: 12.5px;
-}
-.social_media .hover_logo_linkedin{
-  margin-top: 6px;
-  margin-bottom: 6px;
-}
-.social_media .main_logo_linkedin{
-  width: 50px;
-  height: 50px;
-  top: 84%;
-  margin-top: 9px;
-}
-
-.social_media .smedia{
-  border: 1px solid red;
-  display: flex;
-} */

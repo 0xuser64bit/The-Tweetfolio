@@ -1,27 +1,21 @@
 import { Button } from "@material-ui/core";
-import './Popups.css'
-import 'reactjs-popup/dist/index.css';
-import React, { useState } from 'react';
-import Popup from 'reactjs-popup';
+import React from "react";
 
-const Popups = ({Text}) => {
-  const [open, setOpen] = useState(false);
-  const closeModal = () => setOpen(false);
-  return (
-    <div>
-      <Button onClick={() => setOpen(o => !o)} variant="outlined" className="sidebar__tweet button" fullWidth>
-        Tweet
-      </Button>
-      <Popup open={open} closeOnDocumentClick onClose={closeModal}>
-        <div className="modal">
-          <a className="close" onClick={closeModal}>
-            &times;
-          </a>
-          <div dangerouslySetInnerHTML={{ __html: Text }} />
-          {/* <img src="./Images/twitter.jpg" alt="" /> */}
+const Popups = () => {
+    const RickRolled = () => {
+        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    };
+    return (
+        <div>
+            <Button
+                onClick={() => RickRolled()}
+                variant="outlined"
+                className="sidebar__tweet button"
+                fullWidth
+            >
+                Tweet
+            </Button>
         </div>
-      </Popup>
-    </div>
-  );
+    );
 };
-export default Popups
+export default Popups;
