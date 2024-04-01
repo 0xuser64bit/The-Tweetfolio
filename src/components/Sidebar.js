@@ -10,29 +10,29 @@ import { Link } from "react-router-dom";
 import Popups from "./Popups";
 
 function Sidebar() {
-    return (
-        <div className="sidebar disabled">
-            <CodeIcon className="sidebar__twitterIcon" />
-            <div className="sidebarBtn" onClick={null}>
-                <SidebarOption Icon={HomeIcon} text="Home" />
-            </div>
-            <Link to="profile">
-                <div className="sidebarBtn">
-                    <SidebarOption Icon={PermIdentityIcon} text="Profile" />
-                </div>
-            </Link>
-            <Link to="posts">
-                <div className="sidebarBtn">
-                    <SidebarOption Icon={ListAltIcon} text="Posts" />
-                </div>
-            </Link>
-            <div className="sidebarBtn disabled" onClick={null}>
-                <SidebarOption Icon={CallIcon} text="Connects" />
-            </div>
-
-            <Popups />
+  return (
+    <div className="sidebar disabled">
+      <CodeIcon className="sidebar__twitterIcon" />
+      <div className="sidebarBtn" onClick={null}>
+        <SidebarOption Icon={HomeIcon} text="Home" />
+      </div>
+      <Link to="profile">
+        <div className="sidebarBtn">
+          <SidebarOption Icon={PermIdentityIcon} text="Profile" />
         </div>
-    );
+      </Link>
+      <Link to="posts">
+        <div className="sidebarBtn">
+          <SidebarOption Icon={ListAltIcon} text="Posts" />
+        </div>
+      </Link>
+      <div className="sidebarBtn disabled" onClick={null}>
+        <SidebarOption Icon={CallIcon} text="Connects" />
+      </div>
+
+      <Popups />
+    </div>
+  );
 }
 
 export default Sidebar;

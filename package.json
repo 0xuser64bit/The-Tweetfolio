@@ -3,34 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@apollo/client": "^3.6.9",
-    "@emotion/react": "^11.10.0",
     "@material-ui/core": "^4.12.4",
     "@material-ui/icons": "^4.11.3",
-    "@mui/icons-material": "^5.8.4",
     "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.27.2",
-    "date-fns": "^2.29.1",
-    "devicon": "^2.15.1",
-    "firebase": "^9.9.3",
-    "firebase-tools": "^11.7.0",
-    "graphql": "^16.5.0",
     "react": "^18.2.0",
-    "react-activity-feed": "^1.4.0",
     "react-dom": "^18.2.0",
-    "react-flip-move": "^3.0.4",
     "react-loading": "^2.0.3",
     "react-modal-image": "^2.5.0",
-    "react-popupbox": "^2.0.9",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
-    "react-social-icons": "^5.14.0",
     "react-timeline-scribble": "^1.0.14",
-    "react-twitter-embed": "^4.0.4",
     "reactjs-popup": "^2.0.5",
-    "styled-components": "^5.3.5",
-    "vertical-timeline-component-for-react": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -56,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.3"
   }
 }

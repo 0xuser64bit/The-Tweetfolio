@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import './Iframely.css'
-import Loading from './Loading';
-const KEY = '1e958f87dc984e8dc9414cb1b5bf9b33';
-
+import React, { useEffect, useState } from "react";
+import "./Iframely.css";
+import Loading from "./Loading";
+import { IFRAMELY_KEY } from "../config";
 export default function Iframely(props) {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [html, setHtml] = useState({
-    __html: '<div />',
+    __html: "<div />",
   });
   useEffect(() => {
     if (props && props.url) {
       fetch(
         `https://cdn.iframe.ly/api/iframely?url=${encodeURIComponent(
           props.url
-        )}&key=${KEY}&iframe=1&omit_script=1&card=${props.size}`
+        )}&key=${IFRAMELY_KEY}&iframe=1&omit_script=1&card=${props.size}`
       )
         .then((res) => res.json())
         .then(
@@ -32,9 +31,9 @@ export default function Iframely(props) {
           }
         );
     } else {
-      setError({ code: 400, message: 'Provide url attribute for the element' });
+      setError({ code: 400, message: "Provide url attribute for the element" });
     }
-  },[]);
+  }, []);
 
   useEffect((props) => {
     window.iframely && window.iframely.load();
@@ -47,9 +46,11 @@ export default function Iframely(props) {
       </div>
     );
   } else if (!isLoaded) {
-    return <div>
-           <Loading type="spinningBubbles" color="white"/> 
-          </div>;
+    return (
+      <div>
+        <Loading type="spinningBubbles" color="white" />
+      </div>
+    );
   } else {
     return <div dangerouslySetInnerHTML={html} />;
   }

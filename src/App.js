@@ -6,21 +6,21 @@ import Widgets from "./components/Widgets";
 import Redirect from "./components/Redirect";
 
 function App() {
-    return (
-        <>
-            <div className="app">
-                <Router>
-                    <Sidebar />
-                    <Routes>
-                        <Route path="/" element={<Profile />} />
-                        <Route path="/profile" element={<Profile />} />
-                        <Route path="/posts" element={<Redirect />} />
-                    </Routes>
-                    <Widgets />
-                </Router>
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="app">
+        <Router>
+          <Sidebar />
+          <Routes>
+            <Route path="/" element={<Profile />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/posts" element={<Redirect />} />
+          </Routes>
+          <Widgets />
+        </Router>
+      </div>
+    </>
+  );
 }
 
 export default App;
