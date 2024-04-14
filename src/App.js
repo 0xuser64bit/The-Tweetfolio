@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/Header";
+import Profile from "./components/Profile";
+import Tweet from "./components/Tweet";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    return (
+        <div className="w-3/5 h-screen mx-auto border-[#2b3c47] border-l border-r">
+            <Header />
+            <Profile />
+            <Tweet />
+            <Tweet />
+        </div>
+    );
+};
 
 export default App;
