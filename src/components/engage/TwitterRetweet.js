@@ -21,7 +21,7 @@ const RetweetButton = () => {
         >
             <svg
                 className={`h-6 w-6 transition-transform duration-500 rotate-90 ${
-                    animating ? "transform rotate-0" : ""
+                    animating ? "transform rotate-180" : ""
                 }`}
                 fill={retweeted ? "currentColor" : "none"}
                 stroke="currentColor"

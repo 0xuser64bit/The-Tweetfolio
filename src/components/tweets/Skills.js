@@ -1,38 +1,27 @@
 import React from "react";
+import { SkillsData } from "./config";
 
 const Skills = () => {
     return (
-        // FIXME: Make this shit better
-        <div>
+        <div className="rounded-lg p-4">
+            <h2 className="text-2xl font-bold mb-6 text-center hover:opacity-80 ease-in-out">
+                Arcane Mastery
+            </h2>
             <div className="flex justify-between">
-                <div>
-                    <ul>
-                        <li>- Python</li>
-                        <li>- C/C++</li>
-                        <li>- JavaScript</li>
-                        <li>- TypeScript</li>
-                        <li>- React</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li>- HTML</li>
-                        <li>- CSS</li>
-                        <li>- Linux</li>
-                        <li>- Node.js</li>
-                        <li>- Next.js</li>
-                        <li>- Redux</li>
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        <li>- MongoDB</li>
-                        <li>- PostgreSQL</li>
-                        <li>- MySQL</li>
-                        <li>- Git</li>
-                        <li>- Docker</li>
-                    </ul>
-                </div>
+                {Object.entries(SkillsData).map(([category, items], index) => (
+                    <div key={index}>
+                        <h3 className="text-lg font-medium mb-2 text-blue-500">
+                            {category}
+                        </h3>
+                        <ul className="list-disc pl-5 space-y-1">
+                            {items.map((item, itemIndex) => (
+                                <li key={itemIndex} className="text-white">
+                                    {item}
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
             </div>
         </div>
     );

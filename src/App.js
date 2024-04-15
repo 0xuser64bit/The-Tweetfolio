@@ -13,15 +13,15 @@ import {
 } from "./components/tweets/__index__";
 const App = () => {
     return (
-        <div className="w-3/5 h-screen mx-auto border-[#2b3c47] border-l border-r">
+        <div className="w-3/5 h-screen mx-auto">
             <Header />
             <Profile />
             <Tweet TweetComponent={<Education />} />
             <Tweet TweetComponent={<Skills />} />
             <Tweet TweetComponent={<Experience />} />
             <Tweet TweetComponent={<Projects />} />
-            <Tweet TweetComponent={<Achievements />} />
             <Tweet TweetComponent={<Contributions />} />
+            <Tweet TweetComponent={<Achievements />} />
             {/* <Tweet TweetComponent={<Hobbies />} /> */}
             <Tweet />
         </div>

@@ -30,3 +30,11 @@ export const ExperienceData = [
             "It was Internship and I learnt a lot about HTML, CSS, JavaScript, Bootstrap, TailwindCSS and MS SQL",
     },
 ];
+
+// Skills Data (Add more Key value pairs id needed)
+export const SkillsData = {
+    "Programming Languages": ["Python", "C/C++", "JavaScript", "TypeScript"],
+    Tools: ["React", "Node.js", "Next.js", "Redux ToolKit", "Git", "Docker"],
+    OS: ["Ubuntu", "Kali Linux", "Windows"],
+    Databases: ["MongoDB", "PostgreSQL", "MySQL"],
+};

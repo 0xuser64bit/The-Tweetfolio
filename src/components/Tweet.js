@@ -7,11 +7,12 @@ import {
     ShareButton,
     RetweetButton,
 } from "./engage/__index__";
+import ComponentDidnotLoad from "./ComponentDidnotLoad";
 
 const Tweet = ({ TweetComponent }) => {
     return (
         <div>
-            <div className="py-2 px-4 flex gap-x-4 border-b border-[#2b3c47] hover:bg-[#353333] hover:transition-all cursor-pointer">
+            <div className="py-2 px-4 flex gap-x-4 border-b border-[#2b3c47] border-l border-r hover:bg-[#353333] hover:transition-all cursor-pointer">
                 {/* Avatar */}
                 <div className="">
                     <img
@@ -36,23 +37,7 @@ const Tweet = ({ TweetComponent }) => {
                         {TweetComponent ? (
                             TweetComponent
                         ) : (
-                            <div className="bg-gray-800 text-white p-8 rounded-lg shadow-lg">
-                                <p className="text-4xl font-bold mb-4">
-                                    Uh-oh, it looks like our little website
-                                    gremlins have gone on a rampage!
-                                </p>
-                                <p className="text-lg mb-4">
-                                    Don't worry, though, they're probably just
-                                    taking their afternoon nap. Give it a minute
-                                    and I'm sure everything will be up and
-                                    running again.
-                                </p>
-                                <p className="text-lg mb-4">
-                                    In the meantime, why don't you go grab a
-                                    snack and stretch those legs? The tech gods
-                                    will surely have mercy on us eventually.
-                                </p>
-                            </div>
+                            <ComponentDidnotLoad />
                         )}
                     </div>
                     {/* Engage */}
@@ -61,7 +46,7 @@ const Tweet = ({ TweetComponent }) => {
                             <CommentButton />
                         </span>
                         <span className="">
-                            <RetweetButton />
+                            <RetweetButton thread={3} />
                         </span>
                         <span className="">
                             <LikeButton />
