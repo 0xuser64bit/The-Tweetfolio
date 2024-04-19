@@ -12,7 +12,7 @@ import ComponentDidnotLoad from "./ComponentDidnotLoad";
 const Tweet = ({ TweetComponent, numberOfTweets }) => {
     return (
         <div>
-            <div className="py-2 px-4 flex gap-x-4 border-b border-[#2b3c47] border-l border-r hover:bg-[#353333] hover:transition-all cursor-pointer">
+            <div className="py-2 px-4 flex gap-x-4  border border-[#2b3c47] hover:bg-[#353333] hover:transition-all cursor-pointer">
                 {/* Avatar */}
                 <div className="">
                     <img

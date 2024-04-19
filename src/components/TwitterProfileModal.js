@@ -7,11 +7,11 @@ const ProfileImageModal = ({ src, onClose }) => {
             <div className="flex items-center justify-center min-h-screen">
                 <div className="bg-black bg-opacity-75 fixed inset-0 w-full h-full z-40"></div>
                 <div className="relative z-50 w-full max-w-lg mx-auto p-4">
-                    <div className="bg-white rounded-lg shadow-lg">
+                    <div className="bg-white rounded-full shadow-lg">
                         <img
                             src={src}
                             alt="Profile Image"
-                            className="w-full h-auto rounded-t-lg"
+                            className="w-full rounded-full"
                         />
                         <button
                             className="absolute -top-2 right-0 text-white hover:text-gray-600 focus:outline-none"
@@ -39,17 +39,19 @@ const TwitterProfileModal = ({ image }) => {
 
     return (
         <div>
-            <div
-                className={`absolute md:top-52 top-28 cursor-pointer ${
-                    isOpen ? "blur-sm" : ""
-                }`}
-                onClick={openModal}
-            >
-                <img
-                    src={image}
-                    alt="Profile Image"
-                    className="rounded-full w-32 h-32 border-4 border-white md:w-40 md:h-40"
-                />
+            <div className="flex justify-between">
+                <div className="ms-5 relative w-full">
+                    <div
+                        className="absolute sm:-top-24 -top-20 border-4 rounded-full border-black overflow-hidden"
+                        onClick={openModal}
+                    >
+                        <img
+                            src={image}
+                            alt="Profile Image"
+                            className="rounded-full md:w-40 sm:w-36 w-32"
+                        />
+                    </div>
+                </div>
             </div>
 
             {isOpen && <ProfileImageModal src={image} onClose={closeModal} />}

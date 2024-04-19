@@ -34,7 +34,7 @@ const ProjectsTweetThread = ({ title }) => {
                             }
                         />
                         {ProjectsData?.length !== i + 1 ? (
-                            <div class="h-10 ms-10 bg-gray-500 w-[1px]"></div>
+                            <div className="h-10 ms-10 bg-gray-500 w-[1px]"></div>
                         ) : (
                             <div className="text-red-300">End</div>
                         )}
