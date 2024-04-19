@@ -11,19 +11,27 @@ import {
     Contributions,
     Hobbies,
 } from "./components/tweets/__index__";
+import { Link } from "react-router-dom";
+import { ProjectsData } from "./components/tweets/config";
+import Footer from "./components/Footer";
 const App = () => {
     return (
-        <div className="w-3/5 h-screen mx-auto">
+        <div className="md:w-3/5 h-screen mx-auto">
             <Header />
             <Profile />
             <Tweet TweetComponent={<Education />} />
             <Tweet TweetComponent={<Skills />} />
             <Tweet TweetComponent={<Experience />} />
-            <Tweet TweetComponent={<Projects />} />
+            <Link to={"/projects"}>
+                <Tweet
+                    TweetComponent={<Projects />}
+                    numberOfTweets={ProjectsData?.length}
+                />
+            </Link>
             <Tweet TweetComponent={<Contributions />} />
             <Tweet TweetComponent={<Achievements />} />
+            <Footer />
             {/* <Tweet TweetComponent={<Hobbies />} /> */}
-            <Tweet />
         </div>
     );
 };

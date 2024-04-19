@@ -46,7 +46,7 @@ const TwitterCoverModal = ({ image }) => {
                 <img
                     src={image}
                     alt="Cover Image"
-                    className="w-screen h-auto"
+                    className="w-screen md:h-auto object-cover"
                 />
             </div>
 

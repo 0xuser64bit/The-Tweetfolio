@@ -7,10 +7,10 @@ const Skills = () => {
             <h2 className="text-2xl font-bold mb-6 text-center hover:opacity-80 ease-in-out">
                 Arcane Mastery
             </h2>
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-wrap">
                 {Object.entries(SkillsData).map(([category, items], index) => (
-                    <div key={index}>
-                        <h3 className="text-lg font-medium mb-2 text-blue-500">
+                    <div key={index} className="md:pt-0 pt-2">
+                        <h3 className="text-lg font-medium md:mb-2 mb-1 text-blue-500">
                             {category}
                         </h3>
                         <ul className="list-disc pl-5 space-y-1">

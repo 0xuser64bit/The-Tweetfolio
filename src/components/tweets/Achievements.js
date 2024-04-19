@@ -1,13 +1,16 @@
 import React from "react";
+import { AchievementsData } from "./config";
 
 const Achievements = () => {
     return (
         <div>
+            <h3 className="text-2xl font-bold text-center pb-4">
+                Achievements
+            </h3>
             <ul>
-                <li>⭐ Achievement 1</li>
-                <li>⭐ Achievement 2</li>
-                <li>⭐ Achievement 3</li>
-                <li>⭐ Achievement 4</li>
+                {AchievementsData?.map((achivement) => [
+                    <li className="pb-1">⭐ {achivement}</li>,
+                ])}
             </ul>
         </div>
     );

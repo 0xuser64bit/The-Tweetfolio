@@ -7,7 +7,7 @@ const Education = () => {
         <div>
             <div>
                 <h3 className="text-center text-2xl font-bold hover:opacity-80 ease-in-out">
-                    Education
+                    Journey As Student
                 </h3>
                 <ol className="relative border-s border-gray-200 dark:border-gray-700 mt-4">
                     {EducationData?.map(({ date, title, description }) => (

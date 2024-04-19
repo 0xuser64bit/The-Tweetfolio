@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const CommentButton = () => {
+const CommentButton = ({ thread }) => {
     const [comment, setComment] = useState(false);
     const [animating, setAnimating] = useState(false);
 
@@ -19,6 +19,15 @@ const CommentButton = () => {
             }`}
             onClick={handleComment}
         >
+            {thread > 0 ? (
+                <div className="absolute left-4 top-0">
+                    <p className="flex h-2 w-2 items-center justify-center rounded-full text-sm p-2 text-white bg-blue-400">
+                        {thread}
+                    </p>
+                </div>
+            ) : (
+                ""
+            )}
             <svg
                 className={`h-6 w-6 transition-transform duration-300 ${
                     animating ? "transform scale-150 ease-in-out" : ""

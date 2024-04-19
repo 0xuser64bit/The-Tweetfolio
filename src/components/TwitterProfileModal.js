@@ -14,7 +14,7 @@ const ProfileImageModal = ({ src, onClose }) => {
                             className="w-full h-auto rounded-t-lg"
                         />
                         <button
-                            className="absolute -top-4 -right-4 text-white hover:text-gray-600 focus:outline-none"
+                            className="absolute -top-2 right-0 text-white hover:text-gray-600 focus:outline-none"
                             onClick={onClose}
                         >
                             <CrossIcon />
@@ -40,7 +40,7 @@ const TwitterProfileModal = ({ image }) => {
     return (
         <div>
             <div
-                className={`absolute top-52 cursor-pointer ${
+                className={`absolute md:top-52 top-28 cursor-pointer ${
                     isOpen ? "blur-sm" : ""
                 }`}
                 onClick={openModal}
@@ -48,7 +48,7 @@ const TwitterProfileModal = ({ image }) => {
                 <img
                     src={image}
                     alt="Profile Image"
-                    className="w-52 h-auto mx-4 rounded-full"
+                    className="rounded-full w-32 h-32 border-4 border-white md:w-40 md:h-40"
                 />
             </div>
 

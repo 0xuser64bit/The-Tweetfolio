@@ -9,7 +9,7 @@ import {
 } from "./engage/__index__";
 import ComponentDidnotLoad from "./ComponentDidnotLoad";
 
-const Tweet = ({ TweetComponent }) => {
+const Tweet = ({ TweetComponent, numberOfTweets }) => {
     return (
         <div>
             <div className="py-2 px-4 flex gap-x-4 border-b border-[#2b3c47] border-l border-r hover:bg-[#353333] hover:transition-all cursor-pointer">
@@ -43,10 +43,10 @@ const Tweet = ({ TweetComponent }) => {
                     {/* Engage */}
                     <div className=" pt-2 flex justify-between">
                         <span className="">
-                            <CommentButton />
+                            <CommentButton thread={numberOfTweets} />
                         </span>
                         <span className="">
-                            <RetweetButton thread={3} />
+                            <RetweetButton />
                         </span>
                         <span className="">
                             <LikeButton />

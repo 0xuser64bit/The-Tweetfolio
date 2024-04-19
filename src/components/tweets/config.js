@@ -38,3 +38,111 @@ export const SkillsData = {
     OS: ["Ubuntu", "Kali Linux", "Windows"],
     Databases: ["MongoDB", "PostgreSQL", "MySQL"],
 };
+
+//  Projects
+
+export const ProjectsData = [
+    {
+        projectName: "TweetFolio (A Portfolio Website)",
+        purpose:
+            "I've been using twitter(aka X) for a long time and I've always liked the idea for text",
+        listItems: [
+            "Developed an innovative portfolio platform inspired by Twitter.",
+            "Showcased personal blogs to create a dynamic and engaging user experience.",
+        ],
+        githubLink: "https://github.com/us3r64bit/my-tweetfolio",
+        liveProject: "https://arthprajapati.netlify.app/",
+        techStack: "ReactJS, TailwindCSS",
+    },
+    {
+        projectName: "FlashCards",
+        purpose:
+            "I've been using twitter(aka X) for a long time and I've always liked the idea for text",
+        listItems: [
+            "Engineered a note organization system facilitating efficient memorization",
+            "Helps Practice Memorization.",
+            "Implemented features to structure and maintain notes effectively.",
+        ],
+        githubLink: "https://github.com/us3r64bit/flashcards",
+        liveProject: "https://arthprajapati.netlify.app/",
+        techStack: "Python(Django), Bootstrap, JavaScript, HTML, CSS ",
+    },
+    {
+        projectName: "The Terminal Tourist (Blog)",
+        listItems: [
+            "Created A Blog Website From writing Personal Blogs",
+            "Simple Minimilistic Website for sharing knowledge",
+        ],
+        githubLink: "https://github.com/us3r64bit/the-terminal-tourist",
+        liveProject: "https://theterminaltourist.vercel.app",
+        techStack: "NextJS, TailwindCSS",
+    },
+    {
+        projectName: "Shinobi Styles (E commerce Website)",
+        listItems: [
+            "Created an E-commerce Website inspired by comicsense",
+            "Integrated RazorPay as Payment Gateway",
+            "Integrated CloudFlare, MongoDB and Wrote backend Using Node",
+        ],
+        githubLink: "https://github.com/us3r64bit/ShinobiStyles-frontend",
+        liveProject: "https://shinobi-styles.vercel.app",
+        techStack: "ReactJS, Node.js, CloudFlare, MongoDB",
+    },
+    {
+        projectName: "Website Clone",
+        listItems: [
+            "Created an E-commerce Website inspired by comicsense",
+            "Integrated RazorPay as Payment Gateway",
+            "Integrated CloudFlare, MongoDB and Wrote backend Using Node",
+        ],
+        githubLink: "https://github.com/us3r64bit/Website-Clone-Tailwind",
+        liveProject: "https://tailwind-clone-website.netlify.app",
+        techStack: "HTML, TailwindCSS, CSS, JavaScript",
+    },
+    {
+        projectName: "Tweet It (Twitter Bot)",
+        listItems: [
+            "Integrate an API which will give quotes to Twitter Bot",
+            "Tweet a quote at certain time set by user",
+        ],
+        githubLink: "https://github.com/us3r64bit/tweet-it",
+        liveProject: "https://arthprajapati.netlify.app/",
+        techStack: "Python, TwitterAPI",
+    },
+];
+
+//  Contributions
+
+export const ContributionData = [
+    {
+        title: "Fix Multi Processing Issue in Deauthentication Script",
+        link: "https://github.com/iamEzmuth/DeAuthImposter/pull/4",
+        status: "merged",
+    },
+    {
+        title: "handled case where Reporsitory name can have dot in name",
+        link: "https://github.com/open-sauced/open-sauced/pull/1453",
+        status: "merged",
+    },
+    {
+        title: "Improve Documentation of Appwrite",
+        link: "https://github.com/appwrite/docs/pull/230",
+        status: "merged",
+    },
+    {
+        title: "Improve Documentatation for coding-interview-university",
+        link: "https://github.com/jwasham/coding-interview-university/pull/1150",
+        status: "merged",
+    },
+    {
+        title: "Enable debug mode by default exclusively for only localhost",
+        link: "https://github.com/Droggol/OdooDebug/pull/18",
+        status: "open",
+    },
+];
+
+export const AchievementsData = [
+    "200+ Leetcode Problems Solved",
+    "5+ OpenSource Contributions",
+    "Azadi ka Amrit Mahotsav Hackthon: Grand Finale",
+];
