@@ -1,6 +1,6 @@
 import React from "react";
 import { ExperienceData } from "./config";
-import Timeline from "../Timeline";
+import Timeline from "./Timeline";
 
 const Experience = () => {
     return (

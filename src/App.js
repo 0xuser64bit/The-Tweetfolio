@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
-import Profile from "./components/Profile";
-import Tweet from "./components/Tweet";
+import Profile from "./components/user/Profile";
+import Tweet from "./components/tweets/Tweet";
 import {
     Education,
     Skills,

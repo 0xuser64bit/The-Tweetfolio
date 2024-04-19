@@ -1,13 +1,13 @@
 import React from "react";
-import PROFILE_IMAGE from "../assets/profile.jpeg";
-import { DISPLAYNAME, X_USERNAME } from "./utils/config";
+import PROFILE_IMAGE from "../../assets/profile.jpeg";
+import { DISPLAYNAME, X_USERNAME } from "../utils/config";
 import {
     LikeButton,
     CommentButton,
     ShareButton,
     RetweetButton,
-} from "./engage/__index__";
-import ComponentDidnotLoad from "./ComponentDidnotLoad";
+} from "../engage/__index__";
+import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 
 const Tweet = ({ TweetComponent, numberOfTweets }) => {
     return (

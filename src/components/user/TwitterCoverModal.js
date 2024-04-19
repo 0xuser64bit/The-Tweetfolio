@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CrossIcon } from "./utils/Icons";
+import { CrossIcon } from "../utils/Icons";
 
 const CoverImageModal = ({ src, onClose }) => {
     return (

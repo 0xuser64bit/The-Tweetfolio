@@ -1,1 +1,1 @@
-export const TWITTER_COLOUR = "#50b7f5";
+export const HEADER_DISPLAY_NAME = "⚡ User64bit ⚡";
