@@ -27,6 +27,7 @@ const Contributions = () => {
                                     href={contribution?.link}
                                     target="_blank"
                                     className="hover:opacity-80"
+                                    rel="noreferrer"
                                 >
                                     <FaGithub />
                                 </a>

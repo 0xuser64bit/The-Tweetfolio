@@ -141,8 +141,9 @@ export const ContributionData = [
     },
 ];
 
+// Achievements
 export const AchievementsData = [
     "200+ Leetcode Problems Solved",
     "5+ OpenSource Contributions",
-    "Azadi ka Amrit Mahotsav Hackthon: Grand Finale",
+    "Azadi ka Amrit Mahotsav Hackathon: Grand Finale",
 ];

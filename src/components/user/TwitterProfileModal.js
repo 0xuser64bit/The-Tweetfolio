@@ -10,7 +10,7 @@ const ProfileImageModal = ({ src, onClose }) => {
                     <div className="bg-white rounded-full shadow-lg">
                         <img
                             src={src}
-                            alt="Profile Image"
+                            alt="Profile not found"
                             className="w-full rounded-full"
                         />
                         <button
@@ -47,8 +47,8 @@ const TwitterProfileModal = ({ image }) => {
                     >
                         <img
                             src={image}
-                            alt="Profile Image"
-                            className="rounded-full md:w-40 sm:w-36 w-32"
+                            alt="Profile not found"
+                            className="rounded-full md:w-40 sm:w-36 w-32 cursor-pointer"
                         />
                     </div>
                 </div>

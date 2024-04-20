@@ -15,7 +15,11 @@ const UserInfo = () => {
                 <div>
                     <h3 className="text-2xl font-bold">{DISPLAYNAME}</h3>
                     <h3 className="font-light text-gray-400 text-sm">
-                        <a href="https://twitter.com/user64bit" target="_blank">
+                        <a
+                            href="https://twitter.com/user64bit"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
                             @{X_USERNAME}
                         </a>
                     </h3>
@@ -36,6 +40,7 @@ const UserInfo = () => {
                             <a
                                 href={`https://github.com/${GITHUB_USERNAME}`}
                                 target="_blank"
+                                rel="noreferrer"
                             >
                                 @{GITHUB_USERNAME}
                             </a>

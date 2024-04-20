@@ -13,11 +13,11 @@ const ListProject = ({
     return (
         <div className="">
             <h3 className="text-2xl pb-4 flex justify-center gap-x-3">
-                <a href={githubLink} target="_blank">
+                <a href={githubLink} target="_blank" rel="noreferrer">
                     <FaGithub />
                 </a>
                 {project}
-                <a href={liveProject} target="_blank">
+                <a href={liveProject} target="_blank" rel="noreferrer">
                     <FaLink />
                 </a>
             </h3>

@@ -16,6 +16,7 @@ const Tweet = ({ TweetComponent, numberOfTweets }) => {
                 {/* Avatar */}
                 <div className="">
                     <img
+                        alt="Avatar not found"
                         src={PROFILE_IMAGE}
                         className="w-10 h-10 rounded-full object-cover border"
                     />
