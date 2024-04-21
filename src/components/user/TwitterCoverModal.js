@@ -10,7 +10,7 @@ const CoverImageModal = ({ src, onClose }) => {
                     <div className="bg-black rounded-lg shadow-lg">
                         <img
                             src={src}
-                            alt="Modal Image"
+                            alt="Modal not found"
                             className="w-screen rounded-lg"
                         />
                         <button
@@ -45,7 +45,7 @@ const TwitterCoverModal = ({ image }) => {
             >
                 <img
                     src={image}
-                    alt="Cover Image"
+                    alt="Cover Not found"
                     className="w-screen md:h-auto object-cover"
                 />
             </div>

@@ -9,7 +9,9 @@ const Achievements = () => {
             </h3>
             <ul>
                 {AchievementsData?.map((achivement) => [
-                    <li className="pb-1">⭐ {achivement}</li>,
+                    <li className="pb-1" key={achivement}>
+                        ⭐ {achivement}
+                    </li>,
                 ])}
             </ul>
         </div>

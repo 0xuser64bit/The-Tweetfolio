@@ -15,7 +15,7 @@ const Contributions = () => {
                 </h3>
                 <ul>
                     {ContributionData?.map((contribution) => (
-                        <li key={contribution} className="pb-2">
+                        <li key={contribution?.title} className="pb-2">
                             <div className="flex gap-x-2 items-center">
                                 {contribution?.status === "merged" ? (
                                     <FaCodeMerge className="text-purple-600" />

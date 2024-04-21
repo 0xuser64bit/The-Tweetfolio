@@ -27,7 +27,10 @@ const UserInfo = () => {
                 <div>
                     <p className="pt-2">
                         {PROFILE_TAGS.map((tag) => (
-                            <span className="hover:text-gray-400 cursor-pointer pe-2">
+                            <span
+                                className="hover:text-gray-400 cursor-pointer pe-2"
+                                key={tag}
+                            >
                                 {tag}
                             </span>
                         ))}
