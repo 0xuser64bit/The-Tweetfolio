@@ -12,8 +12,8 @@
 
 -   `git clone https://github.com/us3r64bit/The-Tweetfolio.git`
 -   `cd The-Tweetfolio`
--   `npm install`
--   `npm start`
+-   `bun install`
+-   `bun start`
 
 and You're good to go....
 

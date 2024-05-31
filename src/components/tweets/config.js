@@ -139,6 +139,16 @@ export const ContributionData = [
         link: "https://github.com/Droggol/OdooDebug/pull/18",
         status: "open",
     },
+    {
+        title: "Implement Feature of Import/Export Bookmarks",
+        link: "https://github.com/medyo/hackertab.dev/issues/156",
+        status: "issued",
+    },
+    {
+        title: "Implemented Feature of Import/Export Bookmarks",
+        link: "https://github.com/medyo/hackertab.dev/issues/156",
+        status: "open",
+    },
 ];
 
 // Achievements

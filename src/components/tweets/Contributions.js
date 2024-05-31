@@ -3,8 +3,10 @@ import { FaGithub } from "react-icons/fa";
 import { ContributionData } from "./config";
 import { GoGitPullRequest } from "react-icons/go"; // open PR
 import { FaCodeMerge } from "react-icons/fa6"; // merge PR
-// import { GoIssueOpened } from "react-icons/go"; // open Issue
-// import { GoIssueClosed } from "react-icons/go"; // solved issue
+import { GoIssueOpened } from "react-icons/go"; // open Issue
+import { GoIssueClosed } from "react-icons/go"; // solved issue
+import { MdReportProblem } from "react-icons/md";
+
 
 const Contributions = () => {
     return (
@@ -19,8 +21,17 @@ const Contributions = () => {
                             <div className="flex gap-x-2 items-center">
                                 {contribution?.status === "merged" ? (
                                     <FaCodeMerge className="text-purple-600" />
-                                ) : (
+                                ) : (contribution?.status === "open") ? (
                                     <GoGitPullRequest className="text-green-600" />
+                                )
+                                  : (contribution?.status === "issued") ? (
+                                    <GoIssueOpened className="text-green-600" />
+                                )
+                                  : (contribution?.status === "solved") ? (
+                                    <GoIssueClosed className="text-purple-600" />
+                                ) :
+                                (
+                                    <MdReportProblem className="text-red-400" />
                                 )}
                                 {contribution?.title}
                                 <a

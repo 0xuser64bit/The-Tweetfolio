@@ -1,6 +1,9 @@
 import React, { useRef, useState } from "react";
-import { HEADER_DISPLAY_NAME } from "../config";
+import { HEADER_DISPLAY_NAME, BLOG_URL } from "../config";
+import { GITHUB_USERNAME } from "./user/config.js";
 import { LuSend } from "react-icons/lu";
+import { RxGithubLogo } from "react-icons/rx";
+import { IoIosLink } from "react-icons/io";
 import emailjs from "@emailjs/browser";
 
 const Header = () => {
@@ -126,9 +129,17 @@ const Header = () => {
             >
                 <div className="flex justify-between">
                     <h1>{HEADER_DISPLAY_NAME}</h1>
-                    <button onClick={() => setIsOpen(true)}>
-                        <LuSend />
-                    </button>
+                    <div className="">
+                        <button className="me-2">
+                            <a href={`https://github.com/${GITHUB_USERNAME}/The-Tweetfolio`} target="_blank"><RxGithubLogo className="text-xl"/></a> 
+                        </button>
+                        <button onClick={() => setIsOpen(true)} className="me-2">
+                            <LuSend className="text-xl"/>
+                        </button>
+                        <button className="me-2">
+                            <a href={BLOG_URL} target="_blank"><IoIosLink  className="text-xl"/></a> 
+                        </button>
+                    </div>
                 </div>
             </div>
         </>
