@@ -43,16 +43,32 @@ export const SkillsData = {
 
 export const ProjectsData = [
     {
-        projectName: "TweetFolio (A Portfolio Website)",
+        projectName: "This TweetFolio",
         purpose:
-            "I've been using twitter(aka X) for a long time and I've always liked the idea for text",
+            "I've been using twitter(aka X) for a long time and I've always liked the idea for sharing thoughts in few words. NO BS",
         listItems: [
-            "Developed an innovative portfolio platform inspired by Twitter.",
-            "Showcased personal blogs to create a dynamic and engaging user experience.",
+            "Developed an innovative, Twitter-inspired portfolio website using React.js and Tailwind CSS, showcasing professional information through a familiar social media interface",
+            "Implemented a responsive design mimicking Twitte's UI/UX,including customizable coverimages and profile sections, enhancing user engagement and visual appeal.",
+            "Engineered a dynamic content management system to display education, skills, experience, projects, and achievements in a tweet-like format, improving information accessibility.",
+            "Integrated and highlighted multiple open-source contributions, demonstrating active participation in the developer community and showcasing collaborative coding skills."
         ],
         githubLink: "https://github.com/us3r64bit/my-tweetfolio",
         liveProject: "https://arthprajapati.netlify.app/",
-        techStack: "ReactJS, TailwindCSS",
+        techStack: "ReactJS, TailwindCSS, JavaScript, EmailJS",
+    },
+    {
+        projectName: "This TweetFolio",
+        purpose:
+            "I've been using twitter(aka X) for a long time and I've always liked the idea for sharing thoughts in few words. NO BS",
+        listItems: [
+            "Architected and developed a Notion-like collaborative note-taking platform, implementing recursive data structures for hierarchical note organization and real-time synchronization.",
+            "Engineered robust CRUD operations, including publication toggle, archiving, and permanent deletion, while integrating full-text search functionality for efficient note retrieval.",
+            "Implemented markdown support and rich media integration, allowing users to create dynamic content with coverimages, icons, and formatted text.",
+            "Designed and implemented user experience enhancements, including customizable themes (dark/light mode) and a bookmarking system,resulting in improved user engagement and retention."
+        ],
+        githubLink: "https://github.com/us3r64bit/notebook",
+        liveProject: "https://notebook-self-phi.vercel.app/",
+        techStack: "NextJS, Covnex, TailwindCSS, ShadcnUI, TypeScript",
     },
     {
         projectName: "FlashCards",

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FaLink } from "react-icons/fa";
 
@@ -10,6 +10,9 @@ const ListProject = ({
     listitems,
     techstack,
 }) => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
     return (
         <div className="">
             <h3 className="text-2xl pb-4 flex justify-center gap-x-3">
