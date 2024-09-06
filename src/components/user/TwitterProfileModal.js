@@ -1,24 +1,32 @@
-import React, { useState } from "react";
-import { CrossIcon } from "../utils/Icons";
+import React, { useEffect, useRef, useState } from "react";
 
 const ProfileImageModal = ({ src, onClose }) => {
+    const profileModalRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (profileModalRef.current && !profileModalRef.current.contains(event.target)) {
+                onClose();
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [onClose]);
+
     return (
         <div className="fixed z-50 inset-0 overflow-y-auto">
             <div className="flex items-center justify-center min-h-screen">
                 <div className="bg-black bg-opacity-75 fixed inset-0 w-full h-full z-40"></div>
                 <div className="relative z-50 w-full max-w-lg mx-auto p-4">
-                    <div className="bg-white rounded-full shadow-lg">
+                    <div className="bg-white rounded-full shadow-lg" ref={profileModalRef}>
                         <img
                             src={src}
                             alt="Profile not found"
                             className="w-full rounded-full"
                         />
-                        <button
-                            className="absolute -top-2 right-0 text-white hover:text-gray-600 focus:outline-none"
-                            onClick={onClose}
-                        >
-                            <CrossIcon />
-                        </button>
                     </div>
                 </div>
             </div>

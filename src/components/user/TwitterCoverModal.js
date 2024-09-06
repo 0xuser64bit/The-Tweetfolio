@@ -1,24 +1,32 @@
-import React, { useState } from "react";
-import { CrossIcon } from "../utils/Icons";
+import React, { useState, useRef, useEffect } from "react";
 
 const CoverImageModal = ({ src, onClose }) => {
+    const coverModalRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (coverModalRef.current && !coverModalRef.current.contains(event.target)) {
+                onClose();
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [onClose]);
+
     return (
-        <div className="fixed z-50 inset-0 overflow-y-auto w-screen">
+        <div className="fixed z-[9999] inset-0 overflow-y-auto w-screen">
             <div className="flex items-center justify-center min-h-screen">
                 <div className="bg-black bg-opacity-75 fixed inset-0 w-screen h-full z-40"></div>
                 <div className="relative z-50 w-screen mx-auto p-4">
-                    <div className="bg-black rounded-lg shadow-lg">
+                    <div ref={coverModalRef}>
                         <img
                             src={src}
                             alt="Modal not found"
-                            className="w-screen rounded-lg"
+                            className="mx-auto rounded-lg h-80 object-cover"
                         />
-                        <button
-                            className="absolute -top-4 right-4 text-white hover:text-gray-300 focus:outline-none"
-                            onClick={onClose}
-                        >
-                            <CrossIcon />
-                        </button>
                     </div>
                 </div>
             </div>
@@ -40,7 +48,7 @@ const TwitterCoverModal = ({ image }) => {
     return (
         <div>
             <div
-                className={`relative cursor-pointer ${isOpen ? "blur-sm" : ""}`}
+                className={`relative cursor-pointer lg:h-96 md:h-80 md:overflow-hidden ${isOpen ? "blur-sm" : ""}`}
                 onClick={openModal}
             >
                 <img
