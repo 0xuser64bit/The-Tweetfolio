@@ -19,17 +19,17 @@ const App = () => {
         <div className="md:w-3/5 h-screen mx-auto">
             <Header />
             <Profile />
-            <Tweet TweetComponent={<Education />} />
-            <Tweet TweetComponent={<Skills />} />
-            <Tweet TweetComponent={<Experience />} />
+            <Tweet TweetComponent={<Contributions />} />
             <Link to={"/projects"}>
                 <Tweet
                     TweetComponent={<Projects />}
                     numberOfTweets={ProjectsData?.length}
                 />
             </Link>
-            <Tweet TweetComponent={<Contributions />} />
+            <Tweet TweetComponent={<Experience />} />
             <Tweet TweetComponent={<Achievements />} />
+            <Tweet TweetComponent={<Education />} />
+            <Tweet TweetComponent={<Skills />} />
             <Footer />
             {/* <Tweet TweetComponent={<Hobbies />} /> */}
         </div>

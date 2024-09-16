@@ -33,7 +33,7 @@ export const ExperienceData = [
 
 // Skills Data (Add more Key value pairs id needed)
 export const SkillsData = {
-    "Programming Languages": ["Python", "C/C++", "JavaScript", "TypeScript"],
+    "Programming Languages": ["Python", "C/C++", "JavaScript/TypeScript", "Rust"],
     Tools: ["React", "Node.js", "Next.js", "Redux ToolKit", "Git", "Docker"],
     OS: ["Ubuntu", "Kali Linux", "Windows"],
     Databases: ["MongoDB", "PostgreSQL", "MySQL"],
@@ -43,7 +43,7 @@ export const SkillsData = {
 
 export const ProjectsData = [
     {
-        projectName: "This TweetFolio",
+        projectName: "The TweetFolio",
         purpose:
             "I've been using twitter(aka X) for a long time and I've always liked the idea for sharing thoughts in few words. NO BS",
         listItems: [
@@ -57,9 +57,9 @@ export const ProjectsData = [
         techStack: "ReactJS, TailwindCSS, JavaScript, EmailJS",
     },
     {
-        projectName: "This TweetFolio",
+        projectName: "Notebook",
         purpose:
-            "I've been using twitter(aka X) for a long time and I've always liked the idea for sharing thoughts in few words. NO BS",
+            "Just Notion like plateform",
         listItems: [
             "Architected and developed a Notion-like collaborative note-taking platform, implementing recursive data structures for hierarchical note organization and real-time synchronization.",
             "Engineered robust CRUD operations, including publication toggle, archiving, and permanent deletion, while integrating full-text search functionality for efficient note retrieval.",
@@ -73,14 +73,14 @@ export const ProjectsData = [
     {
         projectName: "FlashCards",
         purpose:
-            "I've been using twitter(aka X) for a long time and I've always liked the idea for text",
+            "To be able memorize and understand concepts",
         listItems: [
             "Engineered a note organization system facilitating efficient memorization",
             "Helps Practice Memorization.",
             "Implemented features to structure and maintain notes effectively.",
         ],
         githubLink: "https://github.com/user-64bit/flashcards",
-        liveProject: "https://arthprajapati.netlify.app/",
+        liveProject: "#",
         techStack: "Python(Django), Bootstrap, JavaScript, HTML, CSS ",
     },
     {
@@ -105,11 +105,10 @@ export const ProjectsData = [
         techStack: "ReactJS, Node.js, CloudFlare, MongoDB",
     },
     {
-        projectName: "Website Clone",
+        projectName: "Website Clone using Pure TailwindCSS",
         listItems: [
-            "Created an E-commerce Website inspired by comicsense",
-            "Integrated RazorPay as Payment Gateway",
-            "Integrated CloudFlare, MongoDB and Wrote backend Using Node",
+            "Created an website using pure tailwind",
+            "Made website totally responsive",
         ],
         githubLink: "https://github.com/user-64bit/Website-Clone-Tailwind",
         liveProject: "https://tailwind-clone-website.netlify.app",
@@ -122,7 +121,7 @@ export const ProjectsData = [
             "Tweet a quote at certain time set by user",
         ],
         githubLink: "https://github.com/user-64bit/tweet-it",
-        liveProject: "https://arthprajapati.netlify.app/",
+        liveProject: "#",
         techStack: "Python, TwitterAPI",
     },
 ];
