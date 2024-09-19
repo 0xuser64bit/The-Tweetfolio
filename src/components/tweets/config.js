@@ -3,16 +3,13 @@
 export const EducationData = [
     {
         date: "July 2019 - May 2023",
-        title: "Bachelor of Engineering In Computer Science",
+        title: "Bachelor of Engineering in Computer Science",
         description:
-            "I have completed my Bachelor of Engineering in Computer Science degree in 2019 to 2023.",
-    },
-    {
-        date: "June 2017 - May 2019",
-        title: "11th and 12th Science",
-        description: "Completed my 11th and 12th Science",
+            "Completed a Bachelor of Engineering in Computer Science, with a strong focus on software development, algorithms, \
+            and system design. Graduated in May 2023 after four years of rigorous academic training and hands-on project experience.",
     },
 ];
+
 
 // Experience Data (Write it down in reverse order i.e present to past)
 
@@ -21,13 +18,18 @@ export const ExperienceData = [
         timeline: "April 2023 - Present",
         company_name: "Odoo Private Limited",
         description:
-            "First 6 Months was internship period where in first 2 month we learnt about Odoo then after that we started working on Live Project. and Very soon got assign to dedicated project with 2 more colleuges.",
+            "I spearheaded efforts to accelerate product development, resulting in faster releases. In addition, I conducted thorough \
+            debugging and implemented key improvements, significantly enhancing the overall stability and functionality of the product. \
+            By collaborating with cross-functional teams, I contributed to solving complex technical challenges, fostering a culture of \
+            innovation and efficiency.",
     },
     {
         timeline: "February 2023 - April 2023",
         company_name: "Radix Private Limited",
         description:
-            "It was Internship and I learnt a lot about HTML, CSS, JavaScript, Bootstrap, TailwindCSS and MS SQL",
+            "During my internship, I gained valuable experience and deepened my knowledge of web development technologies, including HTML, \
+            CSS, JavaScript, Bootstrap, TailwindCSS, and MS SQL. This hands-on experience allowed me to enhance my technical skills and apply \
+            them effectively in real-world projects.",
     },
 ];
 
@@ -43,6 +45,17 @@ export const SkillsData = {
 
 export const ProjectsData = [
     {
+        projectName: "Canteen (Currently building)",
+        purpose:
+            "I don't know, I just wanted to build something so doing it.",
+        listItems: [
+            "Canteen is a platform designed to bring students from different universities together, enabling them to connect and engage in discussions anonymously. It creates a space where students can freely share their thoughts, experiences, and questions about academics, campus life, mental health, career paths, and more, without fear of judgment or repercussions. Canteen' goal is to foster open and honest conversations, empowering students to support and learn from each other while maintaining their privacy."
+        ],
+        githubLink: "#",
+        liveProject: "https://canteen.arthprajapati.com",
+        techStack: "NextJS, TailwindCSS, Typescript, Prisma",
+    },
+    {
         projectName: "The TweetFolio",
         purpose:
             "I've been using twitter(aka X) for a long time and I've always liked the idea for sharing thoughts in few words. NO BS",
@@ -53,7 +66,7 @@ export const ProjectsData = [
             "Integrated and highlighted multiple open-source contributions, demonstrating active participation in the developer community and showcasing collaborative coding skills."
         ],
         githubLink: "https://github.com/user-64bit/my-tweetfolio",
-        liveProject: "https://arthprajapati.netlify.app/",
+        liveProject: "https://arthprajapati.com",
         techStack: "ReactJS, TailwindCSS, JavaScript, EmailJS",
     },
     {
@@ -67,7 +80,7 @@ export const ProjectsData = [
             "Designed and implemented user experience enhancements, including customizable themes (dark/light mode) and a bookmarking system,resulting in improved user engagement and retention."
         ],
         githubLink: "https://github.com/user-64bit/notebook",
-        liveProject: "https://notebook-self-phi.vercel.app/",
+        liveProject: "https://notebook-arthprajapati.com",
         techStack: "NextJS, Covnex, TailwindCSS, ShadcnUI, TypeScript",
     },
     {
@@ -90,7 +103,7 @@ export const ProjectsData = [
             "Simple Minimilistic Website for sharing knowledge",
         ],
         githubLink: "https://github.com/user-64bit/the-terminal-tourist",
-        liveProject: "https://theterminaltourist.vercel.app",
+        liveProject: "https://blog.arthprajapati.com",
         techStack: "NextJS, TailwindCSS",
     },
     {
@@ -135,6 +148,11 @@ export const ContributionData = [
         status: "merged",
     },
     {
+        title: "Add Wishlist feature to Ecommerce website",
+        link: "https://github.com/ravi300601/EasyCart/pull/1",
+        status: "merged",
+    },
+    {
         title: "handled case where Reporsitory name can have dot in name",
         link: "https://github.com/open-sauced/open-sauced/pull/1453",
         status: "merged",
@@ -162,7 +180,7 @@ export const ContributionData = [
     {
         title: "Implemented Feature of Import/Export Bookmarks",
         link: "https://github.com/medyo/hackertab.dev/issues/156",
-        status: "open",
+        status: "merged",
     },
 ];
 
