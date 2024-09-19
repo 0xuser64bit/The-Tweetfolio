@@ -7,15 +7,15 @@ import Error from "./components/utils/Error";
 import ProjectsTweetThread from "./components/tweets/ProjectsTweetThread";
 
 const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        errorElement: <Error />,
-    },
-    {
-        path: "projects/",
-        element: <ProjectsTweetThread title={"Projects untill now..."} />,
-    },
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <Error />,
+  },
+  {
+    path: "projects/",
+    element: <ProjectsTweetThread title={"Projects untill now..."} />,
+  },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<RouterProvider router={router} />);

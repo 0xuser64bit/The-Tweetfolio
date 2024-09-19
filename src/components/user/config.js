@@ -1,10 +1,10 @@
 export const PROFILE_TAGS = [
-    "@Code 👨‍💻",
-    "@Anime 😌",
-    "@Gym 💪",
-    "@Always on 🤓",
-    "@gamer 🎲",
-    "@Open-Sourcerer🧙‍♂️",
+  "@Code 👨‍💻",
+  "@Anime 😌",
+  "@Gym 💪",
+  "@Always on 🤓",
+  "@gamer 🎲",
+  "@Open-Sourcerer🧙‍♂️",
 ];
 
 export const X_USERNAME = "user64bit";
