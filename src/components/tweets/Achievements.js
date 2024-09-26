@@ -1,5 +1,5 @@
 import React from "react";
-import { AchievementsData } from "./config";
+import { AchievementsData } from "../../config";
 
 const Achievements = () => {
   return (

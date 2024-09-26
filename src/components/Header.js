@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import { HEADER_DISPLAY_NAME, BLOG_URL } from "../config";
-import { GITHUB_USERNAME } from "./user/config.js";
+import { HEADER_DISPLAY_NAME, BLOG_URL, GITHUB_USERNAME } from "../config";
 import { LuSend } from "react-icons/lu";
 import { RxGithubLogo } from "react-icons/rx";
 import { IoIosLink } from "react-icons/io";

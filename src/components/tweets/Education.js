@@ -1,6 +1,6 @@
 import React from "react";
 import Timeline from "./Timeline";
-import { EducationData } from "./config";
+import { EducationData } from "../../config";
 
 const Education = () => {
   return (

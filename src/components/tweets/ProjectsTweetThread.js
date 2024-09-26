@@ -1,7 +1,7 @@
 import React from "react";
 import Tweet from "./Tweet";
 import ListProject from "./ListProject";
-import { ProjectsData } from "./config";
+import { ProjectsData } from "../../config";
 import { IoHomeOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 

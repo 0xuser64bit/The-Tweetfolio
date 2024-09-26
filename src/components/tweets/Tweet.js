@@ -1,6 +1,6 @@
 import React from "react";
 import PROFILE_IMAGE from "../../assets/profile.jpeg";
-import { DISPLAYNAME, X_USERNAME } from "../utils/config";
+import { DISPLAYNAME, X_USERNAME } from "../../config";
 import {
   LikeButton,
   CommentButton,

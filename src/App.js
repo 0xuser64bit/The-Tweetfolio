@@ -12,7 +12,7 @@ import {
   Hobbies,
 } from "./components/tweets/__index__";
 import { Link } from "react-router-dom";
-import { ProjectsData } from "./components/tweets/config";
+import { ProjectsData } from "./config";
 import Footer from "./components/Footer";
 const App = () => {
   return (

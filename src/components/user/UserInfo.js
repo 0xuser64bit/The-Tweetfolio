@@ -6,7 +6,7 @@ import {
   GITHUB_USERNAME,
   GITHUB_QUOTE,
   ABOUT_YOU,
-} from "./config";
+} from "../../config";
 
 const UserInfo = () => {
   return (

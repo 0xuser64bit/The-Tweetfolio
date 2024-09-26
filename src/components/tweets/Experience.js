@@ -1,5 +1,5 @@
 import React from "react";
-import { ExperienceData } from "./config";
+import { ExperienceData } from "../../config";
 import Timeline from "./Timeline";
 
 const Experience = () => {

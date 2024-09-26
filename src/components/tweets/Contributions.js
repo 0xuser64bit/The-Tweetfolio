@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import { ContributionData } from "./config";
+import { ContributionData } from "../../config";
 import { GoGitPullRequest } from "react-icons/go"; // open PR
 import { FaCodeMerge } from "react-icons/fa6"; // merge PR
 import { GoIssueOpened } from "react-icons/go"; // open Issue
