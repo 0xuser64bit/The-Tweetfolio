@@ -30,8 +30,8 @@ const App = () => {
       <Tweet TweetComponent={<Achievements />} />
       <Tweet TweetComponent={<Education />} />
       <Tweet TweetComponent={<Skills />} />
+      <Tweet TweetComponent={<Hobbies />} />
       <Footer />
-      {/* <Tweet TweetComponent={<Hobbies />} /> */}
     </div>
   );
 };

@@ -202,3 +202,6 @@ export const AchievementsData = [
   "Multiple OpenSource Contributions",
   "Azadi ka Amrit Mahotsav Hackathon: Grand Finale",
 ];
+
+// Hobies
+export const HobbiesData = ["Anime", "Cricket", "Books", "Music"];
