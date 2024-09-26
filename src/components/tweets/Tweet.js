@@ -1,5 +1,5 @@
 import React from "react";
-import PROFILE_IMAGE from "../../assets/profile.jpeg";
+import PROFILE_IMAGE from "../../assets/profile.jpg";
 import { DISPLAYNAME, X_USERNAME } from "../../config";
 import {
   LikeButton,
