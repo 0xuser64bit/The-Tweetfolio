@@ -1,9 +1,9 @@
-export const HEADER_DISPLAY_NAME = "⚡ User64bit ⚡";
+export const HEADER_DISPLAY_NAME = "⚡ Arth ⚡";
 export const BLOG_URL = "https://blog.arthprajapati.com/";
 
 export const X_USERNAME = "user64bit";
 export const GITHUB_USERNAME = "user-64bit";
-export const DISPLAYNAME = "User64bit";
+export const DISPLAYNAME = "Arth";
 
 export const PROFILE_TAGS = [
   "@Code 👨‍💻",
@@ -32,7 +32,7 @@ export const EducationData = [
 // Experience Data (Write it down in reverse order i.e present to past)
 export const ExperienceData = [
   {
-    timeline: "April 2023 - Present",
+    timeline: "April 2023 - September 2024",
     company_name: "Odoo Private Limited",
     description:
       "I spearheaded efforts to accelerate product development, resulting in faster releases. In addition, I conducted thorough \
@@ -53,7 +53,7 @@ export const ExperienceData = [
 // Skills Data (Add more Key value pairs id needed)
 export const SkillsData = {
   "Programming Languages": ["Python", "C/C++", "JavaScript/TypeScript", "Rust"],
-  Tools: ["React", "Node.js", "Next.js", "Redux ToolKit", "Git", "Docker"],
+  Tools: ["React", "Node.js", "Next.js", "Redux ToolKit", "Git", "Docker", "Prisma"],
   OS: ["Ubuntu", "Kali Linux", "Windows"],
   Databases: ["MongoDB", "PostgreSQL", "MySQL"],
 };
@@ -62,7 +62,6 @@ export const SkillsData = {
 export const ProjectsData = [
   {
     projectName: "Canteen (Currently building)",
-    purpose: "I don't know, I just wanted to build something so doing it.",
     listItems: [
       "Canteen is a platform designed to bring students from different universities together, enabling them to connect and engage in discussions anonymously. It creates a space where students can freely share their thoughts, experiences, and questions about academics, campus life, mental health, career paths, and more, without fear of judgment or repercussions. Canteen' goal is to foster open and honest conversations, empowering students to support and learn from each other while maintaining their privacy.",
     ],
@@ -86,7 +85,6 @@ export const ProjectsData = [
   },
   {
     projectName: "Notebook",
-    purpose: "Just Notion like plateform",
     listItems: [
       "Architected and developed a Notion-like collaborative note-taking platform, implementing recursive data structures for hierarchical note organization and real-time synchronization.",
       "Engineered robust CRUD operations, including publication toggle, archiving, and permanent deletion, while integrating full-text search functionality for efficient note retrieval.",
@@ -99,7 +97,6 @@ export const ProjectsData = [
   },
   {
     projectName: "FlashCards",
-    purpose: "To be able memorize and understand concepts",
     listItems: [
       "Engineered a note organization system facilitating efficient memorization",
       "Helps Practice Memorization.",
