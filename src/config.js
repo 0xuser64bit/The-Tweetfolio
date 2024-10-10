@@ -96,6 +96,18 @@ export const ProjectsData = [
     techStack: "NextJS, Covnex, TailwindCSS, ShadcnUI, TypeScript",
   },
   {
+    projectName: "suchi",
+    listItems: [
+      "Suchi is a lightweight, fast, and efficient task manager written in Rust.",
+      "Manage tasks effortlessly with simple commands to add, edit, complete, and delete tasks.",
+      "Minimalistic interface designed for quick and intuitive task handling.",
+      "Ideal for users seeking a command-line based productivity tool.",
+    ],
+    githubLink: "https://github.com/user-64bit/suchi",
+    liveProject: "https://crates.io/crates/suchi",
+    techStack: "Rust",
+  },
+  {
     projectName: "FlashCards",
     listItems: [
       "Engineered a note organization system facilitating efficient memorization",
