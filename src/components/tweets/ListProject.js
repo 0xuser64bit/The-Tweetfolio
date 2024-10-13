@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
-import { FaLink } from "react-icons/fa";
+import { LiaLinkSolid } from "react-icons/lia";
 
 const ListProject = ({
   project,
@@ -21,7 +21,7 @@ const ListProject = ({
         </a>
         {project}
         <a href={liveProject} target="_blank" rel="noreferrer">
-          <FaLink />
+          <LiaLinkSolid />
         </a>
       </h3>
       {purpose && (

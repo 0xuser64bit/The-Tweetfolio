@@ -53,7 +53,15 @@ export const ExperienceData = [
 // Skills Data (Add more Key value pairs id needed)
 export const SkillsData = {
   "Programming Languages": ["Python", "C/C++", "JavaScript/TypeScript", "Rust"],
-  Tools: ["React", "Node.js", "Next.js", "Redux ToolKit", "Git", "Docker", "Prisma"],
+  Tools: [
+    "React",
+    "Node.js",
+    "Next.js",
+    "Redux ToolKit",
+    "Git",
+    "Docker",
+    "Prisma",
+  ],
   OS: ["Ubuntu", "Kali Linux", "Windows"],
   Databases: ["MongoDB", "PostgreSQL", "MySQL"],
 };
@@ -106,6 +114,19 @@ export const ProjectsData = [
     githubLink: "https://github.com/user-64bit/suchi",
     liveProject: "https://crates.io/crates/suchi",
     techStack: "Rust",
+  },
+  {
+    projectName: "CodeRunner",
+    listItems: [
+      "CodeRunner is a web application that allows users to submit code snippets and run them on different languages.",
+      "It provides a user-friendly interface for interacting with the code submission system.",
+      "User can view their submissions",
+      "User can delete their submissions",
+      "User can view the status of their submissions",
+    ],
+    githubLink: "https://github.com/user-64bit/CodeRunner",
+    liveProject: "#",
+    techStack: "Reactjs, ExpressJS, MySQL, NodeJS, Judge0, TailwindCSS",
   },
   {
     projectName: "FlashCards",
