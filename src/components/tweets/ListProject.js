@@ -15,7 +15,7 @@ const ListProject = ({
   }, []);
   return (
     <div className="">
-      <h3 className="text-2xl pb-4 flex justify-center gap-x-3">
+      <h3 className="text-2xl pb-4 flex justify-center items-center gap-x-3">
         <a href={githubLink} target="_blank" rel="noreferrer">
           <FaGithub />
         </a>

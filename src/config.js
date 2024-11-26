@@ -69,11 +69,20 @@ export const SkillsData = {
 //  Projects
 export const ProjectsData = [
   {
+    projectName: "DAOnation",
+    listItems: [
+      'DAOdation is a decentralized "Buy Me a Coffee" platform designed to empower creators by enabling seamless cryptocurrency contributions through unique profile links shared on social media. Built with Next.js, TailwindCSS, and Solana\'s Web3.js, the platform integrates secure wallet connections, allowing supporters to send personalized messages and choose custom donation amounts. Creators benefit from a user-friendly dashboard to track earnings, manage contributions, and set goals, with advanced features like anonymous support and goal-setting enhancing flexibility and engagement. Prioritizing intuitive UI/UX design, DAOdation offers a minimalist, Web3-focused interface that aligns with the evolving needs of blockchain communities, fostering adoption and trust.',
+    ],
+    githubLink: "https://github.com/user-64bit/daonation",
+    liveProject: "https://daonation.xyz",
+    techStack: "NextJS, TailwindCSS, Typescript, Prisma, @solana/web3.js",
+  },
+  {
     projectName: "Canteen (Currently building)",
     listItems: [
       "Canteen is a platform designed to bring students from different universities together, enabling them to connect and engage in discussions anonymously. It creates a space where students can freely share their thoughts, experiences, and questions about academics, campus life, mental health, career paths, and more, without fear of judgment or repercussions. Canteen' goal is to foster open and honest conversations, empowering students to support and learn from each other while maintaining their privacy.",
     ],
-    githubLink: "#",
+    githubLink: "https://github.com/user-64bit/canteen",
     liveProject: "https://canteen.arthprajapati.com",
     techStack: "NextJS, TailwindCSS, Typescript, Prisma",
   },

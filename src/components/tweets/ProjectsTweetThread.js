@@ -12,7 +12,7 @@ const ProjectsTweetThread = ({ title }) => {
         <div
           className={`text-white sticky top-0 p-4 font-bold rounded-md z-[100] bg-black bg-opacity-80 border-[#2b3c47] border-l border-r`}
         >
-          <div className="flex justify-center text-xl ">
+          <div className="flex justify-center items-center text-xl ">
             <Link to="/">
               <IoHomeOutline className="cursor-pointer" />
             </Link>
