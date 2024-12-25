@@ -76,6 +76,7 @@ export const ProjectsData = [
     githubLink: "https://github.com/user-64bit/daonation",
     liveProject: "https://daonation.xyz",
     techStack: "NextJS, TailwindCSS, Typescript, Prisma, @solana/web3.js",
+    demoVideo: "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4",
   },
   {
     projectName: "Canteen (Currently building)",

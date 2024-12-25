@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
 import { LiaLinkSolid } from "react-icons/lia";
+import ReactPlayer from "react-player";
 
 const ListProject = ({
   project,
@@ -9,6 +10,7 @@ const ListProject = ({
   liveProject,
   listitems,
   techstack,
+  demoVideo,
 }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,9 +43,20 @@ const ListProject = ({
         </div>
       )}
       {techstack && (
-        <div className="">
+        <div className="pb-4">
           <h4 className="font-bold">Tech Stack:</h4>
           <h4 className="ps-8 font-light text-gray-400">{techstack}</h4>
+        </div>
+      )}
+      {demoVideo && (
+        <div className="pb-4">
+          <h4 className="font-bold">Demo Video:</h4>
+          <ReactPlayer
+            url={demoVideo}
+            width="100%"
+            height="100%"
+            controls={true}
+          />
         </div>
       )}
     </div>

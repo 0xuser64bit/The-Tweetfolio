@@ -30,6 +30,7 @@ const ProjectsTweetThread = ({ title }) => {
                   liveProject={project?.liveProject}
                   listitems={project?.listItems}
                   techstack={project?.techStack}
+                  demoVideo={project?.demoVideo}
                 />
               }
             />
