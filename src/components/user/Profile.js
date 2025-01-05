@@ -13,10 +13,9 @@ const Profile = () => {
       <div>
         <TwitterProfileModal image={PROFILE_IMAGE} />
       </div>
-      <div className="">
+      <div className="ps-2">
         <UserInfo />
       </div>
-      <div></div>
     </div>
   );
 };
