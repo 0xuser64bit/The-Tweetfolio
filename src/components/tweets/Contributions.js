@@ -8,40 +8,80 @@ import { GoIssueClosed } from "react-icons/go"; // solved issue
 import { MdReportProblem } from "react-icons/md";
 
 const Contributions = () => {
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case "merged":
+        return <FaCodeMerge className="text-purple-600 text-xl" />;
+      case "open":
+        return <GoGitPullRequest className="text-green-600 text-xl" />;
+      case "issued":
+        return <GoIssueOpened className="text-green-600 text-xl" />;
+      case "solved":
+        return <GoIssueClosed className="text-purple-600 text-xl" />;
+      default:
+        return <MdReportProblem className="text-red-400 text-xl" />;
+    }
+  };
+
   return (
-    <div>
-      <div>
-        <h3 className="text-2xl font-bold text-center pb-4">
-          Open Source Contributions
-        </h3>
-        <ul>
-          {ContributionData?.map((contribution) => (
-            <li key={contribution?.title} className="pb-2">
-              <div className="flex gap-x-2 items-center">
-                {contribution?.status === "merged" ? (
-                  <FaCodeMerge className="text-purple-600" />
-                ) : contribution?.status === "open" ? (
-                  <GoGitPullRequest className="text-green-600" />
-                ) : contribution?.status === "issued" ? (
-                  <GoIssueOpened className="text-green-600" />
-                ) : contribution?.status === "solved" ? (
-                  <GoIssueClosed className="text-purple-600" />
-                ) : (
-                  <MdReportProblem className="text-red-400" />
-                )}
-                {contribution?.title}
-                <a
-                  href={contribution?.link}
-                  target="_blank"
-                  className="hover:opacity-80"
-                  rel="noreferrer"
-                >
-                  <FaGithub />
-                </a>
-              </div>
-            </li>
-          ))}
-        </ul>
+    <div className="w-full">
+      <h3 className="text-2xl font-bold text-center pb-4">
+        Open Source Contributions
+      </h3>
+
+      {/* Desktop Table (hidden on mobile) */}
+      <div className="hidden md:block overflow-x-auto">
+        <table className="min-w-full border-[#2b3c47]">
+          <thead>
+            <tr className="bg-[#2b3c4730] text-white">
+              <th className="p-4 border-b border-gray-600">#</th>
+              <th className="p-4 border-b border-gray-600">Title</th>
+              <th className="p-4 border-b border-gray-600 text-center">Type</th>
+              <th className="p-4 border-b border-gray-600">Status</th>
+              <th className="p-4 border-b border-gray-600">Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {ContributionData.map((item, index) => (
+              <tr key={index}>
+                <td className="p-4 border-b border-gray-600">{index + 1}</td>
+                <td className="p-4 border-b border-gray-600">{item.title}</td>
+                <td className="p-4 border-b border-gray-600 uppercase text-center">
+                  {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
+                </td>
+                <td className="p-4 border-b border-gray-600 ps-10">
+                  {getStatusIcon(item.status)}
+                </td>
+                <td className="p-4 border-b border-gray-600 ps-10">
+                  <a href={item.link} target="_blank" rel="noopener noreferrer">
+                    <FaGithub className="text-white text-2xl" />
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      {/* Mobile Cards (shown only on mobile) */}
+      <div className="md:hidden space-y-4">
+        {ContributionData.map((item, index) => (
+          <div key={index} className="bg-[#2b3c4730] p-4 rounded-lg space-y-2">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-400">#{index + 1}</span>
+              <a href={item.link} target="_blank" rel="noopener noreferrer">
+                <FaGithub className="text-white text-2xl" />
+              </a>
+            </div>
+            <h4 className="font-medium text-white">{item.title}</h4>
+            <div className="flex justify-between items-center text-sm">
+              <span className="text-gray-300 uppercase">
+                {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
+              </span>
+              <span>{getStatusIcon(item.status)}</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -21,7 +21,7 @@ const CommentButton = ({ thread }) => {
     >
       {thread > 0 ? (
         <div className="absolute left-4 top-0">
-          <p className="flex h-2 w-2 items-center justify-center rounded-full text-sm p-2 text-white bg-blue-400">
+          <p className="flex h-2 w-2 items-center justify-center rounded-full text-sm p-[10px] text-white bg-blue-400">
             {thread}
           </p>
         </div>

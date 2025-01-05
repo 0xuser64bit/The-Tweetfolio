@@ -11,44 +11,53 @@ import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 
 const Tweet = ({ TweetComponent, numberOfTweets }) => {
   return (
-    <div>
-      <div className="py-2 px-4 flex gap-x-4  border border-[#2b3c47] hover:bg-[#353333] hover:transition-all cursor-pointer">
-        {/* Avatar */}
-        <div className="">
-          <img
-            alt="Avatar not found"
-            src={PROFILE_IMAGE}
-            className="w-10 h-10 rounded-full object-cover border"
-          />
-        </div>
-        {/* Body */}
-        <div className="text-white w-full px-2">
-          {/* Display Name and User Name */}
-          <div>
-            <p>
-              <span className="me-2 font-bold">{DISPLAYNAME}</span>
-              <span className="font-light text-gray-400 text-sm cursor-pointer">
-                @{X_USERNAME}
-              </span>
-            </p>
+    <div className="w-full">
+      <div className="p-4 border border-[#2b3c47] md:hover:bg-[#35333360] transition-all cursor-pointer">
+        <div className="flex flex-col space-y-3">
+          {/* Header with Avatar and Names */}
+          <div className="flex items-start space-x-3">
+            <div className="flex-shrink-0 w-10 h-10">
+              <img
+                alt="Avatar"
+                src={PROFILE_IMAGE}
+                className="w-full h-full rounded-full object-cover border"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "https://via.placeholder.com/40";
+                }}
+              />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white">
+                <span className="font-bold">{DISPLAYNAME}</span>
+                <span className="ml-2 font-light text-gray-400 text-sm">
+                  @{X_USERNAME}
+                </span>
+              </p>
+            </div>
           </div>
-          <div className="py-2">
-            {TweetComponent ? TweetComponent : <ComponentDidnotLoad />}
+
+          {/* Tweet Content */}
+          <div className="text-white w-full">
+            <div className="break-words">
+              {TweetComponent ? TweetComponent : <ComponentDidnotLoad />}
+            </div>
           </div>
-          {/* Engage */}
-          <div className=" pt-2 flex justify-between">
-            <span className="">
+
+          {/* Engagement Buttons */}
+          <div className="flex justify-between items-center pt-2 max-w-full">
+            <div className="">
               <CommentButton thread={numberOfTweets} />
-            </span>
-            <span className="">
+            </div>
+            <div className="">
               <RetweetButton />
-            </span>
-            <span className="">
+            </div>
+            <div className="">
               <LikeButton />
-            </span>
-            <span className="">
+            </div>
+            <div className="">
               <ShareButton />
-            </span>
+            </div>
           </div>
         </div>
       </div>
