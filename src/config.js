@@ -76,7 +76,8 @@ export const ProjectsData = [
     githubLink: "https://github.com/user-64bit/daonation",
     liveProject: "https://daonation.xyz",
     techStack: "NextJS, TailwindCSS, Typescript, Prisma, @solana/web3.js",
-    demoVideo: "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4",
+    demoVideo:
+      "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4",
   },
   {
     projectName: "Canteen (Currently building)",
@@ -200,6 +201,26 @@ export const ContributionData = [
     status: "merged",
   },
   {
+    title: "Add Edit and Delete Task Feature to Time-Managment-Tool",
+    link: "https://github.com/AthenaFoss/Time-Managment-Tool/pull/34",
+    status: "open",
+  },
+  {
+    title: "Add Progress Bar to Time-Managment-Tool",
+    link: "https://github.com/AthenaFoss/Time-Managment-Tool/pull/31",
+    status: "open",
+  },
+  {
+    title: "Implement Feature of Import/Export Bookmarks",
+    link: "https://github.com/medyo/hackertab.dev/issues/156",
+    status: "issued",
+  },
+  {
+    title: "Implemented Feature of Import/Export Bookmarks",
+    link: "https://github.com/medyo/hackertab.dev/issues/156",
+    status: "merged",
+  },
+  {
     title: "Add Wishlist feature to Ecommerce website",
     link: "https://github.com/ravi300601/EasyCart/pull/1",
     status: "merged",
@@ -223,16 +244,6 @@ export const ContributionData = [
     title: "Enable debug mode by default exclusively for only localhost",
     link: "https://github.com/Droggol/OdooDebug/pull/18",
     status: "open",
-  },
-  {
-    title: "Implement Feature of Import/Export Bookmarks",
-    link: "https://github.com/medyo/hackertab.dev/issues/156",
-    status: "issued",
-  },
-  {
-    title: "Implemented Feature of Import/Export Bookmarks",
-    link: "https://github.com/medyo/hackertab.dev/issues/156",
-    status: "merged",
   },
 ];
 

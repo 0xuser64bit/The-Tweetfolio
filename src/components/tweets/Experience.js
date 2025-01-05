@@ -7,7 +7,7 @@ const Experience = () => {
     <div>
       <div>
         <h3 className="text-center text-2xl font-bold hover:opacity-80 ease-in-out">
-          Journey in IT World
+          Experience
         </h3>
         <ol className="relative border-s border-gray-200 dark:border-gray-700 mt-4">
           {ExperienceData?.map(({ timeline, company_name, description }) => (
