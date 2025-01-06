@@ -80,6 +80,15 @@ export const ProjectsData = [
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4",
   },
   {
+    projectName: "PollChain",
+    listItems: [
+      "PollChain is a decentralized voting platform that empowers users to create and participate in polls with transparency and trust. Built on blockchain technology, PollChain ensures that every vote is immutable, verifiable, and tamper-proof, providing a fair and secure voting system for everyone.",
+    ],
+    githubLink: "https://github.com/user-64bit/poll-chain",
+    liveProject: "https://pollchain.arthprajapati.com",
+    techStack: "NextJS, TailwindCSS, Typescript, Rust, anchor, @solana/web3.js",
+  },
+  {
     projectName: "Canteen (Currently building)",
     listItems: [
       "Canteen is a platform designed to bring students from different universities together, enabling them to connect and engage in discussions anonymously. It creates a space where students can freely share their thoughts, experiences, and questions about academics, campus life, mental health, career paths, and more, without fear of judgment or repercussions. Canteen' goal is to foster open and honest conversations, empowering students to support and learn from each other while maintaining their privacy.",
