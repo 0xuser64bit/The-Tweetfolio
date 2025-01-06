@@ -1,9 +1,9 @@
 import React from "react";
-import Tweet from "./Tweet";
-import ListProject from "./ListProject";
-import { ProjectsData } from "../../config";
-import { IoHomeOutline } from "react-icons/io5";
+import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { ProjectsData } from "../../config";
+import ListProject from "./ListProject";
+import Tweet from "./Tweet";
 
 const ProjectsTweetThread = ({ title }) => {
   return (
@@ -12,12 +12,13 @@ const ProjectsTweetThread = ({ title }) => {
         <div
           className={`text-white sticky top-0 p-4 font-bold rounded-md z-[100] bg-black bg-opacity-80 border-[#2b3c47] border-l border-r`}
         >
-          <div className="flex justify-center items-center text-xl ">
-            <Link to="/">
-              <IoHomeOutline className="cursor-pointer" />
+          <div className="flex justify-between items-center">
+            <Link to="/" className="hover:bg-gray-400/20 p-2 rounded-full">
+              <BiArrowBack className="cursor-pointer" />
             </Link>
+            <h1 className="capitalize text-center">{title}</h1>
+            <div className="invisible"></div>
           </div>
-          <h1 className="capitalize">{title}</h1>
         </div>
         {ProjectsData?.map((project, i) => (
           <>
@@ -34,10 +35,8 @@ const ProjectsTweetThread = ({ title }) => {
                 />
               }
             />
-            {ProjectsData?.length !== i + 1 ? (
+            {ProjectsData?.length !== i + 1 && (
               <div className="h-10 ms-10 bg-gray-500 w-[1px]"></div>
-            ) : (
-              <div className="text-red-300">End</div>
             )}
           </>
         ))}

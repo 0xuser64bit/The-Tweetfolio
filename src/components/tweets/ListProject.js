@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { FaGithub } from "react-icons/fa";
-import { LiaLinkSolid } from "react-icons/lia";
+import { FiExternalLink } from "react-icons/fi";
 import ReactPlayer from "react-player";
 
 const ListProject = ({
@@ -18,12 +18,22 @@ const ListProject = ({
   return (
     <div className="">
       <h3 className="text-2xl pb-4 flex justify-center items-center gap-x-3">
-        <a href={githubLink} target="_blank" rel="noreferrer">
+        <a
+          href={githubLink}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:opacity-80"
+        >
           <FaGithub />
         </a>
         {project}
-        <a href={liveProject} target="_blank" rel="noreferrer">
-          <LiaLinkSolid />
+        <a
+          href={liveProject}
+          target="_blank"
+          rel="noreferrer"
+          className="hover:opacity-80"
+        >
+          <FiExternalLink />
         </a>
       </h3>
       {purpose && (
@@ -50,12 +60,15 @@ const ListProject = ({
       )}
       {demoVideo && (
         <div className="pb-4">
-          <h4 className="font-bold">Demo Video:</h4>
+          <h4 className="font-bold mb-2">Demo Video:</h4>
           <ReactPlayer
             url={demoVideo}
             width="100%"
             height="100%"
-            controls={true}
+            playing
+            muted
+            loop
+            controls
           />
         </div>
       )}
