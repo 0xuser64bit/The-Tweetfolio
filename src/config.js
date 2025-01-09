@@ -87,6 +87,7 @@ export const ProjectsData = [
     githubLink: "https://github.com/user-64bit/poll-chain",
     liveProject: "https://pollchain.arthprajapati.com",
     techStack: "NextJS, TailwindCSS, Typescript, Rust, anchor, @solana/web3.js",
+    demoVideo: "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv",
   },
   {
     projectName: "Canteen (Currently building)",
