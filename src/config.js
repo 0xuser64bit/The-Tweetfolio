@@ -80,6 +80,17 @@ export const ProjectsData = [
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4",
   },
   {
+    projectName: "Wallet GPT",
+    listItems: [
+      'WalletGPT is a GPT-powered wallet assistant that helps users manage their cryptocurrency wallet using AI Chatbot where user will send message to the bot and bot will respond with the appropriate action and the response.',
+    ],
+    githubLink: "https://github.com/user-64bit/wallet-gpt",
+    liveProject: "https://wallet-gpt.arthprajapati.com/",
+    techStack: "NextJS, TailwindCSS, Typescript, OpenAI API, @solana/web3.js",
+    demoVideo:
+      "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/wallet-gpt.mkv",
+  },
+  {
     projectName: "PollChain",
     listItems: [
       "PollChain is a decentralized voting platform that empowers users to create and participate in polls with transparency and trust. Built on blockchain technology, PollChain ensures that every vote is immutable, verifiable, and tamper-proof, providing a fair and secure voting system for everyone.",
@@ -213,12 +224,12 @@ export const ContributionData = [
   {
     title: "Add Edit and Delete Task Feature to Time-Managment-Tool",
     link: "https://github.com/AthenaFoss/Time-Managment-Tool/pull/34",
-    status: "open",
+    status: "merged",
   },
   {
     title: "Add Progress Bar to Time-Managment-Tool",
     link: "https://github.com/AthenaFoss/Time-Managment-Tool/pull/31",
-    status: "open",
+    status: "merged",
   },
   {
     title: "Implement Feature of Import/Export Bookmarks",
