@@ -11,26 +11,29 @@ import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 
 const Tweet = ({ TweetComponent, numberOfTweets }) => {
   return (
-    <div className="w-full">
-      <div className="p-4 border border-[#2b3c47] md:hover:bg-[#35333360] transition-all cursor-pointer">
+    <div className="w-full group">
+      <div className="p-4 border border-[#2b3c47] md:hover:bg-[#35333360] transition-all duration-300 ease-in-out cursor-pointer relative overflow-hidden before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-[#ffffff05] before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000 before:ease-in-out">
         <div className="flex flex-col space-y-3">
           {/* Header with Avatar and Names */}
           <div className="flex items-start space-x-3">
-            <div className="flex-shrink-0 w-10 h-10">
-              <img
-                alt="Avatar"
-                src={PROFILE_IMAGE}
-                className="w-full h-full rounded-full object-cover border"
-                onError={(e) => {
-                  e.target.onerror = null;
-                  e.target.src = "https://via.placeholder.com/40";
-                }}
-              />
+            <div className="flex-shrink-0 w-10 h-10 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
+              <div className="relative overflow-hidden rounded-full">
+                <img
+                  alt="Avatar"
+                  src={PROFILE_IMAGE}
+                  className="w-full h-full object-cover border transition-transform duration-300 hover:scale-110"
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = "https://via.placeholder.com/40";
+                  }}
+                />
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+              </div>
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-white">
-                <span className="font-bold">{DISPLAYNAME}</span>
-                <span className="ml-2 font-light text-gray-400 text-sm">
+              <p className="text-white transform transition-all duration-300 ease-in-out group-hover:translate-x-1">
+                <span className="font-bold hover:text-blue-400 transition-colors duration-300">{DISPLAYNAME}</span>
+                <span className="ml-2 font-light text-gray-400 text-sm group-hover:text-gray-300 transition-colors duration-300">
                   @{X_USERNAME}
                 </span>
               </p>
@@ -38,24 +41,30 @@ const Tweet = ({ TweetComponent, numberOfTweets }) => {
           </div>
 
           {/* Tweet Content */}
-          <div className="text-white w-full">
+          <div className="text-white w-full transform transition-all duration-300 ease-in-out group-hover:translate-x-1">
             <div className="break-words">
-              {TweetComponent ? TweetComponent : <ComponentDidnotLoad />}
+              {TweetComponent ? (
+                <div className="animate-fadeIn">
+                  {TweetComponent}
+                </div>
+              ) : (
+                <ComponentDidnotLoad />
+              )}
             </div>
           </div>
 
           {/* Engagement Buttons */}
-          <div className="flex justify-between items-center pt-2 max-w-full">
-            <div className="">
+          <div className="flex justify-between items-center pt-2 max-w-full opacity-80 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="transform transition-transform duration-300 hover:scale-110">
               <CommentButton thread={numberOfTweets} />
             </div>
-            <div className="">
+            <div className="transform transition-transform duration-300 hover:scale-110">
               <RetweetButton />
             </div>
-            <div className="">
+            <div className="transform transition-transform duration-300 hover:scale-110">
               <LikeButton />
             </div>
-            <div className="">
+            <div className="transform transition-transform duration-300 hover:scale-110">
               <ShareButton />
             </div>
           </div>
