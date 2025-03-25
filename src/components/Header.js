@@ -1,7 +1,8 @@
 import React from "react";
+import { FaX } from "react-icons/fa6";
 import { FiExternalLink } from "react-icons/fi";
 import { RxGithubLogo } from "react-icons/rx";
-import { BLOG_URL, GITHUB_USERNAME, HEADER_DISPLAY_NAME } from "../config";
+import { BLOG_URL, GITHUB_USERNAME, HEADER_DISPLAY_NAME, X_USERNAME } from "../config";
 
 const Header = () => {
   return (
@@ -16,13 +17,19 @@ const Header = () => {
               <a
                 href={`https://github.com/${GITHUB_USERNAME}/The-Tweetfolio`}
                 target="_blank"
+                rel="noreferrer"
               >
                 <RxGithubLogo className="text-xl" />
               </a>
             </button>
             <button className="me-2">
-              <a href={BLOG_URL} target="_blank">
+              <a href={BLOG_URL} target="_blank" rel="noreferrer">
                 <FiExternalLink className="text-xl" />
+              </a>
+            </button>
+            <button className="me-2">
+              <a href={`https://x.com/${X_USERNAME}`} target="_blank" rel="noreferrer">
+                <FaX className="text-xl" />
               </a>
             </button>
           </div>

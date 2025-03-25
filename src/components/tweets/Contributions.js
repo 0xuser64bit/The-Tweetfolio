@@ -1,6 +1,6 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
-import { ContributionData } from "../../config";
+import { ContributionData, GITHUB_USERNAME } from "../../config";
 import { GoGitPullRequest } from "react-icons/go"; // open PR
 import { FaCodeMerge } from "react-icons/fa6"; // merge PR
 import { GoIssueOpened } from "react-icons/go"; // open Issue
@@ -61,10 +61,32 @@ const Contributions = () => {
             ))}
           </tbody>
         </table>
+        <div className="text-center text-sm text-gray-400 mt-2">
+          More on{" "}
+          <a
+            href={`https://get-git.arthprajapati.com/${GITHUB_USERNAME}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-500/60 hover:underline"
+          >
+            Get Git
+          </a>
+        </div>
       </div>
 
       {/* Mobile Cards (shown only on mobile) */}
       <div className="md:hidden space-y-4">
+      <div className="text-center text-sm text-gray-400 my-2">
+          More on{" "}
+          <a
+            href={`https://get-git.arthprajapati.com/${GITHUB_USERNAME}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:text-blue-500/60 hover:underline"
+          >
+            Get Git
+          </a>
+        </div>
         {ContributionData.map((item, index) => (
           <div key={index} className="bg-[#2b3c4730] p-4 rounded-lg space-y-2">
             <div className="flex justify-between items-center">

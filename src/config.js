@@ -82,7 +82,7 @@ export const ProjectsData = [
   {
     projectName: "Wallet GPT",
     listItems: [
-      'WalletGPT is a GPT-powered wallet assistant that helps users manage their cryptocurrency wallet using AI Chatbot where user will send message to the bot and bot will respond with the appropriate action and the response.',
+      "WalletGPT is a GPT-powered wallet assistant that helps users manage their cryptocurrency wallet using AI Chatbot where user will send message to the bot and bot will respond with the appropriate action and the response.",
     ],
     githubLink: "https://github.com/user-64bit/wallet-gpt",
     liveProject: "https://wallet-gpt.arthprajapati.com/",
@@ -98,7 +98,28 @@ export const ProjectsData = [
     githubLink: "https://github.com/user-64bit/poll-chain",
     liveProject: "https://pollchain.arthprajapati.com",
     techStack: "NextJS, TailwindCSS, Typescript, Rust, anchor, @solana/web3.js",
-    demoVideo: "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv",
+    demoVideo:
+      "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv",
+  },
+  {
+    projectName: "Get-Git",
+    listItems: ["Explore GitHub profiles in a beautiful and interactive way"],
+    githubLink: "https://github.com/user-64bit/get-git",
+    liveProject: "https://get-git.arthprajapati.com",
+    techStack: "NextJS, TailwindCSS, Typescript, Github API",
+    demoVideo:
+      "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/get-git.mkv",
+  },
+  {
+    projectName: "DD-Agent",
+    listItems: [
+      "DD-Agent is an AI-powered health optimization platform based on Bryan Johnson's 'Dont Die Blueprint.' It provides personalized health recommendations and longevity insights through an interactive chat interface and a structured blueprint generator.",
+    ],
+    githubLink: "https://github.com/user-64bit/dd-agent",
+    liveProject: "https://dd-agent-ruby.vercel.app",
+    techStack: "NextJS, TailwindCSS, Typescript, Open API",
+    demoVideo:
+      "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/dd-agent.mkv",
   },
   {
     projectName: "Canteen (Currently building)",
