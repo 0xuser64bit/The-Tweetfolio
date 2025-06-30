@@ -32,6 +32,12 @@ export const EducationData = [
 // Experience Data (Write it down in reverse order i.e present to past)
 export const ExperienceData = [
   {
+    timeline: "October 2024 - Present",
+    company_name: "Freelancer",
+    description:
+      "Secured impressive awards through active participation in hackathons and bounty programs, demonstrating exceptional problem-solving skills also Contributed to various open source communities.",
+  },
+  {
     timeline: "April 2023 - September 2024",
     company_name: "Odoo Private Limited",
     description:
