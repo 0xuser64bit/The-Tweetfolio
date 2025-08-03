@@ -10,7 +10,7 @@
 
 ### Steps to use it Locally.
 
-- `git clone https://github.com/us3r64bit/The-Tweetfolio.git`
+- `git clone https://github.com/user-64bit/The-Tweetfolio.git`
 - `cd The-Tweetfolio`
 - `bun install`
 - `bun start`

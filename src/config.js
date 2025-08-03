@@ -261,7 +261,7 @@ export const ContributionData = [
   {
     title: "Implement Feature of Import/Export Bookmarks",
     link: "https://github.com/medyo/hackertab.dev/issues/156",
-    status: "issued",
+    status: "solved",
   },
   {
     title: "Implemented Feature of Import/Export Bookmarks",
