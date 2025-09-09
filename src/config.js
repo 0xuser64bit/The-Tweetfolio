@@ -108,6 +108,17 @@ export const ProjectsData = [
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv",
   },
   {
+    projectName: "Echo-GPT",
+    listItems: [
+      "A Chrome extension that enhances your ChatGPT experience by adding bookmark and pinned conversations feature.",
+    ],
+    githubLink: "https://github.com/user-64bit/echo-gpt",
+    liveProject: "#",
+    techStack: "React, TypeScrip, Vite, TailwindCSS, Chrome Extension Manifest V3",
+    demoVideo:
+      "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Echo+GPT+Demo.mp4",
+  },
+  {
     projectName: "Get-Git",
     listItems: ["Explore GitHub profiles in a beautiful and interactive way"],
     githubLink: "https://github.com/user-64bit/get-git",
@@ -147,7 +158,7 @@ export const ProjectsData = [
       "Integrated and highlighted multiple open-source contributions, demonstrating active participation in the developer community and showcasing collaborative coding skills.",
     ],
     githubLink: "https://github.com/user-64bit/The-TweetFolio",
-    liveProject: "https://arthprajapati.com",
+    liveProject: "https://user64bit.wtf",
     techStack: "ReactJS, TailwindCSS, JavaScript, EmailJS",
   },
   {
