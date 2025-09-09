@@ -10,7 +10,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
       if (onLoadingComplete) {
         onLoadingComplete();
       }
-    }, 2500); // 2.5 seconds
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -19,29 +19,23 @@ const LoadingScreen = ({ onLoadingComplete }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <div className="relative flex flex-col items-center">
-        {/* Profile image with circular loading animation */}
+      <div className="flex flex-col items-center space-y-6">
+        {/* Profile image with simple ring animation */}
         <div className="relative">
-          {/* Outer spinning circle */}
-          <div className="absolute inset-0 w-48 h-48 -m-6 rounded-full border-2 border-transparent border-t-blue-400 border-b-blue-600 animate-spin"></div>
-          
-          {/* Middle spinning circle - opposite direction */}
-          <div className="absolute inset-0 w-40 h-40 -m-2 rounded-full border-2 border-transparent border-l-blue-500 border-r-blue-700 animate-spin-reverse"></div>
-          
-          {/* Inner pulsing circle */}
-          <div className="absolute inset-0 w-36 h-36 m-0 rounded-full border-2 border-blue-400/30 animate-pulse"></div>
-          
-          {/* Profile image */}
-          <div className="relative h-32 w-32 rounded-full overflow-hidden border-4 border-[#2b3c47] z-10">
+          <div className="absolute -inset-2 w-28 h-28 rounded-full border-2 border-transparent border-t-blue-500 animate-spin"></div>
+          <div className="relative h-24 w-24 rounded-full overflow-hidden border-2 border-slate-700">
             <img
               src={PROFILE_IMAGE}
               alt="Profile"
               className="h-full w-full object-cover"
             />
-            
-            {/* Overlay gradient effect */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-transparent"></div>
           </div>
+        </div>
+
+        <div className="flex space-x-1">
+          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
+          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
         </div>
       </div>
     </div>
