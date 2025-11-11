@@ -52,7 +52,7 @@ const ProfileImageModal = ({ src, onClose, isClosing, isOpening }) => {
         >
           <img
             src={src}
-            alt="Profile Image"
+            alt="Profile"
             className="w-full rounded-full"
             style={{ minWidth: '300px', maxWidth: '500px' }}
             loading="lazy"
@@ -96,7 +96,7 @@ const TwitterProfileModal = ({ image }) => {
           >
             <img
               src={image}
-              alt="Profile Image"
+              alt="Profile"
               className="rounded-full md:w-40 sm:w-36 w-32"
             />
           </div>

@@ -23,8 +23,8 @@ export const EducationData = [
     date: "July 2019 - May 2023",
     title: "Bachelor of Engineering in Computer Science",
     description:
-      "Completed a Bachelor of Engineering in Computer Science, with a strong focus on software development, algorithms, \
-              and system design. Graduated in May 2023 after four years of rigorous academic training and hands-on project experience.",
+      `Completed a Bachelor of Engineering in Computer Science, with a strong focus on software development, algorithms, 
+              and system design. Graduated in May 2023 after four years of rigorous academic training and hands-on project experience.`,
   },
 ];
 
@@ -40,18 +40,18 @@ export const ExperienceData = [
     timeline: "April 2023 - September 2024",
     company_name: "Odoo Private Limited",
     description:
-      "I spearheaded efforts to accelerate product development, resulting in faster releases. In addition, I conducted thorough \
-              debugging and implemented key improvements, significantly enhancing the overall stability and functionality of the product. \
-              By collaborating with cross-functional teams, I contributed to solving complex technical challenges, fostering a culture of \
-              innovation and efficiency.",
+      `I spearheaded efforts to accelerate product development, resulting in faster releases. In addition, I conducted thorough 
+              debugging and implemented key improvements, significantly enhancing the overall stability and functionality of the product. 
+              By collaborating with cross-functional teams, I contributed to solving complex technical challenges, fostering a culture of 
+              innovation and efficiency.`,
   },
   {
     timeline: "February 2023 - April 2023",
     company_name: "Radix Private Limited",
     description:
-      "During my internship, I gained valuable experience and deepened my knowledge of web development technologies, including HTML, \
-              CSS, JavaScript, Bootstrap, TailwindCSS, and MS SQL. This hands-on experience allowed me to enhance my technical skills and apply \
-              them effectively in real-world projects.",
+      `During my internship, I gained valuable experience and deepened my knowledge of web development technologies, including HTML, 
+              CSS, JavaScript, Bootstrap, TailwindCSS, and MS SQL. This hands-on experience allowed me to enhance my technical skills and apply 
+              them effectively in real-world projects.`,
   },
 ];
 
