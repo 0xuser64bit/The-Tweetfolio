@@ -64,7 +64,7 @@ const Contributions = () => {
         <div className="text-center text-sm text-gray-400 mt-2">
           More on{" "}
           <a
-            href={`https://get-git.arthprajapati.com/${GITHUB_USERNAME}`}
+            href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-500/60 hover:underline"
@@ -79,7 +79,7 @@ const Contributions = () => {
       <div className="text-center text-sm text-gray-400 my-2">
           More on{" "}
           <a
-            href={`https://get-git.arthprajapati.com/${GITHUB_USERNAME}`}
+            href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-500/60 hover:underline"

@@ -16,7 +16,7 @@ const Tweet = ({ TweetComponent, numberOfTweets }) => {
         <div className="flex flex-col space-y-3">
           {/* Header with Avatar and Names */}
           <div className="flex items-start space-x-3">
-            <div className="flex-shrink-0 w-10 h-10 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
+            <div className="flex-shrink-0 size-10 transform transition-transform duration-300 ease-in-out group-hover:scale-105">
               <div className="relative overflow-hidden rounded-full">
                 <img
                   alt="Avatar"

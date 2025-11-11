@@ -1,5 +1,4 @@
 export const HEADER_DISPLAY_NAME = "⚡ Arth ⚡";
-export const BLOG_URL = "https://blog.arthprajapati.com/";
 
 export const X_USERNAME = "user64bit";
 export const GITHUB_USERNAME = "user-64bit";
@@ -80,7 +79,7 @@ export const ProjectsData = [
       'DAOdation is a decentralized "Buy Me a Coffee" platform designed to empower creators by enabling seamless cryptocurrency contributions through unique profile links shared on social media. Built with Next.js, TailwindCSS, and Solana\'s Web3.js, the platform integrates secure wallet connections, allowing supporters to send personalized messages and choose custom donation amounts. Creators benefit from a user-friendly dashboard to track earnings, manage contributions, and set goals, with advanced features like anonymous support and goal-setting enhancing flexibility and engagement. Prioritizing intuitive UI/UX design, DAOdation offers a minimalist, Web3-focused interface that aligns with the evolving needs of blockchain communities, fostering adoption and trust.',
     ],
     githubLink: "https://github.com/user-64bit/daonation",
-    liveProject: "https://daonation.xyz",
+    liveProject: "https://daonation.vercel.app",
     techStack: "NextJS, TailwindCSS, Typescript, Prisma, @solana/web3.js",
     demoVideo:
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4",
@@ -91,7 +90,7 @@ export const ProjectsData = [
       "WalletGPT is a GPT-powered wallet assistant that helps users manage their cryptocurrency wallet using AI Chatbot where user will send message to the bot and bot will respond with the appropriate action and the response.",
     ],
     githubLink: "https://github.com/user-64bit/wallet-gpt",
-    liveProject: "https://wallet-gpt.arthprajapati.com/",
+    liveProject: "#",
     techStack: "NextJS, TailwindCSS, Typescript, OpenAI API, @solana/web3.js",
     demoVideo:
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/wallet-gpt.mkv",
@@ -102,7 +101,7 @@ export const ProjectsData = [
       "PollChain is a decentralized voting platform that empowers users to create and participate in polls with transparency and trust. Built on blockchain technology, PollChain ensures that every vote is immutable, verifiable, and tamper-proof, providing a fair and secure voting system for everyone.",
     ],
     githubLink: "https://github.com/user-64bit/poll-chain",
-    liveProject: "https://pollchain.arthprajapati.com",
+    liveProject: "https://poll-chain.vercel.app",
     techStack: "NextJS, TailwindCSS, Typescript, Rust, anchor, @solana/web3.js",
     demoVideo:
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv",
@@ -122,7 +121,7 @@ export const ProjectsData = [
     projectName: "Get-Git",
     listItems: ["Explore GitHub profiles in a beautiful and interactive way"],
     githubLink: "https://github.com/user-64bit/get-git",
-    liveProject: "https://get-git.arthprajapati.com",
+    liveProject: "https://get-git.user64bit.wtf",
     techStack: "NextJS, TailwindCSS, Typescript, Github API",
     demoVideo:
       "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/get-git.mkv",
@@ -144,7 +143,7 @@ export const ProjectsData = [
       "Canteen is a platform designed to bring students from different universities together, enabling them to connect and engage in discussions anonymously. It creates a space where students can freely share their thoughts, experiences, and questions about academics, campus life, mental health, career paths, and more, without fear of judgment or repercussions. Canteen' goal is to foster open and honest conversations, empowering students to support and learn from each other while maintaining their privacy.",
     ],
     githubLink: "https://github.com/user-64bit/canteen",
-    liveProject: "https://canteen.arthprajapati.com",
+    liveProject: "#",
     techStack: "NextJS, TailwindCSS, Typescript, Prisma",
   },
   {
@@ -170,7 +169,7 @@ export const ProjectsData = [
       "Designed and implemented user experience enhancements, including customizable themes (dark/light mode) and a bookmarking system,resulting in improved user engagement and retention.",
     ],
     githubLink: "https://github.com/user-64bit/notebook",
-    liveProject: "https://notebook.arthprajapati.com",
+    liveProject: "#",
     techStack: "NextJS, Covnex, TailwindCSS, ShadcnUI, TypeScript",
   },
   {
@@ -216,7 +215,7 @@ export const ProjectsData = [
       "Simple Minimilistic Website for sharing knowledge",
     ],
     githubLink: "https://github.com/user-64bit/the-terminal-tourist",
-    liveProject: "https://blog.arthprajapati.com",
+    liveProject: "#",
     techStack: "NextJS, TailwindCSS",
   },
   {
