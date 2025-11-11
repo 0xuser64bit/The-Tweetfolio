@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const ProfileImageModal = ({ src, onClose, isClosing }) => {
+const ProfileImageModal = ({ src, onClose, isClosing, isOpening }) => {
   const profileModalRef = useRef(null);
 
   useEffect(() => {
@@ -32,21 +32,21 @@ const ProfileImageModal = ({ src, onClose, isClosing }) => {
 
   return (
     <div
-      className={`fixed z-[9999] inset-0 flex items-center justify-center transition-opacity duration-300 ease-out ${isClosing ? 'opacity-0' : 'opacity-100'
+      className={`fixed z-[9999] inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-100'
         }`}
     >
       <div
-        className={`fixed inset-0 bg-black transition-opacity duration-300 ease-out ${isClosing ? 'opacity-0' : 'opacity-80'
+        className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
           }`}
         onClick={onClose}
       />
 
       <div
-        className={`relative z-50 w-full max-w-lg mx-auto p-4 transition-all duration-300 ease-out transform ${isClosing ? 'scale-90 opacity-0' : 'scale-100 opacity-100'
+        className={`relative z-50 w-full max-w-lg mx-auto p-4 transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-90 opacity-0 translate-y-4' : isOpening ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-4'
           }`}
       >
         <div
-          className={`bg-white rounded-full shadow-2xl p-2 transition-all duration-300 ease-out transform ${isClosing ? 'scale-85' : 'scale-100'
+          className={`bg-white rounded-full shadow-2xl p-2 transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-85' : isOpening ? 'scale-100' : 'scale-85'
             }`}
           ref={profileModalRef}
         >
@@ -66,19 +66,24 @@ const ProfileImageModal = ({ src, onClose, isClosing }) => {
 const TwitterProfileModal = ({ image }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
+  const [isOpening, setIsOpening] = useState(false);
 
   const openModal = () => {
     setIsOpen(true);
     setIsClosing(false);
+    setTimeout(() => {
+      setIsOpening(true);
+    }, 10);
   };
 
   const closeModal = () => {
     setIsClosing(true);
+    setIsOpening(false);
     // Wait for animation to complete before removing modal
     setTimeout(() => {
       setIsOpen(false);
       setIsClosing(false);
-    }, 1000);
+    }, 300);
   };
 
   return (
@@ -98,7 +103,7 @@ const TwitterProfileModal = ({ image }) => {
         </div>
       </div>
 
-      {isOpen && <ProfileImageModal src={image} onClose={closeModal} isClosing={isClosing} />}
+      {isOpen && <ProfileImageModal src={image} onClose={closeModal} isClosing={isClosing} isOpening={isOpening} />}
     </div>
   );
 };
