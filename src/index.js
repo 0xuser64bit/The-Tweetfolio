@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "projects/",
-    element: <ProjectsTweetThread title={"List of All Projects"} />,
+    element: <ProjectsTweetThread title={"Proof of Work"} />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));

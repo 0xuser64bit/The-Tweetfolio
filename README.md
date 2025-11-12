@@ -6,7 +6,7 @@
 
 ## How to Use TweetFolio?
 
-- If you're looking for a portfolio website but don't have the time or resources to create one from scratch, TweetFolio offers a convenient solution. You can easily customize TweetFolio to fit your personal brand and preferences. Simply modify the `config.js` file to add your own data, such as your bio, achievements, and social media links. Once you've made the necessary changes, TweetFolio will transform into a personalized portfolio that reflects your unique identity and accomplishments.
+- If you're looking for a portfolio website but don't have the time or resources to create one from scratch, TweetFolio offers a convenient solution. You can easily customize TweetFolio to fit your personal brand and preferences. Simply modify the `portfolio.json` file to add your own data, such as your bio, achievements, and social media links. Once you've made the necessary changes, TweetFolio will transform into a personalized portfolio that reflects your unique identity and accomplishments.
 
 ### Steps to use it Locally.
 
