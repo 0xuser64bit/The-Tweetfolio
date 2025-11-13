@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import PROFILE_IMAGE from "../assets/profile.jpg";
 
-const LoadingScreen = ({ onLoadingComplete }) => {
+interface Props {
+  onLoadingComplete: () => void;
+}
+
+const LoadingScreen: React.FC<Props> = ({ onLoadingComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {

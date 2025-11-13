@@ -9,7 +9,12 @@ import {
 } from "../engage/__index__";
 import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 
-const Tweet = ({ TweetComponent, numberOfTweets }) => {
+interface Props {
+  TweetComponent: React.ReactNode;
+  numberOfTweets?: number;
+}
+
+const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets }) => {
   return (
     <div className="w-full group">
       <div className="p-4 border border-[#2b3c47] md:hover:bg-[#35333360] transition-all duration-300 ease-in-out cursor-pointer relative overflow-hidden before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:bg-gradient-to-r before:from-transparent before:via-[#ffffff05] before:to-transparent before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-1000 before:ease-in-out">
@@ -23,8 +28,9 @@ const Tweet = ({ TweetComponent, numberOfTweets }) => {
                   src={PROFILE_IMAGE}
                   className="w-full h-full object-cover border transition-transform duration-300 hover:scale-110"
                   onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "https://via.placeholder.com/40";
+                    const target = e.target as HTMLImageElement;
+                    target.onerror = null;
+                    target.src = "https://via.placeholder.com/40";
                   }}
                 />
                 <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>

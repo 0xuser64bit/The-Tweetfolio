@@ -7,20 +7,24 @@ import { MdOutlineReplay } from "react-icons/md";
 import { HiSpeakerWave, HiSpeakerXMark } from "react-icons/hi2";
 import ReactPlayer from "react-player";
 
-const CustomVideoPlayer = ({ url }) => {
+interface CustomVideoPlayerProps {
+  url: string;
+}
+
+const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [progress, setProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const [showControls, setShowControls] = useState(false);
   const [isEnded, setIsEnded] = useState(false);
-  const playerRef = useRef(null);
+  const playerRef = useRef<ReactPlayer>(null);
 
-  const handleProgress = (state) => {
+  const handleProgress = (state: { played: number }) => {
     setProgress(state.played);
   };
 
-  const handleDuration = (duration) => {
+  const handleDuration = (duration: number) => {
     setDuration(duration);
   };
 
@@ -43,7 +47,7 @@ const CustomVideoPlayer = ({ url }) => {
     setIsMuted(!isMuted);
   };
 
-  const handleSeek = (e) => {
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
     const bounds = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - bounds.left;
     const width = bounds.width;
@@ -54,7 +58,7 @@ const CustomVideoPlayer = ({ url }) => {
     }
   };
 
-  const formatTime = (seconds) => {
+  const formatTime = (seconds: number) => {
     const date = new Date(seconds * 1000);
     const hh = date.getUTCHours();
     const mm = date.getUTCMinutes();
@@ -66,7 +70,7 @@ const CustomVideoPlayer = ({ url }) => {
   };
 
   return (
-    <div 
+    <div
       className="relative group rounded-xl overflow-hidden bg-black"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
@@ -82,33 +86,33 @@ const CustomVideoPlayer = ({ url }) => {
         onDuration={handleDuration}
         onEnded={handleEnded}
       />
-      
+
       {/* Custom Controls Overlay */}
-      <div 
+      <div
         className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 ${
           showControls || !isPlaying ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="absolute bottom-0 left-0 right-0 p-4">
           {/* Progress Bar */}
-          <div 
+          <div
             className="relative w-full h-1 bg-gray-600/40 rounded cursor-pointer mb-4 group/progress"
             onClick={handleSeek}
           >
-            <div 
+            <div
               className="absolute h-full bg-blue-500 rounded"
               style={{ width: `${progress * 100}%` }}
             />
-            <div 
+            <div
               className="absolute h-3 w-3 bg-blue-500 rounded-full -top-1 opacity-0 group-hover/progress:opacity-100 transition-opacity duration-200"
               style={{ left: `${progress * 100}%`, transform: 'translateX(-50%)' }}
             />
           </div>
-          
+
           {/* Controls */}
           <div className="flex items-center justify-between text-white">
             <div className="flex items-center space-x-4">
-              <button 
+              <button
                 onClick={handlePlayPause}
                 className="hover:text-blue-400 transition-colors p-1 rounded-full hover:bg-white/10"
               >
@@ -134,13 +138,15 @@ const CustomVideoPlayer = ({ url }) => {
                 {formatTime(duration * progress)} / {formatTime(duration)}
               </span>
             </div>
-            <button 
+            <button
               onClick={() => {
                 const video = document.querySelector('video');
                 if (video) {
                   if (video.requestFullscreen) {
                     video.requestFullscreen();
+                    // @ts-ignore
                   } else if (video.webkitRequestFullscreen) {
+                    // @ts-ignore
                     video.webkitRequestFullscreen();
                   }
                 }
@@ -156,7 +162,17 @@ const CustomVideoPlayer = ({ url }) => {
   );
 };
 
-const ListProject = ({
+interface ListProjectProps {
+  project: string;
+  purpose?: string;
+  githubLink: string;
+  liveProject: string;
+  listitems?: string[];
+  techstack?: string;
+  demoVideo?: string;
+}
+
+const ListProject: React.FC<ListProjectProps> = ({
   project,
   purpose,
   githubLink,
@@ -168,7 +184,7 @@ const ListProject = ({
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div className="">
       <h3 className="text-2xl pb-4 flex justify-center items-center gap-x-3">
@@ -200,7 +216,7 @@ const ListProject = ({
         <div className="pb-4">
           <h4 className="font-bold">Key Highlights:</h4>
           <ul className="list-disc ps-8">
-            {listitems?.map((item) => (
+            {listitems?.map((item: string) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

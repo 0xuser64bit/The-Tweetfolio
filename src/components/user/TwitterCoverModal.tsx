@@ -1,19 +1,26 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const CoverImageModal = ({ src, onClose, isClosing, isOpening }) => {
-  const coverModalRef = useRef(null);
+interface CoverImageModalProps {
+  src: string;
+  onClose: () => void;
+  isClosing: boolean;
+  isOpening: boolean;
+}
+
+const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosing, isOpening }) => {
+  const coverModalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         coverModalRef.current &&
-        !coverModalRef.current.contains(event.target)
+        !coverModalRef.current.contains(event.target as Node)
       ) {
         onClose();
       }
     };
 
-    const handleEscapeKey = (event) => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
@@ -60,7 +67,11 @@ const CoverImageModal = ({ src, onClose, isClosing, isOpening }) => {
   );
 };
 
-const TwitterCoverModal = ({ image }) => {
+interface TwitterCoverModalProps {
+  image: string;
+}
+
+const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isOpening, setIsOpening] = useState(false);

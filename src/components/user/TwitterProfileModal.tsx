@@ -1,19 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 
-const ProfileImageModal = ({ src, onClose, isClosing, isOpening }) => {
-  const profileModalRef = useRef(null);
+interface ProfileImageModalProps {
+  src: string;
+  onClose: () => void;
+  isClosing: boolean;
+  isOpening: boolean;
+}
+
+const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isClosing, isOpening }) => {
+  const profileModalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         profileModalRef.current &&
-        !profileModalRef.current.contains(event.target)
+        !profileModalRef.current.contains(event.target as Node)
       ) {
         onClose();
       }
     };
 
-    const handleEscapeKey = (event) => {
+    const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
@@ -63,7 +70,11 @@ const ProfileImageModal = ({ src, onClose, isClosing, isOpening }) => {
   );
 };
 
-const TwitterProfileModal = ({ image }) => {
+interface TwitterProfileModalProps {
+  image: string;
+}
+
+const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isClosing, setIsClosing] = useState(false);
   const [isOpening, setIsOpening] = useState(false);

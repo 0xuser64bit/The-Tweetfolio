@@ -8,7 +8,7 @@ import { GoIssueClosed } from "react-icons/go"; // solved issue
 import { MdReportProblem } from "react-icons/md";
 
 const Contributions = () => {
-  const getStatusIcon = (status) => {
+  const getStatusIcon = (status: string) => {
     switch (status) {
       case "merged":
         return <FaCodeMerge className="text-purple-600 text-xl" />;

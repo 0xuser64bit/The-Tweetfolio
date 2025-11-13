@@ -17,5 +17,9 @@ const router = createBrowserRouter([
     element: <ProjectsTweetThread title={"Proof of Work"} />,
   },
 ]);
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<RouterProvider router={router} />);
+
+const rootElement = document.getElementById("root");
+if (rootElement) {
+  const root = ReactDOM.createRoot(rootElement);
+  root.render(<RouterProvider router={router} />);
+}

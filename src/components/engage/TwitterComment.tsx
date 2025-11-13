@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 
-const CommentButton = ({ thread }) => {
+interface Props {
+  thread?: number;
+}
+
+const CommentButton: React.FC<Props> = ({ thread = 0 }) => {
   const [comment, setComment] = useState(false);
   const [animating, setAnimating] = useState(false);
 

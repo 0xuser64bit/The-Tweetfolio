@@ -5,7 +5,11 @@ import { ProjectsData } from "../../config";
 import ListProject from "./ListProject";
 import Tweet from "./Tweet";
 
-const ProjectsTweetThread = ({ title }) => {
+interface Props {
+  title: string;
+}
+
+const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
   return (
     <div className="md:w-3/5 h-screen mx-auto">
       <div>
@@ -25,13 +29,13 @@ const ProjectsTweetThread = ({ title }) => {
             <Tweet
               TweetComponent={
                 <ListProject
-                  project={project?.projectName}
-                  purpose={project?.purpose}
-                  githubLink={project?.githubLink}
-                  liveProject={project?.liveProject}
-                  listitems={project?.listItems}
-                  techstack={project?.techStack}
-                  demoVideo={project?.demoVideo}
+                  project={project?.projectName || ""}
+                  purpose={project?.purpose || ""}
+                  githubLink={project?.githubLink || ""}
+                  liveProject={project?.liveProject || ""}
+                  listitems={project?.listItems || []}
+                  techstack={project?.techStack || ""}
+                  demoVideo={project?.demoVideo || ""}
                 />
               }
             />
