@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "projects/",
+    path: "proof-of-work",
     element: <ProjectsTweetThread title={"Proof of Work"} />,
   },
 ]);

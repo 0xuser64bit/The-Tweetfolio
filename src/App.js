@@ -26,7 +26,7 @@ const App = () => {
         <Header />
         <Profile />
         <Tweet TweetComponent={<Contributions />} />
-        <Link to={"/projects"}>
+        <Link to={"/proof-of-work"}>
           <Tweet
             TweetComponent={<Projects />}
             numberOfTweets={ProjectsData?.length}
