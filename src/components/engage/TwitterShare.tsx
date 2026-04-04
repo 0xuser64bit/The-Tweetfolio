@@ -1,42 +1,34 @@
 import React, { useState } from "react";
 
 const ShareButton = () => {
-  const [share, setShare] = useState(false);
-  const [animating, setAnimating] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   const handleShare = () => {
-    setShare(!share);
-    setAnimating(true);
-    setTimeout(() => {
-      setAnimating(false);
-    }, 500);
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   return (
-    <button
-      className={`relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${
-        share ? "text-x-accent" : "text-x-text-secondary hover:text-x-accent"
-      }`}
-      onClick={handleShare}
-    >
-      <svg
-        className={`h-6 w-6 transition-transform duration-300 ${
-          animating ? "transform scale-150 ease-in-out" : ""
-        }`}
-        fill="currentColor"
-        strokeWidth={2}
-        xmlns="http://www.w3.org/2000/svg"
-        width="200"
-        height="200"
-        viewBox="0 0 16 16"
+    <div className="relative flex items-center group/share">
+      <button
+        className="p-2 rounded-full group-hover/share:bg-x-accent/10 transition-colors"
+        onClick={handleShare}
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3 6.81v6.38c0 .493.448.9.992.9h7.016c.543 0 .992-.406.992-.9V6.81c0-.493-.448-.9-.992-.9H3.992c-.543 0-.992.406-.992.9M6 5v.91h3V5h2.008C12.108 5 13 5.818 13 6.81v6.38c0 1-.9 1.81-1.992 1.81H3.992C2.892 15 2 14.182 2 13.19V6.81C2 5.81 2.9 5 3.992 5zm1.997-3.552A.506.506 0 0 1 8 1.5v8a.5.5 0 0 1-1 0v-8a.51.51 0 0 1 0-.017L5.18 3.394a.52.52 0 0 1-.77 0a.617.617 0 0 1 0-.829L6.36.515a1.552 1.552 0 0 1 2.31 0l1.95 2.05a.617.617 0 0 1 0 .83a.52.52 0 0 1-.77 0z"
-        />
-      </svg>
-    </button>
+        <svg
+          viewBox="0 0 24 24"
+          className="w-[18px] h-[18px] fill-x-text-secondary group-hover/share:fill-x-accent transition-colors"
+        >
+          <path d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.11 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z" />
+        </svg>
+      </button>
+      {copied && (
+        <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-x-accent text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+          Copied to clipboard
+        </div>
+      )}
+    </div>
   );
 };
 

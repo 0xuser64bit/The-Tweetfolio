@@ -6,6 +6,7 @@ import {
   CommentButton,
   ShareButton,
   RetweetButton,
+  ViewsButton,
 } from "../engage/__index__";
 import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 
@@ -69,8 +70,9 @@ const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets, pinned }) => {
             </div>
           </div>
 
-          {/* Engagement Buttons */}
+          {/* Engagement Buttons — X order: Views, Reply, Retweet, Like, Share */}
           <div className="flex justify-between items-center pt-2 max-w-full">
+            <ViewsButton />
             <CommentButton thread={numberOfTweets} />
             <RetweetButton />
             <LikeButton />
