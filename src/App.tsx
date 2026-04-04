@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Profile from "./components/user/Profile";
+import ProfileTabs from "./components/user/ProfileTabs";
 import Tweet from "./components/tweets/Tweet";
 import LoadingScreen from "./components/LoadingScreen";
 import {
@@ -26,15 +27,24 @@ const App = () => {
       <div className={`md:w-3/5 h-screen mx-auto ${isLoading ? 'hidden' : ''}`}>
         <Header />
         <Profile />
-        <Tweet TweetComponent={<PinnedTweet />} pinned />
-        <Tweet TweetComponent={<Contributions />} />
-        <Link to={"/proof-of-work"}>
-          <Tweet
-            TweetComponent={<Projects />}
-            numberOfTweets={ProjectsData?.length}
-          />
-        </Link>
-        <Tweet TweetComponent={<Experience />} />
+        <ProfileTabs />
+        <div id="section-pinned">
+          <Tweet TweetComponent={<PinnedTweet />} pinned />
+        </div>
+        <div id="section-contributions">
+          <Tweet TweetComponent={<Contributions />} />
+        </div>
+        <div id="section-projects">
+          <Link to={"/proof-of-work"}>
+            <Tweet
+              TweetComponent={<Projects />}
+              numberOfTweets={ProjectsData?.length}
+            />
+          </Link>
+        </div>
+        <div id="section-experience">
+          <Tweet TweetComponent={<Experience />} />
+        </div>
         <Tweet TweetComponent={<Achievements />} />
         <Tweet TweetComponent={<Education />} />
         <Tweet TweetComponent={<Skills />} />
