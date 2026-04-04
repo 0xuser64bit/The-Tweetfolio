@@ -96,13 +96,13 @@ const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
   return (
     <div>
       <div
-        className="relative cursor-pointer lg:h-96 md:h-80 md:overflow-hidden"
+        className="relative cursor-pointer aspect-[3/1] overflow-hidden"
         onClick={openModal}
       >
         <img
           src={image}
           alt="Cover"
-          className="w-screen md:h-auto object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
 

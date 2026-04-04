@@ -98,19 +98,15 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
 
   return (
     <div>
-      <div className="flex justify-between">
-        <div className="ms-5 relative w-full">
-          <div
-            className="absolute sm:-top-24 -top-20 border-4 rounded-full border-x-primary overflow-hidden cursor-pointer"
-            onClick={openModal}
-          >
-            <img
-              src={image}
-              alt="Profile"
-              className="rounded-full md:w-40 sm:w-36 w-32"
-            />
-          </div>
-        </div>
+      <div
+        className="-mt-[68px] md:-mt-[80px] border-[4px] border-x-primary rounded-full overflow-hidden cursor-pointer w-[120px] h-[120px] md:w-[133px] md:h-[133px]"
+        onClick={openModal}
+      >
+        <img
+          src={image}
+          alt="Profile"
+          className="w-full h-full object-cover"
+        />
       </div>
 
       {isOpen && <ProfileImageModal src={image} onClose={closeModal} isClosing={isClosing} isOpening={isOpening} />}
