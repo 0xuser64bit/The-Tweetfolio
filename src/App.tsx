@@ -12,6 +12,7 @@ import {
   Contributions,
   Hobbies,
 } from "./components/tweets/__index__";
+import PinnedTweet from "./components/tweets/PinnedTweet";
 import { Link } from "react-router-dom";
 import { ProjectsData } from "./config";
 import Footer from "./components/Footer";
@@ -25,6 +26,7 @@ const App = () => {
       <div className={`md:w-3/5 h-screen mx-auto ${isLoading ? 'hidden' : ''}`}>
         <Header />
         <Profile />
+        <Tweet TweetComponent={<PinnedTweet />} pinned />
         <Tweet TweetComponent={<Contributions />} />
         <Link to={"/proof-of-work"}>
           <Tweet

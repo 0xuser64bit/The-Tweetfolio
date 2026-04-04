@@ -12,12 +12,23 @@ import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 interface Props {
   TweetComponent: React.ReactNode;
   numberOfTweets?: number;
+  pinned?: boolean;
 }
 
-const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets }) => {
+const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets, pinned }) => {
   return (
     <div className="w-full group">
       <div className="p-4 border border-x-border hover:bg-x-tertiary transition-colors duration-200 cursor-pointer">
+        {/* Pinned label */}
+        {pinned && (
+          <div className="flex items-center gap-2 ml-10 mb-1 text-x-text-secondary text-[13px] font-bold">
+            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
+              <path d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z" />
+            </svg>
+            Pinned
+          </div>
+        )}
+
         <div className="flex flex-col space-y-3">
           {/* Header with Avatar and Names */}
           <div className="flex items-start space-x-3">
