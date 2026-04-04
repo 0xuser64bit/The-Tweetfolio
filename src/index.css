@@ -3,7 +3,8 @@
 @tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
-:root {
+:root,
+.theme-lights-out {
   /* X "Lights Out" theme (default) */
   --color-bg-primary: #000000;
   --color-bg-secondary: #16181C;
@@ -11,6 +12,32 @@
   --color-border: #2F3336;
   --color-text-primary: #E7E9EA;
   --color-text-secondary: #71767B;
+  --color-accent: #1D9BF0;
+  --color-like: #F91880;
+  --color-retweet: #00BA7C;
+  --color-reply: #1D9BF0;
+}
+
+.theme-dim {
+  --color-bg-primary: #15202B;
+  --color-bg-secondary: #1E2732;
+  --color-bg-tertiary: #263340;
+  --color-border: #38444D;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #8B98A5;
+  --color-accent: #1D9BF0;
+  --color-like: #F91880;
+  --color-retweet: #00BA7C;
+  --color-reply: #1D9BF0;
+}
+
+.theme-light {
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #F7F9F9;
+  --color-bg-tertiary: #EFF3F4;
+  --color-border: #EFF3F4;
+  --color-text-primary: #0F1419;
+  --color-text-secondary: #536471;
   --color-accent: #1D9BF0;
   --color-like: #F91880;
   --color-retweet: #00BA7C;
