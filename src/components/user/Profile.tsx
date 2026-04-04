@@ -6,7 +6,7 @@ import TwitterCoverModal from "./TwitterCoverModal";
 import TwitterProfileModal from "./TwitterProfileModal";
 const Profile = () => {
   return (
-    <div className="border-[#2b3c47] border-l border-r">
+    <div className="border-x-border border-l border-r">
       <div>
         <TwitterCoverModal image={COVER_IMAGE} />
       </div>

@@ -43,7 +43,7 @@ const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosi
         }`}
     >
       <div
-        className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
+        className={`fixed inset-0 bg-x-primary transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
           }`}
         onClick={onClose}
       />
@@ -87,7 +87,6 @@ const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
   const closeModal = () => {
     setIsClosing(true);
     setIsOpening(false);
-    // Wait for animation to complete before removing modal
     setTimeout(() => {
       setIsOpen(false);
       setIsClosing(false);

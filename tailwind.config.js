@@ -1,8 +1,27 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,js,ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        x: {
+          primary: 'var(--color-bg-primary)',
+          secondary: 'var(--color-bg-secondary)',
+          tertiary: 'var(--color-bg-tertiary)',
+          border: 'var(--color-border)',
+          'text-primary': 'var(--color-text-primary)',
+          'text-secondary': 'var(--color-text-secondary)',
+          accent: 'var(--color-accent)',
+          like: 'var(--color-like)',
+          retweet: 'var(--color-retweet)',
+          reply: 'var(--color-reply)',
+        },
+      },
+      fontFamily: {
+        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+      },
       keyframes: {
         fadeIn: {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
@@ -26,8 +45,8 @@ module.exports = {
           '100%': { transform: 'translateX(0) scale(1)', opacity: '1' }
         },
         'pulse-glow': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(59, 130, 246, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(59, 130, 246, 0.8)' }
+          '0%, 100%': { boxShadow: '0 0 20px rgba(29, 155, 240, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(29, 155, 240, 0.8)' }
         },
         'float': {
           '0%, 100%': { transform: 'translateY(0px)' },
@@ -39,7 +58,7 @@ module.exports = {
         },
         'blink': {
           '0%, 50%': { borderColor: 'transparent' },
-          '51%, 100%': { borderColor: 'rgb(59, 130, 246)' }
+          '51%, 100%': { borderColor: 'var(--color-accent)' }
         },
         'ripple': {
           '0%': { transform: 'scale(0)', opacity: '1' },

@@ -19,13 +19,13 @@ const CommentButton: React.FC<Props> = ({ thread = 0 }) => {
   return (
     <button
       className={`relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${
-        comment ? "text-blue-400" : "text-gray-500"
+        comment ? "text-x-accent" : "text-x-text-secondary"
       }`}
       onClick={handleComment}
     >
       {thread > 0 ? (
         <div className="absolute left-4 top-0">
-          <p className="flex h-2 w-2 items-center justify-center rounded-full text-sm p-[10px] text-white bg-blue-400">
+          <p className="flex h-2 w-2 items-center justify-center rounded-full text-sm p-[10px] text-white bg-x-accent">
             {thread}
           </p>
         </div>
@@ -36,7 +36,7 @@ const CommentButton: React.FC<Props> = ({ thread = 0 }) => {
         className={`h-6 w-6 transition-transform duration-300 ${
           animating ? "transform scale-150 ease-in-out" : ""
         }`}
-        fill={comment ? "red" : "none"}
+        fill={comment ? "var(--color-like)" : "none"}
         strokeWidth={2}
         stroke="currentColor"
         xmlns="http://www.w3.org/2000/svg"

@@ -15,7 +15,7 @@ const LikeButton = () => {
   return (
     <button
       className={`flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${
-        liked ? "" : "text-gray-500 opacity-60"
+        liked ? "" : "text-x-text-secondary opacity-60"
       }`}
       onClick={handleLike}
     >
@@ -23,7 +23,7 @@ const LikeButton = () => {
         className={`h-6 w-6 transition-transform duration-300 ${
           animating ? "transform scale-150 ease-in-out" : ""
         }`}
-        fill={liked ? "red" : "none"}
+        fill={liked ? "var(--color-like)" : "none"}
         strokeWidth={2}
         stroke={liked ? "" : "currentColor"}
         viewBox="0 0 24 24"

@@ -2,7 +2,7 @@ import React from "react";
 
 const ComponentDidnotLoad = () => {
   return (
-    <div className="bg-gray-800 text-white p-8 rounded-lg shadow-lg">
+    <div className="bg-x-secondary text-x-text-primary p-8 rounded-lg shadow-lg">
       <p className="text-4xl font-bold mb-4">
         Uh-oh, it looks like our little website gremlins have gone on a rampage!
       </p>

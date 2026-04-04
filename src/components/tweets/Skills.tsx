@@ -10,12 +10,12 @@ const Skills = () => {
       <div className="flex justify-between flex-wrap">
         {Object.entries(SkillsData).map(([category, items], index) => (
           <div key={index} className="md:pt-0 pt-2">
-            <h3 className="text-lg font-medium md:mb-2 mb-1 text-blue-500">
+            <h3 className="text-lg font-medium md:mb-2 mb-1 text-x-accent">
               {category}
             </h3>
             <ul className="list-disc pl-5 space-y-1">
               {items.map((item, itemIndex) => (
-                <li key={itemIndex} className="text-white">
+                <li key={itemIndex} className="text-x-text-primary">
                   {item}
                 </li>
               ))}

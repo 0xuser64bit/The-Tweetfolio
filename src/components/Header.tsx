@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <div
-        className={`text-white sticky top-0 p-4 font-bold rounded-md z-[100] bg-black bg-opacity-80 border-[#2b3c47] border-l border-r`}
+        className={`text-x-text-primary sticky top-0 p-4 font-bold z-[100] bg-x-primary/80 backdrop-blur-md border-x-border border-l border-r border-b`}
       >
         <div className="flex justify-between">
           <h1>{HEADER_DISPLAY_NAME}</h1>

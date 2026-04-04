@@ -11,8 +11,8 @@ const Error = () => {
   };
 
   return (
-    <div className="text-white h-screen flex items-center justify-center w-1/2 mx-auto">
-      <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+    <div className="text-x-text-primary h-screen flex items-center justify-center w-1/2 mx-auto">
+      <div className="bg-x-secondary p-8 rounded-lg shadow-lg">
         <h1 className="text-4xl font-bold mb-4">
           Uh-oh, looks like we have a problem!
         </h1>

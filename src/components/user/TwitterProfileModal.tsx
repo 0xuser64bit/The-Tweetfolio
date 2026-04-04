@@ -43,7 +43,7 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
         }`}
     >
       <div
-        className={`fixed inset-0 bg-black transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
+        className={`fixed inset-0 bg-x-primary transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
           }`}
         onClick={onClose}
       />
@@ -53,7 +53,7 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
           }`}
       >
         <div
-          className={`bg-white rounded-full shadow-2xl p-2 transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-85' : isOpening ? 'scale-100' : 'scale-85'
+          className={`bg-x-text-primary rounded-full shadow-2xl p-2 transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-85' : isOpening ? 'scale-100' : 'scale-85'
             }`}
           ref={profileModalRef}
         >
@@ -90,7 +90,6 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
   const closeModal = () => {
     setIsClosing(true);
     setIsOpening(false);
-    // Wait for animation to complete before removing modal
     setTimeout(() => {
       setIsOpen(false);
       setIsClosing(false);
@@ -102,7 +101,7 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
       <div className="flex justify-between">
         <div className="ms-5 relative w-full">
           <div
-            className="absolute sm:-top-24 -top-20 border-4 rounded-full border-black overflow-hidden cursor-pointer"
+            className="absolute sm:-top-24 -top-20 border-4 rounded-full border-x-primary overflow-hidden cursor-pointer"
             onClick={openModal}
           >
             <img

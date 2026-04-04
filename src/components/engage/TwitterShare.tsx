@@ -15,7 +15,7 @@ const ShareButton = () => {
   return (
     <button
       className={`relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${
-        share ? "text-blue-400" : "text-gray-500 hover:text-blue-400"
+        share ? "text-x-accent" : "text-x-text-secondary hover:text-x-accent"
       }`}
       onClick={handleShare}
     >

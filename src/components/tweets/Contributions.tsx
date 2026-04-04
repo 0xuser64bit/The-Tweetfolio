@@ -31,43 +31,43 @@ const Contributions = () => {
 
       {/* Desktop Table (hidden on mobile) */}
       <div className="hidden md:block overflow-x-auto">
-        <table className="min-w-full border-[#2b3c47]">
+        <table className="min-w-full border-x-border">
           <thead>
-            <tr className="bg-[#2b3c4730] text-white">
-              <th className="p-4 border-b border-gray-600">#</th>
-              <th className="p-4 border-b border-gray-600">Title</th>
-              <th className="p-4 border-b border-gray-600 text-center">Type</th>
-              <th className="p-4 border-b border-gray-600">Status</th>
-              <th className="p-4 border-b border-gray-600">Link</th>
+            <tr className="bg-x-secondary text-x-text-primary">
+              <th className="p-4 border-b border-x-border">#</th>
+              <th className="p-4 border-b border-x-border">Title</th>
+              <th className="p-4 border-b border-x-border text-center">Type</th>
+              <th className="p-4 border-b border-x-border">Status</th>
+              <th className="p-4 border-b border-x-border">Link</th>
             </tr>
           </thead>
           <tbody>
             {ContributionData.map((item, index) => (
               <tr key={index}>
-                <td className="p-4 border-b border-gray-600">{index + 1}</td>
-                <td className="p-4 border-b border-gray-600">{item.title}</td>
-                <td className="p-4 border-b border-gray-600 uppercase text-center">
+                <td className="p-4 border-b border-x-border">{index + 1}</td>
+                <td className="p-4 border-b border-x-border">{item.title}</td>
+                <td className="p-4 border-b border-x-border uppercase text-center">
                   {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
                 </td>
-                <td className="p-4 border-b border-gray-600 ps-10">
+                <td className="p-4 border-b border-x-border ps-10">
                   {getStatusIcon(item.status)}
                 </td>
-                <td className="p-4 border-b border-gray-600 ps-10">
+                <td className="p-4 border-b border-x-border ps-10">
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="text-white text-2xl" />
+                    <FaGithub className="text-x-text-primary text-2xl" />
                   </a>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="text-center text-sm text-gray-400 mt-2">
+        <div className="text-center text-sm text-x-text-secondary mt-2">
           More on{" "}
           <a
             href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-500/60 hover:underline"
+            className="text-x-accent hover:text-x-accent/60 hover:underline"
           >
             Get Git
           </a>
@@ -76,28 +76,28 @@ const Contributions = () => {
 
       {/* Mobile Cards (shown only on mobile) */}
       <div className="md:hidden space-y-4">
-      <div className="text-center text-sm text-gray-400 my-2">
+      <div className="text-center text-sm text-x-text-secondary my-2">
           More on{" "}
           <a
             href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-500 hover:text-blue-500/60 hover:underline"
+            className="text-x-accent hover:text-x-accent/60 hover:underline"
           >
             Get Git
           </a>
         </div>
         {ContributionData.map((item, index) => (
-          <div key={index} className="bg-[#2b3c4730] p-4 rounded-lg space-y-2">
+          <div key={index} className="bg-x-secondary p-4 rounded-lg space-y-2">
             <div className="flex justify-between items-center">
-              <span className="text-gray-400">#{index + 1}</span>
+              <span className="text-x-text-secondary">#{index + 1}</span>
               <a href={item.link} target="_blank" rel="noopener noreferrer">
-                <FaGithub className="text-white text-2xl" />
+                <FaGithub className="text-x-text-primary text-2xl" />
               </a>
             </div>
-            <h4 className="font-medium text-white">{item.title}</h4>
+            <h4 className="font-medium text-x-text-primary">{item.title}</h4>
             <div className="flex justify-between items-center text-sm">
-              <span className="text-gray-300 uppercase">
+              <span className="text-x-text-secondary uppercase">
                 {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
               </span>
               <span>{getStatusIcon(item.status)}</span>

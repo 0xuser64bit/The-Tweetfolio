@@ -71,7 +71,7 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
 
   return (
     <div
-      className="relative group rounded-xl overflow-hidden bg-black"
+      className="relative group rounded-xl overflow-hidden bg-x-primary"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -96,25 +96,25 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
         <div className="absolute bottom-0 left-0 right-0 p-4">
           {/* Progress Bar */}
           <div
-            className="relative w-full h-1 bg-gray-600/40 rounded cursor-pointer mb-4 group/progress"
+            className="relative w-full h-1 bg-x-border rounded cursor-pointer mb-4 group/progress"
             onClick={handleSeek}
           >
             <div
-              className="absolute h-full bg-blue-500 rounded"
+              className="absolute h-full bg-x-accent rounded"
               style={{ width: `${progress * 100}%` }}
             />
             <div
-              className="absolute h-3 w-3 bg-blue-500 rounded-full -top-1 opacity-0 group-hover/progress:opacity-100 transition-opacity duration-200"
+              className="absolute h-3 w-3 bg-x-accent rounded-full -top-1 opacity-0 group-hover/progress:opacity-100 transition-opacity duration-200"
               style={{ left: `${progress * 100}%`, transform: 'translateX(-50%)' }}
             />
           </div>
 
           {/* Controls */}
-          <div className="flex items-center justify-between text-white">
+          <div className="flex items-center justify-between text-x-text-primary">
             <div className="flex items-center space-x-4">
               <button
                 onClick={handlePlayPause}
-                className="hover:text-blue-400 transition-colors p-1 rounded-full hover:bg-white/10"
+                className="hover:text-x-accent transition-colors p-1 rounded-full hover:bg-white/10"
               >
                 {isEnded ? (
                   <MdOutlineReplay className="w-8 h-8" />
@@ -126,7 +126,7 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
               </button>
               <button
                 onClick={handleMuteToggle}
-                className="hover:text-blue-400 transition-colors p-1 rounded-full hover:bg-white/10"
+                className="hover:text-x-accent transition-colors p-1 rounded-full hover:bg-white/10"
               >
                 {isMuted ? (
                   <HiSpeakerXMark className="w-6 h-6" />
@@ -151,7 +151,7 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
                   }
                 }
               }}
-              className="hover:text-blue-400 transition-colors p-1 rounded-full hover:bg-white/10"
+              className="hover:text-x-accent transition-colors p-1 rounded-full hover:bg-white/10"
             >
               <BiFullscreen className="w-6 h-6" />
             </button>
@@ -225,7 +225,7 @@ const ListProject: React.FC<ListProjectProps> = ({
       {techstack && (
         <div className="pb-4">
           <h4 className="font-bold">Tech Stack:</h4>
-          <h4 className="ps-8 font-light text-gray-400">{techstack}</h4>
+          <h4 className="ps-8 font-light text-x-text-secondary">{techstack}</h4>
         </div>
       )}
       {demoVideo && (

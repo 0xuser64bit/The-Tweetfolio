@@ -22,12 +22,11 @@ const LoadingScreen: React.FC<Props> = ({ onLoadingComplete }) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-x-primary">
       <div className="flex flex-col items-center space-y-6">
-        {/* Profile image with simple ring animation */}
         <div className="relative">
-          <div className="absolute -inset-2 w-28 h-28 rounded-full border-2 border-transparent border-t-blue-500 animate-spin"></div>
-          <div className="relative h-24 w-24 rounded-full overflow-hidden border-2 border-slate-700">
+          <div className="absolute -inset-2 w-28 h-28 rounded-full border-2 border-transparent border-t-x-accent animate-spin"></div>
+          <div className="relative h-24 w-24 rounded-full overflow-hidden border-2 border-x-border">
             <img
               src={PROFILE_IMAGE}
               alt="Profile"
@@ -37,13 +36,13 @@ const LoadingScreen: React.FC<Props> = ({ onLoadingComplete }) => {
         </div>
 
         <div className="flex space-x-1">
-          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
-          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+          <div className="w-1.5 h-1.5 bg-x-accent rounded-full animate-pulse"></div>
+          <div className="w-1.5 h-1.5 bg-x-accent rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+          <div className="w-1.5 h-1.5 bg-x-accent rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoadingScreen; 
+export default LoadingScreen;

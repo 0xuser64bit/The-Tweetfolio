@@ -10,11 +10,11 @@ import {
 
 const UserInfo = () => {
   return (
-    <div className="text-white mt-20 border-[#2b3c47] border-b">
+    <div className="text-x-text-primary mt-20 border-x-border border-b">
       <div className="mx-4 pb-4">
         <div>
           <h3 className="text-2xl font-bold">{DISPLAYNAME}</h3>
-          <h3 className="font-light text-gray-400 text-sm">
+          <h3 className="font-light text-x-text-secondary text-sm">
             <a
               href="https://twitter.com/user64bit"
               target="_blank"
@@ -28,7 +28,7 @@ const UserInfo = () => {
           <p className="pt-2">
             {PROFILE_TAGS.map((tag) => (
               <span
-                className="hover:text-gray-400 cursor-pointer pe-2"
+                className="hover:text-x-text-secondary cursor-pointer pe-2"
                 key={tag}
               >
                 {tag}
@@ -39,7 +39,7 @@ const UserInfo = () => {
         <div className="mt-1 py-1">
           <p>
             {GITHUB_QUOTE}{" "}
-            <span className="cursor-pointer text-gray-400 font-light hover:text-opacity-60">
+            <span className="cursor-pointer text-x-text-secondary font-light hover:text-opacity-60">
               <a
                 href={`https://github.com/${GITHUB_USERNAME}`}
                 target="_blank"

@@ -14,10 +14,10 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
     <div className="md:w-3/5 h-screen mx-auto">
       <div>
         <div
-          className={`text-white sticky top-0 p-4 font-bold rounded-md z-[100] bg-black bg-opacity-80 border-[#2b3c47] border-l border-r`}
+          className={`text-x-text-primary sticky top-0 p-4 font-bold z-[100] bg-x-primary/80 backdrop-blur-md border-x-border border-l border-r`}
         >
           <div className="flex justify-between items-center">
-            <Link to="/" className="hover:bg-gray-400/20 p-2 rounded-full">
+            <Link to="/" className="hover:bg-x-tertiary p-2 rounded-full">
               <BiArrowBack className="cursor-pointer" />
             </Link>
             <h1 className="capitalize text-center">{title}</h1>
@@ -40,7 +40,7 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
               }
             />
             {ProjectsData?.length !== i + 1 && (
-              <div className="h-10 ms-10 bg-gray-500 w-[1px]"></div>
+              <div className="h-10 ms-10 bg-x-border w-[1px]"></div>
             )}
           </>
         ))}

@@ -15,7 +15,7 @@ const RetweetButton = () => {
   return (
     <button
       className={`relative flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500 ${
-        retweeted ? "text-green-400" : "text-gray-500"
+        retweeted ? "text-x-retweet" : "text-x-text-secondary"
       }`}
       onClick={handleRetweet}
     >
