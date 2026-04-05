@@ -29,26 +29,27 @@ const App = () => {
         <Profile />
         <ProfileTabs />
         <div id="section-pinned">
-          <Tweet TweetComponent={<PinnedTweet />} pinned />
+          <Tweet TweetComponent={<PinnedTweet />} pinned date="Oct 2024" />
         </div>
         <div id="section-contributions">
-          <Tweet TweetComponent={<Contributions />} />
+          <Tweet TweetComponent={<Contributions />} date="Sep 2024" />
         </div>
         <div id="section-projects">
           <Link to={"/proof-of-work"}>
             <Tweet
               TweetComponent={<Projects />}
               numberOfTweets={ProjectsData?.length}
+              date="Aug 2024"
             />
           </Link>
         </div>
         <div id="section-experience">
-          <Tweet TweetComponent={<Experience />} />
+          <Tweet TweetComponent={<Experience />} date="Apr 2023" />
         </div>
-        <Tweet TweetComponent={<Achievements />} />
-        <Tweet TweetComponent={<Education />} />
-        <Tweet TweetComponent={<Skills />} />
-        <Tweet TweetComponent={<Hobbies />} />
+        <Tweet TweetComponent={<Achievements />} date="2023" />
+        <Tweet TweetComponent={<Education />} date="Jul 2019" />
+        <Tweet TweetComponent={<Skills />} date="2024" />
+        <Tweet TweetComponent={<Hobbies />} date="Forever" />
         <Footer />
       </div>
     </>
