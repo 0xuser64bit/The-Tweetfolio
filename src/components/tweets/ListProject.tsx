@@ -71,7 +71,7 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
 
   return (
     <div
-      className="relative group rounded-xl overflow-hidden bg-x-primary"
+      className="relative group rounded-2xl overflow-hidden bg-x-primary"
       onMouseEnter={() => setShowControls(true)}
       onMouseLeave={() => setShowControls(false)}
     >
@@ -87,14 +87,12 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
         onEnded={handleEnded}
       />
 
-      {/* Custom Controls Overlay */}
       <div
         className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 ${
           showControls || !isPlaying ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <div className="absolute bottom-0 left-0 right-0 p-4">
-          {/* Progress Bar */}
           <div
             className="relative w-full h-1 bg-x-border rounded cursor-pointer mb-4 group/progress"
             onClick={handleSeek}
@@ -109,7 +107,6 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
             />
           </div>
 
-          {/* Controls */}
           <div className="flex items-center justify-between text-x-text-primary">
             <div className="flex items-center space-x-4">
               <button
@@ -186,54 +183,61 @@ const ListProject: React.FC<ListProjectProps> = ({
   }, []);
 
   return (
-    <div className="">
-      <h3 className="text-2xl pb-4 flex justify-center items-center gap-x-3">
-        <a
-          href={githubLink}
-          target="_blank"
-          rel="noreferrer"
-          className="hover:opacity-80"
-        >
-          <FaGithub />
-        </a>
-        {project}
-        <a
-          href={liveProject}
-          target="_blank"
-          rel="noreferrer"
-          className="hover:opacity-80"
-        >
-          <FiExternalLink />
-        </a>
-      </h3>
+    <div>
+      {/* Project name as tweet opening */}
+      <p className="text-lg font-bold mb-2">{project}</p>
+
+      {/* Purpose / description as tweet body text */}
       {purpose && (
-        <div className="pb-4">
-          <h4 className="font-bold">Purpose:</h4>
-          <p className="ps-8">{purpose}</p>
-        </div>
+        <p className="text-[15px] text-x-text-primary mb-3">{purpose}</p>
       )}
-      {listitems && (
-        <div className="pb-4">
-          <h4 className="font-bold">Key Highlights:</h4>
-          <ul className="list-disc ps-8">
-            {listitems?.map((item: string) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
+      {listitems && listitems.length > 0 && (
+        <p className="text-[15px] text-x-text-primary mb-3 leading-relaxed">
+          {listitems.join(" ")}
+        </p>
       )}
+
+      {/* Tech stack as hashtags */}
       {techstack && (
-        <div className="pb-4">
-          <h4 className="font-bold">Tech Stack:</h4>
-          <h4 className="ps-8 font-light text-x-text-secondary">{techstack}</h4>
-        </div>
+        <p className="text-[15px] mb-3">
+          {techstack.split(",").map((tech) => (
+            <span key={tech.trim()} className="text-x-accent mr-2">
+              #{tech.trim().replace(/\s+/g, "")}
+            </span>
+          ))}
+        </p>
       )}
+
+      {/* Link cards — X-style embedded previews */}
+      <div className="flex gap-2 mb-3">
+        {githubLink && githubLink !== "#" && (
+          <a
+            href={githubLink}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 border border-x-border rounded-2xl px-4 py-2.5 hover:bg-x-tertiary transition-colors text-[15px]"
+          >
+            <FaGithub className="text-lg" />
+            <span className="text-x-text-secondary">Source Code</span>
+          </a>
+        )}
+        {liveProject && liveProject !== "#" && (
+          <a
+            href={liveProject}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 border border-x-border rounded-2xl px-4 py-2.5 hover:bg-x-tertiary transition-colors text-[15px]"
+          >
+            <FiExternalLink className="text-lg" />
+            <span className="text-x-text-secondary">Live Demo</span>
+          </a>
+        )}
+      </div>
+
+      {/* Demo video */}
       {demoVideo && (
-        <div className="pb-4">
-          <h4 className="font-bold mb-2">Demo Video:</h4>
-          <div className="aspect-video rounded-xl overflow-hidden">
-            <CustomVideoPlayer url={demoVideo} />
-          </div>
+        <div className="aspect-video rounded-2xl overflow-hidden">
+          <CustomVideoPlayer url={demoVideo} />
         </div>
       )}
     </div>
