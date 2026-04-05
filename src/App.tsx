@@ -15,6 +15,7 @@ import {
 } from "./components/tweets/__index__";
 import PinnedTweet from "./components/tweets/PinnedTweet";
 import RightSidebar from "./components/sidebar/RightSidebar";
+import LeftSidebar from "./components/sidebar/LeftSidebar";
 import { Link } from "react-router-dom";
 import { ProjectsData } from "./config";
 import Footer from "./components/Footer";
@@ -26,8 +27,10 @@ const App = () => {
     <>
       {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
       <div className={`max-w-[1280px] mx-auto flex justify-center ${isLoading ? 'hidden' : ''}`}>
-        {/* Left spacer (will become LeftSidebar in Commit 10) */}
-        <div className="hidden xl:block w-[275px]" />
+        {/* Left sidebar */}
+        <div className="hidden xl:flex w-[275px] flex-col items-end pr-6">
+          <LeftSidebar />
+        </div>
 
         {/* Main feed — 600px max like X */}
         <main className="flex-1 max-w-[600px] min-h-screen border-x border-x-border">
@@ -52,7 +55,9 @@ const App = () => {
           <div id="section-experience">
             <Tweet TweetComponent={<Experience />} date="Apr 2023" />
           </div>
-          <Tweet TweetComponent={<Achievements />} date="2023" />
+          <div id="section-achievements">
+            <Tweet TweetComponent={<Achievements />} date="2023" />
+          </div>
           <Tweet TweetComponent={<Education />} date="Jul 2019" />
           <Tweet TweetComponent={<Skills />} date="2024" />
           <Tweet TweetComponent={<Hobbies />} date="Forever" />
