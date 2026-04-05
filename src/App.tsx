@@ -16,6 +16,7 @@ import {
 import PinnedTweet from "./components/tweets/PinnedTweet";
 import RightSidebar from "./components/sidebar/RightSidebar";
 import LeftSidebar from "./components/sidebar/LeftSidebar";
+import BottomNav from "./components/sidebar/BottomNav";
 import { Link } from "react-router-dom";
 import { ProjectsData } from "./config";
 import Footer from "./components/Footer";
@@ -40,8 +41,8 @@ const App = () => {
           <LeftSidebar />
         </div>
 
-        {/* Main feed — 600px max like X */}
-        <main id="main-feed" className="flex-1 max-w-[600px] min-h-screen border-x border-x-border">
+        {/* Main feed — 600px max like X, no side borders on mobile */}
+        <main id="main-feed" className="flex-1 max-w-[600px] min-h-screen md:border-x md:border-x-border pb-14 md:pb-0">
           <Header />
           <Profile />
           <ProfileTabs />
@@ -77,6 +78,9 @@ const App = () => {
           <RightSidebar />
         </div>
       </div>
+
+      {/* Mobile bottom navigation */}
+      <BottomNav />
     </>
   );
 };

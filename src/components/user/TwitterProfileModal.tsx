@@ -102,7 +102,7 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
   return (
     <div>
       <div
-        className="-mt-[68px] md:-mt-[80px] border-[4px] border-x-primary rounded-full overflow-hidden cursor-pointer w-[120px] h-[120px] md:w-[133px] md:h-[133px]"
+        className="-mt-[50px] md:-mt-[80px] border-[4px] border-x-primary rounded-full overflow-hidden cursor-pointer w-20 h-20 md:w-[133px] md:h-[133px]"
         onClick={openModal}
       >
         <img
