@@ -35,7 +35,7 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
               TweetComponent={
                 <ListProject
                   project={project?.projectName || ""}
-                  purpose={project?.purpose || ""}
+                  purpose={(project as any)?.purpose || ""}
                   githubLink={project?.githubLink || ""}
                   liveProject={project?.liveProject || ""}
                   listitems={project?.listItems || []}
