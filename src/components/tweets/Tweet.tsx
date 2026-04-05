@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PROFILE_IMAGE from "../../assets/profile.jpg";
 import { DISPLAYNAME, X_USERNAME } from "../../config";
+import useInView from "../../hooks/useInView";
 import {
   LikeButton,
   CommentButton,
@@ -19,9 +20,15 @@ interface Props {
 
 const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets, pinned, date }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const { ref, isInView } = useInView(0.05);
 
   return (
-    <div className="w-full">
+    <div
+      ref={ref}
+      className={`w-full transition-all duration-500 ${
+        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      }`}
+    >
       <div className="p-4 border border-x-border hover:bg-x-tertiary transition-colors duration-200 cursor-pointer">
         {/* Pinned label */}
         {pinned && (

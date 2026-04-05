@@ -44,6 +44,10 @@
   --color-reply: #1D9BF0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
