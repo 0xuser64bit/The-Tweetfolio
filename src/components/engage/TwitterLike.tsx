@@ -21,6 +21,8 @@ const LikeButton = () => {
       <button
         className="p-2 rounded-full group-hover/like:bg-x-like/10 transition-colors"
         onClick={handleLike}
+        aria-label={liked ? "Unlike this tweet" : "Like this tweet"}
+        aria-pressed={liked}
       >
         <svg
           viewBox="0 0 24 24"

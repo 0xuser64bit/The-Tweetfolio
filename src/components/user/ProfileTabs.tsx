@@ -19,10 +19,13 @@ const ProfileTabs = () => {
   };
 
   return (
-    <div className="flex border-b border-x-border">
+    <div className="flex border-b border-x-border" role="tablist" aria-label="Profile sections">
       {tabs.map((tab) => (
         <button
           key={tab.label}
+          role="tab"
+          aria-selected={activeTab === tab.label}
+          aria-controls={tab.sectionId}
           onClick={() => handleTabClick(tab)}
           className="flex-1 relative py-4 text-center hover:bg-x-tertiary transition-colors"
         >

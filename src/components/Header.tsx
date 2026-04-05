@@ -26,7 +26,7 @@ const Header = () => {
         <div className="flex justify-between">
           <h1>{HEADER_DISPLAY_NAME}</h1>
           <div className="flex items-center gap-2">
-            <button className="" onClick={cycleTheme} title={`Theme: ${theme}`}>
+            <button className="" onClick={cycleTheme} title={`Theme: ${theme}`} aria-label={`Switch theme, currently ${theme}`}>
               <ThemeIcon />
             </button>
             <button className="">

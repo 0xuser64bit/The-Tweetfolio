@@ -39,6 +39,9 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Profile image preview"
       className={`fixed z-[9999] inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-100'
         }`}
     >
@@ -59,7 +62,7 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
         >
           <img
             src={src}
-            alt="Profile"
+            alt="Arth Prajapati's profile photo"
             className="w-full rounded-full"
             style={{ minWidth: '300px', maxWidth: '500px' }}
             loading="lazy"
@@ -104,7 +107,7 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
       >
         <img
           src={image}
-          alt="Profile"
+          alt="Arth Prajapati's profile photo"
           className="w-full h-full object-cover"
         />
       </div>

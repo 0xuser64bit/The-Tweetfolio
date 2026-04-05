@@ -12,6 +12,8 @@ const RetweetButton = () => {
       <button
         className="p-2 rounded-full group-hover/rt:bg-x-retweet/10 transition-colors"
         onClick={handleRetweet}
+        aria-label={retweeted ? "Undo retweet" : "Retweet"}
+        aria-pressed={retweeted}
       >
         <svg
           viewBox="0 0 24 24"

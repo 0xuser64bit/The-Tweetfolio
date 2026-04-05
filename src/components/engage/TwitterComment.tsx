@@ -16,6 +16,7 @@ const CommentButton: React.FC<Props> = ({ thread = 0 }) => {
       <button
         className="p-2 rounded-full group-hover/reply:bg-x-accent/10 transition-colors"
         onClick={handleComment}
+        aria-label="Reply to this tweet"
       >
         <svg
           viewBox="0 0 24 24"

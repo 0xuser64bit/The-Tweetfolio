@@ -39,6 +39,9 @@ const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosi
 
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Cover image preview"
       className={`fixed z-[9999] inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-100'
         }`}
     >
@@ -55,7 +58,7 @@ const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosi
         <div ref={coverModalRef}>
           <img
             src={src}
-            alt="Cover"
+            alt="Arth Prajapati's cover photo"
             className={`mx-auto rounded-lg max-h-[80vh] max-w-full object-contain shadow-2xl transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-90' : isOpening ? 'scale-100' : 'scale-90'
               }`}
             style={{ minHeight: '300px' }}
@@ -101,7 +104,7 @@ const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
       >
         <img
           src={image}
-          alt="Cover"
+          alt="Arth Prajapati's cover photo"
           className="w-full h-full object-cover"
         />
       </div>

@@ -15,6 +15,7 @@ const ShareButton = () => {
       <button
         className="p-2 rounded-full group-hover/share:bg-x-accent/10 transition-colors"
         onClick={handleShare}
+        aria-label="Share this tweet"
       >
         <svg
           viewBox="0 0 24 24"

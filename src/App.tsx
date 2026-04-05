@@ -27,13 +27,21 @@ const App = () => {
     <>
       {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
       <div className={`max-w-[1280px] mx-auto flex justify-center ${isLoading ? 'hidden' : ''}`}>
+        {/* Skip to main content */}
+        <a
+          href="#main-feed"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[200] focus:bg-x-accent focus:text-white focus:px-4 focus:py-2 focus:rounded-lg"
+        >
+          Skip to main content
+        </a>
+
         {/* Left sidebar */}
         <div className="hidden xl:flex w-[275px] flex-col items-end pr-6">
           <LeftSidebar />
         </div>
 
         {/* Main feed — 600px max like X */}
-        <main className="flex-1 max-w-[600px] min-h-screen border-x border-x-border">
+        <main id="main-feed" className="flex-1 max-w-[600px] min-h-screen border-x border-x-border">
           <Header />
           <Profile />
           <ProfileTabs />
