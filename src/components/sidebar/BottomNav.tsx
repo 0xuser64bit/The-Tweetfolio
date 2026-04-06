@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { HiOutlineHome, HiOutlineBriefcase, HiOutlineBell, HiOutlineMail } from "react-icons/hi";
-import { CONTACT_EMAIL } from "../../config";
+import { HiOutlineHome, HiOutlineBriefcase, HiOutlineBell } from "react-icons/hi";
+import { GoGitPullRequest } from "react-icons/go";
 
 const BottomNav = () => {
   const navigate = useNavigate();
@@ -25,14 +25,14 @@ const BottomNav = () => {
       action: () => navigate("/proof-of-work"),
     },
     {
+      icon: <GoGitPullRequest className="text-2xl" />,
+      label: "Open Source",
+      action: () => scrollTo("section-contributions"),
+    },
+    {
       icon: <HiOutlineBell className="text-2xl" />,
       label: "Skills",
       action: () => scrollTo("section-skills"),
-    },
-    {
-      icon: <HiOutlineMail className="text-2xl" />,
-      label: "Contact",
-      action: () => { window.location.href = `mailto:${CONTACT_EMAIL}`; },
     },
   ];
 

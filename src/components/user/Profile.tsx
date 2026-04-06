@@ -4,8 +4,6 @@ import PROFILE_IMAGE from "../../assets/profile.jpg";
 import UserInfo from "./UserInfo";
 import TwitterCoverModal from "./TwitterCoverModal";
 import TwitterProfileModal from "./TwitterProfileModal";
-import { CONTACT_EMAIL } from "../../config";
-import { openGmailCompose } from "../../utils/openGmail";
 
 const Profile = () => {
   return (
@@ -15,15 +13,9 @@ const Profile = () => {
         <TwitterCoverModal image={COVER_IMAGE} />
       </div>
 
-      {/* Avatar + Action Button row */}
+      {/* Avatar row */}
       <div className="flex justify-between items-start px-4">
         <TwitterProfileModal image={PROFILE_IMAGE} />
-        <button
-          onClick={() => openGmailCompose(CONTACT_EMAIL)}
-          className="mt-3 border border-x-border text-x-text-primary rounded-full px-4 py-1.5 font-bold text-sm hover:bg-x-tertiary transition-colors cursor-pointer"
-        >
-          Contact me
-        </button>
       </div>
 
       <div>

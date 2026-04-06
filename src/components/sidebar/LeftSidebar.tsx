@@ -3,9 +3,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { HiOutlineHome, HiHome } from "react-icons/hi";
 import { HiOutlineUser, HiUser, HiOutlineBriefcase, HiBriefcase } from "react-icons/hi";
 import { HiOutlineBell, HiBell } from "react-icons/hi";
-import { HiOutlineMail, HiMail } from "react-icons/hi";
-import { CONTACT_EMAIL } from "../../config";
-import { openGmailCompose } from "../../utils/openGmail";
 
 interface NavItem {
   label: string;
@@ -57,12 +54,6 @@ const LeftSidebar = () => {
       iconFilled: <HiBell className="text-[26px]" />,
       action: () => scrollTo("section-skills"),
     },
-    {
-      label: "Contact",
-      iconOutline: <HiOutlineMail className="text-[26px]" />,
-      iconFilled: <HiMail className="text-[26px]" />,
-      action: () => openGmailCompose(CONTACT_EMAIL),
-    },
   ];
 
   return (
@@ -89,14 +80,6 @@ const LeftSidebar = () => {
           </button>
         ))}
       </nav>
-
-      {/* Post / CTA Button */}
-      <button
-        onClick={() => openGmailCompose(CONTACT_EMAIL)}
-        className="mt-4 bg-x-accent text-white rounded-full py-3 px-5 font-bold text-[17px] text-center hover:bg-x-accent/90 transition-colors block w-full cursor-pointer"
-      >
-        Hire Me
-      </button>
     </div>
   );
 };
