@@ -14,7 +14,7 @@ const TwitterViews = () => {
 
   return (
     <div className="flex items-center gap-1 group/views">
-      <div className="p-2 rounded-full group-hover/views:bg-x-accent/10 transition-colors">
+      <div className="p-1.5 sm:p-2 rounded-full group-hover/views:bg-x-accent/10 transition-colors">
         <svg
           viewBox="0 0 24 24"
           className="w-[18px] h-[18px] fill-x-text-secondary group-hover/views:fill-x-accent transition-colors"

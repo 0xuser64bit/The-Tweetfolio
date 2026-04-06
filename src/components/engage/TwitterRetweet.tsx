@@ -10,7 +10,7 @@ const RetweetButton = () => {
   return (
     <div className="flex items-center gap-1 group/rt">
       <button
-        className="p-2 rounded-full group-hover/rt:bg-x-retweet/10 transition-colors"
+        className="p-1.5 sm:p-2 rounded-full group-hover/rt:bg-x-retweet/10 transition-colors"
         onClick={handleRetweet}
         aria-label={retweeted ? "Undo retweet" : "Retweet"}
         aria-pressed={retweeted}

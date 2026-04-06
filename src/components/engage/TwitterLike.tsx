@@ -19,7 +19,7 @@ const LikeButton = () => {
   return (
     <div className="flex items-center gap-1 group/like">
       <button
-        className="p-2 rounded-full group-hover/like:bg-x-like/10 transition-colors"
+        className="p-1.5 sm:p-2 rounded-full group-hover/like:bg-x-like/10 transition-colors"
         onClick={handleLike}
         aria-label={liked ? "Unlike this tweet" : "Like this tweet"}
         aria-pressed={liked}

@@ -14,7 +14,7 @@ const CommentButton: React.FC<Props> = ({ thread = 0 }) => {
   return (
     <div className="flex items-center gap-1 group/reply">
       <button
-        className="p-2 rounded-full group-hover/reply:bg-x-accent/10 transition-colors"
+        className="p-1.5 sm:p-2 rounded-full group-hover/reply:bg-x-accent/10 transition-colors"
         onClick={handleComment}
         aria-label="Reply to this tweet"
       >

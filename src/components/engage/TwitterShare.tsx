@@ -13,7 +13,7 @@ const ShareButton = () => {
   return (
     <div className="relative flex items-center group/share">
       <button
-        className="p-2 rounded-full group-hover/share:bg-x-accent/10 transition-colors"
+        className="p-1.5 sm:p-2 rounded-full group-hover/share:bg-x-accent/10 transition-colors"
         onClick={handleShare}
         aria-label="Share this tweet"
       >
