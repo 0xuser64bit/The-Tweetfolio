@@ -6,10 +6,10 @@ const Education = () => {
   return (
     <div>
       <div>
-        <h3 className="text-center text-2xl font-bold hover:opacity-80 ease-in-out">
-          Education
+        <h3 className="text-xl font-bold mb-4">
+          🎓 Education
         </h3>
-        <ol className="relative border-s border-x-border mt-4">
+        <ol className="relative border-s border-x-border">
           {EducationData?.map(({ date, title, description }) => (
             <Timeline
               key={title}

@@ -25,43 +25,43 @@ const Contributions = () => {
 
   return (
     <div className="w-full">
-      <h3 className="text-2xl font-bold text-center pb-4">
-        Open Source Contributions
-      </h3>
+      <h3 className="text-xl font-bold pb-4">🧑‍💻 Open Source Contributions</h3>
 
       {/* Desktop Table (hidden on mobile) */}
       <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full border-x-border">
           <thead>
             <tr className="bg-x-secondary text-x-text-primary">
-              <th className="p-4 border-b border-x-border">#</th>
-              <th className="p-4 border-b border-x-border">Title</th>
-              <th className="p-4 border-b border-x-border text-center">Type</th>
-              <th className="p-4 border-b border-x-border">Status</th>
-              <th className="p-4 border-b border-x-border">Link</th>
+              <th className="p-4 border-b border-x-border text-left w-10">#</th>
+              <th className="p-4 border-b border-x-border text-left">Title</th>
+              <th className="p-4 border-b border-x-border text-center w-20">Type</th>
+              <th className="p-4 border-b border-x-border text-center w-20">Status</th>
+              <th className="p-4 border-b border-x-border text-center w-20">Link</th>
             </tr>
           </thead>
           <tbody>
             {ContributionData.map((item, index) => (
-              <tr key={index}>
-                <td className="p-4 border-b border-x-border">{index + 1}</td>
+              <tr key={index} className="hover:bg-x-secondary/50 transition-colors">
+                <td className="p-4 border-b border-x-border text-x-text-secondary">{index + 1}</td>
                 <td className="p-4 border-b border-x-border">{item.title}</td>
-                <td className="p-4 border-b border-x-border uppercase text-center">
+                <td className="p-4 border-b border-x-border uppercase text-center text-x-text-secondary text-sm">
                   {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
                 </td>
-                <td className="p-4 border-b border-x-border ps-10">
-                  {getStatusIcon(item.status)}
+                <td className="p-4 border-b border-x-border text-center">
+                  <div className="flex justify-center">{getStatusIcon(item.status)}</div>
                 </td>
-                <td className="p-4 border-b border-x-border ps-10">
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    <FaGithub className="text-x-text-primary text-2xl" />
-                  </a>
+                <td className="p-4 border-b border-x-border text-center">
+                  <div className="flex justify-center">
+                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
+                      <FaGithub className="text-x-text-primary text-xl" />
+                    </a>
+                  </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="text-center text-sm text-x-text-secondary mt-2">
+        <div className="text-center text-sm text-x-text-secondary mt-3 pb-1">
           More on{" "}
           <a
             href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}

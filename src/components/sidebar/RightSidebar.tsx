@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import PROFILE_IMAGE from "../../assets/profile.jpg";
 import { SkillsData, GITHUB_USERNAME, X_USERNAME, CONTACT_EMAIL } from "../../config";
@@ -69,7 +69,7 @@ const RightSidebar = () => {
               <p className="text-[15px] font-bold text-x-text-primary truncate">{link.name}</p>
               <p className="text-[13px] text-x-text-secondary truncate">{link.handle}</p>
             </div>
-            <span className="bg-x-text-primary text-x-primary rounded-full px-4 py-1.5 text-sm font-bold hover:opacity-90 transition-opacity">
+            <span className="border border-x-border text-x-text-primary rounded-full px-4 py-1.5 text-sm font-bold hover:bg-x-tertiary transition-colors whitespace-nowrap">
               Follow
             </span>
           </a>

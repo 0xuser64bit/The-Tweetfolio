@@ -92,7 +92,7 @@ const LeftSidebar = () => {
       {/* Post / CTA Button */}
       <a
         href={`mailto:${CONTACT_EMAIL}`}
-        className="mt-4 bg-x-accent text-white rounded-full py-3 font-bold text-[17px] text-center hover:bg-x-accent/90 transition-colors w-full block"
+        className="mt-4 bg-x-accent text-white rounded-full py-3 px-5 font-bold text-[17px] text-center hover:bg-x-accent/90 transition-colors block"
       >
         Hire Me
       </a>

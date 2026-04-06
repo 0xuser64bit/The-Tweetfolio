@@ -6,10 +6,10 @@ const Experience = () => {
   return (
     <div>
       <div>
-        <h3 className="text-center text-2xl font-bold hover:opacity-80 ease-in-out">
-          Experience
+        <h3 className="text-xl font-bold mb-4">
+          💼 Experience
         </h3>
-        <ol className="relative border-s border-x-border mt-4">
+        <ol className="relative border-s border-x-border">
           {ExperienceData?.map(({ timeline, company_name, description }) => (
             <Timeline
               key={company_name}

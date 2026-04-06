@@ -95,16 +95,16 @@ const UserInfo = () => {
 
         {/* Profile tags */}
         <div className="mt-3">
-          <p className="text-[15px]">
+          <div className="flex flex-wrap gap-x-1 gap-y-0.5 text-[15px]">
             {PROFILE_TAGS.map((tag) => (
               <span
-                className="hover:text-x-text-secondary cursor-pointer pe-2"
+                className="hover:text-x-text-secondary cursor-pointer"
                 key={tag}
               >
                 {tag}
               </span>
             ))}
-          </p>
+          </div>
         </div>
       </div>
     </div>
