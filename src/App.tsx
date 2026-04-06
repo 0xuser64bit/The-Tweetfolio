@@ -9,7 +9,6 @@ import {
   Skills,
   Experience,
   Projects,
-  Achievements,
   Contributions,
   Hobbies,
 } from "./components/tweets/__index__";
@@ -64,11 +63,11 @@ const App = () => {
           <div id="section-experience">
             <Tweet TweetComponent={<Experience />} date="Apr 2023" />
           </div>
-          <div id="section-achievements">
-            <Tweet TweetComponent={<Achievements />} date="2023" />
-          </div>
+          {/* Achievements hidden — can re-enable when there's more to show */}
           <Tweet TweetComponent={<Education />} date="Jul 2019" />
-          <Tweet TweetComponent={<Skills />} date="2024" />
+          <div id="section-skills">
+            <Tweet TweetComponent={<Skills />} date="2024" />
+          </div>
           <Tweet TweetComponent={<Hobbies />} date="Forever" />
           <Footer />
         </main>

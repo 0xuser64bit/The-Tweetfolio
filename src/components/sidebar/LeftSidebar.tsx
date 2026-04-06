@@ -52,10 +52,10 @@ const LeftSidebar = () => {
       action: () => navigate("/proof-of-work"),
     },
     {
-      label: "Achievements",
+      label: "Skills",
       iconOutline: <HiOutlineBell className="text-[26px]" />,
       iconFilled: <HiBell className="text-[26px]" />,
-      action: () => scrollTo("section-achievements"),
+      action: () => scrollTo("section-skills"),
     },
     {
       label: "Contact",

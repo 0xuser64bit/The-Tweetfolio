@@ -26,8 +26,8 @@ const BottomNav = () => {
     },
     {
       icon: <HiOutlineBell className="text-2xl" />,
-      label: "Achievements",
-      action: () => scrollTo("section-achievements"),
+      label: "Skills",
+      action: () => scrollTo("section-skills"),
     },
     {
       icon: <HiOutlineMail className="text-2xl" />,
