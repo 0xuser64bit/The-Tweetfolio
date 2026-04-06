@@ -2,7 +2,9 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { HiOutlineHome, HiHome } from "react-icons/hi";
 import { HiOutlineUser, HiUser, HiOutlineBriefcase, HiBriefcase } from "react-icons/hi";
-import { HiOutlineBell, HiBell } from "react-icons/hi";
+import { HiOutlineCode, HiCode } from "react-icons/hi";
+import { HiOutlineAcademicCap, HiAcademicCap } from "react-icons/hi";
+import { HiOutlineLightningBolt, HiLightningBolt } from "react-icons/hi";
 
 interface NavItem {
   label: string;
@@ -49,9 +51,21 @@ const LeftSidebar = () => {
       action: () => navigate("/proof-of-work"),
     },
     {
+      label: "Open Source",
+      iconOutline: <HiOutlineCode className="text-[26px]" />,
+      iconFilled: <HiCode className="text-[26px]" />,
+      action: () => scrollTo("section-contributions"),
+    },
+    {
+      label: "Experience",
+      iconOutline: <HiOutlineLightningBolt className="text-[26px]" />,
+      iconFilled: <HiLightningBolt className="text-[26px]" />,
+      action: () => scrollTo("section-experience"),
+    },
+    {
       label: "Skills",
-      iconOutline: <HiOutlineBell className="text-[26px]" />,
-      iconFilled: <HiBell className="text-[26px]" />,
+      iconOutline: <HiOutlineAcademicCap className="text-[26px]" />,
+      iconFilled: <HiAcademicCap className="text-[26px]" />,
       action: () => scrollTo("section-skills"),
     },
   ];
