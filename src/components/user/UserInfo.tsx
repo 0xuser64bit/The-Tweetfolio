@@ -1,13 +1,11 @@
 import React from "react";
-import { HiOutlineCalendar, HiOutlineLocationMarker, HiOutlineLink } from "react-icons/hi";
+import { HiOutlineLocationMarker, HiOutlineLink } from "react-icons/hi";
 import {
-  PROFILE_TAGS,
   DISPLAYNAME,
   X_USERNAME,
   GITHUB_USERNAME,
   GITHUB_QUOTE,
   ABOUT_YOU,
-  JOINED_DATE,
   LOCATION,
   WEBSITE,
   GITHUB_FOLLOWERS,
@@ -73,12 +71,6 @@ const UserInfo = () => {
               </a>
             </span>
           )}
-          {JOINED_DATE && (
-            <span className="flex items-center gap-1">
-              <HiOutlineCalendar className="text-base" />
-              Joined {JOINED_DATE}
-            </span>
-          )}
         </div>
 
         {/* Following / Followers */}
@@ -91,20 +83,6 @@ const UserInfo = () => {
             <span className="font-bold text-x-text-primary">{GITHUB_FOLLOWERS}</span>{" "}
             <span className="text-x-text-secondary">Followers</span>
           </span>
-        </div>
-
-        {/* Profile tags */}
-        <div className="mt-3">
-          <div className="flex flex-wrap gap-x-1 gap-y-0.5 text-[15px]">
-            {PROFILE_TAGS.map((tag) => (
-              <span
-                className="hover:text-x-text-secondary cursor-pointer"
-                key={tag}
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </div>

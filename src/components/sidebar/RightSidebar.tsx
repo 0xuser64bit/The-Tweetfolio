@@ -2,9 +2,7 @@ import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 import PROFILE_IMAGE from "../../assets/profile.jpg";
-import { SkillsData, GITHUB_USERNAME, X_USERNAME, CONTACT_EMAIL } from "../../config";
-
-const skillCategories = Object.entries(SkillsData).slice(0, 2);
+import { GITHUB_USERNAME, X_USERNAME, CONTACT_EMAIL } from "../../config";
 
 const connectLinks = [
   {
@@ -34,23 +32,6 @@ const connectLinks = [
 const RightSidebar = () => {
   return (
     <div className="sticky top-4 flex flex-col gap-4">
-      {/* What's happening — Tech Stack */}
-      <div className="bg-x-secondary rounded-2xl py-3">
-        <h2 className="text-xl font-bold text-x-text-primary px-4 pb-2">What's happening</h2>
-        {skillCategories.map(([category, items]) =>
-          items.slice(0, 3).map((skill) => (
-            <div key={skill} className="px-4 py-3 hover:bg-x-tertiary transition-colors cursor-pointer">
-              <p className="text-[13px] text-x-text-secondary">{category} · Trending</p>
-              <p className="text-[15px] font-bold text-x-text-primary">{skill}</p>
-              <p className="text-[13px] text-x-text-secondary">3+ years experience</p>
-            </div>
-          ))
-        )}
-        <div className="px-4 py-3 hover:bg-x-tertiary transition-colors cursor-pointer">
-          <span className="text-[15px] text-x-accent">Show more</span>
-        </div>
-      </div>
-
       {/* Who to follow — Connect */}
       <div className="bg-x-secondary rounded-2xl py-3">
         <h2 className="text-xl font-bold text-x-text-primary px-4 pb-2">Who to follow</h2>
