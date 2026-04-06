@@ -62,7 +62,7 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
         >
           <img
             src={src}
-            alt="Arth Prajapati's profile photo"
+            alt="Arth Prajapati's profile"
             className="w-full rounded-full"
             style={{ minWidth: '300px', maxWidth: '500px' }}
             loading="lazy"
@@ -102,12 +102,12 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
   return (
     <div>
       <div
-        className="-mt-[50px] md:-mt-[80px] border-[4px] border-x-primary rounded-full overflow-hidden cursor-pointer w-20 h-20 md:w-[133px] md:h-[133px]"
+        className="relative z-10 -mt-[50px] md:-mt-[80px] border-[4px] border-x-primary rounded-full overflow-hidden cursor-pointer w-20 h-20 md:w-[133px] md:h-[133px]"
         onClick={openModal}
       >
         <img
           src={image}
-          alt="Arth Prajapati's profile photo"
+          alt="Arth Prajapati's profile"
           className="w-full h-full object-cover"
         />
       </div>
