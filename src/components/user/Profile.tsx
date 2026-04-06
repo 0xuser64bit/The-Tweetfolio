@@ -5,6 +5,7 @@ import UserInfo from "./UserInfo";
 import TwitterCoverModal from "./TwitterCoverModal";
 import TwitterProfileModal from "./TwitterProfileModal";
 import { CONTACT_EMAIL } from "../../config";
+import { openGmailCompose } from "../../utils/openGmail";
 
 const Profile = () => {
   return (
@@ -17,12 +18,12 @@ const Profile = () => {
       {/* Avatar + Action Button row */}
       <div className="flex justify-between items-start px-4">
         <TwitterProfileModal image={PROFILE_IMAGE} />
-        <a
-          href={`mailto:${CONTACT_EMAIL}`}
-          className="mt-3 border border-x-border text-x-text-primary rounded-full px-4 py-1.5 font-bold text-sm hover:bg-x-tertiary transition-colors"
+        <button
+          onClick={() => openGmailCompose(CONTACT_EMAIL)}
+          className="mt-3 border border-x-border text-x-text-primary rounded-full px-4 py-1.5 font-bold text-sm hover:bg-x-tertiary transition-colors cursor-pointer"
         >
           Contact me
-        </a>
+        </button>
       </div>
 
       <div>

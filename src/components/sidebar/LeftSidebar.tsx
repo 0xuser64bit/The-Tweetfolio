@@ -5,6 +5,7 @@ import { HiOutlineUser, HiUser, HiOutlineBriefcase, HiBriefcase } from "react-ic
 import { HiOutlineBell, HiBell } from "react-icons/hi";
 import { HiOutlineMail, HiMail } from "react-icons/hi";
 import { CONTACT_EMAIL } from "../../config";
+import { openGmailCompose } from "../../utils/openGmail";
 
 interface NavItem {
   label: string;
@@ -60,7 +61,7 @@ const LeftSidebar = () => {
       label: "Contact",
       iconOutline: <HiOutlineMail className="text-[26px]" />,
       iconFilled: <HiMail className="text-[26px]" />,
-      action: () => { window.location.href = `mailto:${CONTACT_EMAIL}`; },
+      action: () => openGmailCompose(CONTACT_EMAIL),
     },
   ];
 
@@ -90,12 +91,12 @@ const LeftSidebar = () => {
       </nav>
 
       {/* Post / CTA Button */}
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        className="mt-4 bg-x-accent text-white rounded-full py-3 px-5 font-bold text-[17px] text-center hover:bg-x-accent/90 transition-colors block"
+      <button
+        onClick={() => openGmailCompose(CONTACT_EMAIL)}
+        className="mt-4 bg-x-accent text-white rounded-full py-3 px-5 font-bold text-[17px] text-center hover:bg-x-accent/90 transition-colors block w-full cursor-pointer"
       >
         Hire Me
-      </a>
+      </button>
     </div>
   );
 };

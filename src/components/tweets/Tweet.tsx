@@ -126,7 +126,7 @@ const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets, pinned, date, 
             </div>
 
             {/* Engagement Buttons */}
-            <div className="flex justify-between items-center pt-2 max-w-full">
+            <div className="flex justify-between items-center pt-2 -mr-2 overflow-visible">
               <ViewsButton />
               <CommentButton thread={numberOfTweets} />
               <RetweetButton />
