@@ -24,27 +24,21 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
         </div>
 
         {ProjectsData?.map((project, i) => (
-          <div key={project.projectName} className="relative">
-            {/* Thread connector line */}
-            {i < (ProjectsData?.length || 0) - 1 && (
-              <div
-                className="absolute left-[36px] top-[56px] bottom-0 w-[2px] bg-x-border"
+          <Tweet
+            key={project.projectName}
+            isThreaded={i < (ProjectsData?.length || 0) - 1}
+            TweetComponent={
+              <ListProject
+                project={project?.projectName || ""}
+                purpose={(project as any)?.purpose || ""}
+                githubLink={project?.githubLink || ""}
+                liveProject={project?.liveProject || ""}
+                listitems={project?.listItems || []}
+                techstack={project?.techStack || ""}
+                demoVideo={project?.demoVideo || ""}
               />
-            )}
-            <Tweet
-              TweetComponent={
-                <ListProject
-                  project={project?.projectName || ""}
-                  purpose={(project as any)?.purpose || ""}
-                  githubLink={project?.githubLink || ""}
-                  liveProject={project?.liveProject || ""}
-                  listitems={project?.listItems || []}
-                  techstack={project?.techStack || ""}
-                  demoVideo={project?.demoVideo || ""}
-                />
-              }
-            />
-          </div>
+            }
+          />
         ))}
       </div>
     </div>
