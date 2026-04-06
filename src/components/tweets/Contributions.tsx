@@ -1,109 +1,100 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { ContributionData, GITHUB_USERNAME } from "../../config";
-import { GoGitPullRequest } from "react-icons/go"; // open PR
-import { FaCodeMerge } from "react-icons/fa6"; // merge PR
-import { GoIssueOpened } from "react-icons/go"; // open Issue
-import { GoIssueClosed } from "react-icons/go"; // solved issue
-import { MdReportProblem } from "react-icons/md";
+import { GoGitPullRequest, GoIssueClosed, GoIssueOpened } from "react-icons/go";
+import { FaCodeMerge } from "react-icons/fa6";
+
+const extractRepo = (url: string) => {
+  try {
+    const parts = url.replace("https://github.com/", "").split("/");
+    return `${parts[0]}/${parts[1]}`;
+  } catch {
+    return "";
+  }
+};
+
+const statusConfig: Record<string, { icon: React.ReactNode; label: string; color: string; bg: string }> = {
+  merged: {
+    icon: <FaCodeMerge className="text-[13px]" />,
+    label: "Merged",
+    color: "text-purple-400",
+    bg: "bg-purple-500/15",
+  },
+  open: {
+    icon: <GoGitPullRequest className="text-[13px]" />,
+    label: "Open",
+    color: "text-green-400",
+    bg: "bg-green-500/15",
+  },
+  issued: {
+    icon: <GoIssueOpened className="text-[13px]" />,
+    label: "Open",
+    color: "text-green-400",
+    bg: "bg-green-500/15",
+  },
+  solved: {
+    icon: <GoIssueClosed className="text-[13px]" />,
+    label: "Closed",
+    color: "text-purple-400",
+    bg: "bg-purple-500/15",
+  },
+};
 
 const Contributions = () => {
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case "merged":
-        return <FaCodeMerge className="text-purple-600 text-xl" />;
-      case "open":
-        return <GoGitPullRequest className="text-green-600 text-xl" />;
-      case "issued":
-        return <GoIssueOpened className="text-green-600 text-xl" />;
-      case "solved":
-        return <GoIssueClosed className="text-purple-600 text-xl" />;
-      default:
-        return <MdReportProblem className="text-red-400 text-xl" />;
-    }
-  };
-
   return (
     <div className="w-full">
-      <h3 className="text-xl font-bold pb-4">🧑‍💻 Open Source Contributions</h3>
+      <h3 className="text-xl font-bold mb-4">🧑‍💻 Open Source Contributions</h3>
 
-      {/* Desktop Table (hidden on mobile) */}
-      <div className="hidden md:block overflow-x-auto">
-        <table className="min-w-full border-x-border">
-          <thead>
-            <tr className="bg-x-secondary text-x-text-primary">
-              <th className="p-4 border-b border-x-border text-left w-10">#</th>
-              <th className="p-4 border-b border-x-border text-left">Title</th>
-              <th className="p-4 border-b border-x-border text-center w-20">Type</th>
-              <th className="p-4 border-b border-x-border text-center w-20">Status</th>
-              <th className="p-4 border-b border-x-border text-center w-20">Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ContributionData.map((item, index) => (
-              <tr key={index} className="hover:bg-x-secondary/50 transition-colors">
-                <td className="p-4 border-b border-x-border text-x-text-secondary">{index + 1}</td>
-                <td className="p-4 border-b border-x-border">{item.title}</td>
-                <td className="p-4 border-b border-x-border uppercase text-center text-x-text-secondary text-sm">
-                  {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
-                </td>
-                <td className="p-4 border-b border-x-border text-center">
-                  <div className="flex justify-center">{getStatusIcon(item.status)}</div>
-                </td>
-                <td className="p-4 border-b border-x-border text-center">
-                  <div className="flex justify-center">
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:opacity-70 transition-opacity">
-                      <FaGithub className="text-x-text-primary text-xl" />
-                    </a>
-                  </div>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="text-center text-sm text-x-text-secondary mt-3 pb-1">
-          More on{" "}
-          <a
-            href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-x-accent hover:text-x-accent/60 hover:underline"
-          >
-            Get Git
-          </a>
-        </div>
+      <div className="space-y-2.5">
+        {ContributionData.map((item, index) => {
+          const repo = extractRepo(item.link);
+          const isIssue = ["issued", "solved"].includes(item.status);
+          const status = statusConfig[item.status] || statusConfig.open;
+
+          return (
+            <a
+              key={index}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block bg-x-secondary rounded-xl p-3.5 hover:bg-x-tertiary transition-colors group border border-transparent hover:border-x-border"
+            >
+              {/* Top row: repo name + status badge */}
+              <div className="flex items-center justify-between mb-1.5">
+                <div className="flex items-center gap-1.5 text-x-text-secondary text-[13px] min-w-0">
+                  <FaGithub className="flex-shrink-0 text-sm" />
+                  <span className="truncate">{repo}</span>
+                </div>
+                <span className={`flex items-center gap-1 text-[12px] font-medium px-2 py-0.5 rounded-full ${status.color} ${status.bg} flex-shrink-0`}>
+                  {status.icon}
+                  {status.label}
+                </span>
+              </div>
+
+              {/* Title */}
+              <p className="text-[14px] text-x-text-primary font-medium leading-snug group-hover:text-x-accent transition-colors">
+                {item.title}
+              </p>
+
+              {/* Type label */}
+              <p className="text-[12px] text-x-text-secondary mt-1.5">
+                {isIssue ? "Issue" : "Pull Request"} · #{item.link.split("/").pop()}
+              </p>
+            </a>
+          );
+        })}
       </div>
 
-      {/* Mobile Cards (shown only on mobile) */}
-      <div className="md:hidden space-y-4">
-      <div className="text-center text-sm text-x-text-secondary my-2">
-          More on{" "}
-          <a
-            href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-x-accent hover:text-x-accent/60 hover:underline"
-          >
-            Get Git
-          </a>
-        </div>
-        {ContributionData.map((item, index) => (
-          <div key={index} className="bg-x-secondary p-4 rounded-lg space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="text-x-text-secondary">#{index + 1}</span>
-              <a href={item.link} target="_blank" rel="noopener noreferrer">
-                <FaGithub className="text-x-text-primary text-2xl" />
-              </a>
-            </div>
-            <h4 className="font-medium text-x-text-primary">{item.title}</h4>
-            <div className="flex justify-between items-center text-sm">
-              <span className="text-x-text-secondary uppercase">
-                {["issued", "solved"].includes(item.status) ? "Issue" : "PR"}
-              </span>
-              <span>{getStatusIcon(item.status)}</span>
-            </div>
-          </div>
-        ))}
+      {/* Footer */}
+      <div className="mt-4 text-center">
+        <a
+          href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-x-accent text-[14px] hover:underline"
+        >
+          View more on Get-Git →
+        </a>
       </div>
     </div>
   );
