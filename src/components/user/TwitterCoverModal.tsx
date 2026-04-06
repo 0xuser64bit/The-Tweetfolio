@@ -58,7 +58,7 @@ const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosi
         <div ref={coverModalRef}>
           <img
             src={src}
-            alt="Arth Prajapati's cover photo"
+            alt="Cover banner"
             className={`mx-auto rounded-lg max-h-[80vh] max-w-full object-contain shadow-2xl transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-90' : isOpening ? 'scale-100' : 'scale-90'
               }`}
             style={{ minHeight: '300px' }}
@@ -104,7 +104,7 @@ const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
       >
         <img
           src={image}
-          alt="Arth Prajapati's cover photo"
+          alt="Cover banner"
           className="w-full h-full object-cover"
         />
       </div>
