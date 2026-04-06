@@ -13,8 +13,7 @@
   "PINNED_TWEET": {
     "content": "Full-stack dev building at the intersection of Web3 & AI. Ex-Odoo. I ship fast and break things (then fix them). Currently freelancing — let's build something together.",
     "cta_text": "Get in touch",
-    "cta_link": "mailto:jack@user64bit.world",
-    "resume_link": "https://drive.google.com/file/d/your-resume-id/view"
+    "cta_link": "mailto:jack@user64bit.world"
   },
   "EducationData": [
     {
