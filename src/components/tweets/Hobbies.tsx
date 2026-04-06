@@ -12,7 +12,7 @@ const Hobbies = () => {
   return (
     <div>
       <h3 className="text-xl font-bold mb-4">⚡ When I'm not coding</h3>
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {HobbiesData?.map((hobby) => {
           const meta = hobbyMeta[hobby] || { emoji: "⭐", vibe: "" };
           return (

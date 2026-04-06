@@ -60,8 +60,8 @@ const Contributions = () => {
               className="block bg-x-secondary rounded-xl p-3.5 hover:bg-x-tertiary transition-colors group border border-transparent hover:border-x-border"
             >
               {/* Top row: repo name + status badge */}
-              <div className="flex items-center justify-between mb-1.5">
-                <div className="flex items-center gap-1.5 text-x-text-secondary text-[13px] min-w-0">
+              <div className="flex items-center justify-between gap-2 mb-1.5">
+                <div className="flex items-center gap-1.5 text-x-text-secondary text-[12px] sm:text-[13px] min-w-0">
                   <FaGithub className="flex-shrink-0 text-sm" />
                   <span className="truncate">{repo}</span>
                 </div>

@@ -25,15 +25,13 @@ const Header = () => {
         className="text-x-text-primary sticky top-0 px-4 py-2 md:py-4 font-bold z-[100] bg-x-primary/80 backdrop-blur-md border-x-border border-b md:border-l md:border-r"
       >
         <div className="flex justify-between items-center">
-          {/* Mobile: small avatar | Desktop: display name */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <img
               src={PROFILE_IMAGE}
               alt="Profile"
-              className="w-8 h-8 rounded-full md:hidden"
+              className="w-8 h-8 rounded-full md:hidden flex-shrink-0"
             />
-            <h1 className="hidden md:block">{HEADER_DISPLAY_NAME}</h1>
-            <h1 className="md:hidden text-lg">{HEADER_DISPLAY_NAME}</h1>
+            <h1 className="text-lg md:text-xl truncate">{HEADER_DISPLAY_NAME}</h1>
           </div>
           <div className="flex items-center gap-1">
             <button

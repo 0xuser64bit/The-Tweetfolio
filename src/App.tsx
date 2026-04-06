@@ -26,7 +26,7 @@ const App = () => {
   return (
     <>
       {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
-      <div className={`max-w-[1280px] mx-auto flex justify-center ${isLoading ? 'hidden' : ''}`}>
+      <div className={`w-full max-w-[1280px] mx-auto flex justify-center ${isLoading ? 'hidden' : ''}`}>
         {/* Skip to main content */}
         <a
           href="#main-feed"
@@ -41,7 +41,7 @@ const App = () => {
         </div>
 
         {/* Main feed — 600px max like X, no side borders on mobile */}
-        <main id="main-feed" className="flex-1 max-w-[600px] min-h-screen md:border-x md:border-x-border pb-14 md:pb-0">
+        <main id="main-feed" className="flex-1 w-full max-w-[600px] min-h-screen md:border-x md:border-x-border pb-16 md:pb-0 overflow-x-hidden">
           <Header />
           <Profile />
           <ProfileTabs />

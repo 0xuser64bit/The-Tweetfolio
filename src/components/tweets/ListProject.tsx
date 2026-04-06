@@ -108,17 +108,17 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
           </div>
 
           <div className="flex items-center justify-between text-x-text-primary">
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2 sm:space-x-4">
               <button
                 onClick={handlePlayPause}
                 className="hover:text-x-accent transition-colors p-1 rounded-full hover:bg-white/10"
               >
                 {isEnded ? (
-                  <MdOutlineReplay className="w-8 h-8" />
+                  <MdOutlineReplay className="w-6 h-6 sm:w-8 sm:h-8" />
                 ) : isPlaying ? (
-                  <BsPauseFill className="w-8 h-8" />
+                  <BsPauseFill className="w-6 h-6 sm:w-8 sm:h-8" />
                 ) : (
-                  <BsPlayFill className="w-8 h-8" />
+                  <BsPlayFill className="w-6 h-6 sm:w-8 sm:h-8" />
                 )}
               </button>
               <button
@@ -126,12 +126,12 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ url }) => {
                 className="hover:text-x-accent transition-colors p-1 rounded-full hover:bg-white/10"
               >
                 {isMuted ? (
-                  <HiSpeakerXMark className="w-6 h-6" />
+                  <HiSpeakerXMark className="w-5 h-5 sm:w-6 sm:h-6" />
                 ) : (
-                  <HiSpeakerWave className="w-6 h-6" />
+                  <HiSpeakerWave className="w-5 h-5 sm:w-6 sm:h-6" />
                 )}
               </button>
-              <span className="text-sm font-medium">
+              <span className="text-xs sm:text-sm font-medium">
                 {formatTime(duration * progress)} / {formatTime(duration)}
               </span>
             </div>
@@ -201,7 +201,7 @@ const ListProject: React.FC<ListProjectProps> = ({
       {techstack && (
         <p className="text-[15px] mb-3">
           {techstack.split(",").map((tech) => (
-            <span key={tech.trim()} className="text-x-accent mr-2">
+            <span key={tech.trim()} className="text-x-accent mr-2 inline-block">
               #{tech.trim().replace(/\s+/g, "")}
             </span>
           ))}
@@ -209,7 +209,7 @@ const ListProject: React.FC<ListProjectProps> = ({
       )}
 
       {/* Link cards — X-style embedded previews */}
-      <div className="flex gap-2 mb-3">
+      <div className="flex flex-wrap gap-2 mb-3">
         {githubLink && githubLink !== "#" && (
           <a
             href={githubLink}

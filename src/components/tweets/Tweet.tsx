@@ -69,15 +69,15 @@ const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets, pinned, date, 
           <div className="flex-1 min-w-0 pb-3">
             {/* Header row: name + more button */}
             <div className="flex justify-between items-start mb-1">
-              <p className="text-x-text-primary leading-tight">
+              <p className="text-x-text-primary leading-tight min-w-0">
                 <span className="font-bold hover:underline">{DISPLAYNAME}</span>
-                <span className="ml-2 font-normal text-x-text-secondary text-[15px]">
+                <span className="ml-1 sm:ml-2 font-normal text-x-text-secondary text-[13px] sm:text-[15px]">
                   @{X_USERNAME}
                 </span>
                 {date && (
                   <>
-                    <span className="text-x-text-secondary text-[15px]"> · </span>
-                    <span className="text-x-text-secondary text-[15px] hover:underline">{date}</span>
+                    <span className="text-x-text-secondary text-[13px] sm:text-[15px]"> · </span>
+                    <span className="text-x-text-secondary text-[13px] sm:text-[15px] hover:underline">{date}</span>
                   </>
                 )}
               </p>
@@ -126,7 +126,7 @@ const Tweet: React.FC<Props> = ({ TweetComponent, numberOfTweets, pinned, date, 
             </div>
 
             {/* Engagement Buttons */}
-            <div className="flex justify-between items-center pt-2 -mr-2 overflow-visible">
+            <div className="flex justify-between items-center pt-2 overflow-x-auto no-scrollbar gap-4 md:gap-0">
               <ViewsButton />
               <CommentButton thread={numberOfTweets} />
               <RetweetButton />

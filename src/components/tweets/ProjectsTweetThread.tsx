@@ -11,11 +11,11 @@ interface Props {
 
 const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
   return (
-    <div className="md:w-3/5 h-screen mx-auto">
+    <div className="w-full max-w-[600px] mx-auto min-h-screen pb-16 md:pb-0">
       <div>
         {/* Thread header — X style */}
         <div className="text-x-text-primary sticky top-0 p-4 font-bold z-[100] bg-x-primary/80 backdrop-blur-md border-x-border border-l border-r border-b">
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6">
             <Link to="/" className="hover:bg-x-tertiary p-2 rounded-full transition-colors">
               <BiArrowBack className="cursor-pointer text-xl" />
             </Link>

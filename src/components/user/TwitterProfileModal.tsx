@@ -64,7 +64,7 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
             src={src}
             alt="Arth Prajapati's profile"
             className="w-full rounded-full"
-            style={{ minWidth: '300px', maxWidth: '500px' }}
+            style={{ maxWidth: '500px' }}
             loading="lazy"
           />
         </div>

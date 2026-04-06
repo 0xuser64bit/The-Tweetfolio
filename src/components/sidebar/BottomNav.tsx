@@ -37,13 +37,16 @@ const BottomNav = () => {
   ];
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-x-primary/95 backdrop-blur-md border-t border-x-border">
-      <div className="flex justify-around items-center py-2 pb-safe">
+    <nav
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-x-primary/95 backdrop-blur-md border-t border-x-border"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+    >
+      <div className="flex justify-around items-center py-2">
         {items.map((item) => (
           <button
             key={item.label}
             onClick={item.action}
-            className="flex flex-col items-center gap-0.5 px-4 py-1.5 text-x-text-primary hover:text-x-accent transition-colors"
+            className="flex flex-col items-center gap-0.5 px-3 py-1.5 text-x-text-primary hover:text-x-accent transition-colors min-w-[56px]"
             aria-label={item.label}
           >
             {item.icon}

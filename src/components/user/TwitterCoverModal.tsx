@@ -61,7 +61,7 @@ const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosi
             alt="Cover banner"
             className={`mx-auto rounded-lg max-h-[80vh] max-w-full object-contain shadow-2xl transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-90' : isOpening ? 'scale-100' : 'scale-90'
               }`}
-            style={{ minHeight: '300px' }}
+            style={{ minHeight: '200px' }}
             loading="lazy"
           />
         </div>
