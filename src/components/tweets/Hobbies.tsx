@@ -11,24 +11,24 @@ const hobbyMeta: Record<string, { emoji: string; vibe: string }> = {
 const Hobbies = () => {
   return (
     <div>
-      <h3 className="text-xl font-bold mb-4">⚡ When I'm not coding</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <h2 className="text-[20px] font-extrabold text-x-text-primary mb-2">
+        ⚡ When I&apos;m not coding
+      </h2>
+      <ul className="flex flex-col gap-1.5">
         {HobbiesData?.map((hobby) => {
           const meta = hobbyMeta[hobby] || { emoji: "⭐", vibe: "" };
           return (
-            <div
-              key={hobby}
-              className="bg-x-secondary rounded-2xl p-4 hover:bg-x-tertiary transition-colors group"
-            >
-              <div className="text-3xl mb-2">{meta.emoji}</div>
-              <p className="font-bold text-[15px] text-x-text-primary">{hobby}</p>
+            <li key={hobby} className="text-[15px] leading-5">
+              <span className="text-x-accent font-medium">
+                {meta.emoji} #{hobby.toLowerCase()}
+              </span>
               {meta.vibe && (
-                <p className="text-[13px] text-x-text-secondary mt-0.5">{meta.vibe}</p>
+                <span className="text-x-text-secondary"> — {meta.vibe}</span>
               )}
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </div>
   );
 };
