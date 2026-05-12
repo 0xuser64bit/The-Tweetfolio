@@ -40,7 +40,12 @@
     }
   ],
   "SkillsData": {
-    "Programming Languages": ["Python", "C/C++", "JavaScript/TypeScript", "Rust"],
+    "Programming Languages": [
+      "Python",
+      "C/C++",
+      "JavaScript/TypeScript",
+      "Rust"
+    ],
     "Tools": [
       "React",
       "Node.js",
@@ -50,10 +55,27 @@
       "Docker",
       "Prisma"
     ],
-    "OS": ["Ubuntu", "Kali Linux", "Windows"],
-    "Databases": ["MongoDB", "PostgreSQL", "MySQL"]
+    "OS": [
+      "Ubuntu",
+      "Kali Linux",
+      "Windows"
+    ],
+    "Databases": [
+      "MongoDB",
+      "PostgreSQL",
+      "MySQL"
+    ]
   },
   "ProjectsData": [
+    {
+      "projectName": "Get Toasted",
+      "listItems": [
+        "Production SaaS that scans any Solana wallet for sandwich attacks and quantifies the USD lost to MEV. A typed detection pipeline in @get-toasted/core classifies front-run, victim, and back-run sets per slot with confidence scoring, priced via Jupiter Lite quotes. Real-time detection runs through HMAC-verified Helius webhooks; historical scans are paginated through BullMQ workers. Validated against Jito bundle ground truth with a 30/30 match rate. Turborepo monorepo: Next.js 16 dashboard, Hono API, and four dedicated workers (scanner, detector, risk-analyzer, validator-refresh) backed by Neon Postgres and Upstash Redis. Auth is Sign In With Solana, ed25519 verified, JWT issued."
+      ],
+      "githubLink": "https://github.com/user-64bit/GetToasted",
+      "liveProject": "https://gettoasted.fun",
+      "techStack": "NextJS, Hono, TypeScript, Drizzle, Neon Postgres, BullMQ, Upstash Redis, Turborepo, Helius, Jupiter, @solana/kit, Zod"
+    },
     {
       "projectName": "DAOnation",
       "listItems": [
@@ -133,6 +155,15 @@
       "techStack": "React, TailwindCSS, TypeScript"
     },
     {
+      "projectName": "Dev DNA",
+      "listItems": [
+        "A cinematic GitHub profile analyzer that turns any username into a developer identity report. Fetches profile, repos, and language stats from the GitHub API, scores the user against archetype profiles, and visualizes the result through animated terminal sequences, a custom canvas language chart, and an archetype card. UI is built around a glassmorphism landing card with an animated grid, floating particles, and a DNA-inspired background, all powered by framer-motion."
+      ],
+      "githubLink": "https://github.com/user-64bit/dev-dna",
+      "liveProject": "#",
+      "techStack": "NextJS, TypeScript, TailwindCSS, framer-motion, GitHub API"
+    },
+    {
       "projectName": "Notebook",
       "listItems": [
         "A Notion-like collaborative note-taking platform with recursive data structures for hierarchical organization, markdown support, rich media, dark/light themes, and full-text search."
@@ -198,5 +229,10 @@
       "status": "open"
     }
   ],
-  "HobbiesData": ["Anime", "Cricket", "Books", "Music"]
+  "HobbiesData": [
+    "Anime",
+    "Cricket",
+    "Books",
+    "Music"
+  ]
 }
