@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { DISPLAYNAME } from "../../config";
 
 interface ProfileImageModalProps {
   src: string;
@@ -7,33 +8,37 @@ interface ProfileImageModalProps {
   isOpening: boolean;
 }
 
-const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isClosing, isOpening }) => {
-  const profileModalRef = useRef<HTMLDivElement>(null);
+const ProfileImageModal: React.FC<ProfileImageModalProps> = ({
+  src,
+  onClose,
+  isClosing,
+  isOpening,
+}) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        profileModalRef.current &&
-        !profileModalRef.current.contains(event.target as Node)
-      ) {
+      if (dialogRef.current && !dialogRef.current.contains(event.target as Node)) {
         onClose();
       }
     };
-
-    const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener("keydown", handleKey);
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscapeKey);
-      document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = prevOverflow;
+      previouslyFocused?.focus?.();
     };
   }, [onClose]);
 
@@ -41,33 +46,37 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({ src, onClose, isC
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Profile image preview"
-      className={`fixed z-[9999] inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-100'
-        }`}
+      aria-labelledby="profile-modal-title"
+      className={`fixed z-[60] inset-0 flex items-center justify-center motion-safe:transition-opacity motion-safe:duration-300 ${
+        isClosing || !isOpening ? "opacity-0" : "opacity-100"
+      }`}
     >
+      <h2 id="profile-modal-title" className="sr-only">
+        Profile photo
+      </h2>
       <div
-        className={`fixed inset-0 bg-x-primary transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
-          }`}
+        className={`fixed inset-0 bg-black motion-safe:transition-opacity motion-safe:duration-300 ${
+          isClosing || !isOpening ? "opacity-0" : "opacity-80"
+        }`}
         onClick={onClose}
       />
-
       <div
-        className={`relative z-50 w-full max-w-lg mx-auto p-4 transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-90 opacity-0 translate-y-4' : isOpening ? 'scale-100 opacity-100 translate-y-0' : 'scale-90 opacity-0 translate-y-4'
-          }`}
+        ref={dialogRef}
+        tabIndex={-1}
+        className={`relative z-10 w-full max-w-lg p-4 motion-safe:transition-all motion-safe:duration-300 ${
+          isClosing
+            ? "scale-90 opacity-0 translate-y-2"
+            : isOpening
+            ? "scale-100 opacity-100 translate-y-0"
+            : "scale-90 opacity-0 translate-y-2"
+        }`}
       >
-        <div
-          className={`bg-x-text-primary rounded-full shadow-2xl p-2 transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-85' : isOpening ? 'scale-100' : 'scale-85'
-            }`}
-          ref={profileModalRef}
-        >
-          <img
-            src={src}
-            alt="Arth Prajapati's profile"
-            className="w-full rounded-full"
-            style={{ maxWidth: '500px' }}
-            loading="lazy"
-          />
-        </div>
+        <img
+          src={src}
+          alt={`${DISPLAYNAME}'s profile`}
+          className="w-full rounded-full shadow-2xl"
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -85,9 +94,7 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
   const openModal = () => {
     setIsOpen(true);
     setIsClosing(false);
-    setTimeout(() => {
-      setIsOpening(true);
-    }, 10);
+    requestAnimationFrame(() => setIsOpening(true));
   };
 
   const closeModal = () => {
@@ -100,20 +107,28 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
   };
 
   return (
-    <div>
-      <div
-        className="relative z-10 -mt-[50px] md:-mt-[80px] border-[4px] border-x-primary rounded-full overflow-hidden cursor-pointer w-20 h-20 md:w-[133px] md:h-[133px]"
+    <>
+      <button
+        type="button"
         onClick={openModal}
+        aria-label="Open profile photo"
+        className="relative z-10 -mt-12 md:-mt-[66px] border-[4px] border-x-primary rounded-full overflow-hidden w-24 h-24 md:w-[133px] md:h-[133px] bg-x-primary"
       >
         <img
           src={image}
-          alt="Arth Prajapati's profile"
+          alt={`${DISPLAYNAME}'s profile`}
           className="w-full h-full object-cover"
         />
-      </div>
-
-      {isOpen && <ProfileImageModal src={image} onClose={closeModal} isClosing={isClosing} isOpening={isOpening} />}
-    </div>
+      </button>
+      {isOpen && (
+        <ProfileImageModal
+          src={image}
+          onClose={closeModal}
+          isClosing={isClosing}
+          isOpening={isOpening}
+        />
+      )}
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface CoverImageModalProps {
   src: string;
@@ -7,33 +7,37 @@ interface CoverImageModalProps {
   isOpening: boolean;
 }
 
-const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosing, isOpening }) => {
-  const coverModalRef = useRef<HTMLDivElement>(null);
+const CoverImageModal: React.FC<CoverImageModalProps> = ({
+  src,
+  onClose,
+  isClosing,
+  isOpening,
+}) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        coverModalRef.current &&
-        !coverModalRef.current.contains(event.target as Node)
-      ) {
+      if (dialogRef.current && !dialogRef.current.contains(event.target as Node)) {
         onClose();
       }
     };
-
-    const handleEscapeKey = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        onClose();
-      }
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") onClose();
     };
 
     document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleEscapeKey);
+    document.addEventListener("keydown", handleKey);
+    const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleEscapeKey);
-      document.body.style.overflow = "auto";
+      document.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = prevOverflow;
+      previouslyFocused?.focus?.();
     };
   }, [onClose]);
 
@@ -41,30 +45,37 @@ const CoverImageModal: React.FC<CoverImageModalProps> = ({ src, onClose, isClosi
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Cover image preview"
-      className={`fixed z-[9999] inset-0 flex items-center justify-center transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-100'
-        }`}
+      aria-labelledby="cover-modal-title"
+      className={`fixed z-[60] inset-0 flex items-center justify-center motion-safe:transition-opacity motion-safe:duration-300 ${
+        isClosing || !isOpening ? "opacity-0" : "opacity-100"
+      }`}
     >
+      <h2 id="cover-modal-title" className="sr-only">
+        Cover photo
+      </h2>
       <div
-        className={`fixed inset-0 bg-x-primary transition-opacity duration-300 ease-in-out ${isClosing || !isOpening ? 'opacity-0' : 'opacity-80'
-          }`}
+        className={`fixed inset-0 bg-black motion-safe:transition-opacity motion-safe:duration-300 ${
+          isClosing || !isOpening ? "opacity-0" : "opacity-80"
+        }`}
         onClick={onClose}
       />
-
       <div
-        className={`relative z-50 max-w-6xl mx-auto p-4 w-full transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-95 opacity-0 translate-y-4' : isOpening ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-4'
-          }`}
+        ref={dialogRef}
+        tabIndex={-1}
+        className={`relative z-10 max-w-6xl w-full p-4 motion-safe:transition-all motion-safe:duration-300 ${
+          isClosing
+            ? "scale-95 opacity-0 translate-y-2"
+            : isOpening
+            ? "scale-100 opacity-100 translate-y-0"
+            : "scale-95 opacity-0 translate-y-2"
+        }`}
       >
-        <div ref={coverModalRef}>
-          <img
-            src={src}
-            alt="Cover banner"
-            className={`mx-auto rounded-lg max-h-[80vh] max-w-full object-contain shadow-2xl transition-all duration-300 ease-in-out transform ${isClosing ? 'scale-90' : isOpening ? 'scale-100' : 'scale-90'
-              }`}
-            style={{ minHeight: '200px' }}
-            loading="lazy"
-          />
-        </div>
+        <img
+          src={src}
+          alt="Cover banner"
+          className="mx-auto rounded-lg max-h-[80vh] max-w-full object-contain shadow-2xl"
+          loading="lazy"
+        />
       </div>
     </div>
   );
@@ -82,9 +93,7 @@ const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
   const openModal = () => {
     setIsOpen(true);
     setIsClosing(false);
-    setTimeout(() => {
-      setIsOpening(true);
-    }, 10);
+    requestAnimationFrame(() => setIsOpening(true));
   };
 
   const closeModal = () => {
@@ -97,20 +106,28 @@ const TwitterCoverModal: React.FC<TwitterCoverModalProps> = ({ image }) => {
   };
 
   return (
-    <div>
-      <div
-        className="relative cursor-pointer aspect-[3/1] overflow-hidden"
+    <>
+      <button
+        type="button"
         onClick={openModal}
+        aria-label="Open cover photo"
+        className="block w-full aspect-[3/1] overflow-hidden focus:outline-none"
       >
         <img
           src={image}
           alt="Cover banner"
           className="w-full h-full object-cover"
         />
-      </div>
-
-      {isOpen && <CoverImageModal src={image} onClose={closeModal} isClosing={isClosing} isOpening={isOpening} />}
-    </div>
+      </button>
+      {isOpen && (
+        <CoverImageModal
+          src={image}
+          onClose={closeModal}
+          isClosing={isClosing}
+          isOpening={isOpening}
+        />
+      )}
+    </>
   );
 };
 
