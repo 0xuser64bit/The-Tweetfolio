@@ -12,6 +12,35 @@ interface ListProjectProps {
   demoVideo?: string;
 }
 
+/** Returns a youtube-nocookie embed URL if `url` is a YouTube link, else null. */
+const getYouTubeEmbedUrl = (url: string): string | null => {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    let id: string | null = null;
+
+    if (host === "youtu.be") {
+      id = u.pathname.slice(1);
+    } else if (host === "youtube.com" || host === "m.youtube.com") {
+      if (u.pathname === "/watch") {
+        id = u.searchParams.get("v");
+      } else if (u.pathname.startsWith("/embed/")) {
+        id = u.pathname.slice("/embed/".length);
+      } else if (u.pathname.startsWith("/shorts/")) {
+        id = u.pathname.slice("/shorts/".length);
+      }
+    }
+
+    if (!id) return null;
+    id = id.split("/")[0].split("?")[0];
+    const start = u.searchParams.get("t") || u.searchParams.get("start");
+    const qs = start ? `?start=${encodeURIComponent(start.replace(/\D/g, ""))}` : "";
+    return `https://www.youtube-nocookie.com/embed/${id}${qs}`;
+  } catch {
+    return null;
+  }
+};
+
 const ListProject: React.FC<ListProjectProps> = ({
   project,
   purpose,
@@ -82,17 +111,33 @@ const ListProject: React.FC<ListProjectProps> = ({
         )}
       </div>
 
-      {demoVideo && (
-        <div className="aspect-video rounded-2xl overflow-hidden border border-x-border bg-black">
-          <video
-            src={demoVideo}
-            controls
-            preload="metadata"
-            playsInline
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
+      {demoVideo &&
+        (() => {
+          const youtubeUrl = getYouTubeEmbedUrl(demoVideo);
+          return (
+            <div className="aspect-video rounded-2xl overflow-hidden border border-x-border bg-black">
+              {youtubeUrl ? (
+                <iframe
+                  src={youtubeUrl}
+                  title={`${project} demo`}
+                  loading="lazy"
+                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  className="w-full h-full"
+                />
+              ) : (
+                <video
+                  src={demoVideo}
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </div>
+          );
+        })()}
     </div>
   );
 };

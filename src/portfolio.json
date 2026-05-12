@@ -74,7 +74,8 @@
       ],
       "githubLink": "https://github.com/user-64bit/GetToasted",
       "liveProject": "https://gettoasted.fun",
-      "techStack": "NextJS, Hono, TypeScript, Drizzle, Neon Postgres, BullMQ, Upstash Redis, Turborepo, Helius, Jupiter, @solana/kit, Zod"
+      "techStack": "NextJS, Hono, TypeScript, Drizzle, Neon Postgres, BullMQ, Upstash Redis, Turborepo, Helius, Jupiter, @solana/kit, Zod",
+      "demoVideo": "https://youtu.be/vOCxDbhjxD0"
     },
     {
       "projectName": "DAOnation",
