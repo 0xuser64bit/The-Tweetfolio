@@ -5,21 +5,19 @@ import { EducationData } from "../../config";
 const Education = () => {
   return (
     <div>
-      <div>
-        <h3 className="text-xl font-bold mb-4">
-          🎓 Education
-        </h3>
-        <ol className="relative border-s border-x-border">
-          {EducationData?.map(({ date, title, description }) => (
-            <Timeline
-              key={title}
-              date={date}
-              title={title}
-              description={description}
-            />
-          ))}
-        </ol>
-      </div>
+      <h2 className="text-[20px] font-extrabold text-x-text-primary mb-4">
+        🎓 Education
+      </h2>
+      <ol className="relative border-l border-x-border">
+        {EducationData?.map(({ date, title, description }) => (
+          <Timeline
+            key={title}
+            date={date}
+            title={title}
+            description={description}
+          />
+        ))}
+      </ol>
     </div>
   );
 };
