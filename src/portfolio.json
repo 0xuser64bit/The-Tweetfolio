@@ -168,11 +168,6 @@
       "status": "merged"
     },
     {
-      "title": "Implement Feature of Import/Export Bookmarks",
-      "link": "https://github.com/medyo/hackertab.dev/issues/156",
-      "status": "solved"
-    },
-    {
       "title": "Implemented Feature of Import/Export Bookmarks",
       "link": "https://github.com/medyo/hackertab.dev/issues/156",
       "status": "merged"
@@ -202,11 +197,6 @@
       "link": "https://github.com/Droggol/OdooDebug/pull/18",
       "status": "open"
     }
-  ],
-  "AchievementsData": [
-    "200+ LeetCode Problems Solved",
-    "Multiple Open Source Contributions across major repos",
-    "Azadi ka Amrit Mahotsav Hackathon: Grand Finale"
   ],
   "HobbiesData": ["Anime", "Cricket", "Books", "Music"]
 }

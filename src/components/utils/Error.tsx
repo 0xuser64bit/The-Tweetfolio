@@ -1,56 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, useRouteError } from "react-router-dom";
 
 const Error = () => {
-  const [showSarcasticMessage, setShowSarcasticMessage] = useState(false);
-
-  const handleContactSupport = () => {
-    setShowSarcasticMessage(true);
-    setTimeout(() => {
-      setShowSarcasticMessage(false);
-    }, 7000);
-  };
+  const err = useRouteError() as { status?: number } | null;
+  const status = err?.status ?? 404;
+  const message =
+    status === 404
+      ? "Hmm…this page doesn't exist."
+      : "Something went wrong on our end.";
 
   return (
-    <div className="text-x-text-primary h-screen flex items-center justify-center w-1/2 mx-auto">
-      <div className="bg-x-secondary p-8 rounded-lg shadow-lg">
-        <h1 className="text-4xl font-bold mb-4">
-          Uh-oh, looks like we have a problem!
-        </h1>
-        <p className="text-lg mb-4">
-          Well, well, well, if it isn't the universe conspiring against you
-          again. I'm shocked, I tell you, <em>shocked!</em>
-        </p>
-        <p className="text-lg mb-4">
-          Have you tried turning it off and on again? Or maybe offering a few
-          candies to the coding gremlins hiding in your computer? They do love a
-          good sugar rush, you know.
-        </p>
-        <p className="text-lg mb-4">
-          If that doesn't work, feel free to reach out to our team of website
-          wizards. I'm sure they'll be <em>thrilled</em> to take a look and see
-          what's going on. After all, what could be more exciting than
-          troubleshooting your technical difficulties?
-        </p>
-        <button
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
-          onClick={handleContactSupport}
+    <div className="min-h-screen flex items-center justify-center px-6 bg-x-primary">
+      <div className="w-full max-w-[420px] text-center">
+        <svg
+          viewBox="0 0 24 24"
+          className="w-10 h-10 mx-auto mb-4 fill-x-text-primary"
+          aria-hidden="true"
         >
-          Call in the Reinforcements
-        </button>
-        {showSarcasticMessage && (
-          <div className="mt-4 p-4 bg-red-500 rounded-lg animate-bounce">
-            <p className="font-bold">
-              Ah, so you've decided to summon the mighty website wizards, have
-              you? Well, buckle up, my friend, because you're in for a wild
-              ride.
-            </p>
-            <p>
-              I'm sure they'll <em>drop everything</em> to come to your rescue.
-              After all, what could possibly be more important than your little
-              technical hiccup? Go on, hit that button again. I double-dare you.
-            </p>
-          </div>
-        )}
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+        <h1 className="text-[20px] font-extrabold text-x-text-primary mb-1">
+          {message}
+        </h1>
+        <p className="text-[15px] text-x-text-secondary mb-5">
+          Try heading back to the feed.
+        </p>
+        <Link
+          to="/"
+          className="inline-block bg-x-text-primary text-x-primary rounded-full px-5 py-2 font-bold text-[14px] hover:opacity-90 transition-opacity"
+        >
+          Back to home
+        </Link>
       </div>
     </div>
   );

@@ -1,4 +1,7 @@
 import portfolio from "./portfolio.json";
+import type { Portfolio } from "./types";
+
+const data = portfolio as Portfolio;
 
 export const {
   HEADER_DISPLAY_NAME,
@@ -18,6 +21,5 @@ export const {
   SkillsData,
   ProjectsData,
   ContributionData,
-  AchievementsData,
   HobbiesData,
-} = portfolio;
+} = data;

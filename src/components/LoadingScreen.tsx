@@ -1,47 +1,74 @@
-import React, { useEffect, useState } from 'react';
-import PROFILE_IMAGE from '../assets/profile.jpg';
+import React, { useEffect, useState } from "react";
+import PROFILE_IMAGE from "../assets/profile.jpg";
 
 interface Props {
   onLoadingComplete: () => void;
 }
 
+const Spinner = () => (
+  <div className="flex flex-col items-center gap-5" role="status" aria-live="polite">
+    <span className="sr-only">Loading…</span>
+    <div className="relative">
+      <span
+        aria-hidden="true"
+        className="absolute -inset-1.5 w-[104px] h-[104px] rounded-full border-2 border-x-border border-t-x-accent animate-spin"
+      />
+      <div className="relative h-24 w-24 rounded-full overflow-hidden border-2 border-x-border bg-x-secondary">
+        <img
+          src={PROFILE_IMAGE}
+          alt=""
+          className="h-full w-full object-cover"
+        />
+      </div>
+    </div>
+  </div>
+);
+
+export const SuspenseLoader = () => (
+  <div className="fixed inset-0 z-[80] flex items-center justify-center bg-x-primary">
+    <Spinner />
+  </div>
+);
+
 const LoadingScreen: React.FC<Props> = ({ onLoadingComplete }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [hidden, setHidden] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-      if (onLoadingComplete) {
-        onLoadingComplete();
-      }
-    }, 2000);
+    let cancelled = false;
 
-    return () => clearTimeout(timer);
+    const readyPromises: Promise<unknown>[] = [
+      // Wait for fonts to be ready (or 1.5s timeout fallback).
+      document.fonts?.ready ?? Promise.resolve(),
+      // Wait for the profile image to load (or 1.5s timeout fallback).
+      new Promise<void>((resolve) => {
+        const img = new Image();
+        img.onload = () => resolve();
+        img.onerror = () => resolve();
+        img.src = PROFILE_IMAGE;
+      }),
+    ];
+
+    const timeout = new Promise<void>((resolve) => setTimeout(resolve, 1500));
+
+    Promise.race([Promise.all(readyPromises), timeout]).then(() => {
+      if (cancelled) return;
+      setHidden(true);
+      // small delay for the fade-out before unmounting
+      setTimeout(() => !cancelled && onLoadingComplete(), 200);
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [onLoadingComplete]);
 
-  if (!isVisible) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <div className="flex flex-col items-center space-y-6">
-        {/* Profile image with simple ring animation */}
-        <div className="relative">
-          <div className="absolute -inset-2 w-28 h-28 rounded-full border-2 border-transparent border-t-blue-500 animate-spin"></div>
-          <div className="relative h-24 w-24 rounded-full overflow-hidden border-2 border-slate-700">
-            <img
-              src={PROFILE_IMAGE}
-              alt="Profile"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-
-        <div className="flex space-x-1">
-          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse"></div>
-          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-          <div className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ animationDelay: '0.4s' }}></div>
-        </div>
-      </div>
+    <div
+      className={`fixed inset-0 z-[80] flex items-center justify-center bg-x-primary motion-safe:transition-opacity motion-safe:duration-200 ${
+        hidden ? "opacity-0 pointer-events-none" : "opacity-100"
+      }`}
+    >
+      <Spinner />
     </div>
   );
 };
