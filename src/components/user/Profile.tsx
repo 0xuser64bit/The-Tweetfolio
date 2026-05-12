@@ -7,20 +7,16 @@ import TwitterProfileModal from "./TwitterProfileModal";
 
 const Profile = () => {
   return (
-    <div className="border-x-border border-l border-r">
+    <div>
       {/* Cover Image — 3:1 aspect ratio */}
-      <div>
-        <TwitterCoverModal image={COVER_IMAGE} />
-      </div>
+      <TwitterCoverModal image={COVER_IMAGE} />
 
       {/* Avatar row */}
       <div className="flex justify-between items-start px-4">
         <TwitterProfileModal image={PROFILE_IMAGE} />
       </div>
 
-      <div>
-        <UserInfo />
-      </div>
+      <UserInfo />
     </div>
   );
 };

@@ -1,100 +1,128 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { HiOutlineHome, HiHome } from "react-icons/hi";
-import { HiOutlineUser, HiUser, HiOutlineBriefcase, HiBriefcase } from "react-icons/hi";
-import { HiOutlineCode, HiCode } from "react-icons/hi";
-import { HiOutlineAcademicCap, HiAcademicCap } from "react-icons/hi";
-import { HiOutlineLightningBolt, HiLightningBolt } from "react-icons/hi";
+import {
+  HiOutlineHome,
+  HiHome,
+  HiOutlineBriefcase,
+  HiBriefcase,
+  HiOutlineCode,
+  HiCode,
+  HiOutlineAcademicCap,
+  HiAcademicCap,
+  HiOutlineLightningBolt,
+  HiLightningBolt,
+} from "react-icons/hi";
+import useActiveSection from "../../hooks/useActiveSection";
 
 interface NavItem {
   label: string;
+  sectionId: string;
   iconOutline: React.ReactNode;
   iconFilled: React.ReactNode;
-  action: () => void;
-  isActive?: boolean;
+  onClick: () => void;
 }
+
+const SECTION_IDS = [
+  "section-pinned",
+  "section-projects",
+  "section-contributions",
+  "section-experience",
+  "section-skills",
+];
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const active = useActiveSection(isHome ? SECTION_IDS : []);
 
   const scrollTo = (id: string) => {
     if (!isHome) {
       navigate("/");
       setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
       }, 100);
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const navItems: NavItem[] = [
     {
       label: "Home",
+      sectionId: "section-pinned",
       iconOutline: <HiOutlineHome className="text-[26px]" />,
       iconFilled: <HiHome className="text-[26px]" />,
-      action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
-      isActive: true,
-    },
-    {
-      label: "Profile",
-      iconOutline: <HiOutlineUser className="text-[26px]" />,
-      iconFilled: <HiUser className="text-[26px]" />,
-      action: () => scrollTo("section-pinned"),
+      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }),
     },
     {
       label: "Projects",
+      sectionId: "section-projects",
       iconOutline: <HiOutlineBriefcase className="text-[26px]" />,
       iconFilled: <HiBriefcase className="text-[26px]" />,
-      action: () => navigate("/proof-of-work"),
+      onClick: () => navigate("/proof-of-work"),
     },
     {
       label: "Open Source",
+      sectionId: "section-contributions",
       iconOutline: <HiOutlineCode className="text-[26px]" />,
       iconFilled: <HiCode className="text-[26px]" />,
-      action: () => scrollTo("section-contributions"),
+      onClick: () => scrollTo("section-contributions"),
     },
     {
       label: "Experience",
+      sectionId: "section-experience",
       iconOutline: <HiOutlineLightningBolt className="text-[26px]" />,
       iconFilled: <HiLightningBolt className="text-[26px]" />,
-      action: () => scrollTo("section-experience"),
+      onClick: () => scrollTo("section-experience"),
     },
     {
       label: "Skills",
+      sectionId: "section-skills",
       iconOutline: <HiOutlineAcademicCap className="text-[26px]" />,
       iconFilled: <HiAcademicCap className="text-[26px]" />,
-      action: () => scrollTo("section-skills"),
+      onClick: () => scrollTo("section-skills"),
     },
   ];
 
   return (
-    <div className="sticky top-0 pt-3 flex flex-col h-screen">
-      {/* X Logo */}
-      <div className="mb-1 p-3">
-        <svg viewBox="0 0 24 24" className="w-7 h-7 fill-x-text-primary">
+    <nav
+      aria-label="Primary"
+      className="sticky top-0 h-screen pt-2 flex flex-col"
+    >
+      {/* X logo */}
+      <div className="p-3">
+        <svg viewBox="0 0 24 24" className="w-7 h-7 fill-x-text-primary" aria-hidden="true">
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       </div>
 
-      {/* Navigation Items */}
-      <nav className="flex flex-col gap-1">
-        {navItems.map((item) => (
-          <button
-            key={item.label}
-            onClick={item.action}
-            className="flex items-center gap-5 px-3 py-3 rounded-full hover:bg-x-tertiary transition-colors text-x-text-primary group w-fit"
-          >
-            <span>{item.isActive ? item.iconFilled : item.iconOutline}</span>
-            <span className={`text-xl ${item.isActive ? 'font-bold' : 'font-normal'}`}>
-              {item.label}
-            </span>
-          </button>
-        ))}
-      </nav>
-    </div>
+      <ul className="flex flex-col gap-1 mt-1">
+        {navItems.map((item) => {
+          const isActive = isHome && active === item.sectionId;
+          return (
+            <li key={item.label}>
+              <button
+                onClick={item.onClick}
+                aria-current={isActive ? "page" : undefined}
+                className="flex items-center gap-5 px-3 py-3 rounded-full hover:bg-x-hover transition-colors text-x-text-primary"
+              >
+                <span aria-hidden="true">
+                  {isActive ? item.iconFilled : item.iconOutline}
+                </span>
+                <span
+                  className={`hidden xl:inline text-xl ${
+                    isActive ? "font-bold" : "font-normal"
+                  }`}
+                >
+                  {item.label}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
   );
 };
 
