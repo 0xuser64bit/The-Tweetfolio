@@ -1,59 +1,108 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { HiOutlineHome, HiOutlineBriefcase, HiOutlineBell } from "react-icons/hi";
-import { GoGitPullRequest } from "react-icons/go";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  HiOutlineHome,
+  HiHome,
+  HiOutlineBriefcase,
+  HiBriefcase,
+  HiOutlineCode,
+  HiCode,
+  HiOutlineAcademicCap,
+  HiAcademicCap,
+  HiOutlineLightningBolt,
+  HiLightningBolt,
+} from "react-icons/hi";
+import useActiveSection from "../../hooks/useActiveSection";
+
+const SECTION_IDS = [
+  "section-pinned",
+  "section-projects",
+  "section-contributions",
+  "section-experience",
+  "section-skills",
+];
 
 const BottomNav = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  const active = useActiveSection(isHome ? SECTION_IDS : []);
 
   const scrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (!isHome) {
+      navigate("/");
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const items = [
     {
-      icon: <HiOutlineHome className="text-2xl" />,
       label: "Home",
-      action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+      sectionId: "section-pinned",
+      outline: <HiOutlineHome className="text-[26px]" />,
+      filled: <HiHome className="text-[26px]" />,
+      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }),
     },
     {
-      icon: <HiOutlineBriefcase className="text-2xl" />,
       label: "Projects",
-      action: () => navigate("/proof-of-work"),
+      sectionId: "section-projects",
+      outline: <HiOutlineBriefcase className="text-[26px]" />,
+      filled: <HiBriefcase className="text-[26px]" />,
+      onClick: () => navigate("/proof-of-work"),
     },
     {
-      icon: <GoGitPullRequest className="text-2xl" />,
       label: "Open Source",
-      action: () => scrollTo("section-contributions"),
+      sectionId: "section-contributions",
+      outline: <HiOutlineCode className="text-[26px]" />,
+      filled: <HiCode className="text-[26px]" />,
+      onClick: () => scrollTo("section-contributions"),
     },
     {
-      icon: <HiOutlineBell className="text-2xl" />,
+      label: "Experience",
+      sectionId: "section-experience",
+      outline: <HiOutlineLightningBolt className="text-[26px]" />,
+      filled: <HiLightningBolt className="text-[26px]" />,
+      onClick: () => scrollTo("section-experience"),
+    },
+    {
       label: "Skills",
-      action: () => scrollTo("section-skills"),
+      sectionId: "section-skills",
+      outline: <HiOutlineAcademicCap className="text-[26px]" />,
+      filled: <HiAcademicCap className="text-[26px]" />,
+      onClick: () => scrollTo("section-skills"),
     },
   ];
 
   return (
     <nav
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-x-primary/95 backdrop-blur-md border-t border-x-border"
-      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
+      aria-label="Mobile navigation"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-x-primary/90 backdrop-blur-md border-t border-x-border"
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0px)" }}
     >
-      <div className="flex justify-around items-center py-2">
-        {items.map((item) => (
-          <button
-            key={item.label}
-            onClick={item.action}
-            className="flex flex-col items-center gap-0.5 px-3 py-1.5 text-x-text-primary hover:text-x-accent transition-colors min-w-[56px]"
-            aria-label={item.label}
-          >
-            {item.icon}
-            <span className="text-[10px] font-medium">{item.label}</span>
-          </button>
-        ))}
-      </div>
+      <ul className="flex items-center py-1">
+        {items.map((item) => {
+          const isActive = isHome && active === item.sectionId;
+          return (
+            <li key={item.label} className="flex-1">
+              <button
+                type="button"
+                onClick={item.onClick}
+                aria-current={isActive ? "page" : undefined}
+                aria-label={item.label}
+                className="w-full flex items-center justify-center py-2 text-x-text-primary"
+              >
+                <span aria-hidden="true" className={isActive ? "text-x-text-primary" : "text-x-text-secondary"}>
+                  {isActive ? item.filled : item.outline}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 };

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import useActiveSection from "../../hooks/useActiveSection";
 
 const tabs = [
   { label: "Posts", sectionId: "section-pinned" },
@@ -7,42 +8,52 @@ const tabs = [
   { label: "Open Source", sectionId: "section-contributions" },
 ];
 
-const ProfileTabs = () => {
-  const [activeTab, setActiveTab] = useState("Posts");
+const TAB_SECTION_IDS = tabs.map((t) => t.sectionId);
 
-  const handleTabClick = (tab: typeof tabs[0]) => {
-    setActiveTab(tab.label);
-    const element = document.getElementById(tab.sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+const ProfileTabs = () => {
+  const active = useActiveSection(TAB_SECTION_IDS);
+
+  const handleTabClick = (sectionId: string) => {
+    const el = document.getElementById(sectionId);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
-    <div className="flex border-b border-x-border overflow-x-auto no-scrollbar snap-x" role="tablist" aria-label="Profile sections">
-      {tabs.map((tab) => (
-        <button
-          key={tab.label}
-          role="tab"
-          aria-selected={activeTab === tab.label}
-          aria-controls={tab.sectionId}
-          onClick={() => handleTabClick(tab)}
-          className="flex-1 min-w-[fit-content] px-4 sm:px-2 relative py-4 text-center hover:bg-x-tertiary transition-colors snap-start"
-        >
-          <span
-            className={`text-[13px] sm:text-[15px] whitespace-nowrap block ${
-              activeTab === tab.label
-                ? "font-bold text-x-text-primary"
-                : "font-medium text-x-text-secondary"
-            }`}
+    <div
+      className="flex border-b border-x-border"
+      role="navigation"
+      aria-label="Profile sections"
+    >
+      {tabs.map((tab) => {
+        const isActive = active === tab.sectionId;
+        return (
+          <button
+            key={tab.label}
+            type="button"
+            onClick={() => handleTabClick(tab.sectionId)}
+            aria-current={isActive ? "true" : undefined}
+            className="flex-1 hover:bg-x-hover transition-colors px-2 py-3.5"
           >
-            {tab.label}
-          </span>
-          {activeTab === tab.label && (
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-14 h-1 rounded-full bg-x-accent" />
-          )}
-        </button>
-      ))}
+            <span className="relative inline-block">
+              <span
+                className={`block text-[14px] whitespace-nowrap ${
+                  isActive
+                    ? "font-bold text-x-text-primary"
+                    : "font-medium text-x-text-secondary"
+                }`}
+              >
+                {tab.label}
+              </span>
+              {isActive && (
+                <span
+                  aria-hidden="true"
+                  className="absolute -bottom-[14px] left-0 right-0 h-1 rounded-full bg-x-accent"
+                />
+              )}
+            </span>
+          </button>
+        );
+      })}
     </div>
   );
 };
