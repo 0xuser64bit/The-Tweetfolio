@@ -11,7 +11,7 @@ const Timeline: React.FC<Props> = ({ date, title, description }) => {
     <li className="relative ml-4 pb-6 last:pb-0">
       <span
         aria-hidden="true"
-        className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-x-text-secondary"
+        className="absolute -left-5.25 top-1.5 w-2.5 h-2.5 rounded-full bg-x-text-secondary"
       />
       <time className="block text-[13px] text-x-text-secondary leading-tight">
         {date || "—"}

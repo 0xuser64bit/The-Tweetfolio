@@ -112,7 +112,7 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
         type="button"
         onClick={openModal}
         aria-label="Open profile photo"
-        className="relative z-10 -mt-12 md:-mt-[66px] border-[4px] border-x-primary rounded-full overflow-hidden w-24 h-24 md:w-[133px] md:h-[133px] bg-x-primary"
+        className="relative z-10 -mt-12 md:-mt-16.5 border-[4px] border-x-primary rounded-full overflow-hidden w-24 h-24 md:w-33.25 md:h-33.25 bg-x-primary"
       >
         <img
           src={image}

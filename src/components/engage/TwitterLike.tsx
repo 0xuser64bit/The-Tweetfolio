@@ -26,7 +26,7 @@ const LikeButton = () => {
     >
       <svg
         viewBox="0 0 24 24"
-        className={`w-[18px] h-[18px] motion-safe:transition-transform motion-safe:duration-200 ${
+        className={`w-4.5 h-4.5 motion-safe:transition-transform motion-safe:duration-200 ${
           liked ? "scale-110" : ""
         }`}
         aria-hidden="true"

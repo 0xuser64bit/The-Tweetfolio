@@ -44,7 +44,7 @@ const App = () => {
         {/* Main feed — 600px max like X */}
         <main
           id="main-feed"
-          className="w-full max-w-[600px] min-h-screen md:border-x md:border-x-border pb-16 md:pb-0"
+          className="w-full max-w-150 min-h-screen md:border-x md:border-x-border pb-16 md:pb-0"
         >
           <Header />
           <Profile />

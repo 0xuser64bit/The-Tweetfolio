@@ -54,13 +54,13 @@ const UserInfo = () => {
         <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-x-text-secondary text-[15px]">
           {LOCATION && (
             <span className="flex items-center gap-1">
-              <HiOutlineLocationMarker className="text-base flex-shrink-0" aria-hidden="true" />
+              <HiOutlineLocationMarker className="text-base shrink-0" aria-hidden="true" />
               {LOCATION}
             </span>
           )}
           {WEBSITE && (
             <span className="flex items-center gap-1">
-              <HiOutlineLink className="text-base flex-shrink-0" aria-hidden="true" />
+              <HiOutlineLink className="text-base shrink-0" aria-hidden="true" />
               <a
                 href={`https://${WEBSITE}`}
                 target="_blank"
@@ -73,7 +73,7 @@ const UserInfo = () => {
           )}
           {JOINED_DATE && (
             <span className="flex items-center gap-1">
-              <HiOutlineCalendar className="text-base flex-shrink-0" aria-hidden="true" />
+              <HiOutlineCalendar className="text-base shrink-0" aria-hidden="true" />
               Joined {JOINED_DATE}
             </span>
           )}

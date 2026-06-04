@@ -77,7 +77,7 @@ const Contributions = () => {
                 <div className="flex items-center justify-between gap-2 mb-1">
                   <div className="flex items-center gap-1.5 min-w-0">
                     <FaGithub
-                      className="text-[14px] text-x-text-secondary flex-shrink-0"
+                      className="text-[14px] text-x-text-secondary shrink-0"
                       aria-hidden="true"
                     />
                     <span className="text-[14px] font-bold text-x-text-primary truncate">
@@ -85,7 +85,7 @@ const Contributions = () => {
                     </span>
                   </div>
                   <span
-                    className={`flex items-center gap-1 text-[12px] font-medium px-2 py-0.5 rounded-full flex-shrink-0 ${status.color} ${status.bg}`}
+                    className={`flex items-center gap-1 text-[12px] font-medium px-2 py-0.5 rounded-full shrink-0 ${status.color} ${status.bg}`}
                   >
                     {status.icon}
                     {status.label}

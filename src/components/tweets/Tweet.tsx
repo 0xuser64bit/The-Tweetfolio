@@ -29,7 +29,7 @@ const PinIcon = () => (
 );
 
 const MoreIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px] fill-current" aria-hidden="true">
+  <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 fill-current" aria-hidden="true">
     <path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
   </svg>
 );
@@ -69,7 +69,7 @@ const Tweet: React.FC<Props> = ({
       >
         {/* Pinned label (sits inside the content column visually) */}
         {pinned && (
-          <div className="flex items-center gap-2 mb-1 ml-[52px] text-x-text-secondary text-[13px] font-bold">
+          <div className="flex items-center gap-2 mb-1 ml-13 text-x-text-secondary text-[13px] font-bold">
             <PinIcon />
             Pinned
           </div>
@@ -77,7 +77,7 @@ const Tweet: React.FC<Props> = ({
 
         <div className="flex gap-3">
           {/* Avatar column */}
-          <div className="flex flex-col items-center flex-shrink-0 w-10">
+          <div className="flex flex-col items-center shrink-0 w-10">
             <div className="w-10 h-10 rounded-full overflow-hidden">
               <img
                 alt={`${DISPLAYNAME}'s avatar`}
@@ -88,7 +88,7 @@ const Tweet: React.FC<Props> = ({
               />
             </div>
             {isThreaded && (
-              <div className="flex-1 w-[2px] bg-x-border mt-2 rounded-full" aria-hidden="true" />
+              <div className="flex-1 w-0.5 bg-x-border mt-2 rounded-full" aria-hidden="true" />
             )}
           </div>
 
@@ -114,7 +114,7 @@ const Tweet: React.FC<Props> = ({
                   </>
                 )}
               </div>
-              <div className="relative flex-shrink-0" ref={menuRef}>
+              <div className="relative shrink-0" ref={menuRef}>
                 <button
                   type="button"
                   onClick={(e) => {
@@ -138,7 +138,7 @@ const Tweet: React.FC<Props> = ({
                         setShowMenu(false);
                       }}
                     />
-                    <div className="absolute right-0 top-9 z-20 bg-x-primary border border-x-border rounded-xl shadow-lg py-1 min-w-[200px]">
+                    <div className="absolute right-0 top-9 z-20 bg-x-primary border border-x-border rounded-xl shadow-lg py-1 min-w-50">
                       <button
                         type="button"
                         onClick={(e) => {

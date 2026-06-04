@@ -99,7 +99,7 @@ const RightSidebar = () => {
                 className="flex items-center gap-3 px-4 py-3 hover:bg-x-hover transition-colors"
               >
                 <span
-                  className={`w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center ${link.iconBg} ${link.iconColor}`}
+                  className={`w-10 h-10 rounded-full shrink-0 flex items-center justify-center ${link.iconBg} ${link.iconColor}`}
                 >
                   {link.icon}
                 </span>

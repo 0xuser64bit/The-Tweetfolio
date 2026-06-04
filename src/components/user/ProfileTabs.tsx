@@ -47,7 +47,7 @@ const ProfileTabs = () => {
               {isActive && (
                 <span
                   aria-hidden="true"
-                  className="absolute -bottom-[14px] left-0 right-0 h-1 rounded-full bg-x-accent"
+                  className="absolute -bottom-3.5 left-0 right-0 h-1 rounded-full bg-x-accent"
                 />
               )}
             </span>

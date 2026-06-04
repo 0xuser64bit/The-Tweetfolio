@@ -19,7 +19,7 @@ const RetweetButton = () => {
     >
       <svg
         viewBox="0 0 24 24"
-        className={`w-[18px] h-[18px] transition-colors ${
+        className={`w-4.5 h-4.5 transition-colors ${
           retweeted ? "fill-x-retweet" : "fill-x-text-secondary group-hover/rt:fill-x-retweet"
         }`}
         aria-hidden="true"

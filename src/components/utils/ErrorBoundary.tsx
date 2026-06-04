@@ -23,7 +23,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen flex items-center justify-center bg-x-primary text-x-text-primary px-6">
-          <div className="w-full max-w-[420px] text-center">
+          <div className="w-full max-w-105 text-center">
             <svg
               viewBox="0 0 24 24"
               className="w-10 h-10 mx-auto mb-4 fill-x-text-primary"

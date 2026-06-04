@@ -11,7 +11,7 @@ interface Props {
 
 const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
   return (
-    <div className="w-full max-w-[600px] mx-auto min-h-screen md:border-x md:border-x-border pb-16 md:pb-0">
+    <div className="w-full max-w-150 mx-auto min-h-screen md:border-x md:border-x-border pb-16 md:pb-0">
       {/* Thread header — X style */}
       <div className="sticky top-0 z-30 px-4 py-3 bg-x-primary/80 backdrop-blur-md border-b border-x-border">
         <div className="flex items-center gap-6">

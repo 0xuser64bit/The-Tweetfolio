@@ -11,7 +11,7 @@ const Spinner = () => (
     <div className="relative">
       <span
         aria-hidden="true"
-        className="absolute -inset-1.5 w-[104px] h-[104px] rounded-full border-2 border-x-border border-t-x-accent animate-spin"
+        className="absolute -inset-1.5 w-26 h-26 rounded-full border-2 border-x-border border-t-x-accent animate-spin"
       />
       <div className="relative h-24 w-24 rounded-full overflow-hidden border-2 border-x-border bg-x-secondary">
         <img
