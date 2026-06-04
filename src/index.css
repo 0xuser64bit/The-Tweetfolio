@@ -53,6 +53,14 @@
   border-radius: 4px;
 }
 
+/*
+ * Offset scroll targets by the sticky Header's height so tab / sidebar / bottom-nav
+ * navigation lands a post just below the header instead of underneath it.
+ */
+[id^="section-"] {
+  scroll-margin-top: 72px;
+}
+
 body {
   background-color: var(--color-bg-primary);
   font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
