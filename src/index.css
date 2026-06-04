@@ -1,7 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+/* Tailwind v4 CSS-first config (replaces tailwind.config.js).
+   `x-*` colors map onto the runtime theme CSS vars defined in :root below,
+   so `bg-x-primary`, `text-x-secondary`, etc. stay theme-aware. */
+@theme {
+  --color-x-primary: var(--color-bg-primary);
+  --color-x-secondary: var(--color-bg-secondary);
+  --color-x-tertiary: var(--color-bg-tertiary);
+  --color-x-border: var(--color-border);
+  --color-x-hover: var(--color-hover);
+  --color-x-text-primary: var(--color-text-primary);
+  --color-x-text-secondary: var(--color-text-secondary);
+  --color-x-accent: var(--color-accent);
+  --color-x-like: var(--color-like);
+  --color-x-retweet: var(--color-retweet);
+  --color-x-reply: var(--color-reply);
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --animate-fade-in: fade-in 0.4s ease-out forwards;
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Restore the pointer cursor on interactive elements. Tailwind v4's Preflight
+   no longer does this, so browsers fall back to `cursor: default` on <button>
+   and friends. Lives in the base layer, so `cursor-*` utilities still win. */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  label[for],
+  summary,
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled),
+  input[type="submit"]:not(:disabled),
+  input[type="button"]:not(:disabled),
+  input[type="reset"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  :disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
 
 :root,
 .theme-lights-out {

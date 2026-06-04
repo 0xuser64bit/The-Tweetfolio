@@ -158,7 +158,7 @@ const Tweet: React.FC<Props> = ({
             </div>
 
             {/* Tweet content */}
-            <div className="text-x-text-primary w-full break-words">
+            <div className="text-x-text-primary w-full wrap-break-word">
               {TweetComponent ? TweetComponent : <ComponentDidnotLoad />}
             </div>
 
