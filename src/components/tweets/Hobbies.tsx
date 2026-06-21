@@ -5,7 +5,7 @@ const hobbyMeta: Record<string, { emoji: string; vibe: string }> = {
   Anime: { emoji: "🎌", vibe: "One Piece > everything" },
   Cricket: { emoji: "🏏", vibe: "Weekend warrior" },
   Books: { emoji: "📚", vibe: "Currently reading something" },
-  Music: { emoji: "🎧", vibe: "Lo-fi & code sessions" },
+  Music: { emoji: "🎧", vibe: "Lo-fi and Garba in code sessions" },
 };
 
 const Hobbies = () => {
