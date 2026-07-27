@@ -1,7 +1,7 @@
 {
   "HEADER_DISPLAY_NAME": "Arth",
   "X_USERNAME": "user64bit",
-  "GITHUB_USERNAME": "user-64bit",
+  "GITHUB_USERNAME": "0xuser64bit",
   "DISPLAYNAME": "Arth",
   "GITHUB_QUOTE": "Debugging",
   "ABOUT_YOU": "Full-stack dev. Web3 & AI. Shipping code, breaking things, fixing them.",
@@ -72,7 +72,7 @@
       "listItems": [
         "A conversational Solana agent: you type intent in plain language — 'send 0.5 SOL to maya' — and it becomes a typed, simulated on-chain action. The safety thesis is one sentence: the agent may interpret intent, but the program enforces the envelope. Aegis, an Anchor program, validates every transfer on-chain against an owner-defined policy — signer, pause, expiry, per-transaction cap, rolling daily cap, recipient allow-list, and SPL mint/token limits — before any value leaves the vault, so a jailbroken LLM or compromised backend stays bounded by the policy, not by prompt quality. Intent is parsed (Google Gemini, or a local deterministic parser for $0 demos), recipients resolve through an off-chain address book, and each action is simulated into a proposal card showing the fee, simulation result, and Aegis verdict before you confirm. Owner actions stay wallet-signed and the backend never holds the owner key. Ships with @usepraxis/sdk, a typed Node client, and a LiteSVM enforcement test gate."
       ],
-      "githubLink": "https://github.com/user-64bit/Praxis",
+      "githubLink": "https://github.com/0xuser64bit/Praxis",
       "liveProject": "https://usepraxis.fun",
       "techStack": "NextJS, TypeScript, Rust, Anchor, Solana, Google Gemini, LiteSVM, Bun",
       "demoVideo": "https://youtu.be/z0yIJZNeoZo"
@@ -82,7 +82,7 @@
       "listItems": [
         "Production SaaS that scans any Solana wallet for sandwich attacks and quantifies the USD lost to MEV. A typed detection pipeline in @get-toasted/core classifies front-run, victim, and back-run sets per slot with confidence scoring, priced via Jupiter Lite quotes. Real-time detection runs through HMAC-verified Helius webhooks; historical scans are paginated through BullMQ workers. Validated against Jito bundle ground truth with a 30/30 match rate. Turborepo monorepo: Next.js 16 dashboard, Hono API, and four dedicated workers (scanner, detector, risk-analyzer, validator-refresh) backed by Neon Postgres and Upstash Redis. Auth is Sign In With Solana, ed25519 verified, JWT issued."
       ],
-      "githubLink": "https://github.com/user-64bit/GetToasted",
+      "githubLink": "https://github.com/0xuser64bit/GetToasted",
       "liveProject": "https://gettoasted.fun",
       "techStack": "NextJS, Hono, TypeScript, Drizzle, Neon Postgres, BullMQ, Upstash Redis, Turborepo, Helius, Jupiter, @solana/kit, Zod",
       "demoVideo": "https://youtu.be/vOCxDbhjxD0"
@@ -92,7 +92,7 @@
       "listItems": [
         "A cozy 2D virtual town where your team hangs out together — presence without a grid of video tiles. Sign in, pick a character (Adam, Ash, Lucy, or Nancy), and drop into a shared pixel-art room where you walk around with WASD and see everyone else move in real time, complete with name labels and a live roster. Rooms are shareable by ID across themed Tiled maps — a 40×30 office and a 24×18 rooftop garden — with collision derived from the same solid layers the scene renders, so client and server agree on the playable area. Turborepo monorepo: a Vite + React + Redux + Phaser game client, an Express REST API (JWT + scrypt auth, users, spaces, avatars, maps), a WebSocket room server for presence and tile movement, and a Prisma/Postgres package, all covered by an end-to-end integration suite."
       ],
-      "githubLink": "https://github.com/user-64bit/ChibiTown",
+      "githubLink": "https://github.com/0xuser64bit/ChibiTown",
       "liveProject": "#",
       "techStack": "React, Vite, Redux Toolkit, Phaser, TailwindCSS, Express, WebSocket, Prisma, PostgreSQL, Turborepo, TypeScript",
       "demoVideo": "https://youtu.be/Whr1wNQ97Tc"
@@ -102,7 +102,7 @@
       "listItems": [
         "Real-time Solana new-token intelligence powered by Birdeye — detect momentum, expose concentration, flag obvious risk. Pulls fresh launches from six Birdeye Data Service endpoints, enriches each with security, holder, trader, and OHLCV data server-side, then scores them with a deterministic, auditable engine: an Alpha Score (0–100) weighing liquidity, volume, trades, and momentum, and a Rug Risk Score (0–100) reading top-holder concentration plus freeze/mint authority and metadata flags straight from token_security. Every score ships with per-factor explanations and a trader-readable verdict — Watch, Caution, Avoid, or Neutral. A radar of the latest scans, per-token detail pages with charts and holder distribution, ranked leaderboards, a Telegram alert bot (@RugPulseBot) with tunable thresholds, and one-click X-post drafts. No wallet connection, no swaps — just a fast signal, and the API key never reaches the browser."
       ],
-      "githubLink": "https://github.com/user-64bit/RugPulse",
+      "githubLink": "https://github.com/0xuser64bit/RugPulse",
       "liveProject": "https://rugpulse.user64bit.wtf",
       "techStack": "NextJS, TypeScript, TailwindCSS, Recharts, Supabase Postgres, Birdeye API, Telegram Bot API"
     },
@@ -111,7 +111,7 @@
       "listItems": [
         "A decentralized 'Buy Me a Coffee' platform for creators on Solana. Supporters send crypto contributions through unique profile links with personalized messages and custom amounts. Creators get a dashboard to track earnings, manage contributions, and set goals."
       ],
-      "githubLink": "https://github.com/user-64bit/daonation",
+      "githubLink": "https://github.com/0xuser64bit/daonation",
       "liveProject": "https://daonation.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, Prisma, @solana/web3.js",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4"
@@ -121,7 +121,7 @@
       "listItems": [
         "Decentralized voting platform built on Solana. Every vote is immutable, verifiable, and tamper-proof. Create polls, cast votes, and view results — all on-chain with full transparency."
       ],
-      "githubLink": "https://github.com/user-64bit/poll-chain",
+      "githubLink": "https://github.com/0xuser64bit/poll-chain",
       "liveProject": "https://poll-chain.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, @solana/web3.js",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv"
@@ -131,7 +131,7 @@
       "listItems": [
         "A privacy-first Chrome extension (Manifest V3) that lets you chat with AI about the page you're currently reading — bring your own key, with no backend and no shared infrastructure. A floating genie lamp summons a Shadow-DOM chat panel that grounds answers in the page's extracted main content, with one-click quick actions: Summarize, Key insights, Explain simply, Action items, and Translate. Each page keeps its own conversation in local storage, auto-deleted 24 hours after it starts. Your API key lives only in the background service worker and is sent only to your chosen provider's official endpoint (OpenAI or Anthropic) — it never touches the content script or any web page. Built with Vite, React, and @crxjs/vite-plugin around a framework-free, unit-tested core for providers, page extraction, and Markdown rendering."
       ],
-      "githubLink": "https://github.com/user-64bit/ask-genie",
+      "githubLink": "https://github.com/0xuser64bit/ask-genie",
       "liveProject": "#",
       "techStack": "React, Vite, TypeScript, Chrome Extension Manifest V3, @crxjs/vite-plugin, OpenAI API, Anthropic API"
     },
@@ -140,7 +140,7 @@
       "listItems": [
         "A cinematic GitHub profile analyzer that turns any username into a developer identity report. Fetches profile, repos, and language stats from the GitHub API, scores the user against archetype profiles, and visualizes the result through animated terminal sequences, a custom canvas language chart, and an archetype card. UI is built around a glassmorphism landing card with an animated grid, floating particles, and a DNA-inspired background, all powered by framer-motion."
       ],
-      "githubLink": "https://github.com/user-64bit/dev-dna",
+      "githubLink": "https://github.com/0xuser64bit/dev-dna",
       "liveProject": "#",
       "techStack": "NextJS, TypeScript, TailwindCSS, framer-motion, GitHub API"
     },
@@ -149,7 +149,7 @@
       "listItems": [
         "Explore GitHub profiles in a beautiful and interactive way. Visualize contributions, repositories, and activity with a clean, modern UI."
       ],
-      "githubLink": "https://github.com/user-64bit/get-git",
+      "githubLink": "https://github.com/0xuser64bit/get-git",
       "liveProject": "https://get-git.user64bit.wtf",
       "techStack": "NextJS, TailwindCSS, TypeScript, GitHub API",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/get-git.mkv"
@@ -159,7 +159,7 @@
       "listItems": [
         "AI-powered health optimization platform based on Bryan Johnson's 'Don't Die Blueprint.' Get personalized health recommendations and longevity insights through an interactive chat interface."
       ],
-      "githubLink": "https://github.com/user-64bit/dd-agent",
+      "githubLink": "https://github.com/0xuser64bit/dd-agent",
       "liveProject": "https://dd-agent-ruby.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, OpenAI API",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/dd-agent.mkv"
@@ -169,7 +169,7 @@
       "listItems": [
         "Chrome extension that enhances ChatGPT with bookmark and pinned conversations. Never lose an important conversation again — pin your favorites and organize your AI chat history."
       ],
-      "githubLink": "https://github.com/user-64bit/echo-gpt",
+      "githubLink": "https://github.com/0xuser64bit/echo-gpt",
       "liveProject": "#",
       "techStack": "React, TypeScript, Vite, TailwindCSS, Chrome Extension Manifest V3",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Echo+GPT+Demo.mp4"
@@ -179,7 +179,7 @@
       "listItems": [
         "A lightweight, fast task manager written in Rust. Manage tasks from the command line with simple commands to add, edit, complete, and delete. Published on crates.io."
       ],
-      "githubLink": "https://github.com/user-64bit/suchi",
+      "githubLink": "https://github.com/0xuser64bit/suchi",
       "liveProject": "https://crates.io/crates/suchi",
       "techStack": "Rust"
     },
@@ -188,7 +188,7 @@
       "listItems": [
         "This portfolio site you're looking at right now. A Twitter/X-inspired portfolio built with React and TailwindCSS. Showcases projects, experience, and contributions through a familiar social media interface."
       ],
-      "githubLink": "https://github.com/user-64bit/The-TweetFolio",
+      "githubLink": "https://github.com/0xuser64bit/The-TweetFolio",
       "liveProject": "https://user64bit.wtf",
       "techStack": "React, TailwindCSS, TypeScript"
     },
@@ -197,7 +197,7 @@
       "listItems": [
         "A Notion-like collaborative note-taking platform with recursive data structures for hierarchical organization, markdown support, rich media, dark/light themes, and full-text search."
       ],
-      "githubLink": "https://github.com/user-64bit/notebook",
+      "githubLink": "https://github.com/0xuser64bit/notebook",
       "liveProject": "#",
       "techStack": "NextJS, Convex, TailwindCSS, ShadcnUI, TypeScript"
     },
@@ -206,7 +206,7 @@
       "listItems": [
         "Anonymous discussion platform for university students. Connect across campuses to share thoughts on academics, career paths, and campus life without fear of judgment."
       ],
-      "githubLink": "https://github.com/user-64bit/canteen",
+      "githubLink": "https://github.com/0xuser64bit/canteen",
       "liveProject": "#",
       "techStack": "NextJS, TailwindCSS, TypeScript, Prisma"
     }
