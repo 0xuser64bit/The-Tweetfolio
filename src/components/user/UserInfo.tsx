@@ -8,13 +8,10 @@ import {
   ABOUT_YOU,
   LOCATION,
   WEBSITE,
-  GITHUB_FOLLOWERS,
   JOINED_DATE,
-  SkillsData,
 } from "../../config";
 
 const UserInfo = () => {
-  const skillsCount = Object.values(SkillsData).flat().length;
 
   return (
     <div className="border-b border-x-border">
@@ -77,18 +74,6 @@ const UserInfo = () => {
               Joined {JOINED_DATE}
             </span>
           )}
-        </div>
-
-        {/* Skills / followers count */}
-        <div className="flex gap-5 mt-3 text-[15px]">
-          <span>
-            <span className="font-bold text-x-text-primary">{skillsCount}</span>{" "}
-            <span className="text-x-text-secondary">Skills</span>
-          </span>
-          <span>
-            <span className="font-bold text-x-text-primary">{GITHUB_FOLLOWERS}</span>{" "}
-            <span className="text-x-text-secondary">GitHub followers</span>
-          </span>
         </div>
       </div>
     </div>

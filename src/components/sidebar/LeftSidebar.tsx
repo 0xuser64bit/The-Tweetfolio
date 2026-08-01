@@ -107,15 +107,23 @@ const LeftSidebar = () => {
                 aria-current={isActive ? "page" : undefined}
                 className="flex items-center gap-5 px-3 py-3 rounded-full hover:bg-x-hover transition-colors text-x-text-primary"
               >
-                <span aria-hidden="true">
+                {/* Fixed-size icon container prevents shift when swapping outline ↔ filled */}
+                <span aria-hidden="true" className="w-[26px] h-[26px] flex items-center justify-center shrink-0">
                   {isActive ? item.iconFilled : item.iconOutline}
                 </span>
-                <span
-                  className={`hidden xl:inline text-xl ${
-                    isActive ? "font-bold" : "font-normal"
-                  }`}
-                >
-                  {item.label}
+                {/* Invisible bold text reserves the wider bold width permanently,
+                    so toggling font-weight never changes the button's size */}
+                <span className="hidden xl:inline relative text-xl">
+                  <span className="invisible font-bold" aria-hidden="true">
+                    {item.label}
+                  </span>
+                  <span
+                    className={`absolute inset-0 ${
+                      isActive ? "font-bold" : "font-normal"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
                 </span>
               </button>
             </li>

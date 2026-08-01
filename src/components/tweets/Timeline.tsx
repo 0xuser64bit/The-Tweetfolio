@@ -13,9 +13,11 @@ const Timeline: React.FC<Props> = ({ date, title, description }) => {
         aria-hidden="true"
         className="absolute -left-5.25 top-1.5 w-2.5 h-2.5 rounded-full bg-x-text-secondary"
       />
-      <time className="block text-[13px] text-x-text-secondary leading-tight">
-        {date || "—"}
-      </time>
+      {date && (
+        <time className="block text-[13px] text-x-text-secondary leading-tight">
+          {date}
+        </time>
+      )}
       <h3 className="text-[15px] font-bold text-x-text-primary mt-0.5">
         {title || "Untitled"}
       </h3>

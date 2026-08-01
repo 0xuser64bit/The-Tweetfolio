@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import Layout from "./components/Layout";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Error from "./components/utils/Error";
 import ErrorBoundary from "./components/utils/ErrorBoundary";
@@ -13,18 +14,22 @@ const ProjectsTweetThread = lazy(
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    element: <Layout />,
     errorElement: <Error />,
-  },
-  {
-    path: "proof-of-work",
-    element: (
-      <Suspense fallback={<SuspenseLoader />}>
-        <ProjectsTweetThread title="Proof of Work" />
-      </Suspense>
-    ),
-    errorElement: <Error />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "proof-of-work",
+        element: (
+          <Suspense fallback={<SuspenseLoader />}>
+            <ProjectsTweetThread title="Proof of Work" />
+          </Suspense>
+        ),
+      },
+    ],
   },
   {
     path: "*",
