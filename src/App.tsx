@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
 import Profile from "./components/user/Profile";
-import ProfileTabs from "./components/user/ProfileTabs";
 import Tweet from "./components/tweets/Tweet";
 import {
   Education,
@@ -20,7 +19,6 @@ const App = () => {
     <>
       <Header />
       <Profile />
-      <ProfileTabs />
       <div id="section-pinned">
         <Tweet TweetComponent={<PinnedTweet />} pinned date="Oct 2024" />
       </div>
