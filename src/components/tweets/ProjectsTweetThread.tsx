@@ -58,8 +58,8 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
   return (
     <>
       {/* Sticky Thread Header */}
-      <div className="sticky top-0 z-30 bg-x-primary/90 backdrop-blur-md border-b border-x-border">
-        <div className="flex items-center gap-6 px-4 py-3">
+      <div className="sticky top-0 z-30 bg-x-primary/80 backdrop-blur-md border-b border-x-border px-4 py-3">
+        <div className="flex items-center gap-6 mb-2.5">
           <Link
             to="/"
             aria-label="Back to home"
@@ -77,8 +77,8 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
           </div>
         </div>
 
-        {/* X-Style Navigation Tabs Bar */}
-        <div className="flex border-t border-x-border" role="navigation" aria-label="Project categories">
+        {/* Filter Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pt-0.5 pb-0.5">
           {tabs.map((tab) => {
             const count = getFilteredProjects(tab.id).length;
             const isActive = activeTab === tab.id;
@@ -87,60 +87,18 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
                 key={tab.id}
                 type="button"
                 onClick={() => setActiveTab(tab.id)}
-                className="flex-1 hover:bg-x-hover transition-colors px-2 py-3 text-center relative"
+                className={`px-3 py-1 rounded-full text-[13px] font-bold whitespace-nowrap transition-colors border ${
+                  isActive
+                    ? "bg-x-text-primary text-x-primary border-x-text-primary"
+                    : "bg-transparent text-x-text-secondary border-x-border hover:bg-x-hover"
+                }`}
               >
-                <span className="relative inline-flex items-center gap-1.5 justify-center">
-                  <span
-                    className={`text-[14px] whitespace-nowrap ${
-                      isActive
-                        ? "font-extrabold text-x-text-primary"
-                        : "font-medium text-x-text-secondary"
-                    }`}
-                  >
-                    {tab.label}
-                  </span>
-                  <span
-                    className={`text-[11px] px-1.5 py-0.2 rounded-full font-mono ${
-                      isActive
-                        ? "bg-x-accent text-white font-bold"
-                        : "bg-x-secondary text-x-text-secondary"
-                    }`}
-                  >
-                    {count}
-                  </span>
-
-                  {/* Sliding Underline Indicator */}
-                  {isActive && (
-                    <span
-                      aria-hidden="true"
-                      className="absolute -bottom-3 left-0 right-0 h-1 rounded-full bg-x-accent"
-                    />
-                  )}
-                </span>
+                {tab.label} ({count})
               </button>
             );
           })}
         </div>
       </div>
-
-      {/* Opening Intro Tweet */}
-      <Tweet
-        isThreaded={currentProjects.length > 0}
-        date="Aug 2024"
-        TweetComponent={
-          <div className="space-y-2">
-            <h2 className="text-[18px] font-extrabold text-x-text-primary">
-              Proof of Work 🧵
-            </h2>
-            <p className="text-[15px] leading-relaxed text-x-text-primary">
-              Welcome to my primary engineering log. Here is a curated breakdown of {allProjects.length} systems, Solana AI agents, MEV detection pipelines, and full-stack applications I&apos;ve architected and shipped.
-            </p>
-            <p className="text-[14px] text-x-text-secondary font-medium">
-              Use the tabs above to filter by ecosystem or scroll down to explore the complete thread 👇
-            </p>
-          </div>
-        }
-      />
 
       {/* Project Thread Posts */}
       {currentProjects.map((project, i) => (
