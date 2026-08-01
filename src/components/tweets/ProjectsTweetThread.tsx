@@ -9,36 +9,57 @@ interface Props {
   title: string;
 }
 
-type FilterCategory = "All" | "Web3" | "AI" | "Full Stack & Tools";
+type CategoryTab = "All" | "Web3" | "AI" | "FullStack";
 
-const filterCategoryMap: Record<FilterCategory, (tech: string) => boolean> = {
-  All: () => true,
-  Web3: (tech) =>
-    /solana|rust|anchor|web3|evm|birdeye|jito/i.test(tech),
-  AI: (tech) =>
-    /gemini|openai|agent|ai|gpt/i.test(tech),
-  "Full Stack & Tools": (tech) =>
-    /react|nextjs|vite|phaser|chrome|extension|rust|tools|node|convex|express|turborepo/i.test(tech),
+const categoryMap: Record<string, CategoryTab[]> = {
+  Praxis: ["Web3", "AI"],
+  "Get Toasted": ["Web3", "FullStack"],
+  ChibiTown: ["FullStack"],
+  RugPulse: ["Web3"],
+  DAOnation: ["Web3"],
+  PollChain: ["Web3"],
+  "Ask Genie": ["AI"],
+  "Dev DNA": ["FullStack"],
+  "Get-Git": ["FullStack"],
+  "DD-Agent": ["AI"],
+  "Echo-GPT": ["AI"],
+  suchi: ["FullStack"],
+  "The TweetFolio": ["FullStack"],
+  Notebook: ["FullStack"],
+  Canteen: ["FullStack"],
 };
 
+const tabs: { id: CategoryTab; label: string }[] = [
+  { id: "All", label: "All" },
+  { id: "Web3", label: "Solana & Web3" },
+  { id: "AI", label: "AI & Agents" },
+  { id: "FullStack", label: "Full Stack" },
+];
+
 const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
-  const [activeFilter, setActiveFilter] = useState<FilterCategory>("All");
+  const [activeTab, setActiveTab] = useState<CategoryTab>("All");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const filteredProjects = (ProjectsData ?? []).filter((p) => {
-    if (activeFilter === "All") return true;
-    const tech = `${p.techStack || ""} ${p.projectName || ""} ${(p.listItems || []).join(" ")}`;
-    return filterCategoryMap[activeFilter](tech);
-  });
+  const allProjects = ProjectsData ?? [];
+
+  const getFilteredProjects = (tab: CategoryTab) => {
+    if (tab === "All") return allProjects;
+    return allProjects.filter((p) => {
+      const cats = categoryMap[p.projectName] || ["FullStack"];
+      return cats.includes(tab);
+    });
+  };
+
+  const currentProjects = getFilteredProjects(activeTab);
 
   return (
     <>
       {/* Sticky Thread Header */}
-      <div className="sticky top-0 z-30 px-4 py-3 bg-x-primary/80 backdrop-blur-md border-b border-x-border">
-        <div className="flex items-center gap-6 mb-2">
+      <div className="sticky top-0 z-30 bg-x-primary/90 backdrop-blur-md border-b border-x-border">
+        <div className="flex items-center gap-6 px-4 py-3">
           <Link
             to="/"
             aria-label="Back to home"
@@ -51,27 +72,51 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
               {title}
             </h1>
             <p className="text-[13px] text-x-text-secondary leading-tight">
-              {ProjectsData?.length ?? 0} posts in thread
+              {allProjects.length} posts in thread
             </p>
           </div>
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pt-1 pb-0.5">
-          {(["All", "Web3", "AI", "Full Stack & Tools"] as FilterCategory[]).map((cat) => {
-            const isActive = activeFilter === cat;
+        {/* X-Style Navigation Tabs Bar */}
+        <div className="flex border-t border-x-border" role="navigation" aria-label="Project categories">
+          {tabs.map((tab) => {
+            const count = getFilteredProjects(tab.id).length;
+            const isActive = activeTab === tab.id;
             return (
               <button
-                key={cat}
+                key={tab.id}
                 type="button"
-                onClick={() => setActiveFilter(cat)}
-                className={`px-3 py-1 rounded-full text-[13px] font-bold whitespace-nowrap transition-colors border ${
-                  isActive
-                    ? "bg-x-text-primary text-x-primary border-x-text-primary"
-                    : "bg-transparent text-x-text-secondary border-x-border hover:bg-x-hover"
-                }`}
+                onClick={() => setActiveTab(tab.id)}
+                className="flex-1 hover:bg-x-hover transition-colors px-2 py-3 text-center relative"
               >
-                {cat}
+                <span className="relative inline-flex items-center gap-1.5 justify-center">
+                  <span
+                    className={`text-[14px] whitespace-nowrap ${
+                      isActive
+                        ? "font-extrabold text-x-text-primary"
+                        : "font-medium text-x-text-secondary"
+                    }`}
+                  >
+                    {tab.label}
+                  </span>
+                  <span
+                    className={`text-[11px] px-1.5 py-0.2 rounded-full font-mono ${
+                      isActive
+                        ? "bg-x-accent text-white font-bold"
+                        : "bg-x-secondary text-x-text-secondary"
+                    }`}
+                  >
+                    {count}
+                  </span>
+
+                  {/* Sliding Underline Indicator */}
+                  {isActive && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute -bottom-3 left-0 right-0 h-1 rounded-full bg-x-accent"
+                    />
+                  )}
+                </span>
               </button>
             );
           })}
@@ -80,7 +125,7 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
 
       {/* Opening Intro Tweet */}
       <Tweet
-        isThreaded={filteredProjects.length > 0}
+        isThreaded={currentProjects.length > 0}
         date="Aug 2024"
         TweetComponent={
           <div className="space-y-2">
@@ -88,20 +133,20 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
               Proof of Work 🧵
             </h2>
             <p className="text-[15px] leading-relaxed text-x-text-primary">
-              Welcome to my engineering thread. Below is a curated breakdown of {ProjectsData?.length ?? 0} systems, AI agents, MEV detection engines, and full-stack applications I&apos;ve built and shipped.
+              Welcome to my primary engineering log. Here is a curated breakdown of {allProjects.length} systems, Solana AI agents, MEV detection pipelines, and full-stack applications I&apos;ve architected and shipped.
             </p>
-            <p className="text-[14px] text-x-text-secondary">
-              Explore the live demos, inspect the source repositories, or filter by category above 👇
+            <p className="text-[14px] text-x-text-secondary font-medium">
+              Use the tabs above to filter by ecosystem or scroll down to explore the complete thread 👇
             </p>
           </div>
         }
       />
 
-      {/* Project Thread Tweets */}
-      {filteredProjects.map((project, i) => (
+      {/* Project Thread Posts */}
+      {currentProjects.map((project, i) => (
         <Tweet
           key={project.projectName}
-          isThreaded={i < filteredProjects.length - 1}
+          isThreaded={i < currentProjects.length - 1}
           TweetComponent={
             <ListProject
               project={project?.projectName || ""}
@@ -112,7 +157,7 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
               techstack={project?.techStack || ""}
               demoVideo={project?.demoVideo || ""}
               index={i}
-              total={filteredProjects.length}
+              total={currentProjects.length}
             />
           }
         />
