@@ -55,6 +55,23 @@ const Tweet: React.FC<Props> = ({
     return () => document.removeEventListener("keydown", handleKey);
   }, [showMenu]);
 
+  const counts = React.useMemo(() => {
+    const seedString = `${date || ""}-${pinned ? "pinned" : ""}-${numberOfTweets || 0}`;
+    let hash = 0;
+    for (let i = 0; i < seedString.length; i++) {
+      hash = (hash << 5) - hash + seedString.charCodeAt(i);
+      hash |= 0;
+    }
+    const seed = Math.abs(hash);
+
+    const views = ((seed * 157 + 3421) % 18500) + 1820;
+    const likes = Math.floor(views * (0.04 + ((seed % 12) / 100))) + 18;
+    const retweets = Math.floor(likes * (0.18 + ((seed % 8) / 100))) + 4;
+    const replies = numberOfTweets || Math.floor(retweets * 0.5) + 3;
+
+    return { views, likes, retweets, replies };
+  }, [date, pinned, numberOfTweets]);
+
   return (
     <article
       ref={ref}
@@ -164,10 +181,10 @@ const Tweet: React.FC<Props> = ({
 
             {/* Engagement row — capped width so actions don't span the full column */}
             <div className="flex justify-between items-center max-w-md mt-3 -ml-1.5">
-              <CommentButton thread={numberOfTweets} />
-              <RetweetButton />
-              <LikeButton />
-              <ViewsButton />
+              <CommentButton initialCount={counts.replies} />
+              <RetweetButton initialCount={counts.retweets} />
+              <LikeButton initialCount={counts.likes} />
+              <ViewsButton initialCount={counts.views} />
               <ShareButton />
             </div>
           </div>
