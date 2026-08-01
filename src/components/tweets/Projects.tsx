@@ -58,9 +58,11 @@ const Projects = () => {
         })}
       </div>
 
-      <p className="text-x-accent text-[15px] mt-3">
-        Show this thread{remaining > 0 ? ` (+${remaining} more)` : ""} →
-      </p>
+      <div className="mt-3 text-center">
+        <span className="text-x-accent text-[15px] font-medium hover:underline inline-block">
+          Show this thread{remaining > 0 ? ` (+${remaining} more)` : ""} →
+        </span>
+      </div>
     </div>
   );
 };
