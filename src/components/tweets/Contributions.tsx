@@ -117,13 +117,13 @@ const Contributions = () => {
         </button>
       )}
 
-      <div className="mt-2">
+      <div className="mt-3 text-center">
         <a
           href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
-          className="inline-flex text-x-accent text-[14px] hover:underline"
+          className="inline-flex text-x-accent text-[14px] font-medium hover:underline"
         >
           View more on Get-Git →
         </a>
