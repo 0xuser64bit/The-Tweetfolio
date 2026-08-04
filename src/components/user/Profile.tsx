@@ -1,5 +1,5 @@
 import React from "react";
-import COVER_IMAGE from "../../assets/cover.jpg";
+import COVER_IMAGE from "../../assets/AnimeCover.gif";
 import PROFILE_IMAGE from "../../assets/profile.jpg";
 import UserInfo from "./UserInfo";
 import TwitterCoverModal from "./TwitterCoverModal";
