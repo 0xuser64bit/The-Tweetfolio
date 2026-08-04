@@ -21,7 +21,10 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({
     dialogRef.current?.focus();
 
     const handleClickOutside = (event: MouseEvent) => {
-      if (dialogRef.current && !dialogRef.current.contains(event.target as Node)) {
+      if (
+        dialogRef.current &&
+        !dialogRef.current.contains(event.target as Node)
+      ) {
         onClose();
       }
     };
@@ -67,14 +70,14 @@ const ProfileImageModal: React.FC<ProfileImageModalProps> = ({
           isClosing
             ? "scale-90 opacity-0 translate-y-2"
             : isOpening
-            ? "scale-100 opacity-100 translate-y-0"
-            : "scale-90 opacity-0 translate-y-2"
+              ? "scale-100 opacity-100 translate-y-0"
+              : "scale-90 opacity-0 translate-y-2"
         }`}
       >
         <img
           src={src}
           alt={`${DISPLAYNAME}'s profile`}
-          className="w-full rounded-full shadow-2xl"
+          className="w-full rounded-lg shadow-2xl"
           loading="lazy"
         />
       </div>
@@ -112,13 +115,15 @@ const TwitterProfileModal: React.FC<TwitterProfileModalProps> = ({ image }) => {
         type="button"
         onClick={openModal}
         aria-label="Open profile photo"
-        className="relative z-10 -mt-12 md:-mt-16.5 border-[4px] border-x-primary rounded-full overflow-hidden w-24 h-24 md:w-33.25 md:h-33.25 bg-x-primary"
+        className="relative z-10 -mt-12 md:-mt-16.5 block w-24 h-24 md:w-33.25 md:h-33.25 rounded-[6px] md:rounded-[7px] p-[3px] md:p-[4px] bg-linear-to-br from-x-gold-light via-x-gold to-x-gold-dark shadow-[0_0_18px_rgba(205,129,5,0.4)]"
       >
-        <img
-          src={image}
-          alt={`${DISPLAYNAME}'s profile`}
-          className="w-full h-full object-cover"
-        />
+        <span className="block w-full h-full rounded-[3px] md:rounded-[4px] overflow-hidden bg-x-primary">
+          <img
+            src={image}
+            alt={`${DISPLAYNAME}'s profile`}
+            className="w-full h-full object-cover"
+          />
+        </span>
       </button>
       {isOpen && (
         <ProfileImageModal

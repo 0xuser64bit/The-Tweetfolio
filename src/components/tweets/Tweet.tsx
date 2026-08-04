@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import PROFILE_IMAGE from "../../assets/profile.jpg";
 import { DISPLAYNAME, X_USERNAME } from "../../config";
+import GoldVerifiedBadge from "../user/GoldVerifiedBadge";
 import useInView from "../../hooks/useInView";
 import {
   LikeButton,
@@ -23,13 +24,21 @@ interface Props {
 }
 
 const PinIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current" aria-hidden="true">
+  <svg
+    viewBox="0 0 24 24"
+    className="w-3.5 h-3.5 fill-current"
+    aria-hidden="true"
+  >
     <path d="M7 4.5C7 3.12 8.12 2 9.5 2h5C15.88 2 17 3.12 17 4.5v5.26L20.12 16H13v5l-1 2-1-2v-5H3.88L7 9.76V4.5z" />
   </svg>
 );
 
 const MoreIcon = () => (
-  <svg viewBox="0 0 24 24" className="w-4.5 h-4.5 fill-current" aria-hidden="true">
+  <svg
+    viewBox="0 0 24 24"
+    className="w-4.5 h-4.5 fill-current"
+    aria-hidden="true"
+  >
     <path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" />
   </svg>
 );
@@ -65,8 +74,8 @@ const Tweet: React.FC<Props> = ({
     const seed = Math.abs(hash);
 
     const views = ((seed * 157 + 3421) % 18500) + 1820;
-    const likes = Math.floor(views * (0.04 + ((seed % 12) / 100))) + 18;
-    const retweets = Math.floor(likes * (0.18 + ((seed % 8) / 100))) + 4;
+    const likes = Math.floor(views * (0.04 + (seed % 12) / 100)) + 18;
+    const retweets = Math.floor(likes * (0.18 + (seed % 8) / 100)) + 4;
     const replies = numberOfTweets || Math.floor(retweets * 0.5) + 3;
 
     return { views, likes, retweets, replies };
@@ -95,17 +104,22 @@ const Tweet: React.FC<Props> = ({
         <div className="flex gap-3">
           {/* Avatar column */}
           <div className="flex flex-col items-center shrink-0 w-10">
-            <div className="w-10 h-10 rounded-full overflow-hidden">
-              <img
-                alt={`${DISPLAYNAME}'s avatar`}
-                src={PROFILE_IMAGE}
-                className="w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
+            <div className="w-10 h-10 rounded-lg p-[2px] bg-linear-to-br from-x-gold-light via-x-gold to-x-gold-dark">
+              <div className="w-full h-full rounded-[6px] overflow-hidden bg-x-primary">
+                <img
+                  alt={`${DISPLAYNAME}'s avatar`}
+                  src={PROFILE_IMAGE}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
             </div>
             {isThreaded && (
-              <div className="flex-1 w-0.5 bg-x-border mt-2 rounded-full" aria-hidden="true" />
+              <div
+                className="flex-1 w-0.5 bg-x-border mt-2 rounded-full"
+                aria-hidden="true"
+              />
             )}
           </div>
 
@@ -117,12 +131,16 @@ const Tweet: React.FC<Props> = ({
                 <span className="font-bold text-x-text-primary hover:underline truncate">
                   {DISPLAYNAME}
                 </span>
+                <GoldVerifiedBadge className="w-[1.05em] h-[1.05em] shrink-0 self-center" />
                 <span className="ml-1 text-x-text-secondary truncate">
                   @{X_USERNAME}
                 </span>
                 {date && (
                   <>
-                    <span className="mx-1 text-x-text-secondary" aria-hidden="true">
+                    <span
+                      className="mx-1 text-x-text-secondary"
+                      aria-hidden="true"
+                    >
                       ·
                     </span>
                     <span className="text-x-text-secondary hover:underline">

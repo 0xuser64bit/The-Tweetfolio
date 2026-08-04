@@ -16,6 +16,9 @@
   --color-x-like: var(--color-like);
   --color-x-retweet: var(--color-retweet);
   --color-x-reply: var(--color-reply);
+  --color-x-gold-light: #f9e87f;
+  --color-x-gold: #e2b719;
+  --color-x-gold-dark: #cb7b00;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 
@@ -30,6 +33,31 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+}
+
+/* Square avatar loader: gold border fills 0% → 100% around the perimeter */
+@keyframes square-border-progress {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.square-border-loader {
+  animation: square-border-progress 1.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.square-border-loader--loop {
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .square-border-loader {
+    animation: none;
+    stroke-dashoffset: 0;
   }
 }
 
@@ -117,7 +145,12 @@
 
 body {
   background-color: var(--color-bg-primary);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
     sans-serif;
   font-feature-settings: "cv11", "ss01", "ss03";
   font-weight: 400;

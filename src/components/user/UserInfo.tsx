@@ -10,6 +10,7 @@ import {
   WEBSITE,
   JOINED_DATE,
 } from "../../config";
+import GoldVerifiedBadge from "./GoldVerifiedBadge";
 
 const UserInfo = () => {
 
@@ -17,8 +18,9 @@ const UserInfo = () => {
     <div className="border-b border-x-border">
       <div className="px-4 pb-3 pt-3">
         {/* Display name + handle */}
-        <h1 className="text-[20px] md:text-[23px] font-extrabold leading-tight text-x-text-primary">
-          {DISPLAYNAME}
+        <h1 className="flex items-center gap-1 text-[20px] md:text-[23px] font-extrabold leading-tight text-x-text-primary">
+          <span className="truncate">{DISPLAYNAME}</span>
+          <GoldVerifiedBadge className="w-[1.05em] h-[1.05em] shrink-0" />
         </h1>
         <p className="text-[15px] leading-tight text-x-text-secondary mt-0.5">
           <a
