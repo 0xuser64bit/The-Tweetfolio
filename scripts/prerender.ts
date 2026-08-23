@@ -211,3 +211,6 @@ const main = async () => {
 };
 
 await main();
+robotTxt += '
+# DEPLOY TEST 4
+';
