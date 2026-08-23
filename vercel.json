@@ -167,6 +167,6 @@
     }
   ],
   "functions": {
-    "api/*.ts": { "runtime": "edge" },
+    "api/*.ts": { "runtime": "edge" }
   }
 }
