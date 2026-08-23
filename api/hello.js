@@ -1,3 +1,3 @@
-export default function handler(req, res) {
-  res.status(200).json({ message: "hello" });
+module.exports = function handler(req, res) {
+  res.status(200).json({ message: "hello cjs" });
 }
