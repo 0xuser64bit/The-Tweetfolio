@@ -23,7 +23,7 @@ for (const fn of funcs) {
   const funcDir = path.join(output, "functions", "api", `${fn}.func`);
   fs.mkdirSync(funcDir, { recursive: true });
   
-  execSync(`bunx esbuild api/${fn}.ts --bundle --format=esm --platform=browser --outfile=${funcDir}/index.js`, { cwd: root, stdio: "inherit" });
+  execSync(`npx esbuild api/${fn}.ts --bundle --format=esm --platform=browser --outfile=${funcDir}/index.js`, { cwd: root, stdio: "inherit" });
   
   fs.writeFileSync(path.join(funcDir, ".vc-config.json"), JSON.stringify({
     runtime: "edge",
