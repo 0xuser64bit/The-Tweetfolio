@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { handleNotFound, requestedPath } from "../api/not-found";
+import { handleNotFound, requestedPath } from "../server/not-found";
 import { PATH_PARAM } from "../shared/api";
 import { renderNotFoundHtml } from "../shared/not-found-page";
 import { AGENT_RESOURCES, ORIGIN, absolute } from "../shared/site";

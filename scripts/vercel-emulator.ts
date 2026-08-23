@@ -244,7 +244,7 @@ const loadFunctions = async (): Promise<Map<string, FunctionHandler>> => {
   const handlers = new Map<string, FunctionHandler>();
 
   for (const name of names) {
-    const mod = (await import(`../api/${name}.ts`)) as {
+    const mod = (await import(`../server/${name}.ts`)) as {
       default: { fetch: FunctionHandler } | FunctionHandler;
     };
     const handler =
