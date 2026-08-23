@@ -110,6 +110,7 @@ export const handleNotFound = (request: Request): Response => {
 /** Tell Vercel to run this in the Edge Runtime (Web API, not Node.js). */
 export const config = { runtime: "edge" };
 
-export default function (request: Request): Response {
-  return handleNotFound(request);
+import { runWithAdapter } from "../shared/adapter";
+export default function (req: any, res: any) {
+  return runWithAdapter(req, res, (request) => handleNotFound(request));
 }
