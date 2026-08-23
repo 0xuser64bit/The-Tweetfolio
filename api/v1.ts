@@ -13,8 +13,6 @@ import { apiPathnameFor, handleApiRequest } from "../shared/api";
 /** Tell Vercel to run this in the Edge Runtime (Web API, not Node.js). */
 export const config = { runtime: "edge" };
 
-export default {
-  fetch(request: Request): Response {
-    return handleApiRequest(request, apiPathnameFor(request));
-  },
-};
+export default function (request: Request): Response {
+  return handleApiRequest(request, apiPathnameFor(request));
+}

@@ -136,8 +136,6 @@ const fetchHtmlFromOrigin = (
 /** Tell Vercel to run this in the Edge Runtime (Web API, not Node.js). */
 export const config = { runtime: "edge" };
 
-export default {
-  fetch(request: Request): Promise<Response> {
-    return handlePageRequest(request, fetchHtmlFromOrigin);
-  },
-};
+export default function (request: Request): Promise<Response> {
+  return handlePageRequest(request, fetchHtmlFromOrigin);
+}
