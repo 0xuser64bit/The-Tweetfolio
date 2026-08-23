@@ -20,5 +20,5 @@
     "noEmit": true,
     "types": ["bun", "node"]
   },
-  "include": ["src", "shared", "api", "scripts", "tests", "vite.config.ts"]
+  "include": ["src", "shared", "server", "scripts", "tests", "vite.config.ts"]
 }
