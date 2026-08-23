@@ -63,7 +63,7 @@
       "source": "/api/v1/:resource/:id",
       "destination": "/api/v1?__resource=:resource&__id=:id"
     },
-    { "source": "/api/:path*", "destination": "/api/v1?__path=:path*" },
+    { "source": "/api/hello", "destination": "/api/hello" }, { "source": "/api/:path*", "destination": "/api/v1?__path=:path*" },
     { "source": "/:path*", "destination": "/api/not-found?__path=:path*" }
   ],
   "headers": [
