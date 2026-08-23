@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { handlePageRequest, resolvePath } from "../server/page";
+import { handlePageRequest, resolvePath } from "../api/page";
 import { PATH_PARAM } from "../shared/api";
 import { markdownForPath } from "../shared/markdown";
 import { ORIGIN, PAGES } from "../shared/site";
