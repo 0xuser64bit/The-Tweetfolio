@@ -1,4 +1,3 @@
-export const config = { runtime: "edge" };
-export default function (req: Request) {
-  return new Response("pong");
+export default function (req, res) {
+  res.status(200).send("pong Node.js");
 }
