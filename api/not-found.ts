@@ -107,7 +107,9 @@ export const handleNotFound = (request: Request): Response => {
   );
 };
 
+// Edge is declared here, not in vercel.json (`functions.runtime` is for community runtimes).
 export const config = { runtime: "edge" };
-export default function(request: Request): Response | Promise<Response> {
-    return handleNotFound(request);
+
+export default function handler(request: Request): Response {
+  return handleNotFound(request);
 }

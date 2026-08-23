@@ -10,7 +10,9 @@
 
 import { apiPathnameFor, handleApiRequest } from "../shared/api";
 
+// Edge is declared here, not in vercel.json (`functions.runtime` is for community runtimes).
 export const config = { runtime: "edge" };
-export default function(request: Request): Response | Promise<Response> {
-    return handleApiRequest(request, apiPathnameFor(request));
+
+export default function handler(request: Request): Response {
+  return handleApiRequest(request, apiPathnameFor(request));
 }

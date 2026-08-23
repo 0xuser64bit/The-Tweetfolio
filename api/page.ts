@@ -133,7 +133,9 @@ const fetchHtmlFromOrigin = (
     redirect: "follow",
   });
 
+// Edge is declared here, not in vercel.json (`functions.runtime` is for community runtimes).
 export const config = { runtime: "edge" };
-export default function(request: Request): Response | Promise<Response> {
-    return handlePageRequest(request, fetchHtmlFromOrigin);
+
+export default function handler(request: Request): Promise<Response> {
+  return handlePageRequest(request, fetchHtmlFromOrigin);
 }
