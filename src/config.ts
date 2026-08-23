@@ -1,5 +1,5 @@
-import portfolio from "./portfolio.json";
-import type { Portfolio } from "./types";
+import portfolio from "../shared/portfolio.json";
+import type { Portfolio } from "../shared/types";
 
 const data = portfolio as Portfolio;
 

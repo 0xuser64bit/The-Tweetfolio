@@ -7,9 +7,14 @@
 
 # testing
 /coverage
-
 # production
 /build
+
+# intermediate SSR bundle used by the prerender step
+/.ssr
+
+# vercel
+/.vercel
 
 # misc
 .env

@@ -10,3 +10,6 @@ next-env.d.ts
 next.config.ts
 bun.lockb
 package-lock.json
+
+# Content data: keep the diff clean when only the rename matters
+shared/portfolio.json

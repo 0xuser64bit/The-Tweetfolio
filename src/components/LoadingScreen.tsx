@@ -5,13 +5,8 @@ interface Props {
   onLoadingComplete: () => void;
 }
 
-interface SpinnerProps {
-  /** When true, border progress loops. Default: play once 0→100% and hold. */
-  loop?: boolean;
-}
-
 /** Square profile loader: gold border draws 0% → 100% around the avatar. */
-const Spinner: React.FC<SpinnerProps> = ({ loop = false }) => {
+const Spinner = () => {
   const uid = useId();
   const gradientId = `${uid}-loader-gold`;
   const glowId = `${uid}-loader-glow`;
@@ -98,23 +93,13 @@ const Spinner: React.FC<SpinnerProps> = ({ loop = false }) => {
             strokeDasharray={100}
             strokeDashoffset={100}
             filter={`url(#${glowId})`}
-            className={
-              loop
-                ? "square-border-loader square-border-loader--loop"
-                : "square-border-loader"
-            }
+            className="square-border-loader"
           />
         </svg>
       </div>
     </div>
   );
 };
-
-export const SuspenseLoader = () => (
-  <div className="fixed inset-0 z-[80] flex items-center justify-center bg-x-primary">
-    <Spinner loop />
-  </div>
-);
 
 const LoadingScreen: React.FC<Props> = ({ onLoadingComplete }) => {
   const [hidden, setHidden] = useState(false);
@@ -158,7 +143,7 @@ const LoadingScreen: React.FC<Props> = ({ onLoadingComplete }) => {
 
   return (
     <div
-      className={`fixed inset-0 z-[80] flex items-center justify-center bg-x-primary motion-safe:transition-opacity motion-safe:duration-200 ${
+      className={`loading-overlay fixed inset-0 z-[80] items-center justify-center bg-x-primary motion-safe:transition-opacity motion-safe:duration-200 ${
         hidden ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
     >

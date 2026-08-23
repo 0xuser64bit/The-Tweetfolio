@@ -17,6 +17,43 @@
 
 and You're good to go....
 
+## Machine-readable surface (for AI agents)
+
+Every page is prerendered to static HTML at build time, so crawlers that do not
+run JavaScript still receive the full content. Alongside the HTML, TweetFolio
+publishes:
+
+| Endpoint                      | What it is                                                        |
+| ----------------------------- | ----------------------------------------------------------------- |
+| `/llms.txt`                   | Curated index of the site, per [llmstxt.org](https://llmstxt.org) |
+| `/llms-full.txt`              | Every page concatenated as Markdown                               |
+| `/index.md`, `/*.md`          | Markdown alternate of each HTML page                              |
+| `/openapi.json`               | OpenAPI 3.1 description of the JSON API                           |
+| `/api/v1`                     | Read-only JSON API over `shared/portfolio.json`                   |
+| `/sitemap.xml`, `/robots.txt` | Generated from the page list in `shared/site.ts`                  |
+
+Any HTML page also answers `Accept: text/markdown` with Markdown from the same
+URL ([acceptmarkdown.com](https://acceptmarkdown.com)), and unknown paths return
+a real HTTP 404 whose body points agents at the indexes above.
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" https://user64bit.wtf/nope   # 404
+curl -sI -H "Accept: text/markdown" https://user64bit.wtf/            # text/markdown + Vary: Accept
+```
+
+### Commands
+
+| Command          | What it does                                                     |
+| ---------------- | ---------------------------------------------------------------- |
+| `bun run dev`    | Vite dev server                                                  |
+| `bun run build`  | Type-check, bundle, prerender pages, generate the agent files    |
+| `bun test`       | Builds, then runs the full suite                                 |
+| `bun run verify` | Replays `vercel.json` against `build/` and checks every endpoint |
+
+Add a page by appending it to `PAGES` in `shared/site.ts`, registering a route in
+`src/routes.tsx`, and adding a Markdown renderer in `shared/markdown.ts`; the
+tests fail until `vercel.json` covers it too.
+
 ## Contributing to TweetFolio
 
 - TweetFolio is an open-source project, and we welcome contributions from the community. If you've used TweetFolio and have ideas for improvements or new features, please create an issue on the project's repository. We'll review your suggestions and work on implementing them.

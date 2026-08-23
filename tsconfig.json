@@ -17,7 +17,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true
+    "noEmit": true,
+    "types": ["bun", "node"]
   },
-  "include": ["src", "vite.config.ts"]
+  "include": ["src", "shared", "api", "scripts", "tests", "vite.config.ts"]
 }

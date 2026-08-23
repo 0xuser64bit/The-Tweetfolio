@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!doctype html>
+<html lang="en" class="theme-lights-out">
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta name="description"
-        content="Arth Prajapati — Full-stack developer portfolio. Web3, AI, open source. Building at the intersection of code and crypto." />
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="c50da7aa-b136-4d04-90b5-261619d2eb40"></script>
+    <meta
+      name="description"
+      content="Arth Prajapati — Full-stack developer portfolio. Web3, AI, open source. Building at the intersection of code and crypto."
+    />
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="c50da7aa-b136-4d04-90b5-261619d2eb40"
+    ></script>
 
     <!-- Open Graph -->
     <meta property="og:title" content="Arth Prajapati (@user64bit) / X-folio" />
-    <meta property="og:description"
-        content="Full-stack developer. Ex-Odoo. Web3 & AI. Open source contributor." />
+    <meta
+      property="og:description"
+      content="Full-stack developer. Ex-Odoo. Web3 & AI. Open source contributor."
+    />
     <meta property="og:image" content="https://user64bit.wtf/og-image.png" />
     <meta property="og:url" content="https://user64bit.wtf" />
     <meta property="og:type" content="website" />
@@ -23,7 +30,10 @@
     <meta name="twitter:site" content="@user64bit" />
     <meta name="twitter:creator" content="@user64bit" />
     <meta name="twitter:title" content="Arth Prajapati" />
-    <meta name="twitter:description" content="Full-stack developer portfolio styled like X. Check it out." />
+    <meta
+      name="twitter:description"
+      content="Full-stack developer portfolio styled like X. Check it out."
+    />
     <meta name="twitter:image" content="https://user64bit.wtf/og-image.png" />
 
     <!-- Favicon -->
@@ -33,18 +43,52 @@
     <!-- Canonical -->
     <link rel="canonical" href="https://user64bit.wtf" />
 
+    <!-- Machine-readable alternates for AI agents and crawlers -->
+    <link
+      rel="alternate"
+      type="text/markdown"
+      href="https://user64bit.wtf/index.md"
+      title="Markdown"
+    />
+    <link
+      rel="alternate"
+      type="text/plain"
+      href="https://user64bit.wtf/llms.txt"
+      title="llms.txt"
+    />
+    <link
+      rel="service-desc"
+      type="application/json"
+      href="https://user64bit.wtf/openapi.json"
+      title="OpenAPI"
+    />
+
     <link rel="manifest" href="/manifest.json" />
     <title>Arth Prajapati</title>
-</head>
+    <!-- Runs before first paint: marks the document as scripted so `index.css`
+         can hide the loading overlay for no-JS clients, and applies the saved
+         theme so hydration never flashes the wrong palette. -->
+    <script>
+      (function () {
+        var root = document.documentElement;
+        root.classList.add("js");
+        try {
+          var saved = localStorage.getItem("tweetfolio-theme");
+          if (saved === "dim" || saved === "light" || saved === "lights-out") {
+            root.classList.remove(
+              "theme-lights-out",
+              "theme-dim",
+              "theme-light",
+            );
+            root.classList.add("theme-" + saved);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
 
-<body>
-    <noscript>
-        <h1>Arth Prajapati — Developer Portfolio</h1>
-        <p>Full-stack developer specializing in Web3, AI, and open source. Ex-Odoo. View my projects, experience, and
-            contributions.</p>
-    </noscript>
-    <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
-</body>
-
+  <body>
+    <div id="root"><!--app-html--></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
+  </body>
 </html>

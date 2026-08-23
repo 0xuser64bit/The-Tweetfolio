@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { ProjectsData } from "../../config";
+import { categoriesFor, type ProjectCategory } from "../../../shared/content";
 import ListProject from "./ListProject";
 import Tweet from "./Tweet";
 
@@ -9,27 +10,7 @@ interface Props {
   title: string;
 }
 
-type CategoryTab = "All" | "Web3" | "AI" | "FullStack";
-
-const categoryMap: Record<string, CategoryTab[]> = {
-  Praxis: ["Web3", "AI"],
-  "Get Toasted": ["Web3", "FullStack"],
-  ChibiTown: ["FullStack"],
-  RugPulse: ["Web3"],
-  DAOnation: ["Web3"],
-  PollChain: ["Web3"],
-  "Ask Genie": ["AI"],
-  "Dev DNA": ["FullStack"],
-  "Get-Git": ["FullStack"],
-  "DD-Agent": ["AI"],
-  "Echo-GPT": ["AI"],
-  suchi: ["FullStack"],
-  "The TweetFolio": ["FullStack"],
-  Notebook: ["FullStack"],
-  Canteen: ["FullStack"],
-};
-
-const tabs: { id: CategoryTab; label: string }[] = [
+const tabs: { id: ProjectCategory; label: string }[] = [
   { id: "All", label: "All" },
   { id: "Web3", label: "Solana & Web3" },
   { id: "AI", label: "AI & Agents" },
@@ -37,7 +18,7 @@ const tabs: { id: CategoryTab; label: string }[] = [
 ];
 
 const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
-  const [activeTab, setActiveTab] = useState<CategoryTab>("All");
+  const [activeTab, setActiveTab] = useState<ProjectCategory>("All");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -45,12 +26,13 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
 
   const allProjects = ProjectsData ?? [];
 
-  const getFilteredProjects = (tab: CategoryTab) => {
+  const getFilteredProjects = (tab: ProjectCategory) => {
     if (tab === "All") return allProjects;
-    return allProjects.filter((p) => {
-      const cats = categoryMap[p.projectName] || ["FullStack"];
-      return cats.includes(tab);
-    });
+    // Categories live in `shared/content.ts` so the filter pills, the JSON API,
+    // and the Markdown alternates can never disagree.
+    return allProjects.filter((p) =>
+      categoriesFor(p.projectName).includes(tab),
+    );
   };
 
   const currentProjects = getFilteredProjects(activeTab);

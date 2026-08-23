@@ -53,7 +53,7 @@ const Tweet: React.FC<Props> = ({
 }) => {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
-  const { ref, isInView } = useInView(0.05);
+  const { ref, className: revealClass } = useInView(0.05);
 
   useEffect(() => {
     if (!showMenu) return;
@@ -82,12 +82,7 @@ const Tweet: React.FC<Props> = ({
   }, [date, pinned, numberOfTweets]);
 
   return (
-    <article
-      ref={ref}
-      className={`w-full motion-safe:transition-all motion-safe:duration-500 ${
-        isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"
-      }`}
-    >
+    <article ref={ref} className={`w-full ${revealClass}`}>
       <div
         className={`px-4 pt-3 pb-2 border-b border-x-border transition-colors ${
           interactive ? "hover:bg-x-hover cursor-pointer" : ""

@@ -9,15 +9,22 @@ import LoadingScreen from "./LoadingScreen";
  * Shared layout that persists across all routes.
  * Keeps the left sidebar, right sidebar, and bottom nav mounted
  * so they never unmount/remount on route changes (no layout shift).
+ *
+ * The initial loading overlay is gated on the `.js` class in `index.css` rather
+ * than on `display: none` from React state, so the server-rendered markup is
+ * identical for both audiences: browsers with JavaScript see the loader, and
+ * crawlers without it see the content immediately.
  */
 const Layout = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
     <>
-      {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
+      {isLoading && (
+        <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+      )}
       <div
-        className={`mx-auto grid justify-center grid-cols-1 md:grid-cols-[88px_minmax(0,600px)] lg:grid-cols-[88px_minmax(0,600px)_350px] xl:grid-cols-[275px_minmax(0,600px)_350px] xl:gap-x-0 ${isLoading ? "hidden" : ""}`}
+        className={`mx-auto grid justify-center grid-cols-1 md:grid-cols-[88px_minmax(0,600px)] lg:grid-cols-[88px_minmax(0,600px)_350px] xl:grid-cols-[275px_minmax(0,600px)_350px] xl:gap-x-0 ${isLoading ? "app-shell--loading" : ""}`}
       >
         {/* Skip to main content */}
         <a

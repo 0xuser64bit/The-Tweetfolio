@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
-@import "tailwindcss";
+/* `source("../src")` keeps class detection to the UI code. Without it Tailwind
+   also scans `shared/`, `api/`, `scripts/`, and `tests/`, where words like
+   "acceptable" or "toLowerCase" get mistaken for utility classes. */
+@import "tailwindcss" source("../src");
 
 /* Tailwind v4 CSS-first config (replaces tailwind.config.js).
    `x-*` colors map onto the runtime theme CSS vars defined in :root below,
@@ -46,12 +49,52 @@
   }
 }
 
-.square-border-loader {
-  animation: square-border-progress 1.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+/*
+ * Progressive-enhancement gates.
+ *
+ * The `js` class is added to <html> by a blocking script in index.html,
+ * so it is present before first paint whenever scripting is enabled. React
+ * renders identical markup and class names on the server and the client — only
+ * these rules differ — which keeps hydration byte-identical while guaranteeing
+ * that the prerendered HTML is fully readable without JavaScript.
+ */
+
+/* Loading overlay: only ever shown to clients that can dismiss it. */
+.loading-overlay {
+  display: none;
+}
+.js .loading-overlay {
+  display: flex;
 }
 
-.square-border-loader--loop {
-  animation-iteration-count: infinite;
+/* App shell: hidden behind the loader for JS clients, always visible without. */
+.js .app-shell--loading {
+  display: none;
+}
+
+/* Scroll-reveal: the animated entrance is a JS-only enhancement. */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+.js .reveal {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+.js .reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    transition:
+      opacity 500ms ease,
+      transform 500ms ease;
+  }
+}
+
+.square-border-loader {
+  animation: square-border-progress 1.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
