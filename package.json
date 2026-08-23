@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc --noEmit && vite build && vite build --ssr scripts/prerender.ts --outDir .ssr && node .ssr/prerender.js",
+    "build": "mkdir -p api && bun build server/v1.ts --target=node --outfile=api/v1.js && bun build server/page.ts --target=node --outfile=api/page.js && bun build server/not-found.ts --target=node --outfile=api/not-found.js && tsc --noEmit && vite build && vite build --ssr scripts/prerender.ts --outDir .ssr && node .ssr/prerender.js",
     "preview": "vite preview",
     "type-check": "tsc --noEmit",
     "test": "bun run build && bun test",
