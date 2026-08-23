@@ -49,18 +49,18 @@ export const PAGES: PageMeta[] = [
     path: "/",
     htmlFile: "index.html",
     markdownPath: "/index.md",
-    title: "Arth Prajapati",
+    title: "Arth Prajapati (@user64bit) — Developer Portfolio",
     description:
-      "Arth Prajapati — Full-stack developer portfolio. Web3, AI, open source. Building at the intersection of code and crypto.",
+      "Arth Prajapati (user64bit.wtf) — Full-stack developer. Web3, AI, open source. Read-only JSON API at /api/v1, OpenAPI spec at /openapi.json, Markdown at /index.md.",
     priority: "1.0",
   },
   {
     path: "/proof-of-work",
     htmlFile: "proof-of-work/index.html",
     markdownPath: "/proof-of-work.md",
-    title: "Proof of Work — Arth Prajapati",
+    title: "Proof of Work — Arth Prajapati (@user64bit)",
     description:
-      "Every project Arth Prajapati has shipped, as a thread: Solana agents, MEV tooling, AI products, and full-stack apps.",
+      "Every project Arth Prajapati (user64bit) has shipped: Solana agents, MEV tooling, AI products, and full-stack apps. Markdown at /proof-of-work.md.",
     priority: "0.8",
   },
 ];

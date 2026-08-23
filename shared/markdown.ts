@@ -156,7 +156,8 @@ export const markdownForPath = (path: string): string | undefined => {
 export const renderLlmsTxt = (): string =>
   join([
     `# ${profile.name}`,
-    `> ${profile.bio} Portfolio presented as an X/Twitter feed. ${SITE_NAME} is the open-source project behind it.`,
+    `> Site: ${ORIGIN} · Handle: @${profile.handle} · GitHub: @${profile.github.split("/").pop()}`,
+    `> ${profile.bio} Portfolio at ${ORIGIN} presented as an X/Twitter feed. ${SITE_NAME} is the open-source project behind it.`,
     "Every page below is available as Markdown at the same URL with a `.md` suffix, or by sending `Accept: text/markdown` to the HTML URL.",
 
     "## Pages",
@@ -166,10 +167,11 @@ export const renderLlmsTxt = (): string =>
     ).join("\n"),
 
     "## API",
-    AGENT_RESOURCES.filter((resource) => resource.path.startsWith("/api"))
-      .concat(
-        AGENT_RESOURCES.filter((resource) => resource.path === "/openapi.json"),
-      )
+    AGENT_RESOURCES.filter(
+      (resource) =>
+        resource.path.startsWith("/api") ||
+        resource.path === "/openapi.json",
+    )
       .map(
         (resource) =>
           `- [${resource.title}](${absolute(resource.path)}): ${resource.description}`,
