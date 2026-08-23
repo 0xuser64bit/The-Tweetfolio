@@ -6,6 +6,7 @@
  * 1. Renders every route in `src/routes.tsx` with React on the server and
  *    injects the markup into the `index.html` template produced by Vite, so
  *    `curl` (and every AI crawler) sees an `<h1>` and the full body copy.
+ * 2. Writes a static `404.html` for the platform's not-found response.
  * 3. Writes the machine-readable files: `sitemap.xml`, `robots.txt`,
  *    `llms.txt`, `llms-full.txt`, `openapi.json`, and a Markdown alternate for
  *    every page.
@@ -102,21 +103,25 @@ const buildDocument = (
     document,
     /(<meta\s+name="description"\s+content=")[^"]*(")/,
     `$1${description}$2`,
+    'meta[name="description"]',
   );
   document = replaceOnce(
     document,
     /(<link\s+rel="canonical"\s+href=")[^"]*(")/,
     `$1${canonical}$2`,
+    'link[rel="canonical"]',
   );
   document = replaceOnce(
     document,
     /(<meta\s+property="og:url"\s+content=")[^"]*(")/,
     `$1${canonical}$2`,
+    'meta[property="og:url"]',
   );
   document = replaceOnce(
     document,
     /(<link\s+rel="alternate"\s+type="text\/markdown"\s+href=")[^"]*(")/,
     `$1${absolute(markdownPath)}$2`,
+    'link[rel="alternate"][type="text/markdown"]',
   );
 
   return document;
@@ -124,6 +129,8 @@ const buildDocument = (
 
 const renderSitemap = (): string =>
   [
+    '<?xml version="1.0" encoding="UTF-8"?>',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
     ...PAGES.map((page) =>
       [
         "  <url>",
@@ -144,14 +151,13 @@ const renderRobots = (): string =>
     "",
     `Sitemap: ${absolute("/sitemap.xml")}`,
     "",
-    "# ─── Machine-readable entry points for AI agents ─────────────────────────────",
-    `# llms.txt        ${absolute(LLMS_PATH)}`,
-    `# llms-full.txt   ${absolute("/llms-full.txt")}`,
-    `# OpenAPI 3.1     ${absolute("/openapi.json")}`,
-    `# JSON API        ${absolute("/api/v1")}`,
-    "# ─────────────────────────────────────────────────────────────────────────────",
+    "# Machine-readable entry points for AI agents:",
+    `#   ${absolute(LLMS_PATH)}        curated index of this site`,
+    `#   ${absolute("/llms-full.txt")}   every page as Markdown`,
+    `#   ${absolute("/openapi.json")}    OpenAPI 3.1 description of the JSON API`,
+    `#   ${absolute("/api/v1")}          JSON API index`,
     "",
-    "# Every HTML page also serves Accept: text/markdown with a Markdown alternate.",
+    "# Every HTML page also answers `Accept: text/markdown` with Markdown.",
     "",
   ].join("\n");
 
