@@ -167,6 +167,8 @@
     }
   ],
   "functions": {
-    "api/*.ts": { "maxDuration": 10 }
+    "api/not-found.ts": { "runtime": "edge" },
+    "api/page.ts": { "runtime": "edge" },
+    "api/v1.ts": { "runtime": "edge" }
   }
 }
