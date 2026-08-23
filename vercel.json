@@ -1,6 +1,5 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "build",
   "trailingSlash": false,
   "routes": [
     {
@@ -9,7 +8,9 @@
         {
           "type": "header",
           "key": "accept",
-          "value": { "re": ".*(text/markdown|application/json|text/plain).*" }
+          "value": {
+            "re": ".*(text/markdown|application/json|text/plain).*"
+          }
         }
       ],
       "dest": "/api/page?__path=/"
@@ -20,14 +21,21 @@
         {
           "type": "header",
           "key": "accept",
-          "value": { "re": ".*(text/markdown|application/json|text/plain).*" }
+          "value": {
+            "re": ".*(text/markdown|application/json|text/plain).*"
+          }
         }
       ],
       "dest": "/api/page?__path=/proof-of-work"
     },
     {
       "src": "^/$",
-      "has": [{ "type": "header", "key": "accept" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept"
+        }
+      ],
       "missing": [
         {
           "type": "header",
@@ -41,7 +49,12 @@
     },
     {
       "src": "^/proof-of-work$",
-      "has": [{ "type": "header", "key": "accept" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept"
+        }
+      ],
       "missing": [
         {
           "type": "header",
@@ -63,15 +76,27 @@
       "source": "/api/v1/:resource/:id",
       "destination": "/api/v1?__resource=:resource&__id=:id"
     },
-    { "source": "/api/(?!v1|page|not-found):path*", "destination": "/api/v1?__path=:path*" },
-    { "source": "/(?!api/):path*", "destination": "/api/not-found?__path=:path*" }
+    {
+      "source": "/api/(?!v1|page|not-found):path*",
+      "destination": "/api/v1?__path=:path*"
+    },
+    {
+      "source": "/(?!api/):path*",
+      "destination": "/api/not-found?__path=:path*"
+    }
   ],
   "headers": [
     {
       "source": "/",
       "headers": [
-        { "key": "Vary", "value": "Accept, Accept-Encoding" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
         {
           "key": "Link",
           "value": "</index.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"alternate\"; type=\"text/plain\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\""
@@ -81,8 +106,14 @@
     {
       "source": "/proof-of-work",
       "headers": [
-        { "key": "Vary", "value": "Accept, Accept-Encoding" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
         {
           "key": "Link",
           "value": "</proof-of-work.md>; rel=\"alternate\"; type=\"text/markdown\", </llms.txt>; rel=\"alternate\"; type=\"text/plain\", </openapi.json>; rel=\"service-desc\"; type=\"application/json\""
@@ -92,64 +123,103 @@
     {
       "source": "/index.md",
       "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
         },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     },
     {
       "source": "/proof-of-work.md",
       "headers": [
-        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
-        { "key": "Vary", "value": "Accept, Accept-Encoding" },
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "Vary",
+          "value": "Accept, Accept-Encoding"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
         },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     },
     {
       "source": "/llms.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
         },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     },
     {
       "source": "/llms-full.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
         },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     },
     {
       "source": "/openapi.json",
       "headers": [
-        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
         },
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
       ]
     },
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        {
+          "key": "Content-Type",
+          "value": "application/xml; charset=utf-8"
+        },
         {
           "key": "Cache-Control",
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
@@ -165,10 +235,5 @@
         }
       ]
     }
-  ],
-  "functions": {
-    "api/not-found.ts": { "runtime": "edge" },
-    "api/page.ts": { "runtime": "edge" },
-    "api/v1.ts": { "runtime": "edge" }
-  }
+  ]
 }
