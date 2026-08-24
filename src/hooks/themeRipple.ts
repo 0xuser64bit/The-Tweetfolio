@@ -4,8 +4,6 @@ export type RippleOrigin = { x: number; y: number };
 
 export const RIPPLE_DURATION_MS = 720;
 
-const RING_DELAYS_MS = [0, 110, 220] as const;
-
 const WAVE_EASING = "cubic-bezier(0.22, 0.61, 0.36, 1)";
 
 type ViewTransitionLike = {
@@ -86,17 +84,13 @@ const mountRippleLayer = (origin: RippleOrigin, radius: number): void => {
   splash.style.top = `${origin.y}px`;
   layer.append(splash);
 
-  RING_DELAYS_MS.forEach((delay, index) => {
-    const ring = document.createElement("span");
-    ring.className = "theme-ripple-ring";
-    ring.dataset.ring = String(index);
-    ring.style.left = `${origin.x}px`;
-    ring.style.top = `${origin.y}px`;
-    ring.style.width = `${radius * 2}px`;
-    ring.style.height = `${radius * 2}px`;
-    ring.style.animationDelay = `${delay}ms`;
-    layer.append(ring);
-  });
+  const ring = document.createElement("span");
+  ring.className = "theme-ripple-ring";
+  ring.style.left = `${origin.x}px`;
+  ring.style.top = `${origin.y}px`;
+  ring.style.width = `${radius * 2}px`;
+  ring.style.height = `${radius * 2}px`;
+  layer.append(ring);
 
   const usePopover = typeof layer.showPopover === "function";
   if (usePopover) layer.setAttribute("popover", "manual");
@@ -112,11 +106,7 @@ const mountRippleLayer = (origin: RippleOrigin, radius: number): void => {
   }
 
   activeLayer = layer;
-  const lastDelay = RING_DELAYS_MS[RING_DELAYS_MS.length - 1];
-  layerTimer = window.setTimeout(
-    removeRippleLayer,
-    RIPPLE_DURATION_MS + lastDelay + 80,
-  );
+  layerTimer = window.setTimeout(removeRippleLayer, RIPPLE_DURATION_MS + 80);
 };
 
 const animateClip = (origin: RippleOrigin, radius: number): void => {
@@ -142,7 +132,7 @@ const animateClip = (origin: RippleOrigin, radius: number): void => {
 /**
  * Applies a theme change as a circular wave from `origin`, like a stone
  * hitting water. Falls back to an instant swap when motion is reduced or
- * View Transitions are missing; rings still play in the latter case.
+ * View Transitions are missing; the ring still plays in the latter case.
  */
 export const applyThemeWithRipple = (
   origin: RippleOrigin | undefined,

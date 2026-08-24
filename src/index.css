@@ -236,14 +236,6 @@ html.theme-rippling::view-transition-group(root) {
   animation: theme-ripple-wave 720ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
-.theme-ripple-ring[data-ring="1"] {
-  border-width: 1.5px;
-}
-
-.theme-ripple-ring[data-ring="2"] {
-  border-width: 1px;
-}
-
 @keyframes theme-ripple-wave {
   0% {
     transform: translate(-50%, -50%) scale(0);
