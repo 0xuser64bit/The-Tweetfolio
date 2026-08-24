@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { applyThemeWithRipple, type RippleOrigin } from "./themeRipple";
 
 export type Theme = "lights-out" | "dim" | "light";
 
@@ -75,12 +76,14 @@ const useTheme = () => {
     setTheme(saved);
   }, []);
 
-  const cycleTheme = () => {
+  const cycleTheme = (origin?: RippleOrigin) => {
     const next = nextTheme(themeRef.current);
     themeRef.current = next;
-    applyThemeClass(next);
-    persistTheme(next);
-    setTheme(next);
+    applyThemeWithRipple(origin, () => {
+      applyThemeClass(next);
+      persistTheme(next);
+      setTheme(next);
+    });
   };
 
   return { theme, cycleTheme };
