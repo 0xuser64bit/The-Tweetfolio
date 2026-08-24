@@ -131,6 +131,7 @@
 :root,
 .theme-lights-out {
   /* X "Lights Out" theme (default) */
+  color-scheme: dark;
   --color-bg-primary: #000000;
   --color-bg-secondary: #16181c;
   --color-bg-tertiary: #1d1f23;
@@ -145,6 +146,7 @@
 }
 
 .theme-dim {
+  color-scheme: dark;
   --color-bg-primary: #15202b;
   --color-bg-secondary: #1e2732;
   --color-bg-tertiary: #263340;
@@ -159,6 +161,7 @@
 }
 
 .theme-light {
+  color-scheme: light;
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7f9f9;
   --color-bg-tertiary: #eff3f4;

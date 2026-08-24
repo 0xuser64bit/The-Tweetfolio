@@ -81,6 +81,13 @@
               "theme-light",
             );
             root.classList.add("theme-" + saved);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            var colors = {
+              "lights-out": "#000000",
+              dim: "#15202b",
+              light: "#ffffff",
+            };
+            if (meta) meta.setAttribute("content", colors[saved]);
           }
         } catch (e) {}
       })();
