@@ -248,49 +248,49 @@
   ],
   "ContributionData": [
     {
-      "title": "Fix Multi Processing Issue in Deauthentication Script",
-      "link": "https://github.com/iamEzmuth/DeAuthImposter/pull/4",
+      "title": "Fix: prevent address squatting in pool creation",
+      "link": "https://github.com/saros-xyz/saros-sdk/pull/8",
+      "status": "issued"
+    },
+    {
+      "title": "Add: Solana wallet GPT example",
+      "link": "https://github.com/sendaifun/solana-agent-kit/pull/234",
+      "status": "issued"
+    },
+    {
+      "title": "Fix: show check icon on copy, fix in Details Popover",
+      "link": "https://github.com/Mail-0/Zero/pull/279",
       "status": "merged"
     },
     {
-      "title": "Add Edit and Delete Task Feature to Time-Managment-Tool",
-      "link": "https://github.com/AthenaFoss/Time-Managment-Tool/pull/34",
+      "title": "Fix: scrollable home page, redirect logged-in users to inbox",
+      "link": "https://github.com/Mail-0/Zero/pull/252",
       "status": "merged"
     },
     {
-      "title": "Add Progress Bar to Time-Managment-Tool",
-      "link": "https://github.com/AthenaFoss/Time-Managment-Tool/pull/31",
+      "title": "Implemented feature of import/export bookmarks",
+      "link": "https://github.com/medyo/hackertab.dev/pull/197",
       "status": "merged"
     },
     {
-      "title": "Implemented Feature of Import/Export Bookmarks",
-      "link": "https://github.com/medyo/hackertab.dev/issues/156",
-      "status": "merged"
-    },
-    {
-      "title": "Add Wishlist feature to Ecommerce website",
-      "link": "https://github.com/ravi300601/EasyCart/pull/1",
-      "status": "merged"
-    },
-    {
-      "title": "Handle case where Repository name has a dot",
+      "title": "Handle case where repository name has a dot",
       "link": "https://github.com/open-sauced/open-sauced/pull/1453",
       "status": "merged"
     },
     {
-      "title": "Improve Documentation of Appwrite",
+      "title": "Clarify docs: migrations are not always required",
       "link": "https://github.com/appwrite/docs/pull/230",
       "status": "merged"
     },
     {
-      "title": "Improve Documentation for coding-interview-university",
+      "title": "Improve documentation for coding-interview-university",
       "link": "https://github.com/jwasham/coding-interview-university/pull/1150",
       "status": "merged"
     },
     {
-      "title": "Enable debug mode by default for localhost only",
-      "link": "https://github.com/Droggol/OdooDebug/pull/18",
-      "status": "open"
+      "title": "Add wishlist feature to ecommerce website",
+      "link": "https://github.com/ravi300601/EasyCart/pull/1",
+      "status": "merged"
     }
   ],
   "HobbiesData": [
