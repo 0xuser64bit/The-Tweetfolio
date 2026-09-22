@@ -41,6 +41,22 @@ export const originFromElement = (element: Element): RippleOrigin => {
   };
 };
 
+/**
+ * Viewport-relative origin → page-relative origin.
+ *
+ * `originFromElement` speaks viewport (correct for the `position: fixed`
+ * ripple layer), but `clip-path` on `document.documentElement` resolves
+ * against the full document box — so without the scroll offset the wave
+ * starts above the button on any scrolled page.
+ */
+export const toPageOrigin = (
+  origin: RippleOrigin,
+  scroll: { x: number; y: number },
+): RippleOrigin => ({
+  x: origin.x + scroll.x,
+  y: origin.y + scroll.y,
+});
+
 const prefersReducedMotion = (): boolean =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -111,11 +127,15 @@ const mountRippleLayer = (origin: RippleOrigin, radius: number): void => {
 
 const animateClip = (origin: RippleOrigin, radius: number): void => {
   try {
+    const page = toPageOrigin(origin, {
+      x: window.scrollX,
+      y: window.scrollY,
+    });
     document.documentElement.animate(
       {
         clipPath: [
-          `circle(0px at ${origin.x}px ${origin.y}px)`,
-          `circle(${radius}px at ${origin.x}px ${origin.y}px)`,
+          `circle(0px at ${page.x}px ${page.y}px)`,
+          `circle(${radius}px at ${page.x}px ${page.y}px)`,
         ],
       },
       {
