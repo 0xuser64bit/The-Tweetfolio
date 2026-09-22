@@ -116,7 +116,7 @@ export const openapi = {
     title: "Arth Prajapati portfolio API",
     version: API_VERSION,
     summary:
-      "Read-only JSON access to the portfolio published at user64bit.wtf.",
+      "Read-only JSON access to the portfolio published at user64bit.vercel.app.",
     description: [
       "Every section of the portfolio is available as JSON so agents do not have",
       "to parse HTML. All endpoints are unauthenticated, read-only, and safe to",

@@ -37,8 +37,8 @@ URL ([acceptmarkdown.com](https://acceptmarkdown.com)), and unknown paths return
 a real HTTP 404 whose body points agents at the indexes above.
 
 ```bash
-curl -s -o /dev/null -w "%{http_code}\n" https://user64bit.wtf/nope   # 404
-curl -sI -H "Accept: text/markdown" https://user64bit.wtf/            # text/markdown + Vary: Accept
+curl -s -o /dev/null -w "%{http_code}\n" https://user64bit.vercel.app/nope   # 404
+curl -sI -H "Accept: text/markdown" https://user64bit.vercel.app/            # text/markdown + Vary: Accept
 ```
 
 ### Commands
