@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
 import { DEFAULT_THEME, nextTheme, type Theme } from "../src/hooks/useTheme";
-import { farthestViewportDistance } from "../src/hooks/themeRipple";
+import { farthestViewportDistance, toPageOrigin } from "../src/hooks/themeRipple";
 
 describe("nextTheme", () => {
   test("walks lights-out → dim → light → lights-out", () => {
@@ -31,5 +31,21 @@ describe("farthestViewportDistance", () => {
     expect(farthestViewportDistance({ x: 0, y: 0 }, viewport)).toBeCloseTo(
       Math.hypot(1000, 800),
     );
+  });
+});
+
+describe("toPageOrigin", () => {
+  test("adds the scroll offset so the wave starts at the button", () => {
+    expect(toPageOrigin({ x: 980, y: 20 }, { x: 0, y: 1200 })).toEqual({
+      x: 980,
+      y: 1220,
+    });
+  });
+
+  test("is identity at the top of the page", () => {
+    expect(toPageOrigin({ x: 100, y: 50 }, { x: 0, y: 0 })).toEqual({
+      x: 100,
+      y: 50,
+    });
   });
 });
