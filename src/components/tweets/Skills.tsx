@@ -3,9 +3,9 @@ import { SkillsData } from "../../config";
 
 const categoryEmoji: Record<string, string> = {
   "Programming Languages": "🧠",
-  Tools: "🛠️",
-  OS: "💻",
-  Databases: "🗄️",
+  "Web & Backend": "🛠️",
+  "Data & Infra": "🗄️",
+  "Web3 & AI": "⚡",
 };
 
 const Skills = () => {
@@ -35,8 +35,7 @@ const Skills = () => {
       </div>
 
       <p className="mt-5 text-[14px] text-x-text-secondary border-l-2 border-x-border pl-3">
-        This is what I work with daily — but I pick up new tools fast and ship
-        with whatever the project needs.
+        My daily drivers — but I'll ship with whatever the product needs.
       </p>
     </div>
   );

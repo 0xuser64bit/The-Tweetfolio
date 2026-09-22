@@ -3,15 +3,15 @@
   "X_USERNAME": "user64bit",
   "GITHUB_USERNAME": "0xuser64bit",
   "DISPLAYNAME": "Arth",
-  "GITHUB_QUOTE": "Debugging",
-  "ABOUT_YOU": "Full-stack dev. Web3 & AI. Shipping code, breaking things, fixing them.",
+  "GITHUB_QUOTE": "Shipping",
+  "ABOUT_YOU": "Indie hacker shipping Solana + AI products. 20+ experiments, several live. Ex-Odoo, Superteam member.",
   "JOINED_DATE": "June 2019",
   "LOCATION": "India",
   "WEBSITE": "user64bit.vercel.app",
   "GITHUB_FOLLOWERS": 50,
   "CONTACT_EMAIL": "arth.prajapati.dev@gmail.com",
   "PINNED_TWEET": {
-    "content": "Full-stack dev building at the intersection of Web3 & AI. Ex-Odoo. I ship fast and break things (then fix them). Currently freelancing — let's build something together.",
+    "content": "Indie hacker building in public on Solana + AI — 20+ products shipped, several live (Praxis, GetToasted, Khaata…). Ex-Odoo, Superteam member. I take ideas from zero to prod. DMs open for collabs.",
     "cta_text": "Get in touch",
     "cta_link": "mailto:arth.prajapati.dev@gmail.com"
   },
@@ -42,28 +42,37 @@
   "SkillsData": {
     "Programming Languages": [
       "Python",
-      "C/C++",
-      "JavaScript/TypeScript",
-      "Rust"
+      "TypeScript",
+      "Rust",
+      "SQL"
     ],
-    "Tools": [
+    "Web & Backend": [
       "React",
-      "Node.js",
       "Next.js",
-      "Redux Toolkit",
-      "Git",
-      "Docker",
-      "Prisma"
+      "Node.js",
+      "Hono",
+      "TailwindCSS",
+      "Prisma",
+      "Drizzle",
+      "BullMQ"
     ],
-    "OS": [
-      "Ubuntu",
-      "Kali Linux",
-      "Windows"
-    ],
-    "Databases": [
-      "MongoDB",
+    "Data & Infra": [
       "PostgreSQL",
-      "MySQL"
+      "MongoDB",
+      "Redis",
+      "Supabase",
+      "Docker",
+      "Turborepo",
+      "Git"
+    ],
+    "Web3 & AI": [
+      "Solana",
+      "Anchor",
+      "@solana/kit",
+      "Helius",
+      "Jupiter",
+      "Gemini",
+      "OpenAI"
     ]
   },
   "ProjectsData": [
