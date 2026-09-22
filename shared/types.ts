@@ -19,7 +19,7 @@ export interface Project {
   demoVideo?: string;
 }
 
-export type ContributionStatus = "merged" | "open" | "issued" | "solved";
+export type ContributionStatus = "merged" | "open" | "issued" | "solved" | "closed";
 
 export interface Contribution {
   title: string;
