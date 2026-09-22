@@ -24,19 +24,19 @@
   ],
   "ExperienceData": [
     {
-      "timeline": "July 2026 - Present",
-      "company_name": "Member At Superteam",
-      "description": "Contributing to the Superteam ecosystem, collaborating with top builders in the Solana community on impactful Web3 projects and initiatives."
+      "timeline": "October 2024 - Present",
+      "company_name": "Indie Hacker",
+      "description": "Shipping a growing portfolio of 20+ products and experiments across Solana, AI agents, developer tools, and full-stack SaaS — idea to architecture to deployment to iteration. Live now: Khaata (non-custodial USDC merchant POS), Praxis (conversational Solana agent with on-chain spending envelopes), GetToasted (MEV detection validated 30/30 against Jito bundles), plus RugPulse, GhostTip, Tipmark, PollChain, and more. Full stack: React/Next.js, Node, Postgres, Redis workers, Rust/Anchor, wallet integrations, LLM tool-calling, prod infra."
     },
     {
-      "timeline": "October 2024 - Present",
-      "company_name": "Freelancer",
-      "description": "Building full-stack Web3 and AI products for clients. Won hackathon awards and bounties. Active open source contributor across multiple ecosystems."
+      "timeline": "July 2026 - Present",
+      "company_name": "Superteam Member",
+      "description": "Part of the Superteam ecosystem via the Solana Fellowship — built Praxis while going deeper into Rust, Anchor, and Solana program development. Published @usepraxis/sdk as a typed Node client with 20+ automated server-side test suites around the system."
     },
     {
       "timeline": "April 2023 - September 2024",
-      "company_name": "Odoo Private Limited",
-      "description": "Accelerated product development cycles resulting in faster releases. Debugged and improved core product stability. Collaborated with cross-functional teams to solve complex technical challenges."
+      "company_name": "Odoo S.A.",
+      "description": "Production Python across HR, payroll, timesheets, Documents, Field Service, and Planning in a large codebase used by businesses worldwide — 30+ critical fixes and features across release cycles. Learned to move fast inside mature systems without breaking prod: backward compatibility, correctness, and release discipline."
     }
   ],
   "SkillsData": {
