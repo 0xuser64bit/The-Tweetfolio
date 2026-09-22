@@ -133,6 +133,15 @@
       "techStack": "Rust, SQLite, Telegram Bot API, Solana RPC"
     },
     {
+      "projectName": "Receba Guard",
+      "listItems": [
+        "Self-hosted USDC receivables verification for Brazilian merchants. A WhatsApp-native agent creates Solana Pay invoices while a local Rust verifier deterministically confirms on-chain settlement — correct mint, correct destination, exact amount, unique reference. The LLM interprets conversation; the verifier owns money state. No private keys, no custody."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/receba-guard",
+      "liveProject": "https://receba-guard.vercel.app/",
+      "techStack": "NextJS, TypeScript, Rust, Solana, Solana Pay, WhatsApp"
+    },
+    {
       "projectName": "ChibiTown",
       "listItems": [
         "A cozy 2D virtual town where your team hangs out together — presence without a grid of video tiles. Sign in, pick a character (Adam, Ash, Lucy, or Nancy), and drop into a shared pixel-art room where you walk around with WASD and see everyone else move in real time, complete with name labels and a live roster. Rooms are shareable by ID across themed Tiled maps — a 40×30 office and a 24×18 rooftop garden — with collision derived from the same solid layers the scene renders, so client and server agree on the playable area. Turborepo monorepo: a Vite + React + Redux + Phaser game client, an Express REST API (JWT + scrypt auth, users, spaces, avatars, maps), a WebSocket room server for presence and tile movement, and a Prisma/Postgres package, all covered by an end-to-end integration suite."
@@ -216,6 +225,24 @@
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Echo+GPT+Demo.mp4"
     },
     {
+      "projectName": "Legal Sahayak",
+      "listItems": [
+        "MCP server for Indian legal assistance — employment bonds, POSH Act issues, consumer rights, and legal document analysis. Puch AI and Claude compatible."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/legal-sahayak-mcp",
+      "liveProject": "#",
+      "techStack": "Python, MCP, FastAPI"
+    },
+    {
+      "projectName": "RAG-PDF",
+      "listItems": [
+        "Django API to upload PDFs and ask cited questions over their contents. Documents are chunked with embeddings stored in ChromaDB; answers come from OpenAI with sources cited."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/rag-pdf",
+      "liveProject": "#",
+      "techStack": "Django, Python, ChromaDB, OpenAI"
+    },
+    {
       "projectName": "suchi",
       "listItems": [
         "A lightweight, fast task manager written in Rust. Manage tasks from the command line with simple commands to add, edit, complete, and delete. Published on crates.io."
@@ -250,6 +277,69 @@
       "githubLink": "https://github.com/0xuser64bit/canteen",
       "liveProject": "#",
       "techStack": "NextJS, TailwindCSS, TypeScript, Prisma"
+    },
+    {
+      "projectName": "cry-on-crash",
+      "listItems": [
+        "VS Code extension that plays a sound whenever an error is detected — terminal command failures or new diagnostics in the workspace. Built on the terminal shell integration API with a configurable error sound."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/cry-on-crash",
+      "liveProject": "#",
+      "techStack": "TypeScript, VS Code API"
+    },
+    {
+      "projectName": "Job Not Finished",
+      "listItems": [
+        "A wake-up call dashboard for abandoned GitHub repos. Connect GitHub, track completion with progress bars and filters, and get weekly email reminders with motivational roasts until the project ships."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/job-not-finished",
+      "liveProject": "https://job-not-finished.vercel.app",
+      "techStack": "NextJS, TypeScript, GitHub API"
+    },
+    {
+      "projectName": "CryptoCompass",
+      "listItems": [
+        "Crypto wallet management and asset tracking — Google auth, group creation and management, and a dashboard over crypto APIs to view and manage holdings."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/CryptoCompass",
+      "liveProject": "#",
+      "techStack": "NextJS, TypeScript, NextAuth, Prisma"
+    },
+    {
+      "projectName": "CodeRunner",
+      "listItems": [
+        "Submit code snippets and run them in different languages from the browser — view and manage submissions, check run status, with stdin support."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/CodeRunner",
+      "liveProject": "#",
+      "techStack": "React, TypeScript, TailwindCSS, Node.js"
+    },
+    {
+      "projectName": "streamify",
+      "listItems": [
+        "Streaming analytics console for a music catalogue — listeners, growth, revenue mix, top tracks, and artist spotlight, all re-derived from a single reporting period so no two numbers disagree."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/streamify",
+      "liveProject": "https://streamify-blush-xi.vercel.app",
+      "techStack": "NextJS, TypeScript, Recharts, TailwindCSS"
+    },
+    {
+      "projectName": "Flashcards",
+      "listItems": [
+        "Flashcards to stay organized and quick-revise study notes."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/Flashcards",
+      "liveProject": "#",
+      "techStack": "Django, Python, SQLite"
+    },
+    {
+      "projectName": "tweet-it",
+      "listItems": [
+        "Twitter bot tweeting motivational quotes, programming quotes, and good morning/afternoon/evening messages."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/tweet-it",
+      "liveProject": "#",
+      "techStack": "Python, Twitter API"
     }
   ],
   "ContributionData": [

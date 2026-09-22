@@ -25,6 +25,7 @@ export const CATEGORY_MAP: Record<string, ProjectCategory[]> = {
   "Get Toasted": ["Web3", "FullStack"],
   GhostTip: ["Web3"],
   WatchTower: ["Web3"],
+  "Receba Guard": ["Web3", "FullStack"],
   ChibiTown: ["FullStack"],
   RugPulse: ["Web3"],
   Tipmark: ["Web3"],
@@ -34,10 +35,19 @@ export const CATEGORY_MAP: Record<string, ProjectCategory[]> = {
   "Get-Git": ["FullStack"],
   "DD-Agent": ["AI"],
   "Echo-GPT": ["AI"],
+  "Legal Sahayak": ["AI"],
+  "RAG-PDF": ["AI"],
   suchi: ["FullStack"],
   "The TweetFolio": ["FullStack"],
   Notebook: ["FullStack"],
   Canteen: ["FullStack"],
+  "cry-on-crash": ["FullStack"],
+  "Job Not Finished": ["FullStack"],
+  CryptoCompass: ["Web3"],
+  CodeRunner: ["FullStack"],
+  streamify: ["FullStack"],
+  Flashcards: ["FullStack"],
+  "tweet-it": ["FullStack"],
 };
 
 /** Default category for a project missing an explicit assignment. */
