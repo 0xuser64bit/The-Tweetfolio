@@ -7,7 +7,7 @@
   "ABOUT_YOU": "Full-stack dev. Web3 & AI. Shipping code, breaking things, fixing them.",
   "JOINED_DATE": "June 2019",
   "LOCATION": "India",
-  "WEBSITE": "user64bit.wtf",
+  "WEBSITE": "user64bit.vercel.app",
   "GITHUB_FOLLOWERS": 50,
   "CONTACT_EMAIL": "arth.prajapati.dev@gmail.com",
   "PINNED_TWEET": {
@@ -103,17 +103,17 @@
         "Real-time Solana new-token intelligence powered by Birdeye — detect momentum, expose concentration, flag obvious risk. Pulls fresh launches from six Birdeye Data Service endpoints, enriches each with security, holder, trader, and OHLCV data server-side, then scores them with a deterministic, auditable engine: an Alpha Score (0–100) weighing liquidity, volume, trades, and momentum, and a Rug Risk Score (0–100) reading top-holder concentration plus freeze/mint authority and metadata flags straight from token_security. Every score ships with per-factor explanations and a trader-readable verdict — Watch, Caution, Avoid, or Neutral. A radar of the latest scans, per-token detail pages with charts and holder distribution, ranked leaderboards, a Telegram alert bot (@RugPulseBot) with tunable thresholds, and one-click X-post drafts. No wallet connection, no swaps — just a fast signal, and the API key never reaches the browser."
       ],
       "githubLink": "https://github.com/0xuser64bit/RugPulse",
-      "liveProject": "https://rugpulse.user64bit.wtf",
+      "liveProject": "#",
       "techStack": "NextJS, TypeScript, TailwindCSS, Recharts, Supabase Postgres, Birdeye API, Telegram Bot API"
     },
     {
-      "projectName": "DAOnation",
+      "projectName": "Tipmark",
       "listItems": [
-        "A decentralized 'Buy Me a Coffee' platform for creators on Solana. Supporters send crypto contributions through unique profile links with personalized messages and custom amounts. Creators get a dashboard to track earnings, manage contributions, and set goals."
+        "A non-custodial 'Buy Me a Coffee' for Solana creators. A creator claims a handle, shares the link, and supporters tip SOL straight from their wallet to the creator's — no platform cut, no custody, no database. Ownership lives in a Solana program, profile content lives on Arweave, and every contribution has a receipt that can be rebuilt from chain. The program never holds a balance: tips validate the payout account against the profile, then CPI straight to the System Program."
       ],
-      "githubLink": "https://github.com/0xuser64bit/daonation",
-      "liveProject": "https://daonation.vercel.app",
-      "techStack": "NextJS, TailwindCSS, TypeScript, Prisma, @solana/web3.js",
+      "githubLink": "https://github.com/0xuser64bit/Tipmark",
+      "liveProject": "https://tipmark-platform.vercel.app",
+      "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, Arweave via Irys, @solana/web3.js",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4"
     },
     {
@@ -140,8 +140,7 @@
       "listItems": [
         "A cinematic GitHub profile analyzer that turns any username into a developer identity report. Fetches profile, repos, and language stats from the GitHub API, scores the user against archetype profiles, and visualizes the result through animated terminal sequences, a custom canvas language chart, and an archetype card. UI is built around a glassmorphism landing card with an animated grid, floating particles, and a DNA-inspired background, all powered by framer-motion."
       ],
-      "githubLink": "https://github.com/0xuser64bit/dev-dna",
-      "liveProject": "#",
+      "liveProject": "https://dev-dna-theta.vercel.app",
       "techStack": "NextJS, TypeScript, TailwindCSS, framer-motion, GitHub API"
     },
     {
@@ -150,7 +149,7 @@
         "Explore GitHub profiles in a beautiful and interactive way. Visualize contributions, repositories, and activity with a clean, modern UI."
       ],
       "githubLink": "https://github.com/0xuser64bit/get-git",
-      "liveProject": "https://get-git.user64bit.wtf",
+      "liveProject": "https://get-git-search.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, GitHub API",
       "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/get-git.mkv"
     },
@@ -189,7 +188,7 @@
         "This portfolio site you're looking at right now. A Twitter/X-inspired portfolio built with React and TailwindCSS. Showcases projects, experience, and contributions through a familiar social media interface."
       ],
       "githubLink": "https://github.com/0xuser64bit/The-TweetFolio",
-      "liveProject": "https://user64bit.wtf",
+      "liveProject": "https://user64bit.vercel.app",
       "techStack": "React, TailwindCSS, TypeScript"
     },
     {
@@ -198,7 +197,7 @@
         "A Notion-like collaborative note-taking platform with recursive data structures for hierarchical organization, markdown support, rich media, dark/light themes, and full-text search."
       ],
       "githubLink": "https://github.com/0xuser64bit/notebook",
-      "liveProject": "#",
+      "liveProject": "https://notebook-self-phi.vercel.app",
       "techStack": "NextJS, Convex, TailwindCSS, ShadcnUI, TypeScript"
     },
     {

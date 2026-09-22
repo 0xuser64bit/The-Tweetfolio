@@ -119,7 +119,7 @@ const Contributions = () => {
 
       <div className="mt-3 text-center">
         <a
-          href={`https://get-git.user64bit.wtf/${GITHUB_USERNAME}`}
+          href={`https://get-git-search.vercel.app/${GITHUB_USERNAME}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={(e) => e.stopPropagation()}
