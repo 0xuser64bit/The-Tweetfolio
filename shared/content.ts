@@ -19,11 +19,15 @@ export type ProjectCategory = "All" | "Web3" | "AI" | "FullStack";
  * `projectName` values from portfolio.json.
  */
 export const CATEGORY_MAP: Record<string, ProjectCategory[]> = {
+  Khaata: ["Web3", "FullStack"],
+  sous: ["Web3"],
   Praxis: ["Web3", "AI"],
   "Get Toasted": ["Web3", "FullStack"],
+  GhostTip: ["Web3"],
+  WatchTower: ["Web3"],
   ChibiTown: ["FullStack"],
   RugPulse: ["Web3"],
-  DAOnation: ["Web3"],
+  Tipmark: ["Web3"],
   PollChain: ["Web3"],
   "Ask Genie": ["AI"],
   "Dev DNA": ["FullStack"],

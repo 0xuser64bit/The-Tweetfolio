@@ -68,6 +68,24 @@
   },
   "ProjectsData": [
     {
+      "projectName": "Khaata",
+      "listItems": [
+        "The modern khaata for the stablecoin economy — a non-custodial USDC point of sale and merchant ledger on Solana. Payments settle straight to the merchant's own wallet in a single transaction with a cashier attestation, every receipt is a verifiable Solana signature, and the cashier POS, hosted checkout, dashboard, and onboarding all run against real on-chain + Postgres infrastructure. An Anchor program is the source of truth for money: atomic pay_invoice with treasury fee-split plus sequence-guarded refunds."
+      ],
+      "githubLink": "#",
+      "liveProject": "https://dev.khaata.xyz",
+      "techStack": "NextJS, TypeScript, Rust, Anchor, Solana, Drizzle, PostgreSQL, TailwindCSS"
+    },
+    {
+      "projectName": "sous",
+      "listItems": [
+        "Your sous-chef for Cookie Chain — quotes, swaps, staking, limit orders, and bridging behind a paper-ticket review step. Every money move prints an estimate with guaranteed floor, venue, and both fees before the wallet ever opens, then signs in Nightly with a Cookiescan receipt. Browsing is free and read-only; only firing needs a wallet, and the app never holds keys — signing stays in an external MCP sidecar."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/sous",
+      "liveProject": "https://sous.usevora.fun",
+      "techStack": "NextJS, TypeScript, Cookie Chain, Nightly Wallet, MCP, TailwindCSS"
+    },
+    {
       "projectName": "Praxis",
       "listItems": [
         "A conversational Solana agent: you type intent in plain language — 'send 0.5 SOL to maya' — and it becomes a typed, simulated on-chain action. The safety thesis is one sentence: the agent may interpret intent, but the program enforces the envelope. Aegis, an Anchor program, validates every transfer on-chain against an owner-defined policy — signer, pause, expiry, per-transaction cap, rolling daily cap, recipient allow-list, and SPL mint/token limits — before any value leaves the vault, so a jailbroken LLM or compromised backend stays bounded by the policy, not by prompt quality. Intent is parsed (Google Gemini, or a local deterministic parser for $0 demos), recipients resolve through an off-chain address book, and each action is simulated into a proposal card showing the fee, simulation result, and Aegis verdict before you confirm. Owner actions stay wallet-signed and the backend never holds the owner key. Ships with @usepraxis/sdk, a typed Node client, and a LiteSVM enforcement test gate."
@@ -86,6 +104,24 @@
       "liveProject": "https://gettoasted.fun",
       "techStack": "NextJS, Hono, TypeScript, Drizzle, Neon Postgres, BullMQ, Upstash Redis, Turborepo, Helius, Jupiter, @solana/kit, Zod",
       "demoVideo": "https://youtu.be/vOCxDbhjxD0"
+    },
+    {
+      "projectName": "GhostTip",
+      "listItems": [
+        "Privacy-first social tipping on Solana — tip anyone by X handle. Claims are gated by X OAuth, settlement runs through a private rail, and unclaimed tips auto-refund. Built for a hackathon with the full loop working end to end: Postgres + Redis backend, demo-mode bypasses so judges can run the flow without secrets, and an Anchor program for on-chain claim/refund."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/Ghost-Tip",
+      "liveProject": "https://ghost-tip.vercel.app",
+      "techStack": "NextJS, TypeScript, Solana, Anchor, Prisma, PostgreSQL, Redis"
+    },
+    {
+      "projectName": "WatchTower",
+      "listItems": [
+        "A private, read-only Solana monitoring daemon controlled entirely through Telegram. A single Rust binary on SQLite polls token prices and SOL balances, evaluates alert rules (thresholds plus %up/%down on a rolling baseline), and pushes edge-triggered notifications to admins. Well-known mints are compiled in as data so no third party can redirect a familiar symbol at a different mint."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/WatchTower",
+      "liveProject": "#",
+      "techStack": "Rust, SQLite, Telegram Bot API, Solana RPC"
     },
     {
       "projectName": "ChibiTown",
