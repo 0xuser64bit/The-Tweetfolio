@@ -158,7 +158,7 @@
       ],
       "githubLink": "https://github.com/0xuser64bit/Tipmark",
       "liveProject": "https://tipmark-platform.vercel.app",
-      "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, Arweave via Irys, @solana/web3.js",
+      "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, Arweave via Irys, @solana/web3.js"
     },
     {
       "projectName": "PollChain",
@@ -167,7 +167,7 @@
       ],
       "githubLink": "https://github.com/0xuser64bit/poll-chain",
       "liveProject": "https://poll-chain.vercel.app",
-      "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, @solana/web3.js",
+      "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, @solana/web3.js"
     },
     {
       "projectName": "Ask Genie",
@@ -193,7 +193,7 @@
       ],
       "githubLink": "https://github.com/0xuser64bit/get-git",
       "liveProject": "https://get-git-search.vercel.app",
-      "techStack": "NextJS, TailwindCSS, TypeScript, GitHub API",
+      "techStack": "NextJS, TailwindCSS, TypeScript, GitHub API"
     },
     {
       "projectName": "DD-Agent",
