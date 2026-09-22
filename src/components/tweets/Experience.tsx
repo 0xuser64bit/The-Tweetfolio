@@ -8,13 +8,11 @@ const Experience = () => {
         💼 Experience
       </h2>
       <p className="text-[15px] leading-5 text-x-text-secondary mt-1">
-        Quick thread on my journey so far:
+        Zero to shipped, repeatedly:
       </p>
 
       <div className="mt-3">
         {ExperienceData?.map(({ timeline, company_name, description }, i) => {
-          const isCurrent = timeline.toLowerCase().includes("present");
-
           return (
             <div
               key={company_name}
@@ -22,11 +20,6 @@ const Experience = () => {
             >
               <p className="text-[15px] leading-tight">
                 <span className="font-bold text-x-accent">{company_name}</span>
-                {isCurrent && (
-                  <span className="text-[12px] text-emerald-400 font-medium ml-1.5">
-                    ● now
-                  </span>
-                )}
               </p>
               <p className="text-[13px] text-x-text-secondary mt-0.5">
                 {timeline}
