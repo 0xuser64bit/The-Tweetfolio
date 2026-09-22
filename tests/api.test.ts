@@ -228,7 +228,9 @@ describe("collections", () => {
     const payload = await body(call(`${API_BASE}/contributions`));
     const [first] = payload.data;
     expect(first.repository).toMatch(/^[^/]+\/[^/]+$/);
-    expect(["merged", "open", "issued", "solved"]).toContain(first.status);
+    expect(["merged", "open", "issued", "solved", "closed"]).toContain(
+      first.status,
+    );
     expect(first.url).toStartWith("https://");
   });
 });

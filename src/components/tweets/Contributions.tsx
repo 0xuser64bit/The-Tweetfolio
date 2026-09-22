@@ -17,7 +17,7 @@ const extractNumber = (url: string) => {
   return tail.match(/^\d+$/) ? tail : "";
 };
 
-type StatusKey = "merged" | "open" | "issued" | "solved";
+type StatusKey = "merged" | "open" | "issued" | "solved" | "closed";
 
 const statusIcon: Record<StatusKey, { icon: React.ReactNode; color: string }> =
   {
@@ -36,6 +36,10 @@ const statusIcon: Record<StatusKey, { icon: React.ReactNode; color: string }> =
     solved: {
       icon: <GoIssueClosed className="text-[14px]" aria-hidden="true" />,
       color: "text-purple-400",
+    },
+    closed: {
+      icon: <GoIssueClosed className="text-[14px]" aria-hidden="true" />,
+      color: "text-x-text-secondary",
     },
   };
 

@@ -458,7 +458,7 @@ export const openapi = {
           reference: { type: ["string", "null"] },
           status: {
             type: "string",
-            enum: ["merged", "open", "issued", "solved"],
+            enum: ["merged", "open", "issued", "solved", "closed"],
           },
           url: { type: "string", format: "uri" },
         },

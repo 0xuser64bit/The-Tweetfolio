@@ -159,7 +159,6 @@
       "githubLink": "https://github.com/0xuser64bit/Tipmark",
       "liveProject": "https://tipmark-platform.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, Arweave via Irys, @solana/web3.js",
-      "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/daonation-demo.mp4"
     },
     {
       "projectName": "PollChain",
@@ -169,7 +168,6 @@
       "githubLink": "https://github.com/0xuser64bit/poll-chain",
       "liveProject": "https://poll-chain.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, @solana/web3.js",
-      "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/Pollchain_demo.mkv"
     },
     {
       "projectName": "Ask Genie",
@@ -196,7 +194,6 @@
       "githubLink": "https://github.com/0xuser64bit/get-git",
       "liveProject": "https://get-git-search.vercel.app",
       "techStack": "NextJS, TailwindCSS, TypeScript, GitHub API",
-      "demoVideo": "https://s3.ap-south-1.amazonaws.com/bucket.arthprajapati.com/get-git.mkv"
     },
     {
       "projectName": "DD-Agent",
@@ -259,12 +256,12 @@
     {
       "title": "Fix: prevent address squatting in pool creation",
       "link": "https://github.com/saros-xyz/saros-sdk/pull/8",
-      "status": "issued"
+      "status": "closed"
     },
     {
       "title": "Add: Solana wallet GPT example",
       "link": "https://github.com/sendaifun/solana-agent-kit/pull/234",
-      "status": "issued"
+      "status": "closed"
     },
     {
       "title": "Fix: show check icon on copy, fix in Details Popover",
