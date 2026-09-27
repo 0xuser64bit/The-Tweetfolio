@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import ErrorBoundary from "./components/utils/ErrorBoundary";
+import { trackPageView } from "./analytics";
 import routes from "./routes";
 
 /**
@@ -13,6 +14,14 @@ import routes from "./routes";
  * raw HTML (H1, headings, body copy) readable to clients that never run JS.
  */
 const router = createBrowserRouter(routes);
+
+// The gtag.js snippet in `index.html` logs the initial page load. The SPA
+// never reloads on navigation, so report every client-side route change
+// (including the `*` fallback, which lives outside `Layout`) explicitly.
+router.subscribe((state) => {
+  const { pathname, search } = state.location;
+  trackPageView(`${pathname}${search}`);
+});
 
 const tree = (
   <ErrorBoundary>
