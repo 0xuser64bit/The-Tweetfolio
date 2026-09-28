@@ -19,6 +19,7 @@ export type ProjectCategory = "All" | "Web3" | "AI" | "FullStack";
  * `projectName` values from portfolio.json.
  */
 export const CATEGORY_MAP: Record<string, ProjectCategory[]> = {
+  Mizu: ["FullStack"],
   Khaata: ["Web3", "FullStack"],
   sous: ["Web3"],
   Praxis: ["Web3", "AI"],

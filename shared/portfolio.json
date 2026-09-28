@@ -77,6 +77,16 @@
   },
   "ProjectsData": [
     {
+      "projectName": "Mizu",
+      "listItems": [
+        "Interface craft for React — 126 component systems across 14 families, led by signature systems: zoomable timelines, instrument-grade charts, node-and-wire flows, kanban boards, outlines, query builders, plus knobs, faders, and XY pads. Warm ink-and-paper material with hairline rules, diamond state markers, and motion that follows cause — dark by default, light via data-theme, with reduced-motion paths throughout. Ships as mizu-ui on npm (React 18/19, ESM-only) with per-family imports and a shadcn registry for copy-paste installs; the Next.js site is its working documentation, archive, and instrument lab with live stages, theme/size/motion controls, compiled usage, and source inspection."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/mizu",
+      "liveProject": "https://mizu.user64bit.world",
+      "techStack": "React, NextJS, TypeScript, TailwindCSS, Motion, Vitest",
+      "demoVideo": "https://youtu.be/S0eUxGvA6kQ"
+    },
+    {
       "projectName": "Khaata",
       "listItems": [
         "The modern khaata for the stablecoin economy — a non-custodial USDC point of sale and merchant ledger on Solana. Payments settle straight to the merchant's own wallet in a single transaction with a cashier attestation, every receipt is a verifiable Solana signature, and the cashier POS, hosted checkout, dashboard, and onboarding all run against real on-chain + Postgres infrastructure. An Anchor program is the source of truth for money: atomic pay_invoice with treasury fee-split plus sequence-guarded refunds."
