@@ -6,7 +6,7 @@
  * stays importable from all three environments.
  */
 
-export const ORIGIN = "https://user64bit.vercel.app";
+export const ORIGIN = "https://user64bit.world";
 
 export const SITE_NAME = "TweetFolio";
 
@@ -51,7 +51,7 @@ export const PAGES: PageMeta[] = [
     markdownPath: "/index.md",
     title: "Arth Prajapati (@user64bit) — Developer Portfolio",
     description:
-      "Arth Prajapati (user64bit.vercel.app) — Indie hacker. Solana, AI agents, open source. Read-only JSON API at /api/v1, OpenAPI spec at /openapi.json, Markdown at /index.md.",
+      "Arth Prajapati (user64bit.world) — Indie hacker. Solana, AI agents, open source. Read-only JSON API at /api/v1, OpenAPI spec at /openapi.json, Markdown at /index.md.",
     priority: "1.0",
   },
   {
