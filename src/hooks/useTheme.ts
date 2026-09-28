@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { applyThemeWithRipple, type RippleOrigin } from "./themeRipple";
+import { flushSync } from "react-dom";
 
 export type Theme = "lights-out" | "dim" | "light";
 
@@ -14,6 +14,13 @@ const THEME_COLOR: Record<Theme, string> = {
   dim: "#15202b",
   light: "#ffffff",
 };
+
+type ThemeTransition = {
+  finished: Promise<void>;
+  skipTransition: () => void;
+};
+
+let activeTransition: ThemeTransition | null = null;
 
 const isTheme = (value: string | null): value is Theme =>
   value !== null && (themeOrder as string[]).includes(value);
@@ -76,14 +83,36 @@ const useTheme = () => {
     setTheme(saved);
   }, []);
 
-  const cycleTheme = (origin?: RippleOrigin) => {
+  const cycleTheme = () => {
     const next = nextTheme(themeRef.current);
     themeRef.current = next;
-    applyThemeWithRipple(origin, () => {
+    const apply = () => {
       applyThemeClass(next);
       persistTheme(next);
       setTheme(next);
-    });
+    };
+
+    const start = (
+      document as Document & {
+        startViewTransition?: (update: () => void) => ThemeTransition;
+      }
+    ).startViewTransition;
+    if (!start || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      flushSync(apply);
+      return;
+    }
+
+    activeTransition?.skipTransition();
+    const root = document.documentElement;
+    root.classList.add("theme-sliding");
+    const transition = start.call(document, () => flushSync(apply));
+    activeTransition = transition;
+    const finish = () => {
+      if (activeTransition !== transition) return;
+      activeTransition = null;
+      root.classList.remove("theme-sliding");
+    };
+    transition.finished.then(finish, finish);
   };
 
   return { theme, cycleTheme };

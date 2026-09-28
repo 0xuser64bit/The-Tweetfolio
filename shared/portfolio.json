@@ -7,7 +7,7 @@
   "ABOUT_YOU": "Indie hacker shipping Solana + AI products. 20+ experiments, several live. Ex-Odoo, Superteam member.",
   "JOINED_DATE": "June 2019",
   "LOCATION": "India",
-  "WEBSITE": "user64bit.vercel.app",
+  "WEBSITE": "user64bit.world",
   "GITHUB_FOLLOWERS": 50,
   "CONTACT_EMAIL": "arth.prajapati.dev@gmail.com",
   "PINNED_TWEET": {
@@ -82,7 +82,7 @@
         "The modern khaata for the stablecoin economy — a non-custodial USDC point of sale and merchant ledger on Solana. Payments settle straight to the merchant's own wallet in a single transaction with a cashier attestation, every receipt is a verifiable Solana signature, and the cashier POS, hosted checkout, dashboard, and onboarding all run against real on-chain + Postgres infrastructure. An Anchor program is the source of truth for money: atomic pay_invoice with treasury fee-split plus sequence-guarded refunds."
       ],
       "githubLink": "#",
-      "liveProject": "https://dev.khaata.xyz",
+      "liveProject": "https://devnet.khaata.xyz",
       "techStack": "NextJS, TypeScript, Rust, Anchor, Solana, Drizzle, PostgreSQL, TailwindCSS"
     },
     {
@@ -257,7 +257,7 @@
         "This portfolio site you're looking at right now. A Twitter/X-inspired portfolio built with React and TailwindCSS. Showcases projects, experience, and contributions through a familiar social media interface."
       ],
       "githubLink": "https://github.com/0xuser64bit/The-TweetFolio",
-      "liveProject": "https://user64bit.vercel.app",
+      "liveProject": "https://user64bit.world",
       "techStack": "React, TailwindCSS, TypeScript"
     },
     {

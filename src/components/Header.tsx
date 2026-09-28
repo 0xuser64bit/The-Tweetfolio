@@ -8,7 +8,6 @@ import {
   ContributionData,
 } from "../config";
 import useTheme from "../hooks/useTheme";
-import { originFromElement } from "../hooks/themeRipple";
 import GoldVerifiedBadge from "./user/GoldVerifiedBadge";
 
 const Header = () => {
@@ -49,9 +48,7 @@ const Header = () => {
         <div className="flex items-center gap-1 shrink-0">
           <button
             type="button"
-            onClick={(event) =>
-              cycleTheme(originFromElement(event.currentTarget))
-            }
+            onClick={cycleTheme}
             title={`Theme: ${theme}`}
             aria-label={`Switch to ${themeMeta[theme].next} theme (current: ${theme})`}
             className="theme-toggle p-2 rounded-full hover:bg-x-hover motion-safe:active:scale-95 transition-colors motion-safe:transition-transform text-x-text-primary"
