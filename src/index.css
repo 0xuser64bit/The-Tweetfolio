@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
 /* `source("../src")` keeps class detection to the UI code. Without it Tailwind
    also scans `shared/`, `api/`, `scripts/`, and `tests/`, where words like
    "acceptable" or "toLowerCase" get mistaken for utility classes. */
@@ -24,13 +24,82 @@
   --color-x-gold-dark: #cb7b00;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 
   --animate-fade-in: fade-in 0.4s ease-out forwards;
+  --animate-post-in: post-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-stamp: stamp 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-pulse-dot: pulse-dot 2s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-rise: rise 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
 
   @keyframes fade-in {
     0% {
       opacity: 0;
       transform: translateY(8px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Signature "post" entrance: a post settles into the feed like it was just posted. */
+  @keyframes post-in {
+    0% {
+      opacity: 0;
+      transform: translateY(14px) scale(0.985);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  /* The "Shipped" stamp slams onto a project card. */
+  @keyframes stamp {
+    0% {
+      opacity: 0;
+      transform: scale(1.7) rotate(-16deg);
+    }
+    55% {
+      opacity: 1;
+      transform: scale(0.9) rotate(-7deg);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) rotate(-8deg);
+    }
+  }
+
+  /* Live status dot — "building in public" pulse. */
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.45;
+      transform: scale(0.75);
+    }
+  }
+
+  /* Subtle shimmer for skeleton / highlight sweeps. */
+  @keyframes shimmer {
+    from {
+      background-position: -200% 0;
+    }
+    to {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Editorial rise for the profile header. */
+  @keyframes rise {
+    0% {
+      opacity: 0;
+      transform: translateY(18px);
     }
     100% {
       opacity: 1;
@@ -305,6 +374,97 @@ body {
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+  }
+}
+
+/*
+ * Signature visual language — the "premium engineer's digital social identity"
+ * layer. These are the elements that make Tweetfolio feel art-directed rather
+ * than templated: a grain texture, a blueprint grid, the shipped stamp, the
+ * build-log rail, and the mono-spaced metadata style.
+ */
+
+/* Film-grain overlay — gives the flat dark surfaces a tactile, editorial feel. */
+@layer utilities {
+  .texture-grain {
+    position: relative;
+  }
+  .texture-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  }
+
+  /* Blueprint grid — the "engineering graph paper" that sits behind the feed. */
+  .texture-grid {
+    background-image:
+      linear-gradient(var(--color-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Mono metadata — timestamps, handles, stats. The technical-editorial voice. */
+  .meta-mono {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  /* The "Shipped" stamp — a rotated gold seal slammed onto shipped work. */
+  .shipped-stamp {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-x-gold);
+    border: 1.5px solid var(--color-x-gold);
+    border-radius: 4px;
+    padding: 3px 7px 2px;
+    transform: rotate(-8deg);
+    background: color-mix(in srgb, var(--color-x-gold) 8%, transparent);
+    box-shadow: 0 0 12px color-mix(in srgb, var(--color-x-gold) 22%, transparent);
+  }
+
+  /* Build-log rail — the vertical line + node used by timeline posts. */
+  .build-log-node {
+    position: relative;
+  }
+  .build-log-node::before {
+    content: "";
+    position: absolute;
+    left: -21px;
+    top: 7px;
+    width: 9px;
+    height: 9px;
+    border-radius: 9999px;
+    background: var(--color-x-gold);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-x-gold) 18%, transparent);
+  }
+
+  /* Gold gradient text — used sparingly for the wordmark and key headlines. */
+  .text-gold-gradient {
+    background: linear-gradient(
+      120deg,
+      var(--color-x-gold-light) 0%,
+      var(--color-x-gold) 45%,
+      var(--color-x-gold-dark) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Card sheen — a soft top-light that lifts cards off the surface. */
+  .card-sheen {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-x-gold) 5%, transparent) 0%,
+      transparent 32%
+    );
   }
 }
 
