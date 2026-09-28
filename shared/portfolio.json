@@ -93,7 +93,8 @@
       ],
       "githubLink": "#",
       "liveProject": "https://devnet.khaata.xyz",
-      "techStack": "NextJS, TypeScript, Rust, Anchor, Solana, Drizzle, PostgreSQL, TailwindCSS"
+      "techStack": "NextJS, TypeScript, Rust, Anchor, Solana, Drizzle, PostgreSQL, TailwindCSS",
+      "demoVideo": "https://youtu.be/4U_WQS3Fmyg"
     },
     {
       "projectName": "sous",
