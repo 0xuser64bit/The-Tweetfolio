@@ -26,7 +26,7 @@ const Currently = () => {
               <span className="font-semibold text-x-text-primary">
                 {latest.projectName}
               </span>{" "}
-              — a non-custodial USDC point of sale on Solana. Open to collabs.
+              — interface craft for React
             </>
           ) : (
             "Open to new projects and collaborations."
