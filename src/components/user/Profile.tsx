@@ -1,15 +1,14 @@
 import React from "react";
-import COVER_IMAGE from "../../assets/AnimeCover.gif";
 import PROFILE_IMAGE from "../../assets/profile.jpg";
+import Cover from "./Cover";
 import UserInfo from "./UserInfo";
-import TwitterCoverModal from "./TwitterCoverModal";
 import TwitterProfileModal from "./TwitterProfileModal";
 
 const Profile = () => {
   return (
-    <div>
-      {/* Cover Image — 3:1 aspect ratio */}
-      <TwitterCoverModal image={COVER_IMAGE} />
+    <div className="animate-rise">
+      {/* Signature signal-wave cover */}
+      <Cover />
 
       {/* Avatar row */}
       <div className="flex justify-between items-start px-4">

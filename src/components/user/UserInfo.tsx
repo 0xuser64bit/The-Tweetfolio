@@ -15,53 +15,56 @@ import {
   JOINED_DATE,
 } from "../../config";
 import GoldVerifiedBadge from "./GoldVerifiedBadge";
+import Currently from "./Currently";
+import Stats from "./Stats";
 
 const UserInfo = () => {
   return (
     <div className="border-b border-x-border">
-      <div className="px-4 pb-3 pt-3">
+      <div className="px-4 pb-4 pt-3">
         {/* Display name + handle. The visible text stays "Arth" as designed;
             the sr-only span completes the name so the page's single H1 is
             self-describing for screen readers and text extractors alike. */}
-        <h1 className="flex items-center gap-1 text-[20px] md:text-[23px] font-extrabold leading-tight text-x-text-primary">
+        <h1 className="flex items-center gap-1.5 text-[22px] md:text-[24px] font-extrabold leading-tight text-x-text-primary">
           <span className="truncate">{DISPLAYNAME}</span>
           <span className="sr-only">
             {" "}
             Prajapati — Full-stack developer portfolio
           </span>
-          <GoldVerifiedBadge className="w-[1.05em] h-[1.05em] shrink-0" />
+          <GoldVerifiedBadge className="w-[1.1em] h-[1.1em] shrink-0" />
         </h1>
-        <p className="text-[15px] leading-tight text-x-text-secondary mt-0.5">
-          <a
-            href={`https://x.com/${X_USERNAME}`}
-            target="_blank"
-            rel="noreferrer"
-            className="hover:underline"
-          >
-            @{X_USERNAME}
-          </a>
-        </p>
+        <a
+          href={`https://x.com/${X_USERNAME}`}
+          target="_blank"
+          rel="noreferrer"
+          className="meta-mono text-x-text-secondary hover:text-x-accent transition-colors mt-0.5 inline-block"
+        >
+          @{X_USERNAME}
+        </a>
 
-        {/* Bio */}
-        <div className="mt-3 text-[15px] leading-5 text-x-text-primary">
+        {/* Bio — editorial voice, two short paragraphs */}
+        <div className="mt-3 text-[15px] leading-6 text-x-text-primary space-y-2">
           <p>
-            {GITHUB_QUOTE}{" "}
+            <span className="font-semibold">{GITHUB_QUOTE}</span>{" "}
             <a
               href={`https://github.com/${GITHUB_USERNAME}`}
               target="_blank"
               rel="noreferrer"
-              className="text-x-accent hover:underline"
+              className="text-x-accent hover:underline font-medium"
             >
               @{GITHUB_USERNAME}
             </a>
           </p>
-          <p className="mt-1">{ABOUT_YOU}</p>
+          <p className="text-x-text-secondary">{ABOUT_YOU}</p>
         </div>
 
+        {/* Live status */}
+        <Currently />
+
         {/* Profile metadata row */}
-        <div className="flex flex-wrap gap-x-4 gap-y-1 mt-3 text-x-text-secondary text-[15px]">
+        <div className="flex flex-wrap gap-x-4 gap-y-1.5 mt-3 text-x-text-secondary text-[14px]">
           {LOCATION && (
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1.5">
               <HiOutlineLocationMarker
                 className="text-base shrink-0"
                 aria-hidden="true"
@@ -70,11 +73,8 @@ const UserInfo = () => {
             </span>
           )}
           {WEBSITE && (
-            <span className="flex items-center gap-1">
-              <HiOutlineLink
-                className="text-base shrink-0"
-                aria-hidden="true"
-              />
+            <span className="flex items-center gap-1.5">
+              <HiOutlineLink className="text-base shrink-0" aria-hidden="true" />
               <a
                 href={`https://${WEBSITE}`}
                 target="_blank"
@@ -86,7 +86,7 @@ const UserInfo = () => {
             </span>
           )}
           {JOINED_DATE && (
-            <span className="flex items-center gap-1">
+            <span className="flex items-center gap-1.5">
               <HiOutlineCalendar
                 className="text-base shrink-0"
                 aria-hidden="true"
@@ -95,6 +95,9 @@ const UserInfo = () => {
             </span>
           )}
         </div>
+
+        {/* Social proof */}
+        <Stats />
       </div>
     </div>
   );
