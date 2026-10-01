@@ -141,7 +141,8 @@
       ],
       "githubLink": "https://github.com/0xuser64bit/WatchTower",
       "liveProject": "#",
-      "techStack": "Rust, SQLite, Telegram Bot API, Solana RPC"
+      "techStack": "Rust, SQLite, Telegram Bot API, Solana RPC",
+      "demoVideo": "https://youtu.be/qvzpcshlxXE"
     },
     {
       "projectName": "Receba Guard",
