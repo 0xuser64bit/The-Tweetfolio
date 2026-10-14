@@ -19,6 +19,8 @@ export type ProjectCategory = "All" | "Web3" | "AI" | "FullStack";
  * `projectName` values from portfolio.json.
  */
 export const CATEGORY_MAP: Record<string, ProjectCategory[]> = {
+  Pawket: ["Web3", "FullStack"],
+  Airbag: ["Web3", "FullStack"],
   Mizu: ["FullStack"],
   Khaata: ["Web3", "FullStack"],
   sous: ["Web3"],
@@ -31,6 +33,7 @@ export const CATEGORY_MAP: Record<string, ProjectCategory[]> = {
   RugPulse: ["Web3"],
   Tipmark: ["Web3"],
   PollChain: ["Web3"],
+  offtube: ["FullStack"],
   "Ask Genie": ["AI"],
   "Dev DNA": ["FullStack"],
   "Get-Git": ["FullStack"],

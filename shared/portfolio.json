@@ -77,6 +77,26 @@
   },
   "ProjectsData": [
     {
+      "projectName": "Pawket",
+      "listItems": [
+        "A pet you actually come back to — a web-first companion game with an Android app, where you adopt without an account or wallet, care for it, dress it, decorate its 3D room, and play a shared daily round of Catch, Hop, Copy, or Pairs. The whole loop works in the browser with zero crypto; when a player wants permanence, they keep their pet on Solana, where an Anchor program owns the rules and a public Passport records confirmed care and progression for anyone to visit. Guilds add the community layer — events, RSVPs, polls — with optional guild coins on Meteora bonding curves, firewalled from gameplay: cosmetics and coins never touch vitals, XP, or scores. The Market sells looks at program-enforced prices, keepsakes mint as frozen Metaplex Core cards, and Pawket Wallet's non-extractable device key signs everyday care within owner-set limits while every spend still needs the owner's approval. No database, no indexer — the chain is the record. One Next.js app, one LiteSVM-tested Anchor program, and an origin-locked Kotlin Android shell, live on devnet."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/pawket",
+      "liveProject": "https://pawket.world",
+      "techStack": "NextJS, TypeScript, Rust, Anchor, Solana, @solana/kit, Three.js, React Three Fiber, Metaplex Core, Meteora, Kotlin, TailwindCSS, Vitest, Playwright, LiteSVM",
+      "demoVideo": "https://youtu.be/LAD791HNC-g"
+    },
+    {
+      "projectName": "Airbag",
+      "listItems": [
+        "Liquidation protection for Perpl traders on Monad — get trimmed, not liquidated. An always-on engine checks every covered position on every block, and the moment one crosses its risk line it fires an IOC reduce-only close and pushes the net released collateral straight back in, so liquidation moves further away instead of closer. If spare margin alone can reach the target, it simply tops up and leaves your size alone. Every save ships with a receipt, and an optional AirbagLog contract records it on-chain against Perpl's own position state. The engine has already run live trims and collateral re-adds on Perpl testnet; the public app is a full simulation — paper accounts, scripted BTC wicks, Monad's block clock — so you can watch it save a position without funding a wallet, plus historical replays and a read-only wallet checker. Mainnet stays gated behind documented real-money release checks, because protection software has to be honest about what it can't catch. pnpm monorepo: a Node engine with SIWE auth, SSE, SQLite, and sealed keys; a Next.js dashboard; a pure risk package; Foundry-tested Solidity; and an optional Envio indexer."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/airbag",
+      "liveProject": "https://airbag.user64bit.world",
+      "techStack": "NextJS, TypeScript, Node.js, viem, SQLite, Solidity, Foundry, Envio, Monad, Perpl, Playwright",
+      "demoVideo": "https://youtu.be/3uFp1bqTaQk"
+    },
+    {
       "projectName": "Mizu",
       "listItems": [
         "Interface craft for React — 126 component systems across 14 families, led by signature systems: zoomable timelines, instrument-grade charts, node-and-wire flows, kanban boards, outlines, query builders, plus knobs, faders, and XY pads. Warm ink-and-paper material with hairline rules, diamond state markers, and motion that follows cause — dark by default, light via data-theme, with reduced-motion paths throughout. Ships as mizu-ui on npm (React 18/19, ESM-only) with per-family imports and a shadcn registry for copy-paste installs; the Next.js site is its working documentation, archive, and instrument lab with live stages, theme/size/motion controls, compiled usage, and source inspection."
@@ -191,13 +211,24 @@
       "techStack": "NextJS, TailwindCSS, TypeScript, Rust, Anchor, @solana/web3.js"
     },
     {
+      "projectName": "offtube",
+      "listItems": [
+        "A local-first media keeper — paste a YouTube link, or one from 2,000+ other sites, and keep the video, audio, playlist, or board on your own disk with nothing touching a cloud. Clip with From/To timestamps, circle exactly the prints you want from a playlist contact sheet, pick anything from 2160p down to audio-only MP3, and pull members-only posts your own account can see via cookies that are trimmed to that one site before they touch disk. The Chrome extension adds a one-press popup, a side panel that follows your tabs, and right-click → Keep with offtube on any link. It's designed as a darkroom contact sheet: every link becomes a print in a film border, a crimson grease pencil circles your picks and ticks what's kept, and each print develops from negative to positive as it downloads. The backend is deliberately boring — a stdlib Python HTTP server driving yt-dlp, gallery-dl, and ffmpeg, no Flask or FastAPI, loopback-only with Origin and Host guards, DRM services and catch-all scrapers refused up front, 207 tests, and one-command Docker or launchd/systemd service mode."
+      ],
+      "githubLink": "https://github.com/0xuser64bit/offtube",
+      "liveProject": "#",
+      "techStack": "Python, yt-dlp, gallery-dl, ffmpeg, JavaScript, Chrome Extension Manifest V3, Docker, pytest",
+      "demoVideo": "https://youtu.be/2W7HPp_EkPQ"
+    },
+    {
       "projectName": "Ask Genie",
       "listItems": [
         "A privacy-first Chrome extension (Manifest V3) that lets you chat with AI about the page you're currently reading — bring your own key, with no backend and no shared infrastructure. A floating genie lamp summons a Shadow-DOM chat panel that grounds answers in the page's extracted main content, with one-click quick actions: Summarize, Key insights, Explain simply, Action items, and Translate. Each page keeps its own conversation in local storage, auto-deleted 24 hours after it starts. Your API key lives only in the background service worker and is sent only to your chosen provider's official endpoint (OpenAI or Anthropic) — it never touches the content script or any web page. Built with Vite, React, and @crxjs/vite-plugin around a framework-free, unit-tested core for providers, page extraction, and Markdown rendering."
       ],
       "githubLink": "https://github.com/0xuser64bit/ask-genie",
       "liveProject": "#",
-      "techStack": "React, Vite, TypeScript, Chrome Extension Manifest V3, @crxjs/vite-plugin, OpenAI API, Anthropic API"
+      "techStack": "React, Vite, TypeScript, Chrome Extension Manifest V3, @crxjs/vite-plugin, OpenAI API, Anthropic API",
+      "demoVideo": "https://youtu.be/L42UtHYCUVo"
     },
     {
       "projectName": "Dev DNA",
