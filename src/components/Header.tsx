@@ -41,7 +41,12 @@ const Header = () => {
               <GoldVerifiedBadge className="w-5 h-5 shrink-0" />
             </div>
             <p className="text-[13px] font-normal text-x-text-secondary leading-tight">
-              {ProjectsData.length + ContributionData.length} posts
+              {ProjectsData.length} projects ·{" "}
+              {
+                ContributionData.filter(({ status }) => status === "merged")
+                  .length
+              }{" "}
+              merged PRs
             </p>
           </div>
         </div>

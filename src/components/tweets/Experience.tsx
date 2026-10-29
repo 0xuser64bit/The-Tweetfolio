@@ -8,7 +8,7 @@ const Experience = () => {
         💼 Experience
       </h2>
       <p className="text-[15px] leading-5 text-x-text-secondary mt-1">
-        Zero to shipped, repeatedly:
+        From production systems at Odoo to independently built products.
       </p>
 
       <div className="mt-3">

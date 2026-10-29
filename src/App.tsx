@@ -11,7 +11,6 @@ import {
   Hobbies,
 } from "./components/tweets/__index__";
 import PinnedTweet from "./components/tweets/PinnedTweet";
-import { Link } from "react-router-dom";
 import { ProjectsData } from "./config";
 
 const App = () => {
@@ -20,32 +19,29 @@ const App = () => {
       <Header />
       <Profile />
       <div id="section-pinned">
-        <Tweet TweetComponent={<PinnedTweet />} pinned date="Oct 2024" />
+        <Tweet id="post-intro" TweetComponent={<PinnedTweet />} pinned />
       </div>
       <div id="section-projects">
-        <Link to="/proof-of-work" aria-label="Open Proof of Work thread">
-          <Tweet
-            interactive
-            TweetComponent={<Projects />}
-            numberOfTweets={ProjectsData?.length}
-            date="Aug 2024"
-          />
-        </Link>
+        <Tweet
+          id="post-projects"
+          TweetComponent={<Projects />}
+          numberOfTweets={ProjectsData?.length}
+        />
       </div>
       <div id="section-contributions">
-        <Tweet TweetComponent={<Contributions />} date="Sep 2024" />
+        <Tweet id="post-contributions" TweetComponent={<Contributions />} />
       </div>
       <div id="section-experience">
-        <Tweet TweetComponent={<Experience />} date="Apr 2023" />
+        <Tweet id="post-experience" TweetComponent={<Experience />} />
       </div>
       <div id="section-skills">
-        <Tweet TweetComponent={<Skills />} date="2024" />
+        <Tweet id="post-skills" TweetComponent={<Skills />} />
       </div>
       <div id="section-education">
-        <Tweet TweetComponent={<Education />} date="Jul 2019" />
+        <Tweet id="post-education" TweetComponent={<Education />} />
       </div>
       <div id="section-hobbies">
-        <Tweet TweetComponent={<Hobbies />} date="Forever" />
+        <Tweet id="post-hobbies" TweetComponent={<Hobbies />} />
       </div>
     </>
   );

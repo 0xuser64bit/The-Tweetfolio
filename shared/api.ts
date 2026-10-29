@@ -47,7 +47,7 @@ const collectionMeta = (
   category ? { count, total, category } : { count, total };
 
 const apiIndex = () => ({
-  service: "Arth Prajapati portfolio API",
+  service: `${profile.name} portfolio API`,
   version: API_VERSION,
   documentation: absolute("/openapi.json"),
   endpoints: [

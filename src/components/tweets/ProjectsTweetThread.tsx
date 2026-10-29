@@ -1,8 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { ProjectsData } from "../../config";
-import { categoriesFor, type ProjectCategory } from "../../../shared/content";
+import {
+  categoriesFor,
+  slugify,
+  type ProjectCategory,
+} from "../../../shared/content";
 import ListProject from "./ListProject";
 import Tweet from "./Tweet";
 
@@ -19,10 +23,6 @@ const tabs: { id: ProjectCategory; label: string }[] = [
 
 const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
   const [activeTab, setActiveTab] = useState<ProjectCategory>("All");
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const allProjects = ProjectsData ?? [];
 
@@ -68,6 +68,7 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
               <button
                 key={tab.id}
                 type="button"
+                aria-pressed={isActive}
                 onClick={() => setActiveTab(tab.id)}
                 className={`px-3 py-1 rounded-full text-[13px] font-bold whitespace-nowrap transition-colors border ${
                   isActive
@@ -86,6 +87,7 @@ const ProjectsTweetThread: React.FC<Props> = ({ title }) => {
       {currentProjects.map((project, i) => (
         <Tweet
           key={project.projectName}
+          id={`project-${slugify(project.projectName)}`}
           isThreaded={i < currentProjects.length - 1}
           TweetComponent={
             <ListProject

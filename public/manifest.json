@@ -1,17 +1,22 @@
 {
-  "short_name": "Arth Prajapati",
-  "name": "Portfolio Website",
-  "description": "Full-stack developer portfolio. Web3, AI, open source.",
+  "short_name": "Jack",
+  "name": "Jack — Indie Hacker",
+  "description": "Indie hacker shipping Solana + AI products. 20+ experiments, several live. Ex-Odoo, Superteam member.",
   "icons": [
     {
-      "src": "/favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ],
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#000000"
 }

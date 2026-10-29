@@ -19,7 +19,12 @@ export interface Project {
   demoVideo?: string;
 }
 
-export type ContributionStatus = "merged" | "open" | "issued" | "solved" | "closed";
+export type ContributionStatus =
+  | "merged"
+  | "open"
+  | "issued"
+  | "solved"
+  | "closed";
 
 export interface Contribution {
   title: string;
@@ -45,6 +50,10 @@ export interface Portfolio {
   WEBSITE: string;
   GITHUB_FOLLOWERS: number;
   CONTACT_EMAIL: string;
+  CURRENT_PROJECT: {
+    name: string;
+    description: string;
+  };
   PINNED_TWEET: PinnedTweet;
   EducationData: Education[];
   ExperienceData: Experience[];

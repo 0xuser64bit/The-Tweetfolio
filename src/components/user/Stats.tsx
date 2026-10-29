@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  ProjectsData,
-  ContributionData,
-  GITHUB_FOLLOWERS,
-} from "../../config";
+import { ProjectsData, ContributionData, GITHUB_FOLLOWERS } from "../../config";
 
 /**
  * Stats — a compact social-proof row. Like an X profile's following/followers,
@@ -12,8 +8,13 @@ import {
  */
 const Stats = () => {
   const stats = [
-    { label: "ships", value: ProjectsData?.length ?? 0 },
-    { label: "PRs merged", value: ContributionData?.length ?? 0 },
+    { label: "projects", value: ProjectsData?.length ?? 0 },
+    {
+      label: "PRs merged",
+      value:
+        ContributionData?.filter(({ status }) => status === "merged").length ??
+        0,
+    },
     { label: "followers", value: GITHUB_FOLLOWERS },
   ];
 
@@ -24,7 +25,9 @@ const Stats = () => {
           <span className="meta-mono text-x-text-primary font-semibold text-[15px]">
             {stat.value}
           </span>
-          <span className="text-[13px] text-x-text-secondary">{stat.label}</span>
+          <span className="text-[13px] text-x-text-secondary">
+            {stat.label}
+          </span>
         </div>
       ))}
     </div>

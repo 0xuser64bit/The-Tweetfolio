@@ -30,12 +30,11 @@ const BottomNav = () => {
 
   const scrollTo = (id: string) => {
     if (!isHome) {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+      navigate(`/#${id}`);
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document
+        .getElementById(id)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -45,7 +44,10 @@ const BottomNav = () => {
       sectionId: "section-pinned",
       outline: <HiOutlineHome className="text-[26px]" />,
       filled: <HiHome className="text-[26px]" />,
-      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+      onClick: () =>
+        isHome
+          ? window.scrollTo({ top: 0, behavior: "smooth" })
+          : navigate("/"),
     },
     {
       label: "Projects",
@@ -85,7 +87,9 @@ const BottomNav = () => {
     >
       <ul className="flex items-center py-1">
         {items.map((item) => {
-          const isActive = isHome && active === item.sectionId;
+          const isActive =
+            (isHome && active === item.sectionId) ||
+            (!isHome && item.label === "Projects");
           return (
             <li key={item.label} className="flex-1">
               <button
@@ -95,7 +99,12 @@ const BottomNav = () => {
                 aria-label={item.label}
                 className="w-full flex items-center justify-center py-2 text-x-text-primary"
               >
-                <span aria-hidden="true" className={isActive ? "text-x-text-primary" : "text-x-text-secondary"}>
+                <span
+                  aria-hidden="true"
+                  className={
+                    isActive ? "text-x-text-primary" : "text-x-text-secondary"
+                  }
+                >
                   {isActive ? item.filled : item.outline}
                 </span>
               </button>

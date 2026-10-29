@@ -98,8 +98,21 @@ export const handlePageRequest = async (
     } catch {
       // Fall through to Markdown below.
     }
-    // Serving Markdown is a better failure mode than a 5xx: the client said it
-    // accepts Markdown too (that is why this route matched at all).
+    if (!negotiate(accept, [MARKDOWN_TYPE]).mediaType) {
+      return new Response(
+        request.method === "HEAD"
+          ? null
+          : '<!doctype html><html lang="en"><head><title>Temporarily unavailable</title></head><body><h1>This page is temporarily unavailable.</h1><p>Please try again shortly.</p></body></html>',
+        {
+          status: 503,
+          headers: {
+            "Content-Type": `${HTML_TYPE}; charset=utf-8`,
+            "Cache-Control": "no-store",
+            ...varyHeaders(),
+          },
+        },
+      );
+    }
   }
 
   const body = markdownForPath(path);

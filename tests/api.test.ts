@@ -103,7 +103,7 @@ describe("GET /api/v1", () => {
 describe("GET /api/v1/profile", () => {
   test("returns the profile", async () => {
     const payload = await body(call(`${API_BASE}/profile`));
-    expect(payload.data.name).toBe("Arth Prajapati");
+    expect(payload.data.name).toBe("Jack");
     expect(payload.data.handle).toBe("user64bit");
     expect(payload.data.bio).toBeString();
   });

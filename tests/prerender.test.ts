@@ -24,6 +24,23 @@ const withoutHydrationScript = (html: string): string =>
   html.replace(/<script>[\s\S]*?<\/script>/g, "");
 
 describe("server render", () => {
+  test("project cards do not wrap tweet controls in a link", async () => {
+    const { html } = await render("/");
+    expect(html).not.toMatch(/<a[^>]*>\s*<article/);
+  });
+
+  test("each project post has a stable share target", async () => {
+    const { html } = await render("/proof-of-work");
+    for (const project of projects) {
+      expect(html).toContain(`id="project-${project.slug}"`);
+    }
+  });
+
+  test("posts do not invent audience metrics", async () => {
+    const { html } = await render("/proof-of-work");
+    expect(html).not.toMatch(/aria-label="[\d.]+K? views"/);
+  });
+
   for (const { path } of PAGES) {
     test(`${path} renders with a 200 status`, async () => {
       const { status } = await render(path);

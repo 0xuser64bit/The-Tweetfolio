@@ -140,11 +140,11 @@ const splitSentences = (text: string): string[] =>
 const firstSentence = (text: string): string => splitSentences(text)[0] ?? text;
 
 export const profile: ProfileResource = {
-  name: "Arth Prajapati",
+  name: data.DISPLAYNAME,
   handle: data.X_USERNAME,
   x: `https://x.com/${data.X_USERNAME}`,
   github: `https://github.com/${data.GITHUB_USERNAME}`,
-  headline: `${data.GITHUB_QUOTE} @${data.GITHUB_USERNAME}`,
+  headline: "Indie hacker · Solana + AI",
   bio: data.ABOUT_YOU,
   location: data.LOCATION,
   website: `https://${data.WEBSITE}`,

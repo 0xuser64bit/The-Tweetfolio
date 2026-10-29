@@ -5,7 +5,10 @@ import { useEffect, useState } from "react";
  * (or fully in view). Used to drive active state on the left sidebar,
  * profile tabs, and bottom nav so all three stay in sync as the user scrolls.
  */
-const useActiveSection = (sectionIds: string[], rootMargin = "-40% 0px -55% 0px"): string => {
+const useActiveSection = (
+  sectionIds: string[],
+  rootMargin = "-40% 0px -55% 0px",
+): string => {
   const [active, setActive] = useState<string>(sectionIds[0] ?? "");
 
   useEffect(() => {
@@ -13,7 +16,8 @@ const useActiveSection = (sectionIds: string[], rootMargin = "-40% 0px -55% 0px"
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null);
 
-    if (elements.length === 0) return;
+    if (elements.length === 0 || typeof IntersectionObserver === "undefined")
+      return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -21,7 +25,9 @@ const useActiveSection = (sectionIds: string[], rootMargin = "-40% 0px -55% 0px"
         if (visible.length > 0) {
           // pick the entry with the smallest distance to top of viewport
           const top = visible.reduce((prev, curr) =>
-            curr.boundingClientRect.top < prev.boundingClientRect.top ? curr : prev,
+            curr.boundingClientRect.top < prev.boundingClientRect.top
+              ? curr
+              : prev,
           );
           setActive(top.target.id);
         }

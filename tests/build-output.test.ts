@@ -58,7 +58,7 @@ describe.if(BUILT)("prerendered HTML — content without JavaScript", () => {
     test(`${page.path} renders real content, not an empty shell`, () => {
       expect(html).not.toContain("<!--app-html-->");
       expect(html).not.toMatch(/<div id="root">\s*<\/div>/);
-      expect(text).toContain("Arth");
+      expect(text).toContain("Jack");
     });
 
     test(`${page.path} contains the actual portfolio data`, () => {
@@ -81,6 +81,18 @@ describe.if(BUILT)("prerendered HTML — content without JavaScript", () => {
     test(`${page.path} has per-page title, description, and canonical`, () => {
       // Attribute-order/whitespace tolerant: the shell is formatted HTML.
       expect(html).toContain(`<title>${page.title}</title>`);
+      for (const [attribute, name, content] of [
+        ["property", "og:title", page.title],
+        ["name", "twitter:title", page.title],
+        ["property", "og:description", page.description],
+        ["name", "twitter:description", page.description],
+      ]) {
+        expect(html).toMatch(
+          new RegExp(
+            `${attribute}="${name}"\\s+content="${escapeRegExp(content)}"`,
+          ),
+        );
+      }
       expect(html).toMatch(
         new RegExp(
           `name="description"\\s+content="${escapeRegExp(page.description)}"`,

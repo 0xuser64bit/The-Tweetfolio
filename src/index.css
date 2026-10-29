@@ -4,6 +4,12 @@
    "acceptable" or "toLowerCase" get mistaken for utility classes. */
 @import "tailwindcss" source("../src");
 
+[id^="section-"],
+[id^="post-"],
+[id^="project-"] {
+  scroll-margin-top: 8rem;
+}
+
 /* Tailwind v4 CSS-first config (replaces tailwind.config.js).
    `x-*` colors map onto the runtime theme CSS vars defined in :root below,
    so `bg-x-primary`, `text-x-secondary`, etc. stay theme-aware. */
@@ -358,7 +364,8 @@ body {
     padding: 3px 7px 2px;
     transform: rotate(-8deg);
     background: color-mix(in srgb, var(--color-x-gold) 8%, transparent);
-    box-shadow: 0 0 12px color-mix(in srgb, var(--color-x-gold) 22%, transparent);
+    box-shadow: 0 0 12px
+      color-mix(in srgb, var(--color-x-gold) 22%, transparent);
   }
 
   /* Build-log rail — the vertical line + node used by timeline posts. */
@@ -374,7 +381,8 @@ body {
     height: 9px;
     border-radius: 9999px;
     background: var(--color-x-gold);
-    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-x-gold) 18%, transparent);
+    box-shadow: 0 0 0 3px
+      color-mix(in srgb, var(--color-x-gold) 18%, transparent);
   }
 
   /* Gold gradient text — used sparingly for the wordmark and key headlines. */

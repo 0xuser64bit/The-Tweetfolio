@@ -113,7 +113,7 @@ const collection = (
 export const openapi = {
   openapi: "3.1.0",
   info: {
-    title: "Arth Prajapati portfolio API",
+    title: `${profile.name} portfolio API`,
     version: API_VERSION,
     summary:
       "Read-only JSON access to the portfolio published at user64bit.world.",

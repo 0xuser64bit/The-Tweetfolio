@@ -6,6 +6,8 @@
  * stays importable from all three environments.
  */
 
+import portfolio from "./portfolio.json";
+
 export const ORIGIN = "https://user64bit.world";
 
 export const SITE_NAME = "TweetFolio";
@@ -49,18 +51,17 @@ export const PAGES: PageMeta[] = [
     path: "/",
     htmlFile: "index.html",
     markdownPath: "/index.md",
-    title: "Arth Prajapati (@user64bit) — Developer Portfolio",
-    description:
-      "Arth Prajapati (user64bit.world) — Indie hacker. Solana, AI agents, open source. Read-only JSON API at /api/v1, OpenAPI spec at /openapi.json, Markdown at /index.md.",
+    title: `${portfolio.DISPLAYNAME} (@${portfolio.X_USERNAME}) — Indie Hacker`,
+    description: `${portfolio.DISPLAYNAME} — ${portfolio.ABOUT_YOU}`,
     priority: "1.0",
   },
   {
     path: "/proof-of-work",
     htmlFile: "proof-of-work/index.html",
     markdownPath: "/proof-of-work.md",
-    title: "Proof of Work — Arth Prajapati (@user64bit)",
+    title: `Proof of Work — ${portfolio.DISPLAYNAME} (@${portfolio.X_USERNAME})`,
     description:
-      "Every project Arth Prajapati (user64bit) has shipped: Solana agents, MEV tooling, AI products, and full-stack apps. Markdown at /proof-of-work.md.",
+      "Jack's build log: Pawket, Praxis, Khaata, and more. Solana + AI experiments, live products, and public code from an indie hacker who ships.",
     priority: "0.8",
   },
 ];

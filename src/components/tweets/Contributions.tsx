@@ -49,7 +49,7 @@ const Contributions = () => {
   const [expanded, setExpanded] = useState(false);
 
   const mergedCount = ContributionData.filter(
-    (c) => c.status === "merged" || c.status === "solved",
+    (c) => c.status === "merged",
   ).length;
 
   const visibleItems = expanded

@@ -13,9 +13,19 @@
 - `git clone https://github.com/0xuser64bit/The-Tweetfolio.git`
 - `cd The-Tweetfolio`
 - `bun install`
-- `bun start`
+- `bun run dev`
 
 and You're good to go....
+
+## Personalizing the portfolio
+
+- Edit `shared/portfolio.json` for the display name, bio, experience, projects, and contact details. The UI, JSON API, and Markdown exports read this content.
+- Set `CURRENT_PROJECT.name` to an exact `ProjectsData.projectName` and write its short status in `CURRENT_PROJECT.description`. The current project does not depend on the project list's order.
+- Replace `src/assets/profile.jpg` for the shared profile, post, and loading avatar. Keep `public/og-image.png`, the favicon files, and the Apple touch icon in sync with your branding.
+- Page titles and descriptions live in `shared/site.ts`. Keep the development shell in `index.html` and the app metadata in `public/manifest.json` aligned with them.
+- Run `bun run test` for the production build and regression suite, then `bun run verify` for local HTTP routing checks. These commands do not deploy the site.
+
+Post reactions are local UI interactions, not a live social network. The portfolio does not generate audience metrics or present closed contributions as merged PRs.
 
 ## Machine-readable surface (for AI agents)
 

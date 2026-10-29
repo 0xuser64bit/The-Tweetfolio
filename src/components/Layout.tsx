@@ -4,6 +4,7 @@ import LeftSidebar from "./sidebar/LeftSidebar";
 import RightSidebar from "./sidebar/RightSidebar";
 import BottomNav from "./sidebar/BottomNav";
 import LoadingScreen from "./LoadingScreen";
+import RouteEffects from "./utils/RouteEffects";
 
 /**
  * Shared layout that persists across all routes.
@@ -20,6 +21,7 @@ const Layout = () => {
 
   return (
     <>
+      <RouteEffects ready={!isLoading} />
       {isLoading && (
         <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />
       )}

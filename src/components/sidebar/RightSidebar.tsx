@@ -5,7 +5,8 @@ import {
   GITHUB_USERNAME,
   X_USERNAME,
   CONTACT_EMAIL,
-  ProjectsData,
+  CURRENT_PROJECT,
+  DISPLAYNAME,
 } from "../../config";
 
 const XIcon = () => (
@@ -52,8 +53,6 @@ const connectLinks = [
 ];
 
 const RightSidebar = () => {
-  const latest = ProjectsData?.[0];
-
   return (
     <div className="sticky top-2 flex flex-col gap-3 pt-2 max-h-screen overflow-y-auto no-scrollbar pb-4">
       {/* Status card — "Now" */}
@@ -67,18 +66,19 @@ const RightSidebar = () => {
             aria-hidden="true"
           />
           <h2 className="text-[15px] font-bold text-x-text-primary">
-            Available for work
+            Open to collabs
           </h2>
         </header>
-        {latest && (
-          <p className="text-[13px] text-x-text-secondary leading-5">
-            Currently shipping{" "}
-            <span className="text-x-text-primary font-medium">
-              {latest.projectName}
-            </span>{" "}
-            — open to freelance & collab.
-          </p>
-        )}
+        <p className="text-[13px] text-x-text-secondary leading-5">
+          Shipping {CURRENT_PROJECT.name}. Always up for ambitious builds and
+          good collaborators.
+        </p>
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="inline-block mt-3 text-[13px] font-bold text-x-accent hover:underline"
+        >
+          Let's build something ↗
+        </a>
       </section>
 
       {/* Connect card */}
@@ -120,7 +120,7 @@ const RightSidebar = () => {
       {/* Footer links */}
       <footer className="px-4 text-[13px] text-x-text-secondary leading-5">
         <p>
-          © {new Date().getFullYear()} Arth Prajapati ·{" "}
+          © {new Date().getFullYear()} {DISPLAYNAME} ·{" "}
           <a
             href={`https://github.com/${GITHUB_USERNAME}/The-Tweetfolio`}
             target="_blank"

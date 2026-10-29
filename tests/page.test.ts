@@ -4,7 +4,7 @@ import { PATH_PARAM } from "../shared/api";
 import { markdownForPath } from "../shared/markdown";
 import { ORIGIN, PAGES } from "../shared/site";
 
-const HTML_FIXTURE = "<!DOCTYPE html><html><body><h1>Arth</h1></body></html>";
+const HTML_FIXTURE = "<!DOCTYPE html><html><body><h1>Jack</h1></body></html>";
 
 const stubHtml = async () =>
   new Response(HTML_FIXTURE, {
@@ -79,6 +79,26 @@ describe("Accept: text/markdown", () => {
 });
 
 describe("q-value handling", () => {
+  test.each(["throw", "404"])(
+    "does not serve forbidden Markdown when HTML fails with %s",
+    async (failure) => {
+      const response = await page(
+        "/",
+        { accept: "text/markdown;q=0, text/html;q=0.9" },
+        {},
+        async () => {
+          if (failure === "throw") throw new Error("upstream unavailable");
+          return new Response(null, { status: 404 });
+        },
+      );
+      expect(response.status).toBe(503);
+      expect(response.headers.get("Content-Type")).toBe(
+        "text/html; charset=utf-8",
+      );
+      expect(response.headers.get("Cache-Control")).toBe("no-store");
+    },
+  );
+
   test("Markdown wins when ranked above HTML", async () => {
     const response = await page("/", {
       accept: "text/html;q=0.8, text/markdown;q=1.0",

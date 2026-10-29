@@ -1,5 +1,7 @@
 import React from "react";
 import { formatCount } from "./TwitterLike";
+import { CONTACT_EMAIL } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   thread?: number;
@@ -7,6 +9,7 @@ interface Props {
 }
 
 const CommentButton: React.FC<Props> = ({ thread = 0, initialCount }) => {
+  const navigate = useNavigate();
   const displayCount = initialCount !== undefined ? initialCount : thread;
 
   return (
@@ -15,8 +18,13 @@ const CommentButton: React.FC<Props> = ({ thread = 0, initialCount }) => {
       onClick={(e) => {
         e.preventDefault();
         e.stopPropagation();
+        if (thread > 0) {
+          navigate("/proof-of-work");
+        } else {
+          window.location.href = `mailto:${CONTACT_EMAIL}`;
+        }
       }}
-      aria-label={displayCount > 0 ? `${displayCount} replies` : "Reply"}
+      aria-label={thread > 0 ? `Explore ${thread} projects` : "Reply by email"}
       className="group/reply flex items-center gap-1.5 p-2 -m-2 rounded-full hover:bg-x-accent/10 transition-colors"
     >
       <svg

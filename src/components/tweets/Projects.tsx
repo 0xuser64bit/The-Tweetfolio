@@ -1,5 +1,7 @@
 import React from "react";
 import { ProjectsData } from "../../config";
+import { Link } from "react-router-dom";
+import { slugify } from "../../../shared/content";
 
 const getDomain = (url: string): string => {
   try {
@@ -19,8 +21,8 @@ const Projects = () => {
         Proof of Work 🧵
       </h2>
       <p className="text-[15px] leading-5 text-x-text-secondary mt-1">
-        Here&apos;s everything I&apos;ve shipped — from Solana agents to 2D
-        virtual towns. Each one below is a chapter.
+        The build log: experiments, live products, and lessons from shipping
+        across Solana + AI. Public code, not just screenshots.
       </p>
 
       {/* Twitter-native URL preview cards */}
@@ -38,9 +40,10 @@ const Projects = () => {
               : null;
 
           return (
-            <div
+            <Link
               key={p.projectName}
-              className="px-3 py-2.5 hover:bg-x-hover transition-colors"
+              to={`/proof-of-work#project-${slugify(p.projectName)}`}
+              className="block px-3 py-2.5 hover:bg-x-hover transition-colors"
             >
               <p className="text-[13px] text-x-text-secondary leading-tight">
                 {domain || "github.com"}
@@ -53,15 +56,18 @@ const Projects = () => {
                   {desc}
                 </p>
               )}
-            </div>
+            </Link>
           );
         })}
       </div>
 
       <div className="mt-3 text-center">
-        <span className="text-x-accent text-[15px] font-medium hover:underline inline-block">
+        <Link
+          to="/proof-of-work"
+          className="text-x-accent text-[15px] font-medium hover:underline inline-block"
+        >
           Show this thread{remaining > 0 ? ` (+${remaining} more)` : ""} →
-        </span>
+        </Link>
       </div>
     </div>
   );

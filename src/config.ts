@@ -15,6 +15,7 @@ export const {
   WEBSITE,
   GITHUB_FOLLOWERS,
   CONTACT_EMAIL,
+  CURRENT_PROJECT,
   PINNED_TWEET,
   EducationData,
   ExperienceData,

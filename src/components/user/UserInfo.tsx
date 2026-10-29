@@ -22,15 +22,9 @@ const UserInfo = () => {
   return (
     <div className="border-b border-x-border">
       <div className="px-4 pb-4 pt-3">
-        {/* Display name + handle. The visible text stays "Arth" as designed;
-            the sr-only span completes the name so the page's single H1 is
-            self-describing for screen readers and text extractors alike. */}
         <h1 className="flex items-center gap-1.5 text-[22px] md:text-[24px] font-extrabold leading-tight text-x-text-primary">
           <span className="truncate">{DISPLAYNAME}</span>
-          <span className="sr-only">
-            {" "}
-            Prajapati — Full-stack developer portfolio
-          </span>
+          <span className="sr-only"> — Full-stack developer portfolio</span>
           <GoldVerifiedBadge className="w-[1.1em] h-[1.1em] shrink-0" />
         </h1>
         <a
@@ -74,7 +68,10 @@ const UserInfo = () => {
           )}
           {WEBSITE && (
             <span className="flex items-center gap-1.5">
-              <HiOutlineLink className="text-base shrink-0" aria-hidden="true" />
+              <HiOutlineLink
+                className="text-base shrink-0"
+                aria-hidden="true"
+              />
               <a
                 href={`https://${WEBSITE}`}
                 target="_blank"

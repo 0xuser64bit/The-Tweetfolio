@@ -35,8 +35,19 @@ const getYouTubeEmbedUrl = (url: string): string | null => {
 
     if (!id) return null;
     id = id.split("/")[0].split("?")[0];
+    if (!/^[\w-]{11}$/.test(id)) return null;
     const start = u.searchParams.get("t") || u.searchParams.get("start");
-    const qs = start ? `?start=${encodeURIComponent(start.replace(/\D/g, ""))}` : "";
+    const timestamp = start?.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);
+    const seconds =
+      start && /^\d+$/.test(start)
+        ? Number(start)
+        : timestamp
+          ? Number(timestamp[1] ?? 0) * 3600 +
+            Number(timestamp[2] ?? 0) * 60 +
+            Number(timestamp[3] ?? 0)
+          : 0;
+    const qs =
+      Number.isSafeInteger(seconds) && seconds > 0 ? `?start=${seconds}` : "";
     return `https://www.youtube-nocookie.com/embed/${id}${qs}`;
   } catch {
     return null;
@@ -64,10 +75,14 @@ const ListProject: React.FC<ListProjectProps> = ({
   total,
 }) => {
   const techs = techstack
-    ? techstack.split(",").map((t) => t.trim()).filter(Boolean)
+    ? techstack
+        .split(",")
+        .map((t) => t.trim())
+        .filter(Boolean)
     : [];
 
-  const mainLink = liveProject && liveProject !== "#" ? liveProject : githubLink;
+  const mainLink =
+    liveProject && liveProject !== "#" ? liveProject : githubLink;
   const domain = getCleanDomain(mainLink);
 
   // Split long text into cleaner sentences for readable tweet presentation
@@ -108,7 +123,10 @@ const ListProject: React.FC<ListProjectProps> = ({
       {techs.length > 0 && (
         <div className="flex flex-wrap gap-x-2 gap-y-1 text-[14px]">
           {techs.map((tech) => (
-            <span key={tech} className="text-x-accent hover:underline cursor-pointer">
+            <span
+              key={tech}
+              className="text-x-accent hover:underline cursor-pointer"
+            >
               #{tech.replace(/[\s/@.-]+/g, "")}
             </span>
           ))}

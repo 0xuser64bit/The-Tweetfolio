@@ -62,14 +62,29 @@ describe("sourceToRegExp", () => {
 });
 
 describe.if(BUILT)("agent-friendly 404s", () => {
+  test("branding images resolve to real image files", async () => {
+    for (const path of [
+      "/og-image.png",
+      "/favicon.png",
+      "/apple-touch-icon.png",
+    ]) {
+      const response = await get(path);
+      expect(response.status, path).toBe(200);
+      expect(response.headers.get("Content-Type"), path).toStartWith(
+        "image/png",
+      );
+      expect((await response.arrayBuffer()).byteLength).toBeGreaterThan(0);
+    }
+  });
+
   test("an unknown path returns a real 404, not the app shell", async () => {
     for (const path of [
       "/some-path-that-does-not-exist",
       "/nope",
       "/blog/2024/hello",
       "/proof-of-work/extra",
-      "/og-image.png",
-      "/apple-touch-icon.png",
+      "/missing-asset.png",
+      "/missing-icon.png",
     ]) {
       const response = await get(path);
       expect(response.status, path).toBe(404);
@@ -205,6 +220,7 @@ describe.if(BUILT)("Markdown content negotiation", () => {
     });
     expect(html.headers.get("Content-Type")).toStartWith("text/html");
     expect(html.status).toBe(200);
+    expect(await html.text()).toContain("Pawket");
   });
 
   test("an unsatisfiable Accept gets a 406", async () => {
@@ -288,8 +304,8 @@ describe.if(BUILT)("JSON API", () => {
 
 describe.if(BUILT)("machine-readable files", () => {
   const expectations: [string, string, string?][] = [
-    ["/llms.txt", "text/plain; charset=utf-8", "# Arth Prajapati"],
-    ["/llms-full.txt", "text/plain; charset=utf-8", "# Arth Prajapati"],
+    ["/llms.txt", "text/plain; charset=utf-8", "# Jack"],
+    ["/llms-full.txt", "text/plain; charset=utf-8", "# Jack"],
     ["/openapi.json", "application/json; charset=utf-8", '"openapi"'],
     ["/sitemap.xml", "application/xml; charset=utf-8", "<urlset"],
     ["/robots.txt", "text/plain; charset=utf-8", "Sitemap:"],

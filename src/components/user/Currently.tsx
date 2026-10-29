@@ -1,5 +1,5 @@
 import React from "react";
-import { ProjectsData } from "../../config";
+import { CURRENT_PROJECT, ProjectsData } from "../../config";
 
 /**
  * "Currently" — a live status line that makes the profile feel like a person,
@@ -7,7 +7,9 @@ import { ProjectsData } from "../../config";
  * gold dot that says "this is happening live."
  */
 const Currently = () => {
-  const latest = ProjectsData?.[0];
+  const current = ProjectsData.find(
+    (project) => project.projectName === CURRENT_PROJECT.name,
+  );
 
   return (
     <div className="flex items-start gap-2.5 mt-3 rounded-xl border border-x-border bg-x-secondary/50 px-3.5 py-3">
@@ -20,13 +22,22 @@ const Currently = () => {
           currently
         </p>
         <p className="text-[15px] text-x-text-primary leading-snug mt-0.5">
-          {latest ? (
+          {current ? (
             <>
               Shipping{" "}
-              <span className="font-semibold text-x-text-primary">
-                {latest.projectName}
-              </span>{" "}
-              — interface craft for React
+              <a
+                href={
+                  current.liveProject !== "#"
+                    ? current.liveProject
+                    : current.githubLink
+                }
+                target="_blank"
+                rel="noreferrer"
+                className="font-semibold text-x-accent hover:underline"
+              >
+                {current.projectName}
+              </a>{" "}
+              — {CURRENT_PROJECT.description}
             </>
           ) : (
             "Open to new projects and collaborations."

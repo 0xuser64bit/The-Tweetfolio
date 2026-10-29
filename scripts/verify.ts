@@ -30,6 +30,12 @@ interface Check {
 }
 
 const checks: Check[] = [
+  {
+    label: "Branding · social preview image",
+    path: "/og-image.png",
+    expectStatus: 200,
+    expectType: "image/png",
+  },
   // 1. Agent-friendly 404s
   {
     label: "404 · unknown path (curl default)",
@@ -55,7 +61,7 @@ const checks: Check[] = [
   },
   {
     label: "404 · missing asset is a real 404",
-    path: "/og-image.png",
+    path: "/missing-asset.png",
     accept: "image/png",
     expectStatus: 404,
   },
@@ -199,7 +205,7 @@ const checks: Check[] = [
     path: "/llms.txt",
     expectStatus: 200,
     expectType: "text/plain; charset=utf-8",
-    expectBody: "# Arth Prajapati",
+    expectBody: "# Jack",
   },
   {
     label: "Agents · /llms-full.txt",

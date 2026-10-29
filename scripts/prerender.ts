@@ -105,6 +105,19 @@ const buildDocument = (
     `$1${description}$2`,
     'meta[name="description"]',
   );
+  for (const [attribute, name, content] of [
+    ["property", "og:title", title],
+    ["property", "og:description", description],
+    ["name", "twitter:title", title],
+    ["name", "twitter:description", description],
+  ]) {
+    document = replaceOnce(
+      document,
+      new RegExp(`(<meta\\s+${attribute}="${name}"\\s+content=")[^"]*(")`),
+      `$1${content}$2`,
+      `meta[${attribute}="${name}"]`,
+    );
+  }
   document = replaceOnce(
     document,
     /(<link\s+rel="canonical"\s+href=")[^"]*(")/,

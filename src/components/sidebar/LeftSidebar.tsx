@@ -38,12 +38,11 @@ const LeftSidebar = () => {
 
   const scrollTo = (id: string) => {
     if (!isHome) {
-      navigate("/");
-      setTimeout(() => {
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+      navigate(`/#${id}`);
     } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document
+        .getElementById(id)
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
@@ -53,7 +52,10 @@ const LeftSidebar = () => {
       sectionId: "section-pinned",
       iconOutline: <HiOutlineHome className="text-[26px]" />,
       iconFilled: <HiHome className="text-[26px]" />,
-      onClick: () => window.scrollTo({ top: 0, behavior: "smooth" }),
+      onClick: () =>
+        isHome
+          ? window.scrollTo({ top: 0, behavior: "smooth" })
+          : navigate("/"),
     },
     {
       label: "Projects",
@@ -92,14 +94,20 @@ const LeftSidebar = () => {
     >
       {/* X logo */}
       <div className="p-3">
-        <svg viewBox="0 0 24 24" className="w-7 h-7 fill-x-text-primary" aria-hidden="true">
+        <svg
+          viewBox="0 0 24 24"
+          className="w-7 h-7 fill-x-text-primary"
+          aria-hidden="true"
+        >
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
         </svg>
       </div>
 
       <ul className="flex flex-col gap-1 mt-1">
         {navItems.map((item) => {
-          const isActive = isHome && active === item.sectionId;
+          const isActive =
+            (isHome && active === item.sectionId) ||
+            (!isHome && item.label === "Projects");
           return (
             <li key={item.label}>
               <button
@@ -108,7 +116,10 @@ const LeftSidebar = () => {
                 className="flex items-center gap-5 px-3 py-3 rounded-full hover:bg-x-hover transition-colors text-x-text-primary"
               >
                 {/* Fixed-size icon container prevents shift when swapping outline ↔ filled */}
-                <span aria-hidden="true" className="w-[26px] h-[26px] flex items-center justify-center shrink-0">
+                <span
+                  aria-hidden="true"
+                  className="w-[26px] h-[26px] flex items-center justify-center shrink-0"
+                >
                   {isActive ? item.iconFilled : item.iconOutline}
                 </span>
                 {/* Invisible bold text reserves the wider bold width permanently,

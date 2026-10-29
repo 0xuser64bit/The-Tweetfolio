@@ -8,11 +8,11 @@ import {
   CommentButton,
   ShareButton,
   RetweetButton,
-  ViewsButton,
 } from "../engage/__index__";
 import ComponentDidnotLoad from "../utils/ComponentDidnotLoad";
 
 interface Props {
+  id?: string;
   TweetComponent: React.ReactNode;
   numberOfTweets?: number;
   pinned?: boolean;
@@ -44,6 +44,7 @@ const MoreIcon = () => (
 );
 
 const Tweet: React.FC<Props> = ({
+  id,
   TweetComponent,
   numberOfTweets,
   pinned,
@@ -58,31 +59,17 @@ const Tweet: React.FC<Props> = ({
   useEffect(() => {
     if (!showMenu) return;
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setShowMenu(false);
+      if (e.key === "Escape") {
+        setShowMenu(false);
+        menuRef.current?.querySelector<HTMLButtonElement>("button")?.focus();
+      }
     };
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [showMenu]);
 
-  const counts = React.useMemo(() => {
-    const seedString = `${date || ""}-${pinned ? "pinned" : ""}-${numberOfTweets || 0}`;
-    let hash = 0;
-    for (let i = 0; i < seedString.length; i++) {
-      hash = (hash << 5) - hash + seedString.charCodeAt(i);
-      hash |= 0;
-    }
-    const seed = Math.abs(hash);
-
-    const views = ((seed * 157 + 3421) % 18500) + 1820;
-    const likes = Math.floor(views * (0.04 + (seed % 12) / 100)) + 18;
-    const retweets = Math.floor(likes * (0.18 + (seed % 8) / 100)) + 4;
-    const replies = numberOfTweets || Math.floor(retweets * 0.5) + 3;
-
-    return { views, likes, retweets, replies };
-  }, [date, pinned, numberOfTweets]);
-
   return (
-    <article ref={ref} className={`w-full ${revealClass}`}>
+    <article id={id} ref={ref} className={`w-full ${revealClass}`}>
       <div
         className={`px-4 pt-3 pb-2 border-b border-x-border transition-colors ${
           interactive ? "hover:bg-x-hover cursor-pointer" : ""
@@ -169,18 +156,7 @@ const Tweet: React.FC<Props> = ({
                       }}
                     />
                     <div className="absolute right-0 top-9 z-20 bg-x-primary border border-x-border rounded-xl shadow-lg py-1 min-w-50">
-                      <button
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          navigator.clipboard.writeText(window.location.href);
-                          setShowMenu(false);
-                        }}
-                        className="w-full text-left px-4 py-3 text-[15px] text-x-text-primary hover:bg-x-hover transition-colors"
-                      >
-                        Copy link to tweet
-                      </button>
+                      <ShareButton targetId={id} variant="menu" />
                     </div>
                   </>
                 )}
@@ -194,11 +170,10 @@ const Tweet: React.FC<Props> = ({
 
             {/* Engagement row — capped width so actions don't span the full column */}
             <div className="flex justify-between items-center max-w-md mt-3 -ml-1.5">
-              <CommentButton initialCount={counts.replies} />
-              <RetweetButton initialCount={counts.retweets} />
-              <LikeButton initialCount={counts.likes} />
-              <ViewsButton initialCount={counts.views} />
-              <ShareButton />
+              <CommentButton thread={numberOfTweets} />
+              <RetweetButton initialCount={0} />
+              <LikeButton initialCount={0} />
+              <ShareButton targetId={id} />
             </div>
           </div>
         </div>

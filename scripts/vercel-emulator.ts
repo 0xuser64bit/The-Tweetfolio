@@ -18,6 +18,7 @@
 import { existsSync, readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { handlePageRequest } from "../api/page";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const BUILD_DIR = path.join(ROOT, "build");
@@ -240,8 +241,16 @@ type FunctionHandler = (request: Request) => Response | Promise<Response>;
 
 /** Load the `/api` functions the way Vercel's filesystem router would. */
 const loadFunctions = async (): Promise<Map<string, FunctionHandler>> => {
-  const names = ["page", "not-found", "v1"];
+  const names = ["not-found", "v1"];
   const handlers = new Map<string, FunctionHandler>();
+  handlers.set("/api/page", (request) =>
+    handlePageRequest(request, async (htmlPath, originalRequest) => {
+      const hit = resolveStatic(htmlPath);
+      return hit
+        ? staticResponse(hit, originalRequest)
+        : new Response(null, { status: 404 });
+    }),
+  );
 
   for (const name of names) {
     const mod = (await import(`../api/${name}.ts`)) as {
